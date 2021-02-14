@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/created.by.clox.nu.iml" filepath="$PROJECT_DIR$/.idea/created.by.clox.nu.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/creator.clox.nu.iml" filepath="$PROJECT_DIR$/.idea/creator.clox.nu.iml" />
     </modules>
   </component>
 </project>
