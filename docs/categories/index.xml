@@ -5,6 +5,25 @@
     <link>https://creative.clox.nu/categories/</link>
     <description>Recent content in Categories on cloxnu&#39;s Creative Space</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://creative.clox.nu/categories/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Sun, 14 Feb 2021 15:39:49 +0800</lastBuildDate><atom:link href="https://creative.clox.nu/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>study algorithm</title>
+      <link>https://creative.clox.nu/categories/study-algorithm/</link>
+      <pubDate>Sun, 14 Feb 2021 15:39:49 +0800</pubDate>
+      
+      <guid>https://creative.clox.nu/categories/study-algorithm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>love</title>
+      <link>https://creative.clox.nu/categories/love/</link>
+      <pubDate>Sun, 14 Feb 2021 11:53:53 +0800</pubDate>
+      
+      <guid>https://creative.clox.nu/categories/love/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
