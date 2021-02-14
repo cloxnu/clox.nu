@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Created by cloxnu</title>
+    <link>https://created.by.clox.nu/</link>
+    <description>Recent content on Created by cloxnu</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 14 Feb 2021 11:53:53 +0800</lastBuildDate><atom:link href="https://created.by.clox.nu/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Amazing Things</title>
+      <link>https://created.by.clox.nu/posts/love/the-amazing-things/</link>
+      <pubDate>Sun, 14 Feb 2021 11:53:53 +0800</pubDate>
+      
+      <guid>https://created.by.clox.nu/posts/love/the-amazing-things/</guid>
+      <description>Now, here is another new place to inspire and create amazing things. There is not much space here, but it brings extraordinary encouragement.
+I will always love, and pursue love.</description>
+    </item>
+    
+  </channel>
+</rss>

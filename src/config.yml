@@ -1,0 +1,54 @@
+baseURL: https://created.by.clox.nu/
+languageCode: en-us
+title: Created by cloxnu
+theme: "PaperMod"
+
+publishdir: ../docs/
+
+params:
+  env: production
+  title: Created by cloxnu
+  description: "Hi, I'm creating more creative works. Here are my thoughts, essays and expectations."
+  author: Sidney Liu
+
+  assets:
+    favicon: "/logo/favicon.ico"
+    favicon16x16: "/logo/favicon-16x16.png"
+    favicon32x32: "/logo/favicon-32x32.png"
+    apple-touch-icon: "/logo/apple-touch-icon-180x180.png"
+
+  label:
+    text: "I'm cloxnu"
+    icon: "/logo/logo.svg"
+    iconHeight: 35
+
+  homeInfoParams:
+    Title: "Hi there \U0001F44B"
+    Content: "Welcome to created by cloxnu."
+
+  socialIcons:
+    - name: twitter
+      url: "https://twitter.com/cloxnu"
+    - name: github
+      url: "https://github.com/cloxnu"
+    - name: mastodon
+      url: "https://pawoo.net/@cloxnu"
+    - name: rss
+      url: "/index.xml"
+
+menu:
+  main:
+    - identifier: categories
+      name: Categories
+      url: /categories/
+      weight: 10
+    - identifier: tags
+      name: Tags
+      url: /tags/
+      weight: 20
+    - identifier: about
+      name: About
+      url: https://clox.nu
+      weight: 30
+
+
