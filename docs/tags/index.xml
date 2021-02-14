@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Created by cloxnu</title>
-    <link>https://created.by.clox.nu/tags/</link>
-    <description>Recent content in Tags on Created by cloxnu</description>
+    <title>Tags on Creator cloxnu</title>
+    <link>https://creator.clox.nu/tags/</link>
+    <description>Recent content in Tags on Creator cloxnu</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://created.by.clox.nu/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://creator.clox.nu/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
