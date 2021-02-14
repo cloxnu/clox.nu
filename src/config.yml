@@ -1,13 +1,13 @@
 baseURL: https://creator.clox.nu/
 languageCode: en-us
-title: Creator cloxnu
+title: cloxnu's Creative Space
 theme: "PaperMod"
 
 publishdir: ../docs/
 
 params:
   env: production
-  title: Creator cloxnu
+  title: cloxnu's creative space
   description: "Hi, I'm creating more creative works. Here are my thoughts, essays and expectations."
   author: Sidney Liu
 
@@ -18,13 +18,13 @@ params:
     apple-touch-icon: "/logo/apple-touch-icon-180x180.png"
 
   label:
-    text: "I'm creator cloxnu"
+    text: "I'm cloxnu"
     icon: "/logo/logo.svg"
     iconHeight: 35
 
   homeInfoParams:
     Title: "Hi there \U0001F44B"
-    Content: "Welcome to visit creator cloxnu."
+    Content: "Welcome to cloxnu's creative space."
 
   socialIcons:
     - name: twitter
