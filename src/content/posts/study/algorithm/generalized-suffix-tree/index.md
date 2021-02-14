@@ -1,9 +1,8 @@
 ---
 title: "Generalized Suffix Tree"
-date: 2021-02-14T15:39:49+08:00
-categories: study algorithm
+date: 2020-12-23T00:00:00+08:00
+categories: study / algorithm
 math: true
-draft: true
 ---
 
 An implementation of generalized suffix tree using Ukkonen's algorithm.

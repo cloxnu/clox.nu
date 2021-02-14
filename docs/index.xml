@@ -6,19 +6,18 @@
     <description>Recent content on cloxnu&#39;s Creative Space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 14 Feb 2021 15:39:49 +0800</lastBuildDate><atom:link href="https://creative.clox.nu/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 15 Feb 2021 00:21:45 +0800</lastBuildDate><atom:link href="https://creative.clox.nu/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Generalized Suffix Tree</title>
-      <link>https://creative.clox.nu/posts/study/algorithm/generalized-suffix-tree/</link>
-      <pubDate>Sun, 14 Feb 2021 15:39:49 +0800</pubDate>
+      <title>关于本站</title>
+      <link>https://creative.clox.nu/posts/love/about-this-site/</link>
+      <pubDate>Mon, 15 Feb 2021 00:21:45 +0800</pubDate>
       
-      <guid>https://creative.clox.nu/posts/study/algorithm/generalized-suffix-tree/</guid>
-      <description>An implementation of generalized suffix tree using Ukkonen&amp;rsquo;s algorithm.
-In this page:
- The longest common substring problem How it works GST versus Dynamic programming   Inspired by:
-Ukkonen, E. On-line construction of suffix trees. Algorithmica 14, 249–260 (1995).
-https://www.cs.helsinki.fi/u/ukkonen/SuffixT1withFigs.pdf
- The longest common substring problem Given two or more strings, find the longest common substring of these strings. Concretely, the longest common substring of the two strings &amp;ldquo;cacaocac&amp;rdquo; and &amp;ldquo;ccaooc&amp;rdquo; is &amp;ldquo;cao&amp;rdquo;.</description>
+      <guid>https://creative.clox.nu/posts/love/about-this-site/</guid>
+      <description>本站使用 Hugo 搭建而成，theme 主要使用 PaperMod，使用 git submodule 拉取，导致手动增加的 Mathjax 特性无法推送至 GitHub，在此作出说明。
+以下添加 Mathjax 特性过程参考 https://note.qidong.name/2018/03/hugo-mathjax/
+手动添加文件 themes/PaperMod/layouts/partials/mathjax.html
+在 partials 目录下的文件 extend_head.html 添加代码
+即可。</description>
     </item>
     
     <item>
@@ -29,6 +28,20 @@ https://www.cs.helsinki.fi/u/ukkonen/SuffixT1withFigs.pdf
       <guid>https://creative.clox.nu/posts/love/the-amazing-things/</guid>
       <description>Now, here is another new place to inspire and create amazing things. There is not much space here, but it brings extraordinary encouragement.
 I will always love, and pursue love.</description>
+    </item>
+    
+    <item>
+      <title>Generalized Suffix Tree</title>
+      <link>https://creative.clox.nu/posts/study/algorithm/generalized-suffix-tree/</link>
+      <pubDate>Wed, 23 Dec 2020 00:00:00 +0800</pubDate>
+      
+      <guid>https://creative.clox.nu/posts/study/algorithm/generalized-suffix-tree/</guid>
+      <description>An implementation of generalized suffix tree using Ukkonen&amp;rsquo;s algorithm.
+In this page:
+ The longest common substring problem How it works GST versus Dynamic programming   Inspired by:
+Ukkonen, E. On-line construction of suffix trees. Algorithmica 14, 249–260 (1995).
+https://www.cs.helsinki.fi/u/ukkonen/SuffixT1withFigs.pdf
+ The longest common substring problem Given two or more strings, find the longest common substring of these strings. Concretely, the longest common substring of the two strings &amp;ldquo;cacaocac&amp;rdquo; and &amp;ldquo;ccaooc&amp;rdquo; is &amp;ldquo;cao&amp;rdquo;.</description>
     </item>
     
   </channel>
