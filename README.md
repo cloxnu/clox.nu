@@ -4,9 +4,10 @@ Hi, I'm creating more creative works. Here are my thoughts, essays and expectati
  
 The website https://creative.clox.nu
 
----
-travis CI build status: ![travis status](https://travis-ci.com/cloxnu/created.by.clox.nu.svg?branch=main)
-
----
-
+<table>
+    <tr>
+        <th>travis CI build status</th>
+        <th><img src="https://travis-ci.com/cloxnu/created.by.clox.nu.svg?branch=main" alt="build status"></th>
+    </tr>
+</table>
 

@@ -17,4 +17,4 @@ after_script:
   - git checkout main
   - git add .
   - git commit -m "Update Blog By TravisCI With Build $TRAVIS_BUILD_NUMBER"
-  - git push origin
+  - git push "https://${GITHUB_TOKEN}@github.com/cloxnu/creative.clox.nu.git" origin
