@@ -1,0 +1,16 @@
+dist: bionic
+addons:
+  snaps:
+    - hugo
+
+install:
+  - cd ./src/
+  - git submodule update --init --remote
+
+script:
+  - hugo -D
+
+after_script:
+  - cd ..
+  - git commit -m "Update Blog By TravisCI With Build $TRAVIS_BUILD_NUMBER"
+  - git push
