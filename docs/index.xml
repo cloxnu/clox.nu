@@ -1,82 +1,28 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>cloxnu&#39;s Creative Space</title>
-    <link>https://creative.clox.nu/</link>
-    <description>Recent content on cloxnu&#39;s Creative Space</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Tue, 16 Feb 2021 10:58:54 +0800</lastBuildDate><atom:link href="https://creative.clox.nu/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>使用 Travis CI 自动部署 Hugo 站点</title>
-      <link>https://creative.clox.nu/posts/creation/deployment-based-on-travis-ci/</link>
-      <pubDate>Tue, 16 Feb 2021 10:58:54 +0800</pubDate>
-      
-      <guid>https://creative.clox.nu/posts/creation/deployment-based-on-travis-ci/</guid>
-      <description>在 GitHub 仓库内创建 .travis.yml 文件并添加以下内容后，即可自动部署此 Hugo 站点。
-dist: bionic addons: snaps: - hugo install: - cd ./src/ - git submodule update --init --remote script: - hugo -D after_script: - cd .. - git config --global user.name &amp;#34;Travis CI&amp;#34; - git config --global user.email &amp;lt;your-email&amp;gt; - git remote set-url origin &amp;#34;https://${GITHUB_TOKEN}@github.com/&amp;lt;username&amp;gt;/&amp;lt;repo-name&amp;gt;.git&amp;#34; - git checkout main - git add . - git commit -m &amp;#34;Update Blog By TravisCI With Build $TRAVIS_BUILD_NUMBER&amp;#34; - git push origin   记得在 travis-ci.</description>
-    </item>
-    
-    <item>
-      <title>关于本站</title>
-      <link>https://creative.clox.nu/posts/creation/about-this-site/</link>
-      <pubDate>Mon, 15 Feb 2021 00:21:45 +0800</pubDate>
-      
-      <guid>https://creative.clox.nu/posts/creation/about-this-site/</guid>
-      <description>本站使用 Hugo 搭建而成，theme 主要使用 PaperMod，将源仓库 adityatelange / hugo-PaperMod fork 到自己的 GitHub 仓库 cloxnu / hugo-PaperMod 并手动增加Mathjax 特性后，本站仓库主题使用 git submodule 拉取。
-以下添加 Mathjax 特性过程参考 https://note.qidong.name/2018/03/hugo-mathjax/
-手动添加文件 layouts/partials/mathjax.html
-在 partials 目录下的文件 extend_head.html 添加代码
-即可。
-顺便在这里提一下 git submodule 和 git remote 在我 fork 了源仓库之后，使用命令
-git remote add upstream https://github.com/adityatelange/hugo-PaperMod.git 来配置一个 remote，参考 Configuring a remote for a fork ，并使用
-git fetch upstream 来同步远程仓库，参考 Syncing a fork 。将 Mathjax 特性添加之后，push 到自己 fork 的仓库，随后在本站仓库使用命令
-git submodule add https://github.</description>
-    </item>
-    
-    <item>
-      <title>The Amazing Things</title>
-      <link>https://creative.clox.nu/posts/love/the-amazing-things/</link>
-      <pubDate>Sun, 14 Feb 2021 11:53:53 +0800</pubDate>
-      
-      <guid>https://creative.clox.nu/posts/love/the-amazing-things/</guid>
-      <description>Now, here is another new place to inspire and create amazing things. There is not much space here, but it brings extraordinary encouragement.
-I will always love, and pursue love.</description>
-    </item>
-    
-    <item>
-      <title>Generalized Suffix Tree</title>
-      <link>https://creative.clox.nu/posts/study/algorithm/generalized-suffix-tree/</link>
-      <pubDate>Wed, 23 Dec 2020 00:00:00 +0800</pubDate>
-      
-      <guid>https://creative.clox.nu/posts/study/algorithm/generalized-suffix-tree/</guid>
-      <description>An implementation of generalized suffix tree using Ukkonen&amp;rsquo;s algorithm.
-In this page:
- The longest common substring problem How it works GST versus Dynamic programming   Inspired by:
-Ukkonen, E. On-line construction of suffix trees. Algorithmica 14, 249–260 (1995).
-https://www.cs.helsinki.fi/u/ukkonen/SuffixT1withFigs.pdf
- The longest common substring problem Given two or more strings, find the longest common substring of these strings. Concretely, the longest common substring of the two strings &amp;ldquo;cacaocac&amp;rdquo; and &amp;ldquo;ccaooc&amp;rdquo; is &amp;ldquo;cao&amp;rdquo;.</description>
-    </item>
-    
-    <item>
-      <title>学校爬电费状态栏 App 的 macOS 开发日记</title>
-      <link>https://creative.clox.nu/posts/creation/energy-charge-in-macos/</link>
-      <pubDate>Sat, 23 May 2020 00:35:00 +0800</pubDate>
-      
-      <guid>https://creative.clox.nu/posts/creation/energy-charge-in-macos/</guid>
-      <description>Monitoring the energy charge work on macOS in CJLU.
-如何在没接触过 macOS 开发的情况下 4 个小时写一个学校爬电费状态栏 App GitHub链接-Energy_Charge_in_MacOS
-About Energy_Charge  There is Docker version.   2020-05-23 00:35 更新 连接错误变灰
-低电费变红
-其他寝室
- 缘起 学校寝室里配了台台式，写了大半学期的 iOS，这一切都如此顺利。
-不过就在刚刚，一位大佬朋友突然向我展示了他找到的查寝室电费网址 POST 参数。这不禁让我陷入了思考（因为平常我得经常看着点电费不然没电费了电脑黑屏警告233）。然后我顺便查了下我们寝室的电费，nm只有 1 块 5 了！！！
-开发一个 macOS 的爬电费 App 就这样开始了。
-&amp;mdash;- 四个小时前
- Hardworking&amp;hellip; Xcode - File - New - Project&amp;hellip;
-然后选择 macOS App，这一切看起来如此自然，然而第一个困扰我的出现了 &amp;mdash; url request 如何实现。
-一向喜欢用第三方库的我，果不其然又发现了一个好用的 url request 库，它叫 Alamofire。这个库用来写请求超级超级容易，不过我完全不知道请求完成后得到的 request 应该怎么用，后来找到它的文档这里</description>
-    </item>
-    
-  </channel>
+    <channel>
+        <title>cloxnu&#39;s Creative Space</title>
+        <link>https://creative.clox.nu/</link>
+        <description>Recent content on cloxnu&#39;s Creative Space</description>
+        <generator>Hugo -- gohugo.io</generator>
+        
+        <language>en-us</language>
+        
+        
+        
+        
+        <lastBuildDate>Tue, 16 Feb 2021 10:58:54 +0800</lastBuildDate>
+        
+        <atom:link href="https://creative.clox.nu/index.xml" rel="self" type="application/rss+xml" />
+        
+        
+        <item>
+            <title>Posts</title>
+            <link>https://creative.clox.nu/posts/</link>
+            <pubDate>Tue, 16 Feb 2021 10:58:54 +0800</pubDate>
+            
+            <guid>https://creative.clox.nu/posts/</guid>
+            <description></description>
+        </item>
+        
+    </channel>
 </rss>
