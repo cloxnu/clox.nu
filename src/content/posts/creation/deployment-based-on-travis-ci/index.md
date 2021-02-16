@@ -2,7 +2,6 @@
 title: "使用 Travis CI 自动部署 Hugo 站点"
 date: 2021-02-16T10:58:54+08:00
 categories: creation
-draft: true
 ---
 
 在 GitHub 仓库内创建 `.travis.yml` 文件并添加以下内容后，即可自动部署此 Hugo 站点。
