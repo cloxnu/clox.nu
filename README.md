@@ -7,7 +7,7 @@ The website, https://creative.clox.nu
 <table>
     <tr>
         <th>Travis CI build status</th>
-        <th><img src="https://travis-ci.com/cloxnu/created.by.clox.nu.svg?branch=main" alt="build status"></th>
+        <th><img src="https://travis-ci.com/cloxnu/creative.clox.nu.svg?branch=main" alt="build status"></th>
     </tr>
 </table>
 
