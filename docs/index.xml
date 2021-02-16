@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>cloxnu&#39;s Creative Space</title>
@@ -11,12 +12,227 @@
         
         
         <item>
-            <title>Posts</title>
-            <link>https://creative.clox.nu/posts/</link>
+            <title>使用 Travis CI 自动部署 Hugo 站点</title>
+            <link>https://creative.clox.nu/posts/creation/deployment-based-on-travis-ci/</link>
             <pubDate>Tue, 16 Feb 2021 10:58:54 +0800</pubDate>
             
-            <guid>https://creative.clox.nu/posts/</guid>
-            <description></description>
+            <guid>https://creative.clox.nu/posts/creation/deployment-based-on-travis-ci/</guid>
+            <description>&lt;p&gt;在 GitHub 仓库内创建 &lt;code&gt;.travis.yml&lt;/code&gt; 文件并添加以下内容后，即可自动部署此 Hugo 站点。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;dist&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;bionic&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;addons&lt;/span&gt;:
+  &lt;span style=&#34;color:#f92672&#34;&gt;snaps&lt;/span&gt;:
+    - &lt;span style=&#34;color:#ae81ff&#34;&gt;hugo&lt;/span&gt;
+
+&lt;span style=&#34;color:#f92672&#34;&gt;install&lt;/span&gt;:
+  - &lt;span style=&#34;color:#ae81ff&#34;&gt;cd ./src/&lt;/span&gt;
+  - &lt;span style=&#34;color:#ae81ff&#34;&gt;git submodule update --init --remote&lt;/span&gt;
+
+&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt;:
+  - &lt;span style=&#34;color:#ae81ff&#34;&gt;hugo -D&lt;/span&gt;
+
+&lt;span style=&#34;color:#f92672&#34;&gt;after_script&lt;/span&gt;:
+  - &lt;span style=&#34;color:#ae81ff&#34;&gt;cd ..&lt;/span&gt;
+  - &lt;span style=&#34;color:#ae81ff&#34;&gt;git config --global user.name &amp;#34;Travis CI&amp;#34;&lt;/span&gt;
+  - &lt;span style=&#34;color:#ae81ff&#34;&gt;git config --global user.email &amp;lt;your-email&amp;gt;&lt;/span&gt;
+  - &lt;span style=&#34;color:#ae81ff&#34;&gt;git remote set-url origin &amp;#34;https://${GITHUB_TOKEN}@github.com/&amp;lt;username&amp;gt;/&amp;lt;repo-name&amp;gt;.git&amp;#34;&lt;/span&gt;
+  - &lt;span style=&#34;color:#ae81ff&#34;&gt;git checkout main&lt;/span&gt;
+  - &lt;span style=&#34;color:#ae81ff&#34;&gt;git add .&lt;/span&gt;
+  - &lt;span style=&#34;color:#ae81ff&#34;&gt;git commit -m &amp;#34;Update Blog By TravisCI With Build $TRAVIS_BUILD_NUMBER&amp;#34;&lt;/span&gt;
+  - &lt;span style=&#34;color:#ae81ff&#34;&gt;git push origin&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;记得在 &lt;a href=&#34;https://travis-ci.com&#34;&gt;travis-ci.com&lt;/a&gt; 网站内添加 &lt;code&gt;GITHUB_TOKEN&lt;/code&gt; 键值，以确认 &lt;code&gt;git push&lt;/code&gt; 能正常运行。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;install&lt;/code&gt; 内的 &lt;code&gt;cd ./src/&lt;/code&gt; 是针对当前仓库的源码是存于 &lt;code&gt;src&lt;/code&gt; 文件夹内，而 &lt;code&gt;after_script&lt;/code&gt; 中的 &lt;code&gt;cd ..&lt;/code&gt; 是返回根目录的做法。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;travis job log:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/travis.png&#34; alt=&#34;travis&#34;&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>关于本站</title>
+            <link>https://creative.clox.nu/posts/creation/about-this-site/</link>
+            <pubDate>Mon, 15 Feb 2021 00:21:45 +0800</pubDate>
+            
+            <guid>https://creative.clox.nu/posts/creation/about-this-site/</guid>
+            <description>&lt;p&gt;本站使用 Hugo 搭建而成，theme 主要使用 PaperMod，将源仓库 &lt;a href=&#34;https://github.com/adityatelange/hugo-PaperMod&#34;&gt;adityatelange / hugo-PaperMod&lt;/a&gt; fork 到自己的 GitHub 仓库 &lt;a href=&#34;https://github.com/cloxnu/hugo-PaperMod&#34;&gt;cloxnu / hugo-PaperMod&lt;/a&gt; 并手动增加Mathjax 特性后，本站仓库主题使用 git submodule 拉取。&lt;/p&gt;
+&lt;p&gt;以下添加 Mathjax 特性过程参考 &lt;a href=&#34;https://note.qidong.name/2018/03/hugo-mathjax/&#34;&gt;https://note.qidong.name/2018/03/hugo-mathjax/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;手动添加文件 &lt;code&gt;layouts/partials/mathjax.html&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/mathjax.png&#34; alt=&#34;mathjax&#34;&gt;&lt;/p&gt;
+&lt;p&gt;在 &lt;code&gt;partials&lt;/code&gt; 目录下的文件 &lt;code&gt;extend_head.html&lt;/code&gt; 添加代码&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/extend_head.png&#34; alt=&#34;extend_head&#34;&gt;&lt;/p&gt;
+&lt;p&gt;即可。&lt;/p&gt;
+&lt;h2 id=&#34;顺便在这里提一下-git-submodule-和-git-remote&#34;&gt;顺便在这里提一下 &lt;code&gt;git submodule&lt;/code&gt; 和 &lt;code&gt;git remote&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;在我 fork 了源仓库之后，使用命令&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;git remote add upstream https://github.com/adityatelange/hugo-PaperMod.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;来配置一个 remote，参考 &lt;a href=&#34;https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/configuring-a-remote-for-a-fork&#34;&gt;Configuring a remote for a fork&lt;/a&gt; ，并使用&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;git fetch upstream
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;来同步远程仓库，参考 &lt;a href=&#34;https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/syncing-a-fork&#34;&gt;Syncing a fork&lt;/a&gt; 。将 Mathjax 特性添加之后，push 到自己 fork 的仓库，随后在本站仓库使用命令&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;git submodule add https://github.com/cloxnu/hugo-PaperMod themes/PaperMod
+git submodule init
+git submodule update --remote
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;即可更新新的带有 Mathjax 特性的 PaperMod 主题了。&lt;/p&gt;
+&lt;p&gt;RSS 源参考 &lt;a href=&#34;https://gideonwolfe.com/posts/sysadmin/hugo/hugorss/&#34;&gt;这里&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>The Amazing Things</title>
+            <link>https://creative.clox.nu/posts/love/the-amazing-things/</link>
+            <pubDate>Sun, 14 Feb 2021 11:53:53 +0800</pubDate>
+            
+            <guid>https://creative.clox.nu/posts/love/the-amazing-things/</guid>
+            <description>&lt;p&gt;Now, here is another new place to inspire and create amazing things. There is not much space here, but it brings extraordinary encouragement.&lt;/p&gt;
+&lt;p&gt;I will always love, and pursue love.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/screenshot.png&#34; alt=&#34;shot&#34;&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>Generalized Suffix Tree</title>
+            <link>https://creative.clox.nu/posts/study/algorithm/generalized-suffix-tree/</link>
+            <pubDate>Wed, 23 Dec 2020 00:00:00 +0800</pubDate>
+            
+            <guid>https://creative.clox.nu/posts/study/algorithm/generalized-suffix-tree/</guid>
+            <description>&lt;p&gt;An implementation of generalized suffix tree using Ukkonen&amp;rsquo;s algorithm.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;In this page:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#the-longest-common-substring-problem&#34;&gt;The longest common substring problem&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#how-it-works&#34;&gt;How it works&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#gst-versus-dynamic-programming&#34;&gt;GST versus Dynamic programming&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Inspired by:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Ukkonen, E. On-line construction of suffix trees. Algorithmica 14, 249–260 (1995).&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.cs.helsinki.fi/u/ukkonen/SuffixT1withFigs.pdf&#34;&gt;https://www.cs.helsinki.fi/u/ukkonen/SuffixT1withFigs.pdf&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;the-longest-common-substring-problem&#34;&gt;The longest common substring problem&lt;/h2&gt;
+&lt;p&gt;Given two or more strings, find the longest common substring of these strings. Concretely, the longest common substring of the two strings &lt;em&gt;&amp;ldquo;cacaocac&amp;rdquo;&lt;/em&gt; and &lt;em&gt;&amp;ldquo;ccaooc&amp;rdquo;&lt;/em&gt; is &lt;em&gt;&amp;ldquo;cao&amp;rdquo;&lt;/em&gt;. This seems like a simple problem, but until today, it still requires a complicated algorithm to be solved in a reasonable time.&lt;/p&gt;
+&lt;p&gt;This repo has implemented an algorithm to solve this problem by constructing a tree called Generalized Suffix Tree (GST). GST is a tree structure which contains sets of suffix strings of the origin string. Usually, the string will be appended a unique character &lt;em&gt;&amp;quot;$&amp;quot;&lt;/em&gt; for representing &amp;ldquo;the end&amp;rdquo;, this is to avoid some nodes not splitting due to repeated ending characters.&lt;/p&gt;
+&lt;p&gt;There are 2 algorithms for constructing a GST: &lt;strong&gt;McCreight&amp;rsquo;s algorithm (1976)&lt;/strong&gt;, &lt;strong&gt;Ukkonen&amp;rsquo;s algorithm (1995)&lt;/strong&gt;. The latter has been implemented here.&lt;/p&gt;
+&lt;p&gt;The visualized GST of &lt;em&gt;&amp;ldquo;cacaocac$&amp;quot;&lt;/em&gt; as follows, made in &lt;a href=&#34;http://brenden.github.io/ukkonen-animation/&#34;&gt;http://brenden.github.io/ukkonen-animation/&lt;/a&gt; :&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/GST4cacaocac.png&#34; alt=&#34;GST-for-cacaocac&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;how-it-works&#34;&gt;How it works&lt;/h2&gt;
+&lt;p&gt;After cloning this repo, we can get the same result by running these codes in the &lt;code&gt;Application.py&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;tree &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; STree()
+tree&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;build_with_automatic_end([&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;cacaocac&amp;#34;&lt;/span&gt;])
+&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(tree)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;and then, something will appear in the console:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cacaocac$ ----&amp;gt; ⊥
+c ----&amp;gt; cacaocac$
+	a ----&amp;gt; a
+		c ----&amp;gt; c
+			aocac$ (end)
+			$ (end)
+		ocac$ (end)
+	$ (end)
+a ----&amp;gt; cacaocac$
+	c ----&amp;gt; c
+		aocac$ (end)
+		$ (end)
+	ocac$ (end)
+ocac$ (end)
+$ (end)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;code&gt;cacaocac$&lt;/code&gt; for root, &lt;code&gt;⊥&lt;/code&gt; for auxiliary state&lt;!-- raw HTML omitted --&gt;*&lt;!-- raw HTML omitted --&gt;, &lt;code&gt;----&amp;gt;&lt;/code&gt; for suffix link&lt;!-- raw HTML omitted --&gt;*&lt;!-- raw HTML omitted --&gt;, and a &lt;code&gt;[tab]&lt;/code&gt; represents a deeper level in the tree.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;*&lt;!-- raw HTML omitted --&gt;auxiliary state: The dummy status of the root&amp;rsquo;s suffix link, for convenience in programming.
+[Page 3 of the paper for details]&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;*&lt;!-- raw HTML omitted --&gt;suffix link: Used during the construction of a suffix tree.
+[Page 4 of the paper for details]&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The method &lt;code&gt;_update&lt;/code&gt;, &lt;code&gt;_test_and_split&lt;/code&gt; and &lt;code&gt;_canonize&lt;/code&gt; of the class &lt;code&gt;STree&lt;/code&gt; in &lt;code&gt;STree.py&lt;/code&gt;, are the complete implementation of the procedure of the same name in the page [12] and [13] in the paper, and the method &lt;code&gt;build&lt;/code&gt; corresponds to the [Algorithm 2.] in the page [14].&lt;/p&gt;
+&lt;p&gt;But differently, the new &lt;code&gt;end_idxes&lt;/code&gt; property in the &lt;code&gt;STree&lt;/code&gt; contains the indexes of all ending characters &lt;em&gt;&amp;quot;$&amp;quot;&lt;/em&gt;. It avoids effectively the construction bias of the suffix tree when the string contains or is filled with &lt;em&gt;&amp;quot;$&amp;quot;&lt;/em&gt; symbols.&lt;/p&gt;
+&lt;p&gt;So, back to the topic, how does this tree solve the longest common substring problem?&lt;/p&gt;
+&lt;p&gt;In the &lt;code&gt;Application.py&lt;/code&gt;, the &lt;code&gt;lcs2&lt;/code&gt; function find the lcs of two strings. The method &lt;code&gt;build_with_automatic_end&lt;/code&gt; in the &lt;code&gt;STree&lt;/code&gt; will concatenate a list of strings with the ending characters &lt;em&gt;&amp;quot;$&amp;quot;&lt;/em&gt;, and construct a suffix tree. With the help of &lt;code&gt;end_idxes&lt;/code&gt;, these &lt;em&gt;&amp;quot;$&amp;quot;&lt;/em&gt; are different, and they represent the end of different strings. &lt;code&gt;STree&lt;/code&gt; will automatically treat these &lt;em&gt;&amp;quot;$&amp;quot;&lt;/em&gt; as different from other characters, so the character &lt;em&gt;&amp;quot;$&amp;quot;&lt;/em&gt; itself is just designed for readability of suffix tree printing. The &lt;code&gt;lcs2&lt;/code&gt; function will traverse the tree and find the deepest non-leaf node that contains the leaf nodes of all string indexes in the string list.&lt;/p&gt;
+&lt;p&gt;Similarly, it can also be demonstrated using the following codes in &lt;code&gt;Application.py&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(lcs2(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;cacaocac&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ccaooc&amp;#34;&lt;/span&gt;))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;or&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(lcs([&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;cacaocac&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ccaooc&amp;#34;&lt;/span&gt;]))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The &lt;code&gt;lcs&lt;/code&gt; function can find the longest common substring of multiple strings.&lt;/p&gt;
+&lt;p&gt;The last two commands have the same result:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cao
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;gst-versus-dynamic-programming&#34;&gt;GST versus Dynamic programming&lt;/h2&gt;
+&lt;p&gt;Dynamic programming is another way to solve this problem, and there is always said that the dynamic programming costs $\Theta(mn)$, and the Ukkonen&amp;rsquo;s Algorithm just in linear time. So, let&amp;rsquo;s start an experiment.&lt;/p&gt;
+&lt;p&gt;The code in the &lt;code&gt;gst_vs_dp.py&lt;/code&gt;, we randomly generated some strings to examine the performance of the two algorithms.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;len&lt;/code&gt; is the length range of the strings, &lt;code&gt;com_len&lt;/code&gt; is the length range of the common part of the strings.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;len = (800, 1600)&lt;/code&gt; &lt;code&gt;com_len = (100, 200)&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;random string has been generated
+gst_res: wTE^s&amp;gt;:x,k~%i3pRtdasZ&amp;gt;eLXrU5gbU#ptQF*?$ta,)k~znS*D/Ja:0L}@.X~i~E~{@NsKlK5c#`4v?v.$O]ts&amp;amp;/LNl&amp;lt;m]ww`Z!4G3vPd:@guRfCuz3DSRNHcVu~[r7s8J`X&amp;amp;/uETtiU[$N0p2.$SV2T&amp;gt;&amp;lt;WTzqLVm:KkC3uE#2SIj63h?3BZYv;G*bl&#39;PnNYhQ0M
+dp_res: wTE^s&amp;gt;:x,k~%i3pRtdasZ&amp;gt;eLXrU5gbU#ptQF*?$ta,)k~znS*D/Ja:0L}@.X~i~E~{@NsKlK5c#`4v?v.$O]ts&amp;amp;/LNl&amp;lt;m]ww`Z!4G3vPd:@guRfCuz3DSRNHcVu~[r7s8J`X&amp;amp;/uETtiU[$N0p2.$SV2T&amp;gt;&amp;lt;WTzqLVm:KkC3uE#2SIj63h?3BZYv;G*bl&#39;PnNYhQ0M
+
+gst_time: 12.598991394042969 ms
+dp_time: 284.3668460845947 ms
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;code&gt;len = (5000, 8000)&lt;/code&gt; &lt;code&gt;com_len = (250, 800)&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;random string has been generated
+gst_res: q3U&#39;GCA9;dw}9nrT#R?&amp;quot;odw~HAK,&amp;amp;l;bd}VQ)h`15TAw6K/I1V]#;OSDj%(XmDp[&amp;amp;i}@$k($Bk8X4c&amp;quot;j(rXff9MK:E#`&amp;gt;B&amp;amp;&#39;SF`CgMP&amp;lt;`XOp!8g%&amp;amp;4fpbq&amp;lt;!Q*o4[9W}TXabj4FTele0?~Cm.S,8~)B(U9&amp;lt;m~[1.9/3XGR/@nIt,X3@k}D&amp;quot;U&amp;quot;h@!/C&amp;amp;92s09RU^DLrqo6[}s}Wlr:,VyYX&amp;gt;f{rx&amp;amp;&amp;gt;8bH`VaZy^3pId.A]XO/zgD@26wN:Y23@t(.&amp;gt;3$T6c8?L&#39;l&amp;quot;ZC?0PK,2tWNqa,S&amp;gt;VTe!!%L^n;;up&amp;lt;:Hw;gUtFp^dD]F8&amp;gt;!&#39;}vg^PNK4K&amp;quot;L7X&amp;lt;w;roH:&amp;amp;&amp;lt;jEzZJJPg5qd&#39;J!SWTP%N!CDDaxr7vBX.4@)9OO!Mg;S;M&#39;;VSV]^YZO9ww9k$H;Z^XcXKY@?Naa&amp;lt;jO$LEy`#e1&amp;amp;ywU8Yzq9PNAA^gQ58B?&#39;?)KiKt)$ztM~IrnJ&amp;lt;$;2%%?m&amp;quot;&amp;lt;dme7df&amp;gt;:b?j.A8dM2dH/!K!*o)glG[F&amp;gt;&amp;lt;aZ?c`By5{zEICgq[&amp;lt;M:D&amp;quot;LD;*FPJOzo9o,wXxKz@2];:g$oNrDhc/g{M9z9xTP[FllH/r!YrW!KMG!y(.$mO7Wzj31vMF2&amp;gt;YD?Y&amp;quot;I?t7FX!nWL[S&amp;gt;kLN1Ga7YN&#39;XrG*fxylmtBri/R!0nEGQ3ZG`xQ1o[~Z?1&amp;lt;VKMzKn90J^9#5J&amp;lt;:{3diD*o4Fn.WppQJ7&amp;gt;Z#1cQgV2(GX54S*)0@vQvFs^!/fag#p6kHgwB9{5)u:d9R
+dp_res: q3U&#39;GCA9;dw}9nrT#R?&amp;quot;odw~HAK,&amp;amp;l;bd}VQ)h`15TAw6K/I1V]#;OSDj%(XmDp[&amp;amp;i}@$k($Bk8X4c&amp;quot;j(rXff9MK:E#`&amp;gt;B&amp;amp;&#39;SF`CgMP&amp;lt;`XOp!8g%&amp;amp;4fpbq&amp;lt;!Q*o4[9W}TXabj4FTele0?~Cm.S,8~)B(U9&amp;lt;m~[1.9/3XGR/@nIt,X3@k}D&amp;quot;U&amp;quot;h@!/C&amp;amp;92s09RU^DLrqo6[}s}Wlr:,VyYX&amp;gt;f{rx&amp;amp;&amp;gt;8bH`VaZy^3pId.A]XO/zgD@26wN:Y23@t(.&amp;gt;3$T6c8?L&#39;l&amp;quot;ZC?0PK,2tWNqa,S&amp;gt;VTe!!%L^n;;up&amp;lt;:Hw;gUtFp^dD]F8&amp;gt;!&#39;}vg^PNK4K&amp;quot;L7X&amp;lt;w;roH:&amp;amp;&amp;lt;jEzZJJPg5qd&#39;J!SWTP%N!CDDaxr7vBX.4@)9OO!Mg;S;M&#39;;VSV]^YZO9ww9k$H;Z^XcXKY@?Naa&amp;lt;jO$LEy`#e1&amp;amp;ywU8Yzq9PNAA^gQ58B?&#39;?)KiKt)$ztM~IrnJ&amp;lt;$;2%%?m&amp;quot;&amp;lt;dme7df&amp;gt;:b?j.A8dM2dH/!K!*o)glG[F&amp;gt;&amp;lt;aZ?c`By5{zEICgq[&amp;lt;M:D&amp;quot;LD;*FPJOzo9o,wXxKz@2];:g$oNrDhc/g{M9z9xTP[FllH/r!YrW!KMG!y(.$mO7Wzj31vMF2&amp;gt;YD?Y&amp;quot;I?t7FX!nWL[S&amp;gt;kLN1Ga7YN&#39;XrG*fxylmtBri/R!0nEGQ3ZG`xQ1o[~Z?1&amp;lt;VKMzKn90J^9#5J&amp;lt;:{3diD*o4Fn.WppQJ7&amp;gt;Z#1cQgV2(GX54S*)0@vQvFs^!/fag#p6kHgwB9{5)u:d9R
+
+gst_time: 79.45418357849121 ms
+dp_time: 10244.915962219238 ms
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;code&gt;len = (5000, 8000)&lt;/code&gt; &lt;code&gt;com_len = (250, 800)&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;random string has been generated
+gst_res: Hu4XU.if.j/h9DAT3.2RI&amp;quot;9LVeR6qoG}HOB#V[qdN[TQ!%IG#v7l]&#39;4pTA;.G^zhWt%/B0P4ATaG&amp;gt;FDZj?GNH&amp;quot;V%NW(.uL?O.5tJCv6d7[}e.&amp;lt;$SFXv(C&amp;amp;ww&amp;gt;9a&#39;Con(V}MK&amp;lt;exxZ@1.1&amp;lt;7&amp;lt;Wo%wGyjB0FPpcxPLIy^LRZS@c;eel4sUF:iqcGlhz3]z&amp;amp;M&amp;amp;]qk&amp;amp;.H3]vqI7YG)#&amp;amp;}U3sa&amp;quot;6c6H*y{3&amp;gt;9MiHB!W4N1YwR[,qdn:nw$M&amp;quot;g]Ic6S$*[FIzaOZ[fHT&amp;lt;04&amp;lt;$R$[f#.%MscaTy[6?gJ:Qq
+dp_res: Hu4XU.if.j/h9DAT3.2RI&amp;quot;9LVeR6qoG}HOB#V[qdN[TQ!%IG#v7l]&#39;4pTA;.G^zhWt%/B0P4ATaG&amp;gt;FDZj?GNH&amp;quot;V%NW(.uL?O.5tJCv6d7[}e.&amp;lt;$SFXv(C&amp;amp;ww&amp;gt;9a&#39;Con(V}MK&amp;lt;exxZ@1.1&amp;lt;7&amp;lt;Wo%wGyjB0FPpcxPLIy^LRZS@c;eel4sUF:iqcGlhz3]z&amp;amp;M&amp;amp;]qk&amp;amp;.H3]vqI7YG)#&amp;amp;}U3sa&amp;quot;6c6H*y{3&amp;gt;9MiHB!W4N1YwR[,qdn:nw$M&amp;quot;g]Ic6S$*[FIzaOZ[fHT&amp;lt;04&amp;lt;$R$[f#.%MscaTy[6?gJ:Qq
+
+gst_time: 63.52519989013672 ms
+dp_time: 6668.108701705933 ms
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;code&gt;len = (10000, 20000)&lt;/code&gt; &lt;code&gt;com_len = (500, 1000)&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;random string has been generated
+gst_res: hee!!i$;hIn8&amp;amp;;Y)bU2BC^Bu{Ek]2}}`SvD&amp;gt;Fj!{%XS#pl6wMh#CDKe&#39;zk%N@mAC]r9[k:g{!Q&amp;lt;B0NQ&amp;quot;#&amp;quot;E&amp;lt;P@in$7]^fkn3tO:5q:lb%!Y5N3[rJBd7I@,6Uf{hNv5o$M%~]~9IS4#ho}]3A&amp;quot;~B9yLF!0&#39;`R(}le0KAMF/J7@EG/d&amp;amp;W/m`XcBt[,Bp0M8m6J]%#mh.^&amp;quot;:CsZw6~!w6eq[)WdAI/&#39;D`Tq.`*t[H5yVEk3mpRKZv&amp;lt;eMZj&#39;R?*zeA,!goeNt&amp;quot;5th.0^LN2xB$wy.*xP(cCW4)zZv#XS.#&amp;lt;&amp;amp;*&amp;quot;spzHfnG:78~P5z%a`Dn1g3&amp;gt;nF5CZm?;EfbKD/(g$!SIAxSRWce&amp;quot;Qf&#39;WbyceqGrh&amp;gt;uhP45R$:h?fJfEFk]@5P{]n2H/KgDGUA~`Q1&#39;&amp;lt;Z}66!s#V&amp;gt;B%&amp;gt;B1L3cIq?;ytc/E?mDmA2;m5LwdI@8)l3@&amp;amp;ZpdKp0&#39;f{VS@ahmmE!f.)kO(nNcVsU?yGEAzu&amp;quot;I/RH:N6&amp;quot;1xFvp~ipR~$7FJ@NLTs[VW^hng1bfc&amp;amp;!ieEbY.)uYN@Ux$(#~]WSyY/alVsiq1uv0u%tVx&#39;kS&amp;gt;x}dkUN5&amp;amp;lY!xy&amp;amp;Y]:wZU;gIXZ&amp;gt;h)mS7,au
+dp_res: hee!!i$;hIn8&amp;amp;;Y)bU2BC^Bu{Ek]2}}`SvD&amp;gt;Fj!{%XS#pl6wMh#CDKe&#39;zk%N@mAC]r9[k:g{!Q&amp;lt;B0NQ&amp;quot;#&amp;quot;E&amp;lt;P@in$7]^fkn3tO:5q:lb%!Y5N3[rJBd7I@,6Uf{hNv5o$M%~]~9IS4#ho}]3A&amp;quot;~B9yLF!0&#39;`R(}le0KAMF/J7@EG/d&amp;amp;W/m`XcBt[,Bp0M8m6J]%#mh.^&amp;quot;:CsZw6~!w6eq[)WdAI/&#39;D`Tq.`*t[H5yVEk3mpRKZv&amp;lt;eMZj&#39;R?*zeA,!goeNt&amp;quot;5th.0^LN2xB$wy.*xP(cCW4)zZv#XS.#&amp;lt;&amp;amp;*&amp;quot;spzHfnG:78~P5z%a`Dn1g3&amp;gt;nF5CZm?;EfbKD/(g$!SIAxSRWce&amp;quot;Qf&#39;WbyceqGrh&amp;gt;uhP45R$:h?fJfEFk]@5P{]n2H/KgDGUA~`Q1&#39;&amp;lt;Z}66!s#V&amp;gt;B%&amp;gt;B1L3cIq?;ytc/E?mDmA2;m5LwdI@8)l3@&amp;amp;ZpdKp0&#39;f{VS@ahmmE!f.)kO(nNcVsU?yGEAzu&amp;quot;I/RH:N6&amp;quot;1xFvp~ipR~$7FJ@NLTs[VW^hng1bfc&amp;amp;!ieEbY.)uYN@Ux$(#~]WSyY/alVsiq1uv0u%tVx&#39;kS&amp;gt;x}dkUN5&amp;amp;lY!xy&amp;amp;Y]:wZU;gIXZ&amp;gt;h)mS7,au
+
+gst_time: 164.72983360290527 ms
+dp_time: 44179.36301231384 ms
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Obviously, dynamic programming takes a lot longer time.&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>学校爬电费状态栏 App 的 macOS 开发日记</title>
+            <link>https://creative.clox.nu/posts/creation/energy-charge-in-macos/</link>
+            <pubDate>Sat, 23 May 2020 00:35:00 +0800</pubDate>
+            
+            <guid>https://creative.clox.nu/posts/creation/energy-charge-in-macos/</guid>
+            <description>&lt;p&gt;Monitoring the energy charge work on macOS in CJLU.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/display.png&#34; alt=&#34;display&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;如何在没接触过-macos-开发的情况下-4-个小时写一个学校爬电费状态栏-app&#34;&gt;如何在没接触过 macOS 开发的情况下 4 个小时写一个学校爬电费状态栏 App&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/cloxnu/Energy_Charge_in_MacOS&#34;&gt;GitHub链接-Energy_Charge_in_MacOS&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;about-energy_charge&#34;&gt;About Energy_Charge&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; There is &lt;a href=&#34;https://github.com/cloxnu/Energy_Charge&#34;&gt;Docker version&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;2020-05-23-0035-更新&#34;&gt;2020-05-23 00:35 更新&lt;/h3&gt;
+&lt;p&gt;连接错误变灰&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/conn_err.jpg&#34; alt=&#34;conn_err&#34;&gt;&lt;/p&gt;
+&lt;p&gt;低电费变红&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/charge_low.jpg&#34; alt=&#34;charge_low&#34;&gt;&lt;/p&gt;
+&lt;p&gt;其他寝室&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/other_room.jpg&#34; alt=&#34;other_room&#34;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;缘起&#34;&gt;缘起&lt;/h2&gt;
+&lt;p&gt;学校寝室里配了台台式，写了大半学期的 iOS，这一切都如此顺利。&lt;/p&gt;
+&lt;p&gt;不过就在刚刚，一位大佬朋友突然向我展示了他找到的查寝室电费网址 POST 参数。这不禁让我陷入了思考（因为平常我得经常看着点电费不然没电费了电脑黑屏警告233）。然后我顺便查了下我们寝室的电费，nm只有 1 块 5 了！！！&lt;/p&gt;
+&lt;p&gt;开发一个 macOS 的爬电费 App 就这样开始了。&lt;/p&gt;
+&lt;p&gt;&amp;mdash;- 四个小时前&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;hardworking&#34;&gt;Hardworking&amp;hellip;&lt;/h2&gt;
+&lt;p&gt;Xcode - File - New - Project&amp;hellip;&lt;/p&gt;
+&lt;p&gt;然后选择 macOS App，这一切看起来如此自然，然而第一个困扰我的出现了 &amp;mdash; url request 如何实现。&lt;/p&gt;
+&lt;p&gt;一向喜欢用第三方库的我，果不其然又发现了一个好用的 url request 库，它叫 Alamofire。这个库用来写请求超级超级容易，不过我完全不知道请求完成后得到的 request 应该怎么用，后来找到它的文档这里&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/Alamofire.png&#34; alt=&#34;alamofire&#34;&gt;&lt;/p&gt;
+&lt;p&gt;噢，原来我获得的就是这个网址的 JSON 数据，我只需要使用官方的 JSONSerialization 类就行了，于是我就写成了下面这样，把 JSON 转换 NSDictionary 一层层不断获取，成功得到了电费数值，并将它们写到一个类里去，加了一些代理以便其他类能够得到电费变更通知或错误通知。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/code.png&#34; alt=&#34;code&#34;&gt;&lt;/p&gt;
+&lt;p&gt;可能你们都看到了，我设定了一个定时器每隔 5 分钟获取一次数据（虽然不知道会不会有电脑睡眠断定时器之类的问题毕竟这是1.0版本不想考虑那么多），于是我寻思还需要增加一个手动更新数据的位置，而且查看数据肯定要一个方便的位置，emmmm，就状态栏吧，看那么多应用都在上面应该没啥问题。。。&lt;/p&gt;
+&lt;p&gt;于是，第二个难点。。。如何在状态栏显示内容。&lt;/p&gt;
+&lt;p&gt;其实了解之后还是很简单，在 Storyboard 加一个菜单列表就行了，然后在一个新的类里把这个菜单设为状态栏菜单。看起来挺简单吧，操作起来也挺简单的。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/storyboard.png&#34; alt=&#34;storyboard&#34;&gt;&lt;/p&gt;
+&lt;p&gt;好了，四个小时过去了，这个小插件其实很简单，但自己也学到了不少。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;成型&#34;&gt;成型&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;assets/display.png&#34; alt=&#34;display&#34;&gt;&lt;/p&gt;
+</description>
         </item>
         
     </channel>

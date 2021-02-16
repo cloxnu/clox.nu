@@ -42,5 +42,5 @@ git submodule update --remote
 
 即可更新新的带有 Mathjax 特性的 PaperMod 主题了。
 
-RSS 源参考 [这里](https://10101.io/2019/05/01/hugo-rss)
+RSS 源参考 [这里](https://gideonwolfe.com/posts/sysadmin/hugo/hugorss/)
 
