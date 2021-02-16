@@ -14,7 +14,8 @@ after_script:
   - cd ..
   - git config --global user.name "Travis CI"
   - git config --global user.email "cloxnu@outlook.com"
+  - git remote set-url origin "https://${GITHUB_TOKEN}@github.com/cloxnu/creative.clox.nu.git"
   - git checkout main
   - git add .
   - git commit -m "Update Blog By TravisCI With Build $TRAVIS_BUILD_NUMBER"
-  - git push "https://${GITHUB_TOKEN}@github.com/cloxnu/creative.clox.nu.git" origin
+  - git push origin
