@@ -1,6 +1,7 @@
 ---
 title: "关于本站"
 date: 2021-02-15T00:21:45+08:00
+categories: creation
 ---
 
 本站使用 Hugo 搭建而成，theme 主要使用 PaperMod，将源仓库 [adityatelange / hugo-PaperMod](https://github.com/adityatelange/hugo-PaperMod) fork 到自己的 GitHub 仓库 [cloxnu / hugo-PaperMod](https://github.com/cloxnu/hugo-PaperMod) 并手动增加Mathjax 特性后，本站仓库主题使用 git submodule 拉取。

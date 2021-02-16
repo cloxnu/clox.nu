@@ -2,11 +2,11 @@
  
 Hi, I'm creating more creative works. Here are my thoughts, essays and expectations.
  
-The website https://creative.clox.nu
+The website, https://creative.clox.nu
 
 <table>
     <tr>
-        <th>travis CI build status</th>
+        <th>Travis CI build status</th>
         <th><img src="https://travis-ci.com/cloxnu/created.by.clox.nu.svg?branch=main" alt="build status"></th>
     </tr>
 </table>
