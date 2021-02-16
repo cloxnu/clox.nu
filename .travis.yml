@@ -1,3 +1,5 @@
+language: go
+
 dist: bionic
 addons:
   snaps:
