@@ -19,10 +19,10 @@ dist: bionic addons: snaps: - hugo install: - cd ./src/ - git submodule update -
     
     <item>
       <title>关于本站</title>
-      <link>https://creative.clox.nu/posts/love/about-this-site/</link>
+      <link>https://creative.clox.nu/posts/creation/about-this-site/</link>
       <pubDate>Mon, 15 Feb 2021 00:21:45 +0800</pubDate>
       
-      <guid>https://creative.clox.nu/posts/love/about-this-site/</guid>
+      <guid>https://creative.clox.nu/posts/creation/about-this-site/</guid>
       <description>本站使用 Hugo 搭建而成，theme 主要使用 PaperMod，将源仓库 adityatelange / hugo-PaperMod fork 到自己的 GitHub 仓库 cloxnu / hugo-PaperMod 并手动增加Mathjax 特性后，本站仓库主题使用 git submodule 拉取。
 以下添加 Mathjax 特性过程参考 https://note.qidong.name/2018/03/hugo-mathjax/
 手动添加文件 layouts/partials/mathjax.html
