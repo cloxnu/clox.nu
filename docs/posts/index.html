@@ -148,7 +148,7 @@
   </header>
   <section class="entry-content">
     <p>在 GitHub 仓库内创建 .travis.yml 文件并添加以下内容后，即可自动部署此 Hugo 站点。
-dist: bionic addons: snaps: - hugo install: - cd ./src/ - git submodule update --init --remote script: - hugo -D after_script: - cd .. - git config --global user.name &#34;Travis CI&#34; - git config --global user.email &#34;cloxnu@outlook.com&#34; - git remote set-url origin &#34;https://${GITHUB_TOKEN}@github.com/cloxnu/creative.clox.nu.git&#34; - git checkout main - git add . - git commit -m &#34;Update Blog By TravisCI With Build $TRAVIS_BUILD_NUMBER&#34; - git push origin   记得在 travis-ci....</p>
+dist: bionic addons: snaps: - hugo install: - cd ./src/ - git submodule update --init --remote script: - hugo -D after_script: - cd .. - git config --global user.name &#34;Travis CI&#34; - git config --global user.email &lt;your-email&gt; - git remote set-url origin &#34;https://${GITHUB_TOKEN}@github.com/&lt;username&gt;/&lt;repo-name&gt;.git&#34; - git checkout main - git add . - git commit -m &#34;Update Blog By TravisCI With Build $TRAVIS_BUILD_NUMBER&#34; - git push origin   记得在 travis-ci....</p>
   </section>
   <footer class="entry-footer">
 
