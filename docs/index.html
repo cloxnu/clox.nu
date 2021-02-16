@@ -33,7 +33,7 @@
 <meta property="og:description" content="Hi, I&#39;m creating more creative works. Here are my thoughts, essays and expectations." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://creative.clox.nu/" />
-<meta property="og:updated_time" content="2021-02-15T00:21:45+08:00" /><meta property="og:site_name" content="cloxnu&#39;s creative space" />
+<meta property="og:updated_time" content="2021-02-16T10:58:54+08:00" /><meta property="og:site_name" content="cloxnu&#39;s creative space" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="cloxnu&#39;s Creative Space"/>
 <meta name="twitter:description" content="Hi, I&#39;m creating more creative works. Here are my thoughts, essays and expectations."/>
@@ -168,6 +168,24 @@
 
 
 
+
+<article class="post-entry"> 
+
+  <header class="entry-header">
+    <h2>
+      使用 Travis CI 自动部署 Hugo 站点<div class="entry-isdraft"><sup>&nbsp;&nbsp;[draft]</sup></div>
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>在 GitHub 仓库内创建 .travis.yml 文件并添加以下内容后，即可自动部署此 Hugo 站点。
+dist: bionic addons: snaps: - hugo install: - cd ./src/ - git submodule update --init --remote script: - hugo -D after_script: - cd .. - git config --global user.name &#34;Travis CI&#34; - git config --global user.email &#34;cloxnu@outlook.com&#34; - git remote set-url origin &#34;https://${GITHUB_TOKEN}@github.com/cloxnu/creative.clox.nu.git&#34; - git checkout main - git add . - git commit -m &#34;Update Blog By TravisCI With Build $TRAVIS_BUILD_NUMBER&#34; - git push origin   记得在 travis-ci....</p>
+  </section>
+  <footer class="entry-footer">
+
+February 16, 2021&nbsp;·&nbsp;Sidney Liu
+</footer>
+  <a class="entry-link" aria-label="post link to 使用 Travis CI 自动部署 Hugo 站点" href="https://creative.clox.nu/posts/creation/deployment-based-on-travis-ci/"></a>
+</article>
 
 <article class="post-entry"> 
 
