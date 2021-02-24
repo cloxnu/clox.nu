@@ -112,6 +112,12 @@ git submodule update --remote
             <guid>https://creative.clox.nu/posts/love/welcome-to-cloxnu/</guid>
             <description>&lt;p&gt;&lt;a href=&#34;https://clox.nu&#34;&gt;clox.nu&lt;/a&gt; 已全面竣工，欢迎访问&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;assets/safari.png&#34; alt=&#34;safari&#34;&gt;&lt;/p&gt;
+
+
+&lt;video controls width=100%&gt;
+    &lt;source src=&#34;assets/clox.nu.mp4&#34; type=&#34;video/mp4&#34;&gt;
+&lt;/video&gt;
+
 </description>
         </item>
         
