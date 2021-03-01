@@ -32,6 +32,12 @@ sudo npm install -g n
 sudo n latest
 ```
 
+或者，使用 `yarn`
+
+```shell
+yarn global add expo-cli
+```
+
 ## 开始
 
 安装好后，生成第一个项目：
@@ -50,3 +56,12 @@ expo start
 ![](assets/start.png)
 
 然后在待调试的设备上下载 Expo Go 后扫码即可开始调试
+
+将 `App.js` 中 `Text` 标签对里的内容改为 `Hello World!` 后
+
+![](assets/coding.png)
+
+运行在 iPhone XR 真机上：
+
+![](assets/real_device.PNG)
+
