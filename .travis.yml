@@ -10,7 +10,7 @@ install:
   - git submodule update --init --remote
 
 script:
-  - hugo -D
+  - hugo
 
 after_script:
   - cd ..
