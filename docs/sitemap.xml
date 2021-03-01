@@ -3,22 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://creative.clox.nu/</loc>
+    <lastmod>2021-03-01T15:15:30+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://creative.clox.nu/posts/</loc>
+    <lastmod>2021-03-01T15:15:30+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://creative.clox.nu/posts/study/app/get-started-with-react-native/</loc>
+    <lastmod>2021-03-01T15:15:30+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://creative.clox.nu/categories/</loc>
     <lastmod>2021-02-20T11:34:48+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://creative.clox.nu/</loc>
-    <lastmod>2021-02-20T11:34:48+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://creative.clox.nu/categories/creation/</loc>
-    <lastmod>2021-02-20T11:34:48+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://creative.clox.nu/posts/</loc>
     <lastmod>2021-02-20T11:34:48+08:00</lastmod>
   </url>
   
@@ -64,6 +69,10 @@
   
   <url>
     <loc>https://creative.clox.nu/categories/study-/-algorithm/</loc>
+  </url>
+  
+  <url>
+    <loc>https://creative.clox.nu/categories/study-/-app/</loc>
   </url>
   
   <url>

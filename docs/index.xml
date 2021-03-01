@@ -6,10 +6,39 @@
         <description>Recent content on cloxnu&#39;s Creative Space</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Sat, 20 Feb 2021 11:34:48 +0800</lastBuildDate>
+        <lastBuildDate>Mon, 01 Mar 2021 15:15:30 +0800</lastBuildDate>
         
         <atom:link href="https://creative.clox.nu/index.xml" rel="self" type="application/rss+xml" />
         
+        
+        <item>
+            <title>初识 React Native</title>
+            <link>https://creative.clox.nu/posts/study/app/get-started-with-react-native/</link>
+            <pubDate>Mon, 01 Mar 2021 15:15:30 +0800</pubDate>
+            
+            <guid>https://creative.clox.nu/posts/study/app/get-started-with-react-native/</guid>
+            <description>&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
+&lt;p&gt;由于开发需要，稍稍玩了玩 React Native 开发一个 App 的简要流程。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://reactnative.dev/&#34;&gt;官网&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;安装使用时，可以使用 &lt;a href=&#34;https://expo.io/&#34;&gt;Expo&lt;/a&gt; ，可以省去在 Xcode 或者 Android Studio 配置的过程。&lt;/p&gt;
+&lt;p&gt;在 macOS 上，运行以下命令安装 Expo&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;npm install -g expo-cli
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;注意这里在 &lt;code&gt;npm&lt;/code&gt; 前不要加 &lt;code&gt;sudo&lt;/code&gt;，请提前确保权限通顺&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo chown -R &lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;whoami&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt; ~/.npm
+sudo chown -R &lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;whoami&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt; /usr/local/lib/node_modules
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装好后，我试图运行 Expo，但是得到了 Expo 不支持当前的 Node 版本的错误，于是运行 &lt;code&gt;nvm&lt;/code&gt; 来安装最新版本 Node（以下是未安装 &lt;code&gt;nvm&lt;/code&gt; 的版本）：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo npm install -g n
+sudo n latest
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;开始&#34;&gt;开始&lt;/h2&gt;
+&lt;p&gt;安装好后，生成第一个项目：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;expo init rn_proj
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;进入目录并运行&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;cd rn_proj
+expo start
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;assets/start.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;然后在待调试的设备上下载 Expo Go 后扫码即可开始调试&lt;/p&gt;
+</description>
+        </item>
         
         <item>
             <title>一个奇特的想法 - Site Net</title>
