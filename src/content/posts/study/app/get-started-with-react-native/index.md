@@ -12,7 +12,7 @@ categories: study / app
 
 安装使用时，可以使用 [Expo](https://expo.io/) ，可以省去在 Xcode 或者 Android Studio 配置的过程。
 
-在 macOS 上，运行以下命令安装 Expo
+我使用 macOS，运行以下命令安装 Expo
 
 ```shell
 npm install -g expo-cli
