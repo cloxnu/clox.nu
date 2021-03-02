@@ -21,7 +21,7 @@
 &lt;p&gt;由于开发需要，稍稍玩了玩 React Native 开发一个 App 的简要流程。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://reactnative.dev/&#34;&gt;官网&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;安装使用时，可以使用 &lt;a href=&#34;https://expo.io/&#34;&gt;Expo&lt;/a&gt; ，可以省去在 Xcode 或者 Android Studio 配置的过程。&lt;/p&gt;
-&lt;p&gt;在 macOS 上，运行以下命令安装 Expo&lt;/p&gt;
+&lt;p&gt;我使用 macOS，运行以下命令安装 Expo&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;npm install -g expo-cli
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;注意这里在 &lt;code&gt;npm&lt;/code&gt; 前不要加 &lt;code&gt;sudo&lt;/code&gt;，请提前确保权限通顺&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo chown -R &lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;whoami&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt; ~/.npm
