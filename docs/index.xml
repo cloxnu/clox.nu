@@ -38,11 +38,31 @@ sudo n latest
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;cd rn_proj
 expo start
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;assets/start.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;然后同时会打开一个 Web 控制台&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/web_console.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;然后在待调试的设备上下载 Expo Go 后扫码即可开始调试&lt;/p&gt;
 &lt;p&gt;将 &lt;code&gt;App.js&lt;/code&gt; 中 &lt;code&gt;Text&lt;/code&gt; 标签对里的内容改为 &lt;code&gt;Hello World!&lt;/code&gt; 后&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;assets/coding.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;运行在 iPhone XR 真机上：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;assets/real_device.PNG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;模拟器运行&#34;&gt;模拟器运行&lt;/h3&gt;
+&lt;p&gt;这里我弄了好久一直卡在安装 Expo Go 到模拟器中，看到网络流量情况才发现下载一直没有用代理，macOS 需要开启终端代理才可。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;export https_proxy&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;http://127.0.0.1:7890 http_proxy&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;http://127.0.0.1:7890 all_proxy&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;socks5://127.0.0.1:7890
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这里的端口需要设置为代理的端口，我使用的 Clash 可以自动生成终端代理命令。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/running.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;运行于-web&#34;&gt;运行于 Web&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;assets/run_in_web.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;写代码时每当修改保存，只要当前还处于 &lt;code&gt;expo start&lt;/code&gt; 状态，真机或模拟器上的画面就会跟着改变&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;或者直接使用-react-native&#34;&gt;或者直接使用 React Native&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;npx react-native init rn_proj
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;或&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;yarn react-native init rn_proj
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;国内访问记得设置代理&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;npm config set proxy&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;http://127.0.0.1:xxxx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/blockquote&gt;
 </description>
         </item>
         
