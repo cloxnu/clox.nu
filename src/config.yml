@@ -3,6 +3,8 @@ languageCode: en-us
 title: cloxnu's Creative Space
 theme: "PaperMod"
 
+googleAnalytics: G-1M4NCPKKEH
+
 publishdir: ../docs/
 
 params:
@@ -10,6 +12,8 @@ params:
   title: cloxnu's creative space
   description: "Hi, I'm creating more creative works. Here are my thoughts, essays and expectations."
   author: Sidney Liu
+
+  comments: true
 
   assets:
     favicon: "/logo/favicon.ico"
