@@ -13,8 +13,6 @@ params:
   description: "Hi, I'm creating more creative works. Here are my thoughts, essays and expectations."
   author: Sidney Liu
 
-  comments: true
-
   assets:
     favicon: "/logo/favicon.ico"
     favicon16x16: "/logo/favicon-16x16.png"
@@ -50,9 +48,17 @@ menu:
       name: Tags
       url: /tags/
       weight: 20
+    - identifier: archive
+      name: Archive
+      url: /archive/
+      weight: 30
+    - identifier: search
+      name: Search
+      url: /search/
+      weight: 40
     - identifier: about
       name: About
       url: https://clox.nu
-      weight: 30
+      weight: 50
 
 
