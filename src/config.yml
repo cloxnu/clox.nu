@@ -14,6 +14,9 @@ params:
   description: "Hi, I'm creating more creative works. Here are my thoughts, essays and expectations."
   author: Sidney Liu
 
+  ShowReadingTime: true
+  ShowPostNavLinks: true
+
   assets:
     favicon: "/logo/favicon.ico"
     favicon16x16: "/logo/favicon-16x16.png"
@@ -27,7 +30,12 @@ params:
 
   homeInfoParams:
     Title: "Hi there \U0001F44B"
-    Content: "Welcome to cloxnu's creative space."
+    Content: >
+      Welcome to cloxnu's creative space.
+
+      - 📖 My series of articles:
+
+      - [ℙ𝕣𝕠𝕕𝕦𝕔𝕥𝕚𝕧𝕚𝕥𝕪](/productivity/)
 
   socialIcons:
     - name: twitter
