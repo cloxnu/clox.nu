@@ -4,6 +4,7 @@ title: cloxnu's Creative Space
 theme: "PaperMod"
 
 googleAnalytics: UA-151087524-1
+disqusShortname: clox-nu
 
 publishdir: ../docs/
 
