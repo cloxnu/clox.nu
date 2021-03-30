@@ -6,10 +6,35 @@
         <description>Recent content on cloxnu&#39;s Creative Space</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Mon, 01 Mar 2021 15:15:30 +0800</lastBuildDate>
+        <lastBuildDate>Tue, 30 Mar 2021 13:41:30 +0800</lastBuildDate>
         
         <atom:link href="https://creative.clox.nu/index.xml" rel="self" type="application/rss+xml" />
         
+        
+        <item>
+            <title>关于 HackMD 的使用与思考</title>
+            <link>https://creative.clox.nu/posts/productivity/hackmd/</link>
+            <pubDate>Tue, 30 Mar 2021 13:41:30 +0800</pubDate>
+            
+            <guid>https://creative.clox.nu/posts/productivity/hackmd/</guid>
+            <description>&lt;p&gt;hackMD.&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>ℙ𝕣𝕠𝕕𝕦𝕔𝕥𝕚𝕧𝕚𝕥𝕪</title>
+            <link>https://creative.clox.nu/productivity/</link>
+            <pubDate>Tue, 30 Mar 2021 13:17:00 +0800</pubDate>
+            
+            <guid>https://creative.clox.nu/productivity/</guid>
+            <description>&lt;p&gt;Welcome to &lt;a href=&#34;https://creative.clox.nu/posts/productivity/&#34;&gt;ℙ𝕣𝕠𝕕𝕦𝕔𝕥𝕚𝕧𝕚𝕥𝕪&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;欢迎来到生产力（ℙ𝕣𝕠𝕕𝕦𝕔𝕥𝕚𝕧𝕚𝕥𝕪）系列文章，这里主要围绕计算机、coding、blog 等话题的生产力工具的体验与思考。&lt;/p&gt;
+&lt;h3 id=&#34;markdown&#34;&gt;Markdown&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;「&lt;a href=&#34;https://creative.clox.nu/posts/productivity/hackmd/&#34;&gt;关于 HackMD 的使用与思考&lt;/a&gt;」&lt;/strong&gt; - 用 Markdown 的协作知识库&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
         
         <item>
             <title>初识 React Native</title>
