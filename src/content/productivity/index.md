@@ -10,4 +10,4 @@ Welcome to [ℙ𝕣𝕠𝕕𝕦𝕔𝕥𝕚𝕧𝕚𝕥𝕪](/posts/productivity
 
 ### Markdown
 
-- **「[关于 HackMD 的使用与思考](/posts/productivity/hackmd/)」** - 用 Markdown 的协作知识库
+- **「[HackMD 的使用与思考](/posts/productivity/hackmd/)」** - 用 Markdown 的协作知识库
