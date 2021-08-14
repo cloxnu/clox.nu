@@ -6,10 +6,102 @@
         <description>Recent content on cloxnu&#39;s Creative Space</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Tue, 30 Mar 2021 13:41:30 +0800</lastBuildDate>
+        <lastBuildDate>Sat, 14 Aug 2021 20:41:00 +0800</lastBuildDate>
         
         <atom:link href="https://creative.clox.nu/index.xml" rel="self" type="application/rss+xml" />
         
+        
+        <item>
+            <title>使用 GitHub Actions 自动部署我的 travel blog 站点</title>
+            <link>https://creative.clox.nu/posts/creation/generate-my-travel-blog-by-github-actions/</link>
+            <pubDate>Sat, 14 Aug 2021 20:41:00 +0800</pubDate>
+            
+            <guid>https://creative.clox.nu/posts/creation/generate-my-travel-blog-by-github-actions/</guid>
+            <description>&lt;p&gt;前情提要：在我的 travel blog 的仓库根目录下，有一个叫 &lt;code&gt;gotravel&lt;/code&gt; 的文件，运行该文件即可自动生成网站，因此 GitHub Actions 只需要在我每次 push 之后运行这个文件再提交一次就可以了。&lt;/p&gt;
+&lt;p&gt;在 GitHub 仓库内点击菜单栏的 Actions，然后选择 set up a workflow yourself&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/image-20210814204920751.png&#34; alt=&#34;image-20210814204920751&#34;&gt;&lt;/p&gt;
+&lt;p&gt;然后就会跳转至新建文件页面，以及 GitHub 自动生成最初的 &lt;code&gt;main.yml&lt;/code&gt; 文件。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/image-20210814205057441.png&#34; alt=&#34;image-20210814205057441&#34;&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# This is a basic workflow to help you get started with Actions&lt;/span&gt;
+
+&lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;CI&lt;/span&gt;
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Controls when the workflow will run&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;on&lt;/span&gt;:
+  &lt;span style=&#34;color:#75715e&#34;&gt;# Triggers the workflow on push or pull request events but only for the master branch&lt;/span&gt;
+  &lt;span style=&#34;color:#f92672&#34;&gt;push&lt;/span&gt;:
+    &lt;span style=&#34;color:#f92672&#34;&gt;branches&lt;/span&gt;: [ &lt;span style=&#34;color:#ae81ff&#34;&gt;master ]&lt;/span&gt;
+  &lt;span style=&#34;color:#f92672&#34;&gt;pull_request&lt;/span&gt;:
+    &lt;span style=&#34;color:#f92672&#34;&gt;branches&lt;/span&gt;: [ &lt;span style=&#34;color:#ae81ff&#34;&gt;master ]&lt;/span&gt;
+
+  &lt;span style=&#34;color:#75715e&#34;&gt;# Allows you to run this workflow manually from the Actions tab&lt;/span&gt;
+  &lt;span style=&#34;color:#f92672&#34;&gt;workflow_dispatch&lt;/span&gt;:
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# A workflow run is made up of one or more jobs that can run sequentially or in parallel&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;jobs&lt;/span&gt;:
+  &lt;span style=&#34;color:#75715e&#34;&gt;# This workflow contains a single job called &amp;#34;build&amp;#34;&lt;/span&gt;
+  &lt;span style=&#34;color:#f92672&#34;&gt;build&lt;/span&gt;:
+    &lt;span style=&#34;color:#75715e&#34;&gt;# The type of runner that the job will run on&lt;/span&gt;
+    &lt;span style=&#34;color:#f92672&#34;&gt;runs-on&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;ubuntu-latest&lt;/span&gt;
+
+    &lt;span style=&#34;color:#75715e&#34;&gt;# Steps represent a sequence of tasks that will be executed as part of the job&lt;/span&gt;
+    &lt;span style=&#34;color:#f92672&#34;&gt;steps&lt;/span&gt;:
+      &lt;span style=&#34;color:#75715e&#34;&gt;# Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it&lt;/span&gt;
+      - &lt;span style=&#34;color:#f92672&#34;&gt;uses&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;actions/checkout@v2&lt;/span&gt;
+
+      &lt;span style=&#34;color:#75715e&#34;&gt;# Runs a single command using the runners shell&lt;/span&gt;
+      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Run a one-line script&lt;/span&gt;
+        &lt;span style=&#34;color:#f92672&#34;&gt;run&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;echo Hello, world!&lt;/span&gt;
+
+      &lt;span style=&#34;color:#75715e&#34;&gt;# Runs a set of commands using the runners shell&lt;/span&gt;
+      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Run a multi-line script&lt;/span&gt;
+        &lt;span style=&#34;color:#f92672&#34;&gt;run&lt;/span&gt;: |&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;          echo Add other actions to build,
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;          echo test, and deploy your project.&lt;/span&gt;          
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;修改为：（这里使用了 &lt;code&gt;actions-js/push@master&lt;/code&gt; 来 Commit &amp;amp; Push）&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# This is a basic workflow to help you get started with Actions&lt;/span&gt;
+
+&lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;CI&lt;/span&gt;
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Controls when the workflow will run&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;on&lt;/span&gt;:
+  &lt;span style=&#34;color:#75715e&#34;&gt;# Triggers the workflow on push or pull request events but only for the master branch&lt;/span&gt;
+  &lt;span style=&#34;color:#f92672&#34;&gt;push&lt;/span&gt;:
+    &lt;span style=&#34;color:#f92672&#34;&gt;branches&lt;/span&gt;: [ &lt;span style=&#34;color:#ae81ff&#34;&gt;master ]&lt;/span&gt;
+  &lt;span style=&#34;color:#f92672&#34;&gt;pull_request&lt;/span&gt;:
+    &lt;span style=&#34;color:#f92672&#34;&gt;branches&lt;/span&gt;: [ &lt;span style=&#34;color:#ae81ff&#34;&gt;master ]&lt;/span&gt;
+
+  &lt;span style=&#34;color:#75715e&#34;&gt;# Allows you to run this workflow manually from the Actions tab&lt;/span&gt;
+  &lt;span style=&#34;color:#f92672&#34;&gt;workflow_dispatch&lt;/span&gt;:
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# A workflow run is made up of one or more jobs that can run sequentially or in parallel&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;jobs&lt;/span&gt;:
+  &lt;span style=&#34;color:#75715e&#34;&gt;# This workflow contains a single job called &amp;#34;build&amp;#34;&lt;/span&gt;
+  &lt;span style=&#34;color:#f92672&#34;&gt;build&lt;/span&gt;:
+    &lt;span style=&#34;color:#75715e&#34;&gt;# The type of runner that the job will run on&lt;/span&gt;
+    &lt;span style=&#34;color:#f92672&#34;&gt;runs-on&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;ubuntu-latest&lt;/span&gt;
+
+    &lt;span style=&#34;color:#75715e&#34;&gt;# Steps represent a sequence of tasks that will be executed as part of the job&lt;/span&gt;
+    &lt;span style=&#34;color:#f92672&#34;&gt;steps&lt;/span&gt;:
+      &lt;span style=&#34;color:#75715e&#34;&gt;# Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it&lt;/span&gt;
+      - &lt;span style=&#34;color:#f92672&#34;&gt;uses&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;actions/checkout@v2&lt;/span&gt;
+      
+      &lt;span style=&#34;color:#75715e&#34;&gt;# Generate website&lt;/span&gt;
+      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Run generator&lt;/span&gt;
+        &lt;span style=&#34;color:#f92672&#34;&gt;run&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;gotravel_linux_arm64&lt;/span&gt;
+        
+      &lt;span style=&#34;color:#75715e&#34;&gt;# Commit &amp;amp; Push&lt;/span&gt;
+      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Commit &amp;amp; Push changes&lt;/span&gt;
+        &lt;span style=&#34;color:#f92672&#34;&gt;uses&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;actions-js/push@master&lt;/span&gt;
+        &lt;span style=&#34;color:#f92672&#34;&gt;with&lt;/span&gt;:
+          &lt;span style=&#34;color:#f92672&#34;&gt;github_token&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;${{ secrets.GITHUB_TOKEN }}&lt;/span&gt;
+          &lt;span style=&#34;color:#f92672&#34;&gt;branch&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;master&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;最终 build success：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/image-20210814220043703.png&#34; alt=&#34;image-20210814220043703&#34;&gt;&lt;/p&gt;
+</description>
+        </item>
         
         <item>
             <title>HackMD 的使用与思考</title>
@@ -61,20 +153,20 @@
 &lt;p&gt;&lt;a href=&#34;https://reactnative.dev/&#34;&gt;官网&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;安装使用时，可以使用 &lt;a href=&#34;https://expo.io/&#34;&gt;Expo&lt;/a&gt; ，可以省去在 Xcode 或者 Android Studio 配置的过程。&lt;/p&gt;
 &lt;p&gt;我使用 macOS，运行以下命令安装 Expo&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;npm install -g expo-cli
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;npm install -g expo-cli
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;注意这里在 &lt;code&gt;npm&lt;/code&gt; 前不要加 &lt;code&gt;sudo&lt;/code&gt;，请提前确保权限通顺&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo chown -R &lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;whoami&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt; ~/.npm
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo chown -R &lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;whoami&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt; ~/.npm
 sudo chown -R &lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;whoami&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt; /usr/local/lib/node_modules
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装好后，我试图运行 Expo，但是得到了 Expo 不支持当前的 Node 版本的错误，于是运行 &lt;code&gt;nvm&lt;/code&gt; 来安装最新版本 Node（以下是未安装 &lt;code&gt;nvm&lt;/code&gt; 的版本）：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo npm install -g n
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo npm install -g n
 sudo n latest
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;或者，使用 &lt;code&gt;yarn&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;yarn global add expo-cli
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;yarn global add expo-cli
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;开始&#34;&gt;开始&lt;/h2&gt;
 &lt;p&gt;安装好后，生成第一个项目：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;expo init rn_proj
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;expo init rn_proj
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;进入目录并运行&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;cd rn_proj
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;cd rn_proj
 expo start
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;assets/start.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;然后同时会打开一个 Web 控制台&lt;/p&gt;
@@ -86,7 +178,7 @@ expo start
 &lt;p&gt;&lt;img src=&#34;assets/real_device.PNG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;模拟器运行&#34;&gt;模拟器运行&lt;/h3&gt;
 &lt;p&gt;这里我弄了好久一直卡在安装 Expo Go 到模拟器中，看到网络流量情况才发现下载一直没有用代理，macOS 需要开启终端代理才可。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;export https_proxy&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;http://127.0.0.1:7890 http_proxy&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;http://127.0.0.1:7890 all_proxy&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;socks5://127.0.0.1:7890
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;export https_proxy&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;http://127.0.0.1:7890 http_proxy&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;http://127.0.0.1:7890 all_proxy&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;socks5://127.0.0.1:7890
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这里的端口需要设置为代理的端口，我使用的 Clash 可以自动生成终端代理命令。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;assets/running.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;运行于-web&#34;&gt;运行于 Web&lt;/h3&gt;
@@ -95,12 +187,12 @@ expo start
 &lt;p&gt;写代码时每当修改保存，只要当前还处于 &lt;code&gt;expo start&lt;/code&gt; 状态，真机或模拟器上的画面就会跟着改变&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;或者直接使用-react-native&#34;&gt;或者直接使用 React Native&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;npx react-native init rn_proj
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;npx react-native init rn_proj
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;或&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;yarn react-native init rn_proj
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;yarn react-native init rn_proj
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
 &lt;p&gt;国内访问记得设置代理&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;npm config set proxy&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;http://127.0.0.1:xxxx
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;npm config set proxy&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;http://127.0.0.1:xxxx
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/blockquote&gt;
 </description>
         </item>
@@ -127,7 +219,7 @@ expo start
             
             <guid>https://creative.clox.nu/posts/creation/deployment-based-on-travis-ci/</guid>
             <description>&lt;p&gt;在 GitHub 仓库内创建 &lt;code&gt;.travis.yml&lt;/code&gt; 文件并添加以下内容后，即可自动部署此 Hugo 站点。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;dist&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;bionic&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;dist&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;bionic&lt;/span&gt;
 &lt;span style=&#34;color:#f92672&#34;&gt;addons&lt;/span&gt;:
   &lt;span style=&#34;color:#f92672&#34;&gt;snaps&lt;/span&gt;:
     - &lt;span style=&#34;color:#ae81ff&#34;&gt;hugo&lt;/span&gt;
@@ -174,11 +266,11 @@ expo start
 &lt;p&gt;即可。&lt;/p&gt;
 &lt;h2 id=&#34;顺便在这里提一下-git-submodule-和-git-remote&#34;&gt;顺便在这里提一下 &lt;code&gt;git submodule&lt;/code&gt; 和 &lt;code&gt;git remote&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;在我 fork 了源仓库之后，使用命令&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;git remote add upstream https://github.com/adityatelange/hugo-PaperMod.git
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;git remote add upstream https://github.com/adityatelange/hugo-PaperMod.git
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;来配置一个 remote，参考 &lt;a href=&#34;https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/configuring-a-remote-for-a-fork&#34;&gt;Configuring a remote for a fork&lt;/a&gt; ，并使用&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;git fetch upstream
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;git fetch upstream
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;来同步远程仓库，参考 &lt;a href=&#34;https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/syncing-a-fork&#34;&gt;Syncing a fork&lt;/a&gt; 。将 Mathjax 特性添加之后，push 到自己 fork 的仓库，随后在本站仓库使用命令&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;git submodule add https://github.com/cloxnu/hugo-PaperMod themes/PaperMod
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;git submodule add https://github.com/cloxnu/hugo-PaperMod themes/PaperMod
 git submodule init
 git submodule update --remote
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;即可更新新的带有 Mathjax 特性的 PaperMod 主题了。&lt;/p&gt;
@@ -241,9 +333,9 @@ git submodule update --remote
 &lt;p&gt;&lt;img src=&#34;assets/GST4cacaocac.png&#34; alt=&#34;GST-for-cacaocac&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;how-it-works&#34;&gt;How it works&lt;/h2&gt;
 &lt;p&gt;After cloning this repo, we can get the same result by running these codes in the &lt;code&gt;Application.py&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;tree &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; STree()
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;tree &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; STree()
 tree&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;build_with_automatic_end([&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;cacaocac&amp;#34;&lt;/span&gt;])
-&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(tree)
+print(tree)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;and then, something will appear in the console:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;cacaocac$ ----&amp;gt; ⊥
 c ----&amp;gt; cacaocac$
@@ -272,9 +364,9 @@ $ (end)
 &lt;p&gt;So, back to the topic, how does this tree solve the longest common substring problem?&lt;/p&gt;
 &lt;p&gt;In the &lt;code&gt;Application.py&lt;/code&gt;, the &lt;code&gt;lcs2&lt;/code&gt; function find the lcs of two strings. The method &lt;code&gt;build_with_automatic_end&lt;/code&gt; in the &lt;code&gt;STree&lt;/code&gt; will concatenate a list of strings with the ending characters &lt;em&gt;&amp;quot;$&amp;quot;&lt;/em&gt;, and construct a suffix tree. With the help of &lt;code&gt;end_idxes&lt;/code&gt;, these &lt;em&gt;&amp;quot;$&amp;quot;&lt;/em&gt; are different, and they represent the end of different strings. &lt;code&gt;STree&lt;/code&gt; will automatically treat these &lt;em&gt;&amp;quot;$&amp;quot;&lt;/em&gt; as different from other characters, so the character &lt;em&gt;&amp;quot;$&amp;quot;&lt;/em&gt; itself is just designed for readability of suffix tree printing. The &lt;code&gt;lcs2&lt;/code&gt; function will traverse the tree and find the deepest non-leaf node that contains the leaf nodes of all string indexes in the string list.&lt;/p&gt;
 &lt;p&gt;Similarly, it can also be demonstrated using the following codes in &lt;code&gt;Application.py&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(lcs2(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;cacaocac&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ccaooc&amp;#34;&lt;/span&gt;))
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;print(lcs2(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;cacaocac&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ccaooc&amp;#34;&lt;/span&gt;))
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;or&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(lcs([&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;cacaocac&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ccaooc&amp;#34;&lt;/span&gt;]))
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;print(lcs([&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;cacaocac&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ccaooc&amp;#34;&lt;/span&gt;]))
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The &lt;code&gt;lcs&lt;/code&gt; function can find the longest common substring of multiple strings.&lt;/p&gt;
 &lt;p&gt;The last two commands have the same result:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;cao

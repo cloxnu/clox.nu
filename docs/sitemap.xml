@@ -1,105 +1,66 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <url>
-    <loc>https://creative.clox.nu/</loc>
-    <lastmod>2021-03-30T13:41:30+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://creative.clox.nu/posts/productivity/hackmd/</loc>
-    <lastmod>2021-03-30T13:41:30+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://creative.clox.nu/posts/</loc>
-    <lastmod>2021-03-30T13:41:30+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://creative.clox.nu/posts/productivity/</loc>
-    <lastmod>2021-03-30T13:17:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://creative.clox.nu/productivity/</loc>
-    <lastmod>2021-03-30T13:17:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://creative.clox.nu/posts/study/app/get-started-with-react-native/</loc>
-    <lastmod>2021-03-01T15:15:30+08:00</lastmod>
-  </url>
-  
   <url>
     <loc>https://creative.clox.nu/categories/</loc>
-    <lastmod>2021-02-20T11:34:48+08:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-08-14T20:41:00+08:00</lastmod>
+  </url><url>
+    <loc>https://creative.clox.nu/</loc>
+    <lastmod>2021-08-14T20:41:00+08:00</lastmod>
+  </url><url>
     <loc>https://creative.clox.nu/categories/creation/</loc>
-    <lastmod>2021-02-20T11:34:48+08:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-08-14T20:41:00+08:00</lastmod>
+  </url><url>
+    <loc>https://creative.clox.nu/posts/</loc>
+    <lastmod>2021-08-14T20:41:00+08:00</lastmod>
+  </url><url>
+    <loc>https://creative.clox.nu/posts/creation/generate-my-travel-blog-by-github-actions/</loc>
+    <lastmod>2021-08-14T20:41:00+08:00</lastmod>
+  </url><url>
+    <loc>https://creative.clox.nu/posts/productivity/hackmd/</loc>
+    <lastmod>2021-03-30T13:41:30+08:00</lastmod>
+  </url><url>
+    <loc>https://creative.clox.nu/posts/productivity/</loc>
+    <lastmod>2021-03-30T13:17:00+08:00</lastmod>
+  </url><url>
+    <loc>https://creative.clox.nu/productivity/</loc>
+    <lastmod>2021-03-30T13:17:00+08:00</lastmod>
+  </url><url>
+    <loc>https://creative.clox.nu/posts/study/app/get-started-with-react-native/</loc>
+    <lastmod>2021-03-01T15:15:30+08:00</lastmod>
+  </url><url>
     <loc>https://creative.clox.nu/posts/creation/site-net/</loc>
     <lastmod>2021-02-20T11:34:48+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://creative.clox.nu/posts/creation/deployment-based-on-travis-ci/</loc>
     <lastmod>2021-02-16T10:58:54+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://creative.clox.nu/posts/creation/about-this-site/</loc>
     <lastmod>2021-02-15T00:21:45+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://creative.clox.nu/categories/love/</loc>
     <lastmod>2021-02-14T11:53:53+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://creative.clox.nu/posts/love/the-amazing-things/</loc>
     <lastmod>2021-02-14T11:53:53+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://creative.clox.nu/posts/love/welcome-to-cloxnu/</loc>
     <lastmod>2021-02-08T20:00:00+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://creative.clox.nu/posts/study/algorithm/generalized-suffix-tree/</loc>
     <lastmod>2020-12-23T00:00:00+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://creative.clox.nu/posts/creation/energy-charge-in-macos/</loc>
     <lastmod>2020-05-23T00:35:00+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://creative.clox.nu/archive/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://creative.clox.nu/search/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://creative.clox.nu/categories/study-/-algorithm/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://creative.clox.nu/categories/study-/-app/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://creative.clox.nu/tags/</loc>
   </url>
-  
 </urlset>
