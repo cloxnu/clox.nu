@@ -4,7 +4,7 @@ title: cloxnu's Creative Space
 theme: "PaperMod"
 
 googleAnalytics: UA-151087524-1
-disqusShortname: clox-nu
+# disqusShortname: clox-nu
 
 publishdir: ../docs/
 
@@ -13,6 +13,12 @@ params:
   title: cloxnu's creative space
   description: "Hi, I'm creating more creative works. Here are my thoughts, essays and expectations."
   author: Sidney Liu
+
+  utteranc:
+    enable: true
+    repo: "cloxnu/creative.clox.nu"
+    issueTerm: "pathname"
+    theme: "preferred-color-scheme"
 
   ShowReadingTime: true
   ShowPostNavLinks: true

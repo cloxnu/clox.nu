@@ -4,6 +4,10 @@ description: 使用 Markdown 的协作知识库
 date: 2021-03-30T13:41:30+08:00
 ---
 
+本文来自生产力 [ℙ𝕣𝕠𝕕𝕦𝕔𝕥𝕚𝕧𝕚𝕥𝕪](/posts/productivity/) 系列文章。
+
+---
+
 说到 Markdown 团队协作，就不得不提到 [HackMD](https://hackmd.io/)。
 
 我有一段时间在寻找 Markdown 合作 & 同步的过程中，偶然间发现了 HackMD，当时使用了一下，意外地发现相当好用。
