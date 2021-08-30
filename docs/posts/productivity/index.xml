@@ -24,7 +24,7 @@ $ hugo new ... 即可创建一个新的 blog。
 PS：这里添加到 blog 的当前日期符合 ISO 8601 标准，时间格式为 yyyy-MM-dd&#39;T&#39;HH:mm:ssxxx
 然后将写好的动作拖移到「编辑器」文件夹中，意味着可以在编辑器的快捷动作里运行。
 在某一分类文件夹下的任意文件里，点击右上角的闪电标志，运行「Create a Hugo blog」即可。
-本文使用 Taio 编辑。</description>
+使用 Taio 写完整篇文章后，最终回到「Working Copy」，Commit &amp;amp; Push 自己的更改。剩下生成 HTML 的环节就交给 Travis CI 或者 GitHub Actions 去完成，详细配置请看 使用 Travis CI 自动部署 Hugo 站点</description>
     </item>
     
     <item>
