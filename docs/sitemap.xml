@@ -3,15 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://creative.clox.nu/categories/</loc>
-    <lastmod>2021-08-14T20:41:00+08:00</lastmod>
+    <lastmod>2021-08-30T23:42:45+08:00</lastmod>
   </url><url>
     <loc>https://creative.clox.nu/</loc>
-    <lastmod>2021-08-14T20:41:00+08:00</lastmod>
-  </url><url>
-    <loc>https://creative.clox.nu/categories/creation/</loc>
-    <lastmod>2021-08-14T20:41:00+08:00</lastmod>
+    <lastmod>2021-08-30T23:42:45+08:00</lastmod>
   </url><url>
     <loc>https://creative.clox.nu/posts/</loc>
+    <lastmod>2021-08-30T23:42:45+08:00</lastmod>
+  </url><url>
+    <loc>https://creative.clox.nu/categories/productivity/</loc>
+    <lastmod>2021-08-30T23:42:45+08:00</lastmod>
+  </url><url>
+    <loc>https://creative.clox.nu/posts/productivity/how-to-use-taio-efficiently/</loc>
+    <lastmod>2021-08-30T23:42:45+08:00</lastmod>
+  </url><url>
+    <loc>https://creative.clox.nu/categories/creation/</loc>
     <lastmod>2021-08-14T20:41:00+08:00</lastmod>
   </url><url>
     <loc>https://creative.clox.nu/posts/creation/generate-my-travel-blog-by-github-actions/</loc>

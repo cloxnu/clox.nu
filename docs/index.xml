@@ -6,10 +6,40 @@
         <description>Recent content on cloxnu&#39;s Creative Space</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Sat, 14 Aug 2021 20:41:00 +0800</lastBuildDate>
+        <lastBuildDate>Mon, 30 Aug 2021 23:42:45 +0800</lastBuildDate>
         
         <atom:link href="https://creative.clox.nu/index.xml" rel="self" type="application/rss+xml" />
         
+        
+        <item>
+            <title>如何在 iPad Pro 上高效地使用 Taio 创建 Hugo blog</title>
+            <link>https://creative.clox.nu/posts/productivity/how-to-use-taio-efficiently/</link>
+            <pubDate>Mon, 30 Aug 2021 23:42:45 +0800</pubDate>
+            
+            <guid>https://creative.clox.nu/posts/productivity/how-to-use-taio-efficiently/</guid>
+            <description>&lt;p&gt;本文来自生产力 &lt;a href=&#34;https://creative.clox.nu/posts/productivity/&#34;&gt;ℙ𝕣𝕠𝕕𝕦𝕔𝕥𝕚𝕧𝕚𝕥𝕪&lt;/a&gt; 系列文章。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;我们知道，在一台安装了 Hugo 命令行工具的电脑上，只需运行命令&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ hugo new ...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;即可创建一个新的 blog。&lt;/p&gt;
+&lt;p&gt;为了发挥 iPad Pro 的「生产力」属性，我使用 Taio 的「动作」实现了此命令，因此可以在 iPad Pro 上高效快速地撰写 blog。&lt;/p&gt;
+&lt;p&gt;首先使用「Working Copy」拉取 GitHub 上的 blog 远程仓库。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/IMG_1.png&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;p&gt;然后打开 Taio，将刚刚拉取下来的远程仓库的本地地址添加到 Taio 的「添加的位置」中。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/IMG_2.png&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/IMG_3.png&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;p&gt;添加完成后，在「动作库」中创建新动作，取名叫「Create a Hugo blog」。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/IMG_4.png&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;p&gt;以下是一个创建新 blog 的简单版本，运行之后会要求输入 blog 目录名，标题，以及类别，然后会在当前目录下创建这个目录，以及这个目录下的 &lt;code&gt;index.md&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;PS：这里添加到 blog 的当前日期符合 ISO 8601 标准，时间格式为 &lt;code&gt;yyyy-MM-dd&#39;T&#39;HH:mm:ssxxx&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/IMG_6.jpg&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;p&gt;然后将写好的动作拖移到「编辑器」文件夹中，意味着可以在编辑器的快捷动作里运行。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/IMG_7.gif&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;p&gt;在某一分类文件夹下的任意文件里，点击右上角的闪电标志，运行「Create a Hugo blog」即可。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/IMG_5.png&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;p&gt;本文使用 Taio 编辑。&lt;/p&gt;
+</description>
+        </item>
         
         <item>
             <title>使用 GitHub Actions 自动部署我的 travel blog 站点</title>
@@ -154,7 +184,7 @@
 &lt;p&gt;由于开发需要，稍稍玩了玩 React Native 开发一个 App 的简要流程。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://reactnative.dev/&#34;&gt;官网&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;安装使用时，可以使用 &lt;a href=&#34;https://expo.io/&#34;&gt;Expo&lt;/a&gt; ，可以省去在 Xcode 或者 Android Studio 配置的过程。&lt;/p&gt;
-&lt;p&gt;我使用 macOS，运行以下命令安装 Expo&lt;/p&gt;
+&lt;p&gt;运行以下命令安装 Expo&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;npm install -g expo-cli
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;注意这里在 &lt;code&gt;npm&lt;/code&gt; 前不要加 &lt;code&gt;sudo&lt;/code&gt;，请提前确保权限通顺&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo chown -R &lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;whoami&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt; ~/.npm
