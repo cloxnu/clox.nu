@@ -46,4 +46,8 @@ PS：这里添加到 blog 的当前日期符合 ISO 8601 标准，时间格式�
 
 ![图片](assets/IMG_5.png)
 
-本文使用 Taio 编辑。
+使用 Taio 写完整篇文章后，最终回到「Working Copy」，Commit & Push 自己的更改。剩下生成 HTML 的环节就交给 Travis CI 或者 GitHub Actions 去完成，详细配置请看 [使用 Travis CI 自动部署 Hugo 站点](/posts/creation/deployment-based-on-travis-ci/)
+
+PS：如果你的 GitHub 账号拥有 GitHub Student Developer Pack，则可以不需要为「Working Copy」购买 Pro。
+
+本文使用 Taio 编辑，且仅使用 iPad Pro 进行发布。
