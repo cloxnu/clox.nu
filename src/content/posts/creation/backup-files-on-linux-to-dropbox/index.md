@@ -25,7 +25,7 @@ $ ~/.dropbox-dist/dropboxd
 于是立马在 [DigitalOcean](https://www.digitalocean.com/community/questions/how-to-configure-dropbox-on-ubuntu-20-04) 中找到答案，我缺少了一些依赖，运行以下命令解决此问题。
 
 ```shell
-sudo apt install libc6 libglapi-mesa libxdamage1 libxfixes3 libxcb-glx0 libxcb-dri2-0 libxcb-dri3-0 libxcb-present0 libxcb-sync1 libxshmfence1 libxxf86vm1
+$ sudo apt install libc6 libglapi-mesa libxdamage1 libxfixes3 libxcb-glx0 libxcb-dri2-0 libxcb-dri3-0 libxcb-present0 libxcb-sync1 libxshmfence1 libxxf86vm1
 ```
 
 安装依赖后，运行上述命令，得到以下输出：
@@ -68,7 +68,7 @@ $ sudo chmod +x /usr/local/bin/dropbox
 
 运行 `dropbox start` 启动守护进程。`dropbox status` 查看状态[^2]。
 
-当操作 `Dropbox` 目录时，守护进程会自动同步至 Dropbox 云端。
+当操作 `Dropbox` 目录时，守护进程会将更新的内容自动同步至 Dropbox 云端。
 
 ![图片](assets/IMG_6.jpg)
 
