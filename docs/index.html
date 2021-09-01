@@ -44,7 +44,7 @@ if (!doNotTrack) {
 <meta property="og:description" content="Hi, I&#39;m creating more creative works. Here are my thoughts, essays and expectations." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://creative.clox.nu/" />
-<meta property="og:updated_time" content="2021-08-30T23:42:45+08:00" /><meta property="og:site_name" content="cloxnu&#39;s creative space" />
+<meta property="og:updated_time" content="2021-09-01T23:02:22+08:00" /><meta property="og:site_name" content="cloxnu&#39;s creative space" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="cloxnu&#39;s Creative Space"/>
 <meta name="twitter:description" content="Hi, I&#39;m creating more creative works. Here are my thoughts, essays and expectations."/>
@@ -157,7 +157,7 @@ if (!doNotTrack) {
         <p><p>Welcome to cloxnu&rsquo;s creative space.</p>
 <ul>
 <li>📖 My series of articles:</li>
-<li><a href="/productivity/">ℙ𝕣𝕠𝕕𝕦𝕔𝕥𝕚𝕧𝕚𝕥𝕪</a> | <a href="https://thecommandbook.clox.nu">The Command Book</a></li>
+<li><a href="/posts/productivity/">ℙ𝕣𝕠𝕕𝕦𝕔𝕥𝕚𝕧𝕚𝕥𝕪</a> | <a href="https://thecommandbook.clox.nu">The Command Book</a></li>
 </ul>
 </p>
     </section>
@@ -194,6 +194,32 @@ if (!doNotTrack) {
 
 
 
+
+<article class="post-entry"> 
+
+  <header class="entry-header">
+    <h2>
+      如何用命令行将 Linux 服务器上的文件备份至 Dropbox
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>又进入了新的一月，又到了服务器续费的时候。由于我前些天把我的 travel blog 变成静态页面了，因此原本 serve 了它一段时间的服务器也可以注销掉了，不过服务器上还存有一些需要保留的文件，于是今天想把这些文件放到 Dropbox 中。
+参照 官方安装页面，先运行以下命令下载并解压 Dropbox。
+$ cd ~ &amp;&amp; wget -O - &#34;https://www.dropbox.com/download?plat=lnx.x86_64&#34; | tar xzf - 然后在 home 目录就会产生一个 .dropbox-dist 目录，同样参照以上官方安装页面，运行这个目录下的 dropboxd 来启动 Dropbox 守护进程。
+$ ~/.dropbox-dist/dropboxd 我在运行这句命令之后这段程序执行了一些指令后报错。（我使用的是 Ubuntu 20.04 LTS）
+于是立马在 DigitalOcean 中找到答案，我缺少了一些依赖，运行以下命令解决此问题。
+sudo apt install libc6 libglapi-mesa libxdamage1 libxfixes3 libxcb-glx0 libxcb-dri2-0 libxcb-dri3-0 libxcb-present0 libxcb-sync1 libxshmfence1 libxxf86vm1 安装依赖后，运行上述命令，得到以下输出：
+根据提示需要打开 URL 登录自己的账号以绑定这台服务器。打开后界面如下。
+ 如果自己的 Dropbox 账号是通过 Google 或者 Apple 登录的话，需要先登录自己的账号设置一个密码才能在这里登录。
+ 登录之后，控制台会出现一句话，
+This computer is now linked to Dropbox....</p>
+  </section>
+  <footer class="entry-footer">
+
+September 1, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
+</footer>
+  <a class="entry-link" aria-label="post link to 如何用命令行将 Linux 服务器上的文件备份至 Dropbox" href="https://creative.clox.nu/posts/creation/backup-files-on-linux-to-dropbox/"></a>
+</article>
 
 <article class="post-entry"> 
 <figure class="entry-cover">
@@ -396,28 +422,6 @@ February 14, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
 February 8, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
 </footer>
   <a class="entry-link" aria-label="post link to Welcome to clox.nu" href="https://creative.clox.nu/posts/love/welcome-to-cloxnu/"></a>
-</article>
-
-<article class="post-entry"> 
-
-  <header class="entry-header">
-    <h2>
-      Generalized Suffix Tree
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>An implementation of generalized suffix tree using Ukkonen’s algorithm.
-In this page:
- The longest common substring problem How it works GST versus Dynamic programming   Inspired by:
-Ukkonen, E. On-line construction of suffix trees. Algorithmica 14, 249–260 (1995).
-https://www.cs.helsinki.fi/u/ukkonen/SuffixT1withFigs.pdf
- The longest common substring problem Given two or more strings, find the longest common substring of these strings. Concretely, the longest common substring of the two strings “cacaocac” and “ccaooc” is “cao”....</p>
-  </section>
-  <footer class="entry-footer">
-
-December 23, 2020&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Sidney Liu
-</footer>
-  <a class="entry-link" aria-label="post link to Generalized Suffix Tree" href="https://creative.clox.nu/posts/study/algorithm/generalized-suffix-tree/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

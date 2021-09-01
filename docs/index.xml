@@ -6,10 +6,63 @@
         <description>Recent content on cloxnu&#39;s Creative Space</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Mon, 30 Aug 2021 23:42:45 +0800</lastBuildDate>
+        <lastBuildDate>Wed, 01 Sep 2021 23:02:22 +0800</lastBuildDate>
         
         <atom:link href="https://creative.clox.nu/index.xml" rel="self" type="application/rss+xml" />
         
+        
+        <item>
+            <title>如何用命令行将 Linux 服务器上的文件备份至 Dropbox</title>
+            <link>https://creative.clox.nu/posts/creation/backup-files-on-linux-to-dropbox/</link>
+            <pubDate>Wed, 01 Sep 2021 23:02:22 +0800</pubDate>
+            
+            <guid>https://creative.clox.nu/posts/creation/backup-files-on-linux-to-dropbox/</guid>
+            <description>&lt;p&gt;又进入了新的一月，又到了服务器续费的时候。由于我前些天把我的 travel blog 变成静态页面了，因此原本 serve 了它一段时间的服务器也可以注销掉了，不过服务器上还存有一些需要保留的文件，于是今天想把这些文件放到 Dropbox 中。&lt;/p&gt;
+&lt;p&gt;参照 &lt;a href=&#34;https://www.dropbox.com/install-linux&#34;&gt;官方安装页面&lt;/a&gt;，先运行以下命令下载并解压 Dropbox。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ cd ~ &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; wget -O - &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://www.dropbox.com/download?plat=lnx.x86_64&amp;#34;&lt;/span&gt; | tar xzf -
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后在 home 目录就会产生一个 &lt;code&gt;.dropbox-dist&lt;/code&gt; 目录，同样参照以上官方安装页面，运行这个目录下的 &lt;code&gt;dropboxd&lt;/code&gt; 来启动 Dropbox 守护进程。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ ~/.dropbox-dist/dropboxd
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;我在运行这句命令之后这段程序执行了一些指令后报错。（我使用的是 Ubuntu 20.04 LTS）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/IMG_1.jpg&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;p&gt;于是立马在 &lt;a href=&#34;https://www.digitalocean.com/community/questions/how-to-configure-dropbox-on-ubuntu-20-04&#34;&gt;DigitalOcean&lt;/a&gt; 中找到答案，我缺少了一些依赖，运行以下命令解决此问题。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo apt install libc6 libglapi-mesa libxdamage1 libxfixes3 libxcb-glx0 libxcb-dri2-0 libxcb-dri3-0 libxcb-present0 libxcb-sync1 libxshmfence1 libxxf86vm1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装依赖后，运行上述命令，得到以下输出：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/IMG_2.jpg&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;p&gt;根据提示需要打开 URL 登录自己的账号以绑定这台服务器。打开后界面如下。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/IMG_3.png&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果自己的 Dropbox 账号是通过 Google 或者 Apple 登录的话，需要先登录自己的账号设置一个密码才能在这里登录。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;登录之后，控制台会出现一句话，&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;This computer is now linked to Dropbox. Welcome XXX
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;代表登录已经成功了。&lt;/p&gt;
+&lt;p&gt;此时 home 目录下已经出现了 &lt;code&gt;Dropbox&lt;/code&gt; 目录，进入之后就可以看见自己 Dropbox 内部存放的文件。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/IMG_4.jpg&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;p&gt;依照官方安装页面，可以通过下载一个 Python 脚本，可以更方便地用命令行控制 Dropbox。运行以下命令&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;来下载 Python 脚本到 &lt;code&gt;/usr/local/bin&lt;/code&gt; 目录，即可快速执行。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ sudo wget -O /usr/local/bin/dropbox &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://www.dropbox.com/download?dl=packages/dropbox.py&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;再给它添加执行权限。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ sudo chmod +x /usr/local/bin/dropbox
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后运行 &lt;code&gt;dropbox&lt;/code&gt; 命令即可。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/IMG_5.jpg&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;p&gt;运行 &lt;code&gt;dropbox start&lt;/code&gt; 启动守护进程。&lt;code&gt;dropbox status&lt;/code&gt; 查看状态&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
+&lt;p&gt;当操作 &lt;code&gt;Dropbox&lt;/code&gt; 目录时，守护进程会自动同步至 Dropbox 云端。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/IMG_6.jpg&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;p&gt;在其他设备上也能看到同步的文件。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/IMG_7.jpg&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://linoxide.com/install-dropbox-ubuntu/&#34;&gt;https://linoxide.com/install-dropbox-ubuntu/&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://help.dropbox.com/zh-cn/installs-integrations/desktop/linux-commands&#34;&gt;https://help.dropbox.com/zh-cn/installs-integrations/desktop/linux-commands&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</description>
+        </item>
         
         <item>
             <title>如何在 iPad Pro 上高效地使用 Taio 创建 Hugo blog</title>
@@ -158,21 +211,6 @@
 &lt;p&gt;另外，GitHub 同步只能绑定一个 GitHub 账号的其中一个仓库中的一个文件，这样每次新建一个文件就得手动在 GitHub 新建一个文件了，如果它可以自动同步并且不同账号可以同步不同 GitHub 账号就好了。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;assets/github.png&#34; alt=&#34;GitHub&#34;&gt;&lt;/p&gt;
 &lt;p&gt;HackMD 还有大量的功能与操作，这是 &lt;a href=&#34;https://hackmd.io/c/tutorials-tw/%2Fs%2Ftutorials-tw&#34;&gt;官方文档&lt;/a&gt;。&lt;/p&gt;
-</description>
-        </item>
-        
-        <item>
-            <title>ℙ𝕣𝕠𝕕𝕦𝕔𝕥𝕚𝕧𝕚𝕥𝕪</title>
-            <link>https://creative.clox.nu/productivity/</link>
-            <pubDate>Tue, 30 Mar 2021 13:17:00 +0800</pubDate>
-            
-            <guid>https://creative.clox.nu/productivity/</guid>
-            <description>&lt;p&gt;Welcome to &lt;a href=&#34;https://creative.clox.nu/posts/productivity/&#34;&gt;ℙ𝕣𝕠𝕕𝕦𝕔𝕥𝕚𝕧𝕚𝕥𝕪&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;欢迎来到生产力（ℙ𝕣𝕠𝕕𝕦𝕔𝕥𝕚𝕧𝕚𝕥𝕪）系列文章，这里主要围绕计算机、coding、blog 等话题的生产力工具的体验与思考。&lt;/p&gt;
-&lt;h3 id=&#34;markdown&#34;&gt;Markdown&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;「&lt;a href=&#34;https://creative.clox.nu/posts/productivity/hackmd/&#34;&gt;HackMD 的使用与思考&lt;/a&gt;」&lt;/strong&gt; - 用 Markdown 的协作知识库&lt;/li&gt;
-&lt;/ul&gt;
 </description>
         </item>
         
