@@ -25,7 +25,7 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;我在运行这句命令之后这段程序执行了一些指令后报错。（我使用的是 Ubuntu 20.04 LTS）&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;assets/IMG_1.jpg&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
 &lt;p&gt;于是立马在 &lt;a href=&#34;https://www.digitalocean.com/community/questions/how-to-configure-dropbox-on-ubuntu-20-04&#34;&gt;DigitalOcean&lt;/a&gt; 中找到答案，我缺少了一些依赖，运行以下命令解决此问题。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo apt install libc6 libglapi-mesa libxdamage1 libxfixes3 libxcb-glx0 libxcb-dri2-0 libxcb-dri3-0 libxcb-present0 libxcb-sync1 libxshmfence1 libxxf86vm1
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ sudo apt install libc6 libglapi-mesa libxdamage1 libxfixes3 libxcb-glx0 libxcb-dri2-0 libxcb-dri3-0 libxcb-present0 libxcb-sync1 libxshmfence1 libxxf86vm1
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装依赖后，运行上述命令，得到以下输出：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;assets/IMG_2.jpg&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
 &lt;p&gt;根据提示需要打开 URL 登录自己的账号以绑定这台服务器。打开后界面如下。&lt;/p&gt;
@@ -45,7 +45,7 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后运行 &lt;code&gt;dropbox&lt;/code&gt; 命令即可。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;assets/IMG_5.jpg&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
 &lt;p&gt;运行 &lt;code&gt;dropbox start&lt;/code&gt; 启动守护进程。&lt;code&gt;dropbox status&lt;/code&gt; 查看状态&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
-&lt;p&gt;当操作 &lt;code&gt;Dropbox&lt;/code&gt; 目录时，守护进程会自动同步至 Dropbox 云端。&lt;/p&gt;
+&lt;p&gt;当操作 &lt;code&gt;Dropbox&lt;/code&gt; 目录时，守护进程会将更新的内容自动同步至 Dropbox 云端。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;assets/IMG_6.jpg&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
 &lt;p&gt;在其他设备上也能看到同步的文件。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;assets/IMG_7.jpg&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;

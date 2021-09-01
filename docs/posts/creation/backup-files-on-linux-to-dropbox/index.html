@@ -13,11 +13,10 @@
 $ cd ~ &amp;&amp; wget -O - &#34;https://www.dropbox.com/download?plat=lnx.x86_64&#34; | tar xzf - 然后在 home 目录就会产生一个 .dropbox-dist 目录，同样参照以上官方安装页面，运行这个目录下的 dropboxd 来启动 Dropbox 守护进程。
 $ ~/.dropbox-dist/dropboxd 我在运行这句命令之后这段程序执行了一些指令后报错。（我使用的是 Ubuntu 20.04 LTS）
 于是立马在 DigitalOcean 中找到答案，我缺少了一些依赖，运行以下命令解决此问题。
-sudo apt install libc6 libglapi-mesa libxdamage1 libxfixes3 libxcb-glx0 libxcb-dri2-0 libxcb-dri3-0 libxcb-present0 libxcb-sync1 libxshmfence1 libxxf86vm1 安装依赖后，运行上述命令，得到以下输出：
+$ sudo apt install libc6 libglapi-mesa libxdamage1 libxfixes3 libxcb-glx0 libxcb-dri2-0 libxcb-dri3-0 libxcb-present0 libxcb-sync1 libxshmfence1 libxxf86vm1 安装依赖后，运行上述命令，得到以下输出：
 根据提示需要打开 URL 登录自己的账号以绑定这台服务器。打开后界面如下。
  如果自己的 Dropbox 账号是通过 Google 或者 Apple 登录的话，需要先登录自己的账号设置一个密码才能在这里登录。
- 登录之后，控制台会出现一句话，
-This computer is now linked to Dropbox.">
+ 登录之后，控制台会出现一句话，">
 <meta name="author" content="Sidney Liu">
 <link rel="canonical" href="https://creative.clox.nu/posts/creation/backup-files-on-linux-to-dropbox/" />
 <link href="/assets/css/stylesheet.min.8d754ccb970fef4a6d8e5b0441e01d76a0d3530c6777067a1b2ca581aa1b4af7.css" integrity="sha256-jXVMy5cP70ptjlsEQeAddqDTUwxndwZ6GyylgaobSvc=" rel="preload stylesheet"
@@ -54,11 +53,10 @@ if (!doNotTrack) {
 $ cd ~ &amp;&amp; wget -O - &#34;https://www.dropbox.com/download?plat=lnx.x86_64&#34; | tar xzf - 然后在 home 目录就会产生一个 .dropbox-dist 目录，同样参照以上官方安装页面，运行这个目录下的 dropboxd 来启动 Dropbox 守护进程。
 $ ~/.dropbox-dist/dropboxd 我在运行这句命令之后这段程序执行了一些指令后报错。（我使用的是 Ubuntu 20.04 LTS）
 于是立马在 DigitalOcean 中找到答案，我缺少了一些依赖，运行以下命令解决此问题。
-sudo apt install libc6 libglapi-mesa libxdamage1 libxfixes3 libxcb-glx0 libxcb-dri2-0 libxcb-dri3-0 libxcb-present0 libxcb-sync1 libxshmfence1 libxxf86vm1 安装依赖后，运行上述命令，得到以下输出：
+$ sudo apt install libc6 libglapi-mesa libxdamage1 libxfixes3 libxcb-glx0 libxcb-dri2-0 libxcb-dri3-0 libxcb-present0 libxcb-sync1 libxshmfence1 libxxf86vm1 安装依赖后，运行上述命令，得到以下输出：
 根据提示需要打开 URL 登录自己的账号以绑定这台服务器。打开后界面如下。
  如果自己的 Dropbox 账号是通过 Google 或者 Apple 登录的话，需要先登录自己的账号设置一个密码才能在这里登录。
- 登录之后，控制台会出现一句话，
-This computer is now linked to Dropbox." />
+ 登录之后，控制台会出现一句话，" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://creative.clox.nu/posts/creation/backup-files-on-linux-to-dropbox/" />
 <meta property="article:published_time" content="2021-09-01T23:02:22+08:00" />
@@ -70,11 +68,10 @@ This computer is now linked to Dropbox." />
 $ cd ~ &amp;&amp; wget -O - &#34;https://www.dropbox.com/download?plat=lnx.x86_64&#34; | tar xzf - 然后在 home 目录就会产生一个 .dropbox-dist 目录，同样参照以上官方安装页面，运行这个目录下的 dropboxd 来启动 Dropbox 守护进程。
 $ ~/.dropbox-dist/dropboxd 我在运行这句命令之后这段程序执行了一些指令后报错。（我使用的是 Ubuntu 20.04 LTS）
 于是立马在 DigitalOcean 中找到答案，我缺少了一些依赖，运行以下命令解决此问题。
-sudo apt install libc6 libglapi-mesa libxdamage1 libxfixes3 libxcb-glx0 libxcb-dri2-0 libxcb-dri3-0 libxcb-present0 libxcb-sync1 libxshmfence1 libxxf86vm1 安装依赖后，运行上述命令，得到以下输出：
+$ sudo apt install libc6 libglapi-mesa libxdamage1 libxfixes3 libxcb-glx0 libxcb-dri2-0 libxcb-dri3-0 libxcb-present0 libxcb-sync1 libxshmfence1 libxxf86vm1 安装依赖后，运行上述命令，得到以下输出：
 根据提示需要打开 URL 登录自己的账号以绑定这台服务器。打开后界面如下。
  如果自己的 Dropbox 账号是通过 Google 或者 Apple 登录的话，需要先登录自己的账号设置一个密码才能在这里登录。
- 登录之后，控制台会出现一句话，
-This computer is now linked to Dropbox."/>
+ 登录之后，控制台会出现一句话，"/>
 
 
 <script type="application/ld+json">
@@ -113,8 +110,8 @@ This computer is now linked to Dropbox."/>
   "keywords": [
     
   ],
-  "articleBody": "又进入了新的一月，又到了服务器续费的时候。由于我前些天把我的 travel blog 变成静态页面了，因此原本 serve 了它一段时间的服务器也可以注销掉了，不过服务器上还存有一些需要保留的文件，于是今天想把这些文件放到 Dropbox 中。\n参照 官方安装页面，先运行以下命令下载并解压 Dropbox。\n$ cd ~ \u0026\u0026 wget -O - \"https://www.dropbox.com/download?plat=lnx.x86_64\" | tar xzf - 然后在 home 目录就会产生一个 .dropbox-dist 目录，同样参照以上官方安装页面，运行这个目录下的 dropboxd 来启动 Dropbox 守护进程。\n$ ~/.dropbox-dist/dropboxd 我在运行这句命令之后这段程序执行了一些指令后报错。（我使用的是 Ubuntu 20.04 LTS）\n于是立马在 DigitalOcean 中找到答案，我缺少了一些依赖，运行以下命令解决此问题。\nsudo apt install libc6 libglapi-mesa libxdamage1 libxfixes3 libxcb-glx0 libxcb-dri2-0 libxcb-dri3-0 libxcb-present0 libxcb-sync1 libxshmfence1 libxxf86vm1 安装依赖后，运行上述命令，得到以下输出：\n根据提示需要打开 URL 登录自己的账号以绑定这台服务器。打开后界面如下。\n 如果自己的 Dropbox 账号是通过 Google 或者 Apple 登录的话，需要先登录自己的账号设置一个密码才能在这里登录。\n 登录之后，控制台会出现一句话，\nThis computer is now linked to Dropbox. Welcome XXX 代表登录已经成功了。\n此时 home 目录下已经出现了 Dropbox 目录，进入之后就可以看见自己 Dropbox 内部存放的文件。\n依照官方安装页面，可以通过下载一个 Python 脚本，可以更方便地用命令行控制 Dropbox。运行以下命令1来下载 Python 脚本到 /usr/local/bin 目录，即可快速执行。\n$ sudo wget -O /usr/local/bin/dropbox \"https://www.dropbox.com/download?dl=packages/dropbox.py\" 再给它添加执行权限。\n$ sudo chmod +x /usr/local/bin/dropbox 然后运行 dropbox 命令即可。\n运行 dropbox start 启动守护进程。dropbox status 查看状态2。\n当操作 Dropbox 目录时，守护进程会自动同步至 Dropbox 云端。\n在其他设备上也能看到同步的文件。\n   https://linoxide.com/install-dropbox-ubuntu/ ↩︎\n https://help.dropbox.com/zh-cn/installs-integrations/desktop/linux-commands ↩︎\n   ",
-  "wordCount" : "121",
+  "articleBody": "又进入了新的一月，又到了服务器续费的时候。由于我前些天把我的 travel blog 变成静态页面了，因此原本 serve 了它一段时间的服务器也可以注销掉了，不过服务器上还存有一些需要保留的文件，于是今天想把这些文件放到 Dropbox 中。\n参照 官方安装页面，先运行以下命令下载并解压 Dropbox。\n$ cd ~ \u0026\u0026 wget -O - \"https://www.dropbox.com/download?plat=lnx.x86_64\" | tar xzf - 然后在 home 目录就会产生一个 .dropbox-dist 目录，同样参照以上官方安装页面，运行这个目录下的 dropboxd 来启动 Dropbox 守护进程。\n$ ~/.dropbox-dist/dropboxd 我在运行这句命令之后这段程序执行了一些指令后报错。（我使用的是 Ubuntu 20.04 LTS）\n于是立马在 DigitalOcean 中找到答案，我缺少了一些依赖，运行以下命令解决此问题。\n$ sudo apt install libc6 libglapi-mesa libxdamage1 libxfixes3 libxcb-glx0 libxcb-dri2-0 libxcb-dri3-0 libxcb-present0 libxcb-sync1 libxshmfence1 libxxf86vm1 安装依赖后，运行上述命令，得到以下输出：\n根据提示需要打开 URL 登录自己的账号以绑定这台服务器。打开后界面如下。\n 如果自己的 Dropbox 账号是通过 Google 或者 Apple 登录的话，需要先登录自己的账号设置一个密码才能在这里登录。\n 登录之后，控制台会出现一句话，\nThis computer is now linked to Dropbox. Welcome XXX 代表登录已经成功了。\n此时 home 目录下已经出现了 Dropbox 目录，进入之后就可以看见自己 Dropbox 内部存放的文件。\n依照官方安装页面，可以通过下载一个 Python 脚本，可以更方便地用命令行控制 Dropbox。运行以下命令1来下载 Python 脚本到 /usr/local/bin 目录，即可快速执行。\n$ sudo wget -O /usr/local/bin/dropbox \"https://www.dropbox.com/download?dl=packages/dropbox.py\" 再给它添加执行权限。\n$ sudo chmod +x /usr/local/bin/dropbox 然后运行 dropbox 命令即可。\n运行 dropbox start 启动守护进程。dropbox status 查看状态2。\n当操作 Dropbox 目录时，守护进程会将更新的内容自动同步至 Dropbox 云端。\n在其他设备上也能看到同步的文件。\n   https://linoxide.com/install-dropbox-ubuntu/ ↩︎\n https://help.dropbox.com/zh-cn/installs-integrations/desktop/linux-commands ↩︎\n   ",
+  "wordCount" : "122",
   "inLanguage": "en",
   "datePublished": "2021-09-01T23:02:22+08:00",
   "dateModified": "2021-09-01T23:02:22+08:00",
@@ -247,7 +244,7 @@ September 1, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
 </code></pre><p>我在运行这句命令之后这段程序执行了一些指令后报错。（我使用的是 Ubuntu 20.04 LTS）</p>
 <p><img src="assets/IMG_1.jpg" alt="图片"></p>
 <p>于是立马在 <a href="https://www.digitalocean.com/community/questions/how-to-configure-dropbox-on-ubuntu-20-04">DigitalOcean</a> 中找到答案，我缺少了一些依赖，运行以下命令解决此问题。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt install libc6 libglapi-mesa libxdamage1 libxfixes3 libxcb-glx0 libxcb-dri2-0 libxcb-dri3-0 libxcb-present0 libxcb-sync1 libxshmfence1 libxxf86vm1
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sudo apt install libc6 libglapi-mesa libxdamage1 libxfixes3 libxcb-glx0 libxcb-dri2-0 libxcb-dri3-0 libxcb-present0 libxcb-sync1 libxshmfence1 libxxf86vm1
 </code></pre></div><p>安装依赖后，运行上述命令，得到以下输出：</p>
 <p><img src="assets/IMG_2.jpg" alt="图片"></p>
 <p>根据提示需要打开 URL 登录自己的账号以绑定这台服务器。打开后界面如下。</p>
@@ -267,7 +264,7 @@ September 1, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
 </code></pre></div><p>然后运行 <code>dropbox</code> 命令即可。</p>
 <p><img src="assets/IMG_5.jpg" alt="图片"></p>
 <p>运行 <code>dropbox start</code> 启动守护进程。<code>dropbox status</code> 查看状态<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>。</p>
-<p>当操作 <code>Dropbox</code> 目录时，守护进程会自动同步至 Dropbox 云端。</p>
+<p>当操作 <code>Dropbox</code> 目录时，守护进程会将更新的内容自动同步至 Dropbox 云端。</p>
 <p><img src="assets/IMG_6.jpg" alt="图片"></p>
 <p>在其他设备上也能看到同步的文件。</p>
 <p><img src="assets/IMG_7.jpg" alt="图片"></p>
