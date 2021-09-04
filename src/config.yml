@@ -38,14 +38,14 @@ params:
     Title: "Hi there \U0001F44B"
     Content: >
       Welcome to cloxnu's creative space.
-      
-      - 📰 Daily & News:
-
-      - [𝕹𝖊𝖜𝖘](/news)
 
       - 📖 My series of articles:
 
       - [ℙ𝕣𝕠𝕕𝕦𝕔𝕥𝕚𝕧𝕚𝕥𝕪](/posts/productivity/) | [The Command Book](https://thecommandbook.clox.nu)
+      
+      - 📰 Daily & News:
+
+      - [𝕹𝖊𝖜𝖘](/news)
 
   socialIcons:
     - name: twitter
