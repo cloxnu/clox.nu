@@ -29,7 +29,7 @@ $ sudo apt install libc6 libglapi-mesa libxdamage1 libxfixes3 libxcb-glx0 libxcb
 <link rel="mask-icon" href="https://creative.clox.nu/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.87.0" />
+<meta name="generator" content="Hugo 0.88.0" />
 
 
 
@@ -240,7 +240,7 @@ September 1, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
 <p>参照 <a href="https://www.dropbox.com/install-linux">官方安装页面</a>，先运行以下命令下载并解压 Dropbox。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ cd ~ <span style="color:#f92672">&amp;&amp;</span> wget -O - <span style="color:#e6db74">&#34;https://www.dropbox.com/download?plat=lnx.x86_64&#34;</span> | tar xzf -
 </code></pre></div><p>然后在 home 目录就会产生一个 <code>.dropbox-dist</code> 目录，同样参照以上官方安装页面，运行这个目录下的 <code>dropboxd</code> 来启动 Dropbox 守护进程。</p>
-<pre><code>$ ~/.dropbox-dist/dropboxd
+<pre tabindex="0"><code>$ ~/.dropbox-dist/dropboxd
 </code></pre><p>我在运行这句命令之后这段程序执行了一些指令后报错。（我使用的是 Ubuntu 20.04 LTS）</p>
 <p><img src="assets/IMG_1.jpg" alt="图片"></p>
 <p>于是立马在 <a href="https://www.digitalocean.com/community/questions/how-to-configure-dropbox-on-ubuntu-20-04">DigitalOcean</a> 中找到答案，我缺少了一些依赖，运行以下命令解决此问题。</p>
@@ -253,7 +253,7 @@ September 1, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
 <p>如果自己的 Dropbox 账号是通过 Google 或者 Apple 登录的话，需要先登录自己的账号设置一个密码才能在这里登录。</p>
 </blockquote>
 <p>登录之后，控制台会出现一句话，</p>
-<pre><code>This computer is now linked to Dropbox. Welcome XXX
+<pre tabindex="0"><code>This computer is now linked to Dropbox. Welcome XXX
 </code></pre><p>代表登录已经成功了。</p>
 <p>此时 home 目录下已经出现了 <code>Dropbox</code> 目录，进入之后就可以看见自己 Dropbox 内部存放的文件。</p>
 <p><img src="assets/IMG_4.jpg" alt="图片"></p>

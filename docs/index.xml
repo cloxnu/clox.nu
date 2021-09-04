@@ -6,7 +6,7 @@
         <description>Recent content on cloxnu&#39;s Creative Space</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Wed, 01 Sep 2021 23:02:22 +0800</lastBuildDate>
+        <lastBuildDate>Sat, 04 Sep 2021 12:00:00 +0800</lastBuildDate>
         
         <atom:link href="https://creative.clox.nu/index.xml" rel="self" type="application/rss+xml" />
         
@@ -21,7 +21,7 @@
 &lt;p&gt;参照 &lt;a href=&#34;https://www.dropbox.com/install-linux&#34;&gt;官方安装页面&lt;/a&gt;，先运行以下命令下载并解压 Dropbox。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ cd ~ &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; wget -O - &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://www.dropbox.com/download?plat=lnx.x86_64&amp;#34;&lt;/span&gt; | tar xzf -
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后在 home 目录就会产生一个 &lt;code&gt;.dropbox-dist&lt;/code&gt; 目录，同样参照以上官方安装页面，运行这个目录下的 &lt;code&gt;dropboxd&lt;/code&gt; 来启动 Dropbox 守护进程。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ ~/.dropbox-dist/dropboxd
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ ~/.dropbox-dist/dropboxd
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;我在运行这句命令之后这段程序执行了一些指令后报错。（我使用的是 Ubuntu 20.04 LTS）&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;assets/IMG_1.jpg&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
 &lt;p&gt;于是立马在 &lt;a href=&#34;https://www.digitalocean.com/community/questions/how-to-configure-dropbox-on-ubuntu-20-04&#34;&gt;DigitalOcean&lt;/a&gt; 中找到答案，我缺少了一些依赖，运行以下命令解决此问题。&lt;/p&gt;
@@ -34,7 +34,7 @@
 &lt;p&gt;如果自己的 Dropbox 账号是通过 Google 或者 Apple 登录的话，需要先登录自己的账号设置一个密码才能在这里登录。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;登录之后，控制台会出现一句话，&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;This computer is now linked to Dropbox. Welcome XXX
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;This computer is now linked to Dropbox. Welcome XXX
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;代表登录已经成功了。&lt;/p&gt;
 &lt;p&gt;此时 home 目录下已经出现了 &lt;code&gt;Dropbox&lt;/code&gt; 目录，进入之后就可以看见自己 Dropbox 内部存放的文件。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;assets/IMG_4.jpg&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
@@ -409,7 +409,7 @@ git submodule update --remote
 tree&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;build_with_automatic_end([&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;cacaocac&amp;#34;&lt;/span&gt;])
 print(tree)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;and then, something will appear in the console:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;cacaocac$ ----&amp;gt; ⊥
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cacaocac$ ----&amp;gt; ⊥
 c ----&amp;gt; cacaocac$
 	a ----&amp;gt; a
 		c ----&amp;gt; c
@@ -441,34 +441,34 @@ $ (end)
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;print(lcs([&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;cacaocac&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ccaooc&amp;#34;&lt;/span&gt;]))
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The &lt;code&gt;lcs&lt;/code&gt; function can find the longest common substring of multiple strings.&lt;/p&gt;
 &lt;p&gt;The last two commands have the same result:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;cao
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cao
 &lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;gst-versus-dynamic-programming&#34;&gt;GST versus Dynamic programming&lt;/h2&gt;
 &lt;p&gt;Dynamic programming is another way to solve this problem, and there is always said that the dynamic programming costs $\Theta(mn)$, and the Ukkonen&amp;rsquo;s Algorithm just in linear time. So, let&amp;rsquo;s start an experiment.&lt;/p&gt;
 &lt;p&gt;The code in the &lt;code&gt;gst_vs_dp.py&lt;/code&gt;, we randomly generated some strings to examine the performance of the two algorithms.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;len&lt;/code&gt; is the length range of the strings, &lt;code&gt;com_len&lt;/code&gt; is the length range of the common part of the strings.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;len = (800, 1600)&lt;/code&gt; &lt;code&gt;com_len = (100, 200)&lt;/code&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;random string has been generated
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;random string has been generated
 gst_res: wTE^s&amp;gt;:x,k~%i3pRtdasZ&amp;gt;eLXrU5gbU#ptQF*?$ta,)k~znS*D/Ja:0L}@.X~i~E~{@NsKlK5c#`4v?v.$O]ts&amp;amp;/LNl&amp;lt;m]ww`Z!4G3vPd:@guRfCuz3DSRNHcVu~[r7s8J`X&amp;amp;/uETtiU[$N0p2.$SV2T&amp;gt;&amp;lt;WTzqLVm:KkC3uE#2SIj63h?3BZYv;G*bl&#39;PnNYhQ0M
 dp_res: wTE^s&amp;gt;:x,k~%i3pRtdasZ&amp;gt;eLXrU5gbU#ptQF*?$ta,)k~znS*D/Ja:0L}@.X~i~E~{@NsKlK5c#`4v?v.$O]ts&amp;amp;/LNl&amp;lt;m]ww`Z!4G3vPd:@guRfCuz3DSRNHcVu~[r7s8J`X&amp;amp;/uETtiU[$N0p2.$SV2T&amp;gt;&amp;lt;WTzqLVm:KkC3uE#2SIj63h?3BZYv;G*bl&#39;PnNYhQ0M
 
 gst_time: 12.598991394042969 ms
 dp_time: 284.3668460845947 ms
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;code&gt;len = (5000, 8000)&lt;/code&gt; &lt;code&gt;com_len = (250, 800)&lt;/code&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;random string has been generated
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;random string has been generated
 gst_res: q3U&#39;GCA9;dw}9nrT#R?&amp;quot;odw~HAK,&amp;amp;l;bd}VQ)h`15TAw6K/I1V]#;OSDj%(XmDp[&amp;amp;i}@$k($Bk8X4c&amp;quot;j(rXff9MK:E#`&amp;gt;B&amp;amp;&#39;SF`CgMP&amp;lt;`XOp!8g%&amp;amp;4fpbq&amp;lt;!Q*o4[9W}TXabj4FTele0?~Cm.S,8~)B(U9&amp;lt;m~[1.9/3XGR/@nIt,X3@k}D&amp;quot;U&amp;quot;h@!/C&amp;amp;92s09RU^DLrqo6[}s}Wlr:,VyYX&amp;gt;f{rx&amp;amp;&amp;gt;8bH`VaZy^3pId.A]XO/zgD@26wN:Y23@t(.&amp;gt;3$T6c8?L&#39;l&amp;quot;ZC?0PK,2tWNqa,S&amp;gt;VTe!!%L^n;;up&amp;lt;:Hw;gUtFp^dD]F8&amp;gt;!&#39;}vg^PNK4K&amp;quot;L7X&amp;lt;w;roH:&amp;amp;&amp;lt;jEzZJJPg5qd&#39;J!SWTP%N!CDDaxr7vBX.4@)9OO!Mg;S;M&#39;;VSV]^YZO9ww9k$H;Z^XcXKY@?Naa&amp;lt;jO$LEy`#e1&amp;amp;ywU8Yzq9PNAA^gQ58B?&#39;?)KiKt)$ztM~IrnJ&amp;lt;$;2%%?m&amp;quot;&amp;lt;dme7df&amp;gt;:b?j.A8dM2dH/!K!*o)glG[F&amp;gt;&amp;lt;aZ?c`By5{zEICgq[&amp;lt;M:D&amp;quot;LD;*FPJOzo9o,wXxKz@2];:g$oNrDhc/g{M9z9xTP[FllH/r!YrW!KMG!y(.$mO7Wzj31vMF2&amp;gt;YD?Y&amp;quot;I?t7FX!nWL[S&amp;gt;kLN1Ga7YN&#39;XrG*fxylmtBri/R!0nEGQ3ZG`xQ1o[~Z?1&amp;lt;VKMzKn90J^9#5J&amp;lt;:{3diD*o4Fn.WppQJ7&amp;gt;Z#1cQgV2(GX54S*)0@vQvFs^!/fag#p6kHgwB9{5)u:d9R
 dp_res: q3U&#39;GCA9;dw}9nrT#R?&amp;quot;odw~HAK,&amp;amp;l;bd}VQ)h`15TAw6K/I1V]#;OSDj%(XmDp[&amp;amp;i}@$k($Bk8X4c&amp;quot;j(rXff9MK:E#`&amp;gt;B&amp;amp;&#39;SF`CgMP&amp;lt;`XOp!8g%&amp;amp;4fpbq&amp;lt;!Q*o4[9W}TXabj4FTele0?~Cm.S,8~)B(U9&amp;lt;m~[1.9/3XGR/@nIt,X3@k}D&amp;quot;U&amp;quot;h@!/C&amp;amp;92s09RU^DLrqo6[}s}Wlr:,VyYX&amp;gt;f{rx&amp;amp;&amp;gt;8bH`VaZy^3pId.A]XO/zgD@26wN:Y23@t(.&amp;gt;3$T6c8?L&#39;l&amp;quot;ZC?0PK,2tWNqa,S&amp;gt;VTe!!%L^n;;up&amp;lt;:Hw;gUtFp^dD]F8&amp;gt;!&#39;}vg^PNK4K&amp;quot;L7X&amp;lt;w;roH:&amp;amp;&amp;lt;jEzZJJPg5qd&#39;J!SWTP%N!CDDaxr7vBX.4@)9OO!Mg;S;M&#39;;VSV]^YZO9ww9k$H;Z^XcXKY@?Naa&amp;lt;jO$LEy`#e1&amp;amp;ywU8Yzq9PNAA^gQ58B?&#39;?)KiKt)$ztM~IrnJ&amp;lt;$;2%%?m&amp;quot;&amp;lt;dme7df&amp;gt;:b?j.A8dM2dH/!K!*o)glG[F&amp;gt;&amp;lt;aZ?c`By5{zEICgq[&amp;lt;M:D&amp;quot;LD;*FPJOzo9o,wXxKz@2];:g$oNrDhc/g{M9z9xTP[FllH/r!YrW!KMG!y(.$mO7Wzj31vMF2&amp;gt;YD?Y&amp;quot;I?t7FX!nWL[S&amp;gt;kLN1Ga7YN&#39;XrG*fxylmtBri/R!0nEGQ3ZG`xQ1o[~Z?1&amp;lt;VKMzKn90J^9#5J&amp;lt;:{3diD*o4Fn.WppQJ7&amp;gt;Z#1cQgV2(GX54S*)0@vQvFs^!/fag#p6kHgwB9{5)u:d9R
 
 gst_time: 79.45418357849121 ms
 dp_time: 10244.915962219238 ms
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;code&gt;len = (5000, 8000)&lt;/code&gt; &lt;code&gt;com_len = (250, 800)&lt;/code&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;random string has been generated
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;random string has been generated
 gst_res: Hu4XU.if.j/h9DAT3.2RI&amp;quot;9LVeR6qoG}HOB#V[qdN[TQ!%IG#v7l]&#39;4pTA;.G^zhWt%/B0P4ATaG&amp;gt;FDZj?GNH&amp;quot;V%NW(.uL?O.5tJCv6d7[}e.&amp;lt;$SFXv(C&amp;amp;ww&amp;gt;9a&#39;Con(V}MK&amp;lt;exxZ@1.1&amp;lt;7&amp;lt;Wo%wGyjB0FPpcxPLIy^LRZS@c;eel4sUF:iqcGlhz3]z&amp;amp;M&amp;amp;]qk&amp;amp;.H3]vqI7YG)#&amp;amp;}U3sa&amp;quot;6c6H*y{3&amp;gt;9MiHB!W4N1YwR[,qdn:nw$M&amp;quot;g]Ic6S$*[FIzaOZ[fHT&amp;lt;04&amp;lt;$R$[f#.%MscaTy[6?gJ:Qq
 dp_res: Hu4XU.if.j/h9DAT3.2RI&amp;quot;9LVeR6qoG}HOB#V[qdN[TQ!%IG#v7l]&#39;4pTA;.G^zhWt%/B0P4ATaG&amp;gt;FDZj?GNH&amp;quot;V%NW(.uL?O.5tJCv6d7[}e.&amp;lt;$SFXv(C&amp;amp;ww&amp;gt;9a&#39;Con(V}MK&amp;lt;exxZ@1.1&amp;lt;7&amp;lt;Wo%wGyjB0FPpcxPLIy^LRZS@c;eel4sUF:iqcGlhz3]z&amp;amp;M&amp;amp;]qk&amp;amp;.H3]vqI7YG)#&amp;amp;}U3sa&amp;quot;6c6H*y{3&amp;gt;9MiHB!W4N1YwR[,qdn:nw$M&amp;quot;g]Ic6S$*[FIzaOZ[fHT&amp;lt;04&amp;lt;$R$[f#.%MscaTy[6?gJ:Qq
 
 gst_time: 63.52519989013672 ms
 dp_time: 6668.108701705933 ms
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;code&gt;len = (10000, 20000)&lt;/code&gt; &lt;code&gt;com_len = (500, 1000)&lt;/code&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;random string has been generated
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;random string has been generated
 gst_res: hee!!i$;hIn8&amp;amp;;Y)bU2BC^Bu{Ek]2}}`SvD&amp;gt;Fj!{%XS#pl6wMh#CDKe&#39;zk%N@mAC]r9[k:g{!Q&amp;lt;B0NQ&amp;quot;#&amp;quot;E&amp;lt;P@in$7]^fkn3tO:5q:lb%!Y5N3[rJBd7I@,6Uf{hNv5o$M%~]~9IS4#ho}]3A&amp;quot;~B9yLF!0&#39;`R(}le0KAMF/J7@EG/d&amp;amp;W/m`XcBt[,Bp0M8m6J]%#mh.^&amp;quot;:CsZw6~!w6eq[)WdAI/&#39;D`Tq.`*t[H5yVEk3mpRKZv&amp;lt;eMZj&#39;R?*zeA,!goeNt&amp;quot;5th.0^LN2xB$wy.*xP(cCW4)zZv#XS.#&amp;lt;&amp;amp;*&amp;quot;spzHfnG:78~P5z%a`Dn1g3&amp;gt;nF5CZm?;EfbKD/(g$!SIAxSRWce&amp;quot;Qf&#39;WbyceqGrh&amp;gt;uhP45R$:h?fJfEFk]@5P{]n2H/KgDGUA~`Q1&#39;&amp;lt;Z}66!s#V&amp;gt;B%&amp;gt;B1L3cIq?;ytc/E?mDmA2;m5LwdI@8)l3@&amp;amp;ZpdKp0&#39;f{VS@ahmmE!f.)kO(nNcVsU?yGEAzu&amp;quot;I/RH:N6&amp;quot;1xFvp~ipR~$7FJ@NLTs[VW^hng1bfc&amp;amp;!ieEbY.)uYN@Ux$(#~]WSyY/alVsiq1uv0u%tVx&#39;kS&amp;gt;x}dkUN5&amp;amp;lY!xy&amp;amp;Y]:wZU;gIXZ&amp;gt;h)mS7,au
 dp_res: hee!!i$;hIn8&amp;amp;;Y)bU2BC^Bu{Ek]2}}`SvD&amp;gt;Fj!{%XS#pl6wMh#CDKe&#39;zk%N@mAC]r9[k:g{!Q&amp;lt;B0NQ&amp;quot;#&amp;quot;E&amp;lt;P@in$7]^fkn3tO:5q:lb%!Y5N3[rJBd7I@,6Uf{hNv5o$M%~]~9IS4#ho}]3A&amp;quot;~B9yLF!0&#39;`R(}le0KAMF/J7@EG/d&amp;amp;W/m`XcBt[,Bp0M8m6J]%#mh.^&amp;quot;:CsZw6~!w6eq[)WdAI/&#39;D`Tq.`*t[H5yVEk3mpRKZv&amp;lt;eMZj&#39;R?*zeA,!goeNt&amp;quot;5th.0^LN2xB$wy.*xP(cCW4)zZv#XS.#&amp;lt;&amp;amp;*&amp;quot;spzHfnG:78~P5z%a`Dn1g3&amp;gt;nF5CZm?;EfbKD/(g$!SIAxSRWce&amp;quot;Qf&#39;WbyceqGrh&amp;gt;uhP45R$:h?fJfEFk]@5P{]n2H/KgDGUA~`Q1&#39;&amp;lt;Z}66!s#V&amp;gt;B%&amp;gt;B1L3cIq?;ytc/E?mDmA2;m5LwdI@8)l3@&amp;amp;ZpdKp0&#39;f{VS@ahmmE!f.)kO(nNcVsU?yGEAzu&amp;quot;I/RH:N6&amp;quot;1xFvp~ipR~$7FJ@NLTs[VW^hng1bfc&amp;amp;!ieEbY.)uYN@Ux$(#~]WSyY/alVsiq1uv0u%tVx&#39;kS&amp;gt;x}dkUN5&amp;amp;lY!xy&amp;amp;Y]:wZU;gIXZ&amp;gt;h)mS7,au
 
