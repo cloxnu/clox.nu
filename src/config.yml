@@ -42,10 +42,6 @@ params:
       - 📖 My series of articles:
 
       - [ℙ𝕣𝕠𝕕𝕦𝕔𝕥𝕚𝕧𝕚𝕥𝕪](/posts/productivity/) | [The Command Book](https://thecommandbook.clox.nu)
-      
-      - 📰 Daily & News:
-
-      - [𝕹𝖊𝖜𝖘](/news)
 
   socialIcons:
     - name: twitter
@@ -59,25 +55,21 @@ params:
 
 menu:
   main:
+    - identifier: news
+      name: 📰 𝕹𝖊𝖜𝖘
+      url: /news/
+      weight: 10
     - identifier: archive
       name: Archive
       url: /archive/
-      weight: 10
+      weight: 20
     - identifier: categories
       name: Categories
       url: /categories/
-      weight: 20
-    - identifier: tags
-      name: Tags
-      url: /tags/
       weight: 30
-    - identifier: search
-      name: Search
-      url: /search/
-      weight: 40
     - identifier: about
       name: About
       url: https://clox.nu
-      weight: 50
+      weight: 40
 
 
