@@ -77,7 +77,7 @@
 
 
 &lt;video controls width=100%&gt;
-    &lt;source src=&#34;assets/layout.MP4&#34; type=&#34;video/mp4&#34;&gt;
+    &lt;source src=&#34;assets/add_photos.MP4&#34; type=&#34;video/mp4&#34;&gt;
 &lt;/video&gt;
 
 &lt;p&gt;断开连接时，会有弹框提醒已断开&lt;/p&gt;
