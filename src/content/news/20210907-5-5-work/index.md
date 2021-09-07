@@ -2,6 +2,9 @@
 title: 使用 iPad Pro 体验 5-5.work
 date: 2021-09-07T00:12:12+08:00
 categories: news
+cover:
+    image: "assets/IMG_1.png"
+    hidden: true
 ---
 
 我们在 2021 年 6 月发布了 [无名速递](https://5-5.work)（原名「五号电池」）的 2.0 版本，今天使用 iPad Pro 体验了一下。
@@ -78,7 +81,7 @@ drag & drop 多张照片
 
 {{< rawhtml >}}
 <video controls width=100%>
-    <source src="assets/layout.MP4" type="video/mp4">
+    <source src="assets/add_photos.MP4" type="video/mp4">
 </video>
 {{</ rawhtml >}}
 
