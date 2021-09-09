@@ -8,6 +8,21 @@
     <language>en-us</language>
     <lastBuildDate>Sat, 04 Sep 2021 12:00:00 +0800</lastBuildDate><atom:link href="https://creative.clox.nu/news/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Cloudflare Pages 部署 Hugo 失败了</title>
+      <link>https://creative.clox.nu/news/20210909-cloudflare-pages-failed/</link>
+      <pubDate>Thu, 09 Sep 2021 10:56:03 +0800</pubDate>
+      
+      <guid>https://creative.clox.nu/news/20210909-cloudflare-pages-failed/</guid>
+      <description>Cloudflare Pages 是一个 Cloudflare 于 2020 年末推出的 Jamstack 平台。JAMstack 指主要使用 Javascript, API, Markup 的一种安全快速的网站结构。
+在此之前，这个 Hugo 站点是使用 GitHub Pages + Cloudflare CDN 这种方式运作的。于是今天尝试使用 Cloudflare Pages 部署。
+进入官网之后，登录 -&amp;gt; GitHub 授权
+由于 Cloudflare Pages 是直接支持了 Hugo，配置阶段简单快速。
+第一次构建失败，日志反映出 theme 内部的 html template 编译错误。
+然后我尝试了指定几个 Hugo 版本，但是最终仍然失败，从日志中看到构建已经成功了，但是部署错误，以收到这条错误告终：
+Failed: an internal error occurred </description>
+    </item>
+    
+    <item>
       <title>使用 iPad Pro 体验 5-5.work</title>
       <link>https://creative.clox.nu/news/20210907-5-5-work/</link>
       <pubDate>Tue, 07 Sep 2021 00:12:12 +0800</pubDate>
