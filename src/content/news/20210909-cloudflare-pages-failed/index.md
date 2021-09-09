@@ -1,5 +1,5 @@
 ---
-title: Cloudflare Pages 部署 Hugo 失败了
+title: 我使用 Cloudflare Pages 部署 Hugo 失败了
 date: 2021-09-09T10:56:03+08:00
 categories: news
 ---

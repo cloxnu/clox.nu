@@ -76,7 +76,6 @@ $ sudo chmod +x /usr/local/bin/dropbox
 
 ![图片](assets/IMG_7.jpg)
 
-------
 
 [^1]: https://linoxide.com/install-dropbox-ubuntu/
 [^2]: https://help.dropbox.com/zh-cn/installs-integrations/desktop/linux-commands
