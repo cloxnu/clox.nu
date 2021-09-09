@@ -70,6 +70,6 @@
   font-display: swap;
 }
 
-pre code {
-  font-family: 'Jetbrains Mono', Menlo, Consolas, 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Lucida Console', Monaco, 'Droid Sans Mono', monospace;
+code {
+  font-family: 'Jetbrains Mono', Menlo, Consolas, 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Lucida Console', Monaco, 'Droid Sans Mono', monospace !important;
 }
