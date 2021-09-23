@@ -6,10 +6,22 @@
         <description>Recent content on cloxnu&#39;s Creative Space</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Thu, 09 Sep 2021 19:35:14 +0800</lastBuildDate>
+        <lastBuildDate>Fri, 17 Sep 2021 14:30:42 +0800</lastBuildDate>
         
         <atom:link href="https://creative.clox.nu/index.xml" rel="self" type="application/rss+xml" />
         
+        
+        <item>
+            <title>我终于拿到了富士 X-S10</title>
+            <link>https://creative.clox.nu/news/20210917-fujifilm-xs10/</link>
+            <pubDate>Fri, 17 Sep 2021 14:30:42 +0800</pubDate>
+            
+            <guid>https://creative.clox.nu/news/20210917-fujifilm-xs10/</guid>
+            <description>&lt;p&gt;一个月前的 8 月 14 日，我在线下订购了一台富士 X-S10，没想到在一个月后的今天才拿到这款超级缺货的相机📷&lt;/p&gt;
+&lt;p&gt;我将使用新的方式记录生活。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/IMG_2.jpg&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+</description>
+        </item>
         
         <item>
             <title>为 Hugo 站点添加自定义字体</title>
