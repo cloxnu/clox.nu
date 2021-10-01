@@ -8,10 +8,10 @@
     <language>en-us</language><atom:link href="https://creative.clox.nu/categories/study-/-algorithm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Generalized Suffix Tree</title>
-      <link>https://creative.clox.nu/posts/study/algorithm/generalized-suffix-tree/</link>
+      <link>https://creative.clox.nu/blog/generalized-suffix-tree/</link>
       <pubDate>Wed, 23 Dec 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://creative.clox.nu/posts/study/algorithm/generalized-suffix-tree/</guid>
+      <guid>https://creative.clox.nu/blog/generalized-suffix-tree/</guid>
       <description>An implementation of generalized suffix tree using Ukkonen&amp;rsquo;s algorithm.
 In this page:
  The longest common substring problem How it works GST versus Dynamic programming   Inspired by:

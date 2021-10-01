@@ -8,10 +8,10 @@
     <language>en-us</language><atom:link href="https://creative.clox.nu/categories/study-/-app/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>初识 React Native</title>
-      <link>https://creative.clox.nu/posts/study/app/get-started-with-react-native/</link>
+      <link>https://creative.clox.nu/blog/get-started-with-react-native/</link>
       <pubDate>Mon, 01 Mar 2021 15:15:30 +0800</pubDate>
       
-      <guid>https://creative.clox.nu/posts/study/app/get-started-with-react-native/</guid>
+      <guid>https://creative.clox.nu/blog/get-started-with-react-native/</guid>
       <description>安装 由于开发需要，稍稍玩了玩 React Native 开发一个 App 的简要流程。
 官网
 安装使用时，可以使用 Expo ，可以省去在 Xcode 或者 Android Studio 配置的过程。

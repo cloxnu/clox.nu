@@ -9,20 +9,20 @@
     <lastBuildDate>Fri, 17 Sep 2021 14:30:42 +0800</lastBuildDate><atom:link href="https://creative.clox.nu/categories/news/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>我终于拿到了富士 X-S10</title>
-      <link>https://creative.clox.nu/news/20210917-fujifilm-xs10/</link>
+      <link>https://creative.clox.nu/news/2021/09/17/fujifilm-xs10/</link>
       <pubDate>Fri, 17 Sep 2021 14:30:42 +0800</pubDate>
       
-      <guid>https://creative.clox.nu/news/20210917-fujifilm-xs10/</guid>
+      <guid>https://creative.clox.nu/news/2021/09/17/fujifilm-xs10/</guid>
       <description>一个月前的 8 月 14 日，我在线下订购了一台富士 X-S10，没想到在一个月后的今天才拿到这款超级缺货的相机📷
 我将使用新的方式记录生活。</description>
     </item>
     
     <item>
       <title>为 Hugo 站点添加自定义字体</title>
-      <link>https://creative.clox.nu/news/20210909-custom-font/</link>
+      <link>https://creative.clox.nu/news/2021/09/09/hugo-custom-font/</link>
       <pubDate>Thu, 09 Sep 2021 19:35:14 +0800</pubDate>
       
-      <guid>https://creative.clox.nu/news/20210909-custom-font/</guid>
+      <guid>https://creative.clox.nu/news/2021/09/09/hugo-custom-font/</guid>
       <description>今天我把此 Hugo 站点关于 code 部分的字体改为 Jetbrains Mono，大致进行了以下几步。
 我使用的是 Papermod 主题，其 Wiki 页面有讲述关于如何加入自定义 css 的方法。
 于是我尝试将用 jsDelivr 加速的 Jetbrains Mono 字体静态加载1并生效于 code 中。
@@ -35,10 +35,10 @@
     
     <item>
       <title>我使用 Cloudflare Pages 部署 Hugo 失败了</title>
-      <link>https://creative.clox.nu/news/20210909-cloudflare-pages-failed/</link>
+      <link>https://creative.clox.nu/news/2021/09/09/cloudflare-pages-failed/</link>
       <pubDate>Thu, 09 Sep 2021 10:56:03 +0800</pubDate>
       
-      <guid>https://creative.clox.nu/news/20210909-cloudflare-pages-failed/</guid>
+      <guid>https://creative.clox.nu/news/2021/09/09/cloudflare-pages-failed/</guid>
       <description>Cloudflare Pages 是一个 Cloudflare 于 2020 年末推出的 Jamstack 平台。JAMstack 指主要使用 Javascript, API, Markup 的一种安全快速的网站结构。
 在此之前，这个 Hugo 站点是使用 GitHub Pages + Cloudflare CDN 这种方式运作的。于是今天尝试使用 Cloudflare Pages 部署。
 进入官网之后，登录 -&amp;gt; GitHub 授权
@@ -50,10 +50,10 @@ Failed: an internal error occurred </description>
     
     <item>
       <title>使用 iPad Pro 体验 5-5.work</title>
-      <link>https://creative.clox.nu/news/20210907-5-5-work/</link>
+      <link>https://creative.clox.nu/news/2021/09/07/5-5-work/</link>
       <pubDate>Tue, 07 Sep 2021 00:12:12 +0800</pubDate>
       
-      <guid>https://creative.clox.nu/news/20210907-5-5-work/</guid>
+      <guid>https://creative.clox.nu/news/2021/09/07/5-5-work/</guid>
       <description>我们在 2021 年 6 月发布了 无名速递（原名「五号电池」）的 2.0 版本，今天使用 iPad Pro 体验了一下。
 打开网页
 创建房间，名为 1234

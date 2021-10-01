@@ -9,10 +9,10 @@
     <lastBuildDate>Wed, 01 Sep 2021 23:02:22 +0800</lastBuildDate><atom:link href="https://creative.clox.nu/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>初识 React Native</title>
-      <link>https://creative.clox.nu/posts/study/app/get-started-with-react-native/</link>
+      <link>https://creative.clox.nu/blog/get-started-with-react-native/</link>
       <pubDate>Mon, 01 Mar 2021 15:15:30 +0800</pubDate>
       
-      <guid>https://creative.clox.nu/posts/study/app/get-started-with-react-native/</guid>
+      <guid>https://creative.clox.nu/blog/get-started-with-react-native/</guid>
       <description>安装 由于开发需要，稍稍玩了玩 React Native 开发一个 App 的简要流程。
 官网
 安装使用时，可以使用 Expo ，可以省去在 Xcode 或者 Android Studio 配置的过程。
@@ -27,30 +27,30 @@ cd rn_proj expo start 然后同时会打开一个 Web 控制台</description>
     
     <item>
       <title>The Amazing Things</title>
-      <link>https://creative.clox.nu/posts/love/the-amazing-things/</link>
+      <link>https://creative.clox.nu/blog/the-amazing-things/</link>
       <pubDate>Sun, 14 Feb 2021 11:53:53 +0800</pubDate>
       
-      <guid>https://creative.clox.nu/posts/love/the-amazing-things/</guid>
+      <guid>https://creative.clox.nu/blog/the-amazing-things/</guid>
       <description>Now, here is another new place to inspire and create amazing things. There is not much space here, but it brings extraordinary encouragement.
 I will always love, and pursue love.</description>
     </item>
     
     <item>
       <title>Welcome to clox.nu</title>
-      <link>https://creative.clox.nu/posts/love/welcome-to-cloxnu/</link>
+      <link>https://creative.clox.nu/blog/welcome-to-cloxnu/</link>
       <pubDate>Mon, 08 Feb 2021 20:00:00 +0800</pubDate>
       
-      <guid>https://creative.clox.nu/posts/love/welcome-to-cloxnu/</guid>
+      <guid>https://creative.clox.nu/blog/welcome-to-cloxnu/</guid>
       <description>clox.nu 已全面竣工，欢迎访问
  </description>
     </item>
     
     <item>
       <title>Generalized Suffix Tree</title>
-      <link>https://creative.clox.nu/posts/study/algorithm/generalized-suffix-tree/</link>
+      <link>https://creative.clox.nu/blog/generalized-suffix-tree/</link>
       <pubDate>Wed, 23 Dec 2020 00:00:00 +0800</pubDate>
       
-      <guid>https://creative.clox.nu/posts/study/algorithm/generalized-suffix-tree/</guid>
+      <guid>https://creative.clox.nu/blog/generalized-suffix-tree/</guid>
       <description>An implementation of generalized suffix tree using Ukkonen&amp;rsquo;s algorithm.
 In this page:
  The longest common substring problem How it works GST versus Dynamic programming   Inspired by:
