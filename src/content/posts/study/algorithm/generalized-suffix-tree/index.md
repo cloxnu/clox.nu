@@ -1,6 +1,7 @@
 ---
 title: "Generalized Suffix Tree"
 date: 2020-12-23T00:00:00+08:00
+slug: generalized-suffix-tree
 categories: study / algorithm
 math: true
 ---

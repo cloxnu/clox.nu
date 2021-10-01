@@ -1,6 +1,7 @@
 ---
 title: 使用 iPad Pro 体验 5-5.work
 date: 2021-09-07T00:12:12+08:00
+slug: 5-5-work
 categories: news
 cover:
     image: "assets/IMG_1.png"

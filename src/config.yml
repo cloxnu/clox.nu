@@ -8,6 +8,10 @@ googleAnalytics: UA-151087524-1
 
 publishdir: ../docs/
 
+permalinks:
+  posts: /blog/:slug/
+  news: /news/:year/:month/:day/:slug/
+
 params:
   env: production
   title: cloxnu's creative space

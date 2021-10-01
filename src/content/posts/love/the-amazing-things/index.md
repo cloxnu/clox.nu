@@ -1,6 +1,7 @@
 ---
 title: "The Amazing Things"
 date: 2021-02-14T11:53:53+08:00
+slug: the-amazing-things
 categories: love
 ---
 

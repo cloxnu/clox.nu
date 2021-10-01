@@ -1,6 +1,7 @@
 ---
 title: 如何在 iPad Pro 上高效地使用 Taio 创建 Hugo blog
 date: 2021-08-30T23:42:45+08:00
+slug: how-to-use-taio-efficiently
 categories: productivity
 cover:
     image: "assets/cover.png"

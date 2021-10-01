@@ -1,6 +1,7 @@
 ---
 title: "使用 Travis CI 自动部署 Hugo 站点"
 date: 2021-02-16T10:58:54+08:00
+slug: deployment-based-on-travis-ci
 categories: creation
 ---
 

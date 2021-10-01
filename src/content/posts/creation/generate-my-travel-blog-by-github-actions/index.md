@@ -1,6 +1,7 @@
 ---
 title: "使用 GitHub Actions 自动部署我的 travel blog 站点"
 date: 2021-08-14T20:41:00+08:00
+slug: generate-my-travel-blog-by-github-actions
 categories: creation
 ---
 

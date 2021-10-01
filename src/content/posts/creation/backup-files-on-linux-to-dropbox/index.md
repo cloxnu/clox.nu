@@ -1,6 +1,7 @@
 ---
 title: 如何用命令行将 Linux 服务器上的文件备份至 Dropbox
 date: 2021-09-01T23:02:22+08:00
+slug: backup-files-on-linux-to-dropbox
 categories: creation
 ---
 

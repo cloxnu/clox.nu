@@ -1,6 +1,7 @@
 ---
 title: 我终于拿到了富士 X-S10
 date: 2021-09-17T14:30:42+08:00
+slug: fujifilm-xs10
 categories: news
 cover: 
   image: assets/IMG_1.jpg

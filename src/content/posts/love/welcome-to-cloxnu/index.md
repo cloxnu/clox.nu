@@ -1,6 +1,7 @@
 ---
 title: "Welcome to clox.nu"
 date: 2021-02-08T20:00:00+08:00
+slug: welcome-to-cloxnu
 categories: love
 ---
 

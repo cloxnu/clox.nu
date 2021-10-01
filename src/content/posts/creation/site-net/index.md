@@ -1,6 +1,7 @@
 ---
 title: "一个奇特的想法 - Site Net"
 date: 2021-02-20T11:34:48+08:00
+slug: site-net
 categories: creation
 ---
 

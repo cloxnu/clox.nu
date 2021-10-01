@@ -1,6 +1,7 @@
 ---
 title: "学校爬电费状态栏 App 的 macOS 开发日记"
 date: 2020-05-23T00:35:00+08:00
+slug: energy-charge-in-macos
 categories: creation
 ---
 

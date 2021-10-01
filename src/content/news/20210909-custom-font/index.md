@@ -1,6 +1,7 @@
 ---
 title: 为 Hugo 站点添加自定义字体
 date: 2021-09-09T19:35:14+08:00
+slug: hugo-custom-font
 categories: news
 ---
 
