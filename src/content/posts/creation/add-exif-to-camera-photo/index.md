@@ -3,7 +3,6 @@ title: "如何使用相机拍摄包含精准地理位置信息的照片"
 date: 2021-10-07T17:00:30+08:00
 slug: add-gps-exif-info-to-camera-photos
 categories: creation
-draft: true
 ---
 
 ## 🤔
@@ -83,9 +82,29 @@ draft: true
 
 这无疑完美匹配了我想要的功能。
 
-## 实际测试
+## 关于坐标系
+
+GPS 轨迹记录软件记录的经纬度和海拔的标准采用世界大地测量系统（WGS）的最新版本「WGS-84」，而中国大陆法规要求地图提供商使用一种称为 GCJ-02 的坐标系统，它是一种基于 WGS-84 采用一种混淆算法后制定的大地测量系统，因此将测量好的 GPX 轨迹文件导入中国大陆地图提供商的地图中会引起偏差。
+
+如图是 Google Earth 中深圳地图街道与实际的偏差。
+
+![深圳地图偏差](assets/IMG_111.jpg)
+
+## 实际使用
+
+在 iOS 设备中我使用「GPX Tracker」来记录轨迹，这是一款开源的软件，GitHub 上有相应关于坐标系的 [issue](https://github.com/merlos/iOS-Open-GPX-Tracker/issues/192)，其中提到的解决方案是在 App 中可以使用 Open Street Map 即可查看到没有偏差的路径。
+
+另外，「我的足迹」App 也可记录轨迹，记录的轨迹同样是 WGS-84 标准，不过将轨迹导入到「我的足迹」中也可看到无偏差的轨迹（可能是 App 主动对轨迹进行了坐标系的转换）。
+
+我最终使用了「GPS Tracker」，因为它支持 Apple Watch 记录，这样不需要耗费手机的电量。
+
+![图片](assets/IMG_110.png)
+
+记录之后，将照片放在同一目录下，使用如下命令
 
 ![image-20211009193300980](assets/image-20211009193300980.png)
+
+最终生成了拥有位置的照片，效果相当不错。
 
 ![image-20211007200446137](assets/image-20211007200446137.png)
 
