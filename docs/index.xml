@@ -6,10 +6,87 @@
         <description>Recent content on cloxnu&#39;s Creative Space</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Fri, 17 Sep 2021 14:30:42 +0800</lastBuildDate>
+        <lastBuildDate>Thu, 07 Oct 2021 17:00:30 +0800</lastBuildDate>
         
         <atom:link href="https://creative.clox.nu/index.xml" rel="self" type="application/rss+xml" />
         
+        
+        <item>
+            <title>如何使用相机拍摄包含精准地理位置信息的照片</title>
+            <link>https://creative.clox.nu/blog/add-gps-exif-info-to-camera-photos/</link>
+            <pubDate>Thu, 07 Oct 2021 17:00:30 +0800</pubDate>
+            
+            <guid>https://creative.clox.nu/blog/add-gps-exif-info-to-camera-photos/</guid>
+            <description>&lt;h2 id=&#34;heading&#34;&gt;🤔&lt;/h2&gt;
+&lt;p&gt;当我们使用手机拍照时，按下快门的那一刻，程序会自动获取当前地理位置，并将其写入照片中。而当我们拥有海量包含地理位置并通过 iCloud 或者 NAS 管理的照片时，这些照片会被程序自动归类，因此可以省去大量整理照片的时间。&lt;/p&gt;
+&lt;p&gt;可是当拍照的设备转移到成像质量更好的相机时，我们却很难方便地获取地理位置信息，因为现在大多数的单反/无反相机都不带有 GPS 模块。因此目前这些相机的解决方案是通过手机蓝牙连接来获取 GPS 信息以写入照片。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/IMG_0108.jpg&#34; alt=&#34;IMG_0108&#34;&gt;&lt;/p&gt;
+&lt;p&gt;在实际使用中，相机需要手机打开对应相机 App 并连接数秒才能更新正确位置，否则相机要么不会写入地理位置，要么写入一个老的地理位置。在拍照时如果总是需要用手机来连接，那一定相当影响拍摄体验。&lt;/p&gt;
+&lt;p&gt;于是经过一段时间的思考，找到了一个可行的方案：在拍照期间，可以用含有 GPS 模块的设备（例如手机）记录自己的轨迹信息，此后可以根据照片拍摄时间和这些轨迹信息计算拍摄的地点，因而写入照片 EXIF 信息中。&lt;/p&gt;
+&lt;h2 id=&#34;动手&#34;&gt;动手&lt;/h2&gt;
+&lt;p&gt;起初，我打算自己实现通过轨迹信息计算拍摄地点的脚本。&lt;/p&gt;
+&lt;p&gt;首先通过手机上的轨迹记录软件得到一个 GPX 文件，GPX 文件的数据格式本质上是 XML。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;trk&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;name&amp;gt;&lt;/span&gt;...&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
+    ...
+    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;trkseg&amp;gt;&lt;/span&gt;
+        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;trkpt&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;lat=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;30.313094&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;lon=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;120.382447&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;ele&amp;gt;&lt;/span&gt;8.456302&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/ele&amp;gt;&lt;/span&gt;
+            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;extensions&amp;gt;&lt;/span&gt;
+                &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;speed&amp;gt;&lt;/span&gt;0.059180&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/speed&amp;gt;&lt;/span&gt;
+            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/extensions&amp;gt;&lt;/span&gt;
+            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;hdop&amp;gt;&lt;/span&gt;14.278474&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/hdop&amp;gt;&lt;/span&gt;
+            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;vdop&amp;gt;&lt;/span&gt;10.027264&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/vdop&amp;gt;&lt;/span&gt;
+            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;course&amp;gt;&lt;/span&gt;-1.000000&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/course&amp;gt;&lt;/span&gt;
+            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;time&amp;gt;&lt;/span&gt;2021-05-08T13:31:10Z&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/time&amp;gt;&lt;/span&gt;
+        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/trkpt&amp;gt;&lt;/span&gt;
+        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;trkpt&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;lat=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;30.313110&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;lon=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;120.382330&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;ele&amp;gt;&lt;/span&gt;9.418098&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/ele&amp;gt;&lt;/span&gt;
+            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;extensions&amp;gt;&lt;/span&gt;
+                &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;speed&amp;gt;&lt;/span&gt;0.938084&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/speed&amp;gt;&lt;/span&gt;
+            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/extensions&amp;gt;&lt;/span&gt;
+            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;hdop&amp;gt;&lt;/span&gt;14.331614&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/hdop&amp;gt;&lt;/span&gt;
+            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;vdop&amp;gt;&lt;/span&gt;9.951165&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/vdop&amp;gt;&lt;/span&gt;
+            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;course&amp;gt;&lt;/span&gt;286.357989&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/course&amp;gt;&lt;/span&gt;
+            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;time&amp;gt;&lt;/span&gt;2021-05-08T13:32:06Z&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/time&amp;gt;&lt;/span&gt;
+        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/trkpt&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/trkseg&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/trk&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;类似这样，每个 GPX 文件由 &lt;code&gt;&amp;lt;trk&amp;gt;&lt;/code&gt; 标签对组成，&lt;code&gt;&amp;lt;trk&amp;gt;&lt;/code&gt; 标签对又由 &lt;code&gt;&amp;lt;trkseg&amp;gt;&lt;/code&gt; 标签对组成。事实上在 GPX 记录软件中可以通过暂停、继续在同一个 GPX 文件中记录多个轨迹。因此每个 GPX 文件可以解析出由 &lt;code&gt;TrackSegment&lt;/code&gt; 为单位的多组数据。&lt;/p&gt;
+&lt;p&gt;因此，即便有多个 GPX 文件，同样可以解析成以 &lt;code&gt;TrackSegment&lt;/code&gt; 为元的多组数据。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;TrackSegment&lt;/code&gt; 是由一个个 &lt;code&gt;TrackPoint&lt;/code&gt; 组成的，我们假设这些 &lt;code&gt;TrackPoint&lt;/code&gt; 都是按时间顺序排列的（事实上除非人为，否则用 GPX 软件记录下来的轨迹都是按照时间顺序排列的，不过跨越时区的记录可能是个大问题），且没有时间重叠，因此我们可以仅用 &lt;code&gt;TrackSegment&lt;/code&gt; 的第一个 &lt;code&gt;TrackPoint&lt;/code&gt; 的时间（即开始时间）为键，排序所有 &lt;code&gt;TrackSegment&lt;/code&gt;，得到 &lt;code&gt;sortedSegments&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;接下来开始遍历照片，取得照片的拍摄时间，然后依据二分法，即可在 &lt;code&gt;O(log n)&lt;/code&gt; 的时间内从包含这些 &lt;code&gt;TrackSegment&lt;/code&gt; 的起始时间和结束时间的数组中轻松找到这个拍摄时间存在于哪个 &lt;code&gt;TrackSegment&lt;/code&gt;，或者不存在于任何一个 &lt;code&gt;TrackSegment&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;不幸的是，相机（可能是部分相机）拍摄的照片的 EXIF 信息里并没有记录时区信息，而 GPX 文件记录了 UTC 时间。&lt;/p&gt;
+&lt;p&gt;因此，当遍历到的照片没有找到时区信息时，最好的方法是直接向用户询问这张照片的时区。&lt;/p&gt;
+&lt;p&gt;拿到照片的拍摄时间后，若这张照片的拍摄时间不存在于任何一个 &lt;code&gt;TrackSegment&lt;/code&gt;，则不会处理这张照片的任何信息；若找到了这张照片在某一 &lt;code&gt;TrackSegment&lt;/code&gt;，则继续依据二分法找这张图片的拍摄时间是否刚好是某个 &lt;code&gt;TrackPoint&lt;/code&gt; 的时间，或处于两个 &lt;code&gt;TrackPoint&lt;/code&gt; 之间的某一时间点。若刚好是某一 &lt;code&gt;TrackPoint&lt;/code&gt; 的时间则使用对应轨迹点的经纬度和海拔写入照片即可，若处于两个轨迹点之间，则根据相邻两个轨迹点的时间到拍摄时间的比例计算经纬度和海拔数值。&lt;/p&gt;
+&lt;h2 id=&#34;exiftool&#34;&gt;exiftool&lt;/h2&gt;
+&lt;p&gt;在以往，我一直以为 &lt;a href=&#34;https://exiftool.org&#34;&gt;exiftool&lt;/a&gt; 只是查看和修改一个照片 EXIF 信息的命令行工具，在我正准备在脚本里用这个工具的时候，突然发现这个工具的 &lt;a href=&#34;https://exiftool.org/geotag.html&#34;&gt;Geotagging&lt;/a&gt; 功能，居然出人意料地实现了我想要的功能：可以通过包括 GPX 文件在内的多种 GPS 轨迹文件，自动为一个照片或一个目录下所有照片添加位置信息。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The &lt;code&gt;Geotag&lt;/code&gt; tag is used to define the GPS track log data. The geotagging feature is activated by assigning the name of a track log file to this tag. As an example, the following command line adds GPS tags to all images in the &amp;ldquo;/Users/Phil/Pictures&amp;rdquo; directory based on GPS positions stored in the track log file &amp;ldquo;track.log&amp;rdquo; in the current directory:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;exiftool -geotag=track.log /Users/Phil/Pictures
+&lt;/code&gt;&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;p&gt;用以上命令即可使某一路径的所有照片在一 GPS 轨迹文件中查找并修改这些照片的 EXIF 信息。在 &lt;code&gt;Geosync&lt;/code&gt; 中同时提到如果 GPS 轨迹或照片未指定时区，则将用当地时区。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Both the GPS and the image times are assumed to be local unless another timezone is specified (unless taken from GPSTimeStamp which is UTC).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这无疑完美匹配了我想要的功能。&lt;/p&gt;
+&lt;h2 id=&#34;关于坐标系&#34;&gt;关于坐标系&lt;/h2&gt;
+&lt;p&gt;GPS 轨迹记录软件记录的经纬度和海拔的标准采用世界大地测量系统（WGS）的最新版本「WGS-84」，而中国大陆法规要求地图提供商使用一种称为 GCJ-02 的坐标系统，它是一种基于 WGS-84 采用一种混淆算法后制定的大地测量系统，因此将测量好的 GPX 轨迹文件导入中国大陆地图提供商的地图中会引起偏差。&lt;/p&gt;
+&lt;p&gt;如图是 Google Earth 中深圳地图街道与实际的偏差。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/IMG_111.jpg&#34; alt=&#34;深圳地图偏差&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;实际使用&#34;&gt;实际使用&lt;/h2&gt;
+&lt;p&gt;在 iOS 设备中我使用「GPX Tracker」来记录轨迹，这是一款开源的软件，GitHub 上有相应关于坐标系的 &lt;a href=&#34;https://github.com/merlos/iOS-Open-GPX-Tracker/issues/192&#34;&gt;issue&lt;/a&gt;，其中提到的解决方案是在 App 中可以使用 Open Street Map 即可查看到没有偏差的路径。&lt;/p&gt;
+&lt;p&gt;另外，「我的足迹」App 也可记录轨迹，记录的轨迹同样是 WGS-84 标准，不过将轨迹导入到「我的足迹」中也可看到无偏差的轨迹（可能是 App 主动对轨迹进行了坐标系的转换）。&lt;/p&gt;
+&lt;p&gt;我最终使用了「GPS Tracker」，因为它支持 Apple Watch 记录，这样不需要耗费手机的电量。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/IMG_110.png&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;p&gt;记录之后，将照片放在同一目录下，使用如下命令&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/image-20211009193300980.png&#34; alt=&#34;image-20211009193300980&#34;&gt;&lt;/p&gt;
+&lt;p&gt;最终生成了拥有位置的照片，效果相当不错。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/image-20211007200446137.png&#34; alt=&#34;image-20211007200446137&#34;&gt;&lt;/p&gt;
+</description>
+        </item>
         
         <item>
             <title>我终于拿到了富士 X-S10</title>

@@ -2,11 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://creative.clox.nu/posts/creation/</loc>
+    <lastmod>2021-10-07T17:00:30+08:00</lastmod>
+  </url><url>
     <loc>https://creative.clox.nu/categories/</loc>
-    <lastmod>2021-09-17T14:30:42+08:00</lastmod>
+    <lastmod>2021-10-07T17:00:30+08:00</lastmod>
   </url><url>
     <loc>https://creative.clox.nu/</loc>
-    <lastmod>2021-09-17T14:30:42+08:00</lastmod>
+    <lastmod>2021-10-07T17:00:30+08:00</lastmod>
+  </url><url>
+    <loc>https://creative.clox.nu/categories/creation/</loc>
+    <lastmod>2021-10-07T17:00:30+08:00</lastmod>
+  </url><url>
+    <loc>https://creative.clox.nu/posts/</loc>
+    <lastmod>2021-10-07T17:00:30+08:00</lastmod>
+  </url><url>
+    <loc>https://creative.clox.nu/blog/add-gps-exif-info-to-camera-photos/</loc>
+    <lastmod>2021-10-07T17:00:30+08:00</lastmod>
   </url><url>
     <loc>https://creative.clox.nu/categories/news/</loc>
     <lastmod>2021-09-17T14:30:42+08:00</lastmod>
@@ -25,15 +37,6 @@
   </url><url>
     <loc>https://creative.clox.nu/news/</loc>
     <lastmod>2021-09-04T12:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://creative.clox.nu/posts/creation/</loc>
-    <lastmod>2021-09-01T23:02:22+08:00</lastmod>
-  </url><url>
-    <loc>https://creative.clox.nu/categories/creation/</loc>
-    <lastmod>2021-09-01T23:02:22+08:00</lastmod>
-  </url><url>
-    <loc>https://creative.clox.nu/posts/</loc>
-    <lastmod>2021-09-01T23:02:22+08:00</lastmod>
   </url><url>
     <loc>https://creative.clox.nu/blog/backup-files-on-linux-to-dropbox/</loc>
     <lastmod>2021-09-01T23:02:22+08:00</lastmod>
