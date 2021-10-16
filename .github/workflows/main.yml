@@ -29,18 +29,15 @@ jobs:
       - name: Update theme
         run: git submodule update --init --recursive
 
+      # Setup Hugo
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: 'latest'
-          
-      - name: Change Directory
-        run: cd ./src/
         
-      - name: list
-        run: ls
-        
+      # Build blog
       - name: Build
+        working-directory: ./src/
         run: hugo
         
       # Commit & Push
