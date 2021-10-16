@@ -33,6 +33,9 @@ jobs:
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: 'latest'
+          
+      - name: Change Directory
+        run: cd ./src/
         
       - name: Build
         run: hugo
