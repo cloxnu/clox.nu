@@ -1,6 +1,6 @@
 ---
 title: "📰 𝕹𝖊𝖜𝖘 Archive"
-layout: "archives"
+layout: "news_archives"
 type: news
 url: "/news/archive"
 summary: "archive"
