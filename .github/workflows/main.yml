@@ -37,6 +37,9 @@ jobs:
       - name: Change Directory
         run: cd ./src/
         
+      - name: list
+        run: ls
+        
       - name: Build
         run: hugo
         
