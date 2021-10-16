@@ -4,7 +4,7 @@ date: 2021-09-25T20:46:15+08:00
 categories: news
 slug: iphone13
 cover:
-  img: assets/IMG_1.jpg
+  image: assets/IMG_1.jpg
 ---
 
 9 月 17 号那天，我拿到了等了很久的相机，也恰好是那天的前一天，我的 iPhone XR 坏掉了，连 MacBook 恢复模式都一直自己重启。iPhone 13 也恰好在这一天晚上 8 点开售，可是在这天我还没想好要换手机。
