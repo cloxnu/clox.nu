@@ -8,11 +8,20 @@
     <language>en-us</language>
     <lastBuildDate>Sat, 04 Sep 2021 12:00:00 +0800</lastBuildDate><atom:link href="https://creative.clox.nu/news/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>想写一个 AI 驱动的游戏</title>
+      <link>https://creative.clox.nu/news/2021/10/13/ai-game/</link>
+      <pubDate>Wed, 13 Oct 2021 22:00:09 +0800</pubDate>
+      
+      <guid>https://creative.clox.nu/news/2021/10/13/ai-game/</guid>
+      <description>想写一种没有输赢、创造类的游戏，这个游戏随机性很强，主要靠 AI；其次它不容易沉迷。</description>
+    </item>
+    
+    <item>
       <title>想做一种永生的机器人</title>
-      <link>https://creative.clox.nu/news/2021/10/09/%E6%83%B3%E5%81%9A%E4%B8%80%E7%A7%8D%E6%B0%B8%E7%94%9F%E7%9A%84%E6%9C%BA%E5%99%A8%E4%BA%BA/</link>
+      <link>https://creative.clox.nu/news/2021/10/09/immortal-robot/</link>
       <pubDate>Sat, 09 Oct 2021 15:18:57 +0800</pubDate>
       
-      <guid>https://creative.clox.nu/news/2021/10/09/%E6%83%B3%E5%81%9A%E4%B8%80%E7%A7%8D%E6%B0%B8%E7%94%9F%E7%9A%84%E6%9C%BA%E5%99%A8%E4%BA%BA/</guid>
+      <guid>https://creative.clox.nu/news/2021/10/09/immortal-robot/</guid>
       <description>想做一种永生的机器人，以后可以用我的身份代替我永生，那可太好了。</description>
     </item>
     
