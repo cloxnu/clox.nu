@@ -40,9 +40,14 @@ jobs:
         working-directory: ./src/
         run: hugo
         
+      # Checkout gh-pages
+      - name: Chackout gh-pages
+        uses: actions/checkout@v2
+        with:
+          ref: gh-pages
+        
       - name: Move files to gh-pages
         run: |
-          git checkout gh-pages
           mv docs/* .
           rm -r docs/
         
