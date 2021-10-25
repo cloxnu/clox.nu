@@ -16,3 +16,5 @@ categories: news
 而且发货时间也变长了。
 
 ![图片](assets/IMG_4.png)![图片](assets/IMG_5.png)![图片](assets/IMG_6.png)
+
+希望自己能用新电脑创造更多有意义的事情！
