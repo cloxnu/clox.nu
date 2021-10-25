@@ -45,6 +45,7 @@ jobs:
         run: |
           git fetch
           git checkout gh-pages
+          ls | grep -v docs | xargs rm
           mv docs/* .
           rm -r docs/
       
