@@ -23,15 +23,8 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Checkout gh-pages
+      - name: Checkout main
         uses: actions/checkout@v2
-        with:
-          ref: gh-pages
-          
-      - name: Move files to gh-pages
-        run: |
-          git checkout main -- src
-          git checkout main -- .gitmodules
 
       # Update theme 
       - name: Update theme
@@ -48,13 +41,13 @@ jobs:
         working-directory: ./src/
         run: hugo
         
-      - name: Move files to gh-pages
+      - name: Checkout gh-pages
         run: |
+          git fetch
+          git checkout gh-pages
           mv docs/* .
           rm -r docs/
-          rm -r src/
-          rm .gitmodules
-        
+      
       # Commit & Push
       - name: Commit & Push changes
         uses: actions-js/push@master
