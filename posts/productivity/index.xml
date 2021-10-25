@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ℙ𝕣𝕠𝕕𝕦𝕔𝕥𝕚𝕧𝕚𝕥𝕪 on cloxnu&#39;s Creative Space</title>
+    <link>https://creative.clox.nu/posts/productivity/</link>
+    <description>Recent content in ℙ𝕣𝕠𝕕𝕦𝕔𝕥𝕚𝕧𝕚𝕥𝕪 on cloxnu&#39;s Creative Space</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 30 Mar 2021 13:17:00 +0800</lastBuildDate><atom:link href="https://creative.clox.nu/posts/productivity/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何在 iPad Pro 上高效地使用 Taio 创建 Hugo blog</title>
+      <link>https://creative.clox.nu/blog/how-to-use-taio-efficiently/</link>
+      <pubDate>Mon, 30 Aug 2021 23:42:45 +0800</pubDate>
+      
+      <guid>https://creative.clox.nu/blog/how-to-use-taio-efficiently/</guid>
+      <description>本文来自生产力 ℙ𝕣𝕠𝕕𝕦𝕔𝕥𝕚𝕧𝕚𝕥𝕪 系列文章。
+ 我们知道，在一台安装了 Hugo 命令行工具的电脑上，只需运行命令
+$ hugo new ... 即可创建一个新的 blog。
+为了发挥 iPad Pro 的「生产力」属性，我使用 Taio 的「动作」实现了此命令，因此可以在 iPad Pro 上高效快速地撰写 blog。
+首先使用「Working Copy」拉取 GitHub 上的 blog 远程仓库。
+然后打开 Taio，将刚刚拉取下来的远程仓库的本地地址添加到 Taio 的「添加的位置」中。
+添加完成后，在「动作库」中创建新动作，取名叫「Create a Hugo blog」。
+以下是一个创建新 blog 的简单版本，运行之后会要求输入 blog 目录名，标题，以及类别，然后会在当前目录下创建这个目录，以及这个目录下的 index.md。
+PS：这里添加到 blog 的当前日期符合 ISO 8601 标准，时间格式为 yyyy-MM-dd&#39;T&#39;HH:mm:ssxxx
+然后将写好的动作拖移到「编辑器」文件夹中，意味着可以在编辑器的快捷动作里运行。
+在某一分类文件夹下的任意文件里，点击右上角的闪电标志，运行「Create a Hugo blog」即可。
+使用 Taio 写完整篇文章后，最终回到「Working Copy」，Commit &amp;amp; Push 自己的更改。剩下生成 HTML 的环节就交给 Travis CI 或者 GitHub Actions 去完成，详细配置请看 使用 Travis CI 自动部署 Hugo 站点</description>
+    </item>
+    
+    <item>
+      <title>HackMD 的使用与思考</title>
+      <link>https://creative.clox.nu/blog/about-hackmd/</link>
+      <pubDate>Tue, 30 Mar 2021 13:41:30 +0800</pubDate>
+      
+      <guid>https://creative.clox.nu/blog/about-hackmd/</guid>
+      <description>本文来自生产力 ℙ𝕣𝕠𝕕𝕦𝕔𝕥𝕚𝕧𝕚𝕥𝕪 系列文章。
+ 说到 Markdown 团队协作，就不得不提到 HackMD。
+我有一段时间在寻找 Markdown 合作 &amp;amp; 同步的过程中，偶然间发现了 HackMD，当时使用了一下，意外地发现相当好用。
+HackMD 支持 MathJax 公式，以下是官方宣传的特色功能：（当时觉得这正是我想要的）
+注册账号登录以后，在个人页面可以建立不同的空间，给不同的文件放置不同的标签。这里的标签就已经起到了分类的作用，所以 HackMD 没有「文件夹」。
+我立马新建了一个团队空间，新建了一个新的笔记，写作页面相当干净简洁，该有的功能都有。
+在团队协作方面，正在编辑这篇文章的人可以同时看见其他协作者正在编辑的位置，编辑一段文字后还可以看见这段文字是谁写的，不同作者用不同颜色表示在这段文字的左边或者下面，如上图编辑页面。
+在「共享」弹窗中还可以修改阅读或编辑这篇文章的权限，URL 以及浏览方式。
+另外，GitHub 同步只能绑定一个 GitHub 账号的其中一个仓库中的一个文件，这样每次新建一个文件就得手动在 GitHub 新建一个文件了，如果它可以自动同步并且不同账号可以同步不同 GitHub 账号就好了。
+HackMD 还有大量的功能与操作，这是 官方文档。</description>
+    </item>
+    
+  </channel>
+</rss>

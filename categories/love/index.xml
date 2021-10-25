@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>love on cloxnu&#39;s Creative Space</title>
+    <link>https://creative.clox.nu/categories/love/</link>
+    <description>Recent content in love on cloxnu&#39;s Creative Space</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 14 Feb 2021 11:53:53 +0800</lastBuildDate><atom:link href="https://creative.clox.nu/categories/love/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Amazing Things</title>
+      <link>https://creative.clox.nu/blog/the-amazing-things/</link>
+      <pubDate>Sun, 14 Feb 2021 11:53:53 +0800</pubDate>
+      
+      <guid>https://creative.clox.nu/blog/the-amazing-things/</guid>
+      <description>Now, here is another new place to inspire and create amazing things. There is not much space here, but it brings extraordinary encouragement.
+I will always love, and pursue love.</description>
+    </item>
+    
+    <item>
+      <title>Welcome to clox.nu</title>
+      <link>https://creative.clox.nu/blog/welcome-to-cloxnu/</link>
+      <pubDate>Mon, 08 Feb 2021 20:00:00 +0800</pubDate>
+      
+      <guid>https://creative.clox.nu/blog/welcome-to-cloxnu/</guid>
+      <description>clox.nu 已全面竣工，欢迎访问
+ </description>
+    </item>
+    
+  </channel>
+</rss>
