@@ -32,7 +32,7 @@ jobs:
         run: |
           brew install imagemagick
           ls -al
-          mogrify -verbose -interlace plane **/*.jpg
+          mogrify -verbose -interlace plane news/2021/09/25/iphone13/assets/IMG_10.jpg
           
       # Commit & Push
       - name: Commit & Push changes
