@@ -33,4 +33,11 @@ jobs:
           brew install imagemagick
           mogrify -interlace plane **/*.jpg
           
+      # Commit & Push
+      - name: Commit & Push changes
+        uses: actions-js/push@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
+          
           
