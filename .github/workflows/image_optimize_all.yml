@@ -30,7 +30,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Processing picture
         run: |
-          apt-get install imagemagick
+          sudo apt-get install imagemagick
           ls -al
           mogrify -verbose -interlace plane **/*.jpg
           
