@@ -32,7 +32,7 @@ jobs:
         run: |
           sudo apt-get install imagemagick
           ls -al
-          mogrify -verbose -interlace plane **/*.jpg
+          mogrify -verbose -interlace plane '**/*.jpg'
           
       # Commit & Push
       - name: Commit & Push changes
