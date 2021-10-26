@@ -31,7 +31,8 @@ jobs:
       - name: Run a multi-line script
         run: |
           brew install imagemagick
-          mogrify -interlace plane **/*.jpg
+          ls -al
+          mogrify -verbose -interlace plane **/*.jpg
           
       # Commit & Push
       - name: Commit & Push changes
