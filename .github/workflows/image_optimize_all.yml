@@ -27,12 +27,13 @@ jobs:
         with:
           ref: gh-pages
 
+      #convert -verbose -interlace plane **/*.jpg
       # Runs a set of commands using the runners shell
       - name: Processing picture
         run: |
           sudo apt-get install imagemagick
           ls -al
-          convert -verbose -interlace plane **/*.jpg
+          find . -type f -exec file --mime-type {} \; | awk -F ': ' '{if ($NF == "image/jpeg") print $1 }' | xargs mogrify -verbose -interlace plane
           
       # Commit & Push
       - name: Commit & Push changes
