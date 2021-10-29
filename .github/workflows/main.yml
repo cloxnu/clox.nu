@@ -41,13 +41,19 @@ jobs:
         working-directory: ./src/
         run: hugo
         
-      - name: Checkout gh-pages
+      - name: Checkout gh-pages & Move files
         run: |
           git fetch
           git checkout gh-pages
           ls | grep -v docs | grep -v CNAME | xargs rm -r
           mv docs/* .
           rm -r docs/
+          
+      - name: Optimizing JPEGs
+        run: |
+          sudo apt-get install imagemagick
+          ls -al
+          find . -type f -exec file --mime-type {} \; | awk -F ': ' '{if ($NF == "image/jpeg") print $1 }' | xargs mogrify -verbose -interlace plane
       
       # Commit & Push
       - name: Commit & Push changes
