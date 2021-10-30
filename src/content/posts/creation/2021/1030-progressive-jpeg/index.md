@@ -55,7 +55,13 @@ mogrify-im6.q16: unable to open image `**/*.jpg': No such file or directory @ er
 $ find . -type f -exec file --mime-type {} \; | awk -F ': ' '{if ($NF == "image/jpeg") print $1 }' | xargs mogrify -verbose -interlace plane
 ```
 
-运行正常。
+运行后的多图 blog 体验效果：（无本地缓存）
+
+{{< rawhtml >}}
+<video controls width=100%>
+    <source src="assets/video.mov" type="video/mov">
+</video>
+{{</ rawhtml >}}
 
 ## 值得优化的地方
 
