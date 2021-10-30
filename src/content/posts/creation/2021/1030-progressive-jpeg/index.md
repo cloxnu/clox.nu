@@ -58,9 +58,7 @@ $ find . -type f -exec file --mime-type {} \; | awk -F ': ' '{if ($NF == "image/
 运行后的多图 blog 体验效果：（无本地缓存）
 
 {{< rawhtml >}}
-<video controls width=100%>
-    <source src="assets/video.mov" type="video/mov">
-</video>
+<video controls src="assets/video.mov" width=100%></video>
 {{</ rawhtml >}}
 
 ## 值得优化的地方
