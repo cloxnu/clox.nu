@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>使用渐进式 JPEG 图片优化 blog 阅读体验 | cloxnu&#39;s Creative Space</title>
+
+<meta name="keywords" content="" />
+<meta name="description" content="从写好第一篇多图大图的 blog 那一刻起，我就一直在思考访问者如何快速加载这些图片提高阅读体验，因为这些图片动辄几兆甚至几十兆，而我又不希望压缩这些图片导致质量下降。
+所以在以往的多图 blog 中，访问者往往要等待很久的加载时间。
+既然是图片大小导致的「硬伤」，加载这些图片几乎都取决于访问者的网速，那么有没有办法从图片本身的角度出发，来优化这种加载时间？
+什么是渐进式 JPEG（Progressive JPEG） 我们知道，JPEG 格式是目前兼容性最高，使用范围最广的图片有损压缩格式。而其中的编码方式分为多种，这里主要讨论两种：Baseline JPEG 和 Progressive JPEG。
+对于 Baseline JPEG，图片是从上到下一行行顺序存储的，因此在加载图片的时候能看到图片从上到下慢慢显现出来。
+而 Progressive JPEG，图片会由模糊到清晰渐进式地分多次存储，因此在加载图片时看到的图片是由模糊到清晰渲染的。
+ 图片来自「简书」
+ 这种渐进式 JPEG 显然可以在图片未加载完全的时候就能看到它的「预览」，而且渐进式 JPEG 的文件大小要略小于 Baseline JPEG。不过渐进式 JPEG 在 Windows 7 以前的 IE 等浏览器不受支持，会在完全加载完成后才显示图片。
+目前多图 blog 之所以加载时间很长，是因为这些图片存储的编码方式都是 Baseline JPEG。
+🎬 于是，我在之前的 GitHub Actions 配置文件中补充了将这些图片转换为 Progressive JPEG 的命令，当前的 blog 在合并入主干分支后 GitHub Actions 会先使用 hugo 命令创建 HTML1，然后 Progressive JPEG 命令再将所有 JPEG 图片批量处理。
+在 Linux 中，使用 ImageMagick 处理图片。其中的 -interlace 选项有提供将图片转换为 Progressive JPEG。">
+<meta name="author" content="Sidney Liu">
+<link rel="canonical" href="https://creative.clox.nu/blog/optimizing-blog-experience-with-progressive-jpeg-pictures/" />
+<link href="/assets/css/stylesheet.min.555a4d6fef760f048c5b1bf30019b077e4b6fb2de917654189208a1f5141f43b.css" integrity="sha256-VVpNb&#43;92DwSMWxvzABmwd&#43;S2&#43;y3pF2VBiSCKH1FB9Ds=" rel="preload stylesheet"
+    as="style">
+
+<link rel="icon" href="https://creative.clox.nu/logo/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://creative.clox.nu/logo/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://creative.clox.nu/logo/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://creative.clox.nu/apple-touch-icon.png">
+<link rel="mask-icon" href="https://creative.clox.nu/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.88.1" />
+
+
+
+
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-151087524-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<meta property="og:title" content="使用渐进式 JPEG 图片优化 blog 阅读体验" />
+<meta property="og:description" content="从写好第一篇多图大图的 blog 那一刻起，我就一直在思考访问者如何快速加载这些图片提高阅读体验，因为这些图片动辄几兆甚至几十兆，而我又不希望压缩这些图片导致质量下降。
+所以在以往的多图 blog 中，访问者往往要等待很久的加载时间。
+既然是图片大小导致的「硬伤」，加载这些图片几乎都取决于访问者的网速，那么有没有办法从图片本身的角度出发，来优化这种加载时间？
+什么是渐进式 JPEG（Progressive JPEG） 我们知道，JPEG 格式是目前兼容性最高，使用范围最广的图片有损压缩格式。而其中的编码方式分为多种，这里主要讨论两种：Baseline JPEG 和 Progressive JPEG。
+对于 Baseline JPEG，图片是从上到下一行行顺序存储的，因此在加载图片的时候能看到图片从上到下慢慢显现出来。
+而 Progressive JPEG，图片会由模糊到清晰渐进式地分多次存储，因此在加载图片时看到的图片是由模糊到清晰渲染的。
+ 图片来自「简书」
+ 这种渐进式 JPEG 显然可以在图片未加载完全的时候就能看到它的「预览」，而且渐进式 JPEG 的文件大小要略小于 Baseline JPEG。不过渐进式 JPEG 在 Windows 7 以前的 IE 等浏览器不受支持，会在完全加载完成后才显示图片。
+目前多图 blog 之所以加载时间很长，是因为这些图片存储的编码方式都是 Baseline JPEG。
+🎬 于是，我在之前的 GitHub Actions 配置文件中补充了将这些图片转换为 Progressive JPEG 的命令，当前的 blog 在合并入主干分支后 GitHub Actions 会先使用 hugo 命令创建 HTML1，然后 Progressive JPEG 命令再将所有 JPEG 图片批量处理。
+在 Linux 中，使用 ImageMagick 处理图片。其中的 -interlace 选项有提供将图片转换为 Progressive JPEG。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://creative.clox.nu/blog/optimizing-blog-experience-with-progressive-jpeg-pictures/" />
+<meta property="article:published_time" content="2021-10-30T02:14:30+08:00" />
+<meta property="article:modified_time" content="2021-10-30T02:14:30+08:00" /><meta property="og:site_name" content="cloxnu&#39;s creative space" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="使用渐进式 JPEG 图片优化 blog 阅读体验"/>
+<meta name="twitter:description" content="从写好第一篇多图大图的 blog 那一刻起，我就一直在思考访问者如何快速加载这些图片提高阅读体验，因为这些图片动辄几兆甚至几十兆，而我又不希望压缩这些图片导致质量下降。
+所以在以往的多图 blog 中，访问者往往要等待很久的加载时间。
+既然是图片大小导致的「硬伤」，加载这些图片几乎都取决于访问者的网速，那么有没有办法从图片本身的角度出发，来优化这种加载时间？
+什么是渐进式 JPEG（Progressive JPEG） 我们知道，JPEG 格式是目前兼容性最高，使用范围最广的图片有损压缩格式。而其中的编码方式分为多种，这里主要讨论两种：Baseline JPEG 和 Progressive JPEG。
+对于 Baseline JPEG，图片是从上到下一行行顺序存储的，因此在加载图片的时候能看到图片从上到下慢慢显现出来。
+而 Progressive JPEG，图片会由模糊到清晰渐进式地分多次存储，因此在加载图片时看到的图片是由模糊到清晰渲染的。
+ 图片来自「简书」
+ 这种渐进式 JPEG 显然可以在图片未加载完全的时候就能看到它的「预览」，而且渐进式 JPEG 的文件大小要略小于 Baseline JPEG。不过渐进式 JPEG 在 Windows 7 以前的 IE 等浏览器不受支持，会在完全加载完成后才显示图片。
+目前多图 blog 之所以加载时间很长，是因为这些图片存储的编码方式都是 Baseline JPEG。
+🎬 于是，我在之前的 GitHub Actions 配置文件中补充了将这些图片转换为 Progressive JPEG 的命令，当前的 blog 在合并入主干分支后 GitHub Actions 会先使用 hugo 命令创建 HTML1，然后 Progressive JPEG 命令再将所有 JPEG 图片批量处理。
+在 Linux 中，使用 ImageMagick 处理图片。其中的 -interlace 选项有提供将图片转换为 Progressive JPEG。"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://creative.clox.nu/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "https://creative.clox.nu/posts/creation/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "使用渐进式 JPEG 图片优化 blog 阅读体验",
+      "item": "https://creative.clox.nu/blog/optimizing-blog-experience-with-progressive-jpeg-pictures/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "使用渐进式 JPEG 图片优化 blog 阅读体验",
+  "name": "使用渐进式 JPEG 图片优化 blog 阅读体验",
+  "description": "从写好第一篇多图大图的 blog 那一刻起，我就一直在思考访问者如何快速加载这些图片提高阅读体验，因为这些图片动辄几兆甚至几十兆，而我又不希望压缩这些图片导致质量下降。\n所以在以往的多图 blog 中，访问者往往要等待很久的加载时间。\n既然是图片大小导致的「硬伤」，加载这些图片几乎都取决于访问者的网速，那么有没有办法从图片本身的角度出发，来优化这种加载时间？ …",
+  "keywords": [
+    
+  ],
+  "articleBody": "从写好第一篇多图大图的 blog 那一刻起，我就一直在思考访问者如何快速加载这些图片提高阅读体验，因为这些图片动辄几兆甚至几十兆，而我又不希望压缩这些图片导致质量下降。\n所以在以往的多图 blog 中，访问者往往要等待很久的加载时间。\n既然是图片大小导致的「硬伤」，加载这些图片几乎都取决于访问者的网速，那么有没有办法从图片本身的角度出发，来优化这种加载时间？\n什么是渐进式 JPEG（Progressive JPEG） 我们知道，JPEG 格式是目前兼容性最高，使用范围最广的图片有损压缩格式。而其中的编码方式分为多种，这里主要讨论两种：Baseline JPEG 和 Progressive JPEG。\n对于 Baseline JPEG，图片是从上到下一行行顺序存储的，因此在加载图片的时候能看到图片从上到下慢慢显现出来。\n而 Progressive JPEG，图片会由模糊到清晰渐进式地分多次存储，因此在加载图片时看到的图片是由模糊到清晰渲染的。\n 图片来自「简书」\n 这种渐进式 JPEG 显然可以在图片未加载完全的时候就能看到它的「预览」，而且渐进式 JPEG 的文件大小要略小于 Baseline JPEG。不过渐进式 JPEG 在 Windows 7 以前的 IE 等浏览器不受支持，会在完全加载完成后才显示图片。\n目前多图 blog 之所以加载时间很长，是因为这些图片存储的编码方式都是 Baseline JPEG。\n🎬 于是，我在之前的 GitHub Actions 配置文件中补充了将这些图片转换为 Progressive JPEG 的命令，当前的 blog 在合并入主干分支后 GitHub Actions 会先使用 hugo 命令创建 HTML1，然后 Progressive JPEG 命令再将所有 JPEG 图片批量处理。\n在 Linux 中，使用 ImageMagick 处理图片。其中的 -interlace 选项有提供将图片转换为 Progressive JPEG。\n起初我使用命令\n$ mogrify -verbose -interlace plane **/*.jpg 匹配并转换目录下所有后缀为 .jpg 文件并转换为渐进式 JPEG，在我的 macOS Big Sur 中可以正常工作，但是在 GitHub Actions 运行后报错：\nmogrify-im6.q16: unable to open image `**/*.jpg': No such file or directory @ error/blob.c/OpenBlob/2874. 于是我换了一种思路，可以用 find 命令先找到所有 JPEG 图片，然后再处理，这行命令就变成了\n$ find . -type f -exec file --mime-type {} \\; | awk -F ': ' '{if ($NF == \"image/jpeg\") print $1 }' | xargs mogrify -verbose -interlace plane 运行正常。\n值得优化的地方  可以不需要每次都转换所有图片，根据 hugo 命令生成的 HTML 与上一次的 HTML 的 diff，从而转换修改、添加和删去的图片。 安装 ImageMagick 需要一部分时间，可以尝试用 Docker 容器取代。    用 GitHub Actions 生成 blog 的 HTML 到 gh-pages 分支 ↩︎\n   ",
+  "wordCount" : "161",
+  "inLanguage": "en",
+  "datePublished": "2021-10-30T02:14:30+08:00",
+  "dateModified": "2021-10-30T02:14:30+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "Sidney Liu"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://creative.clox.nu/blog/optimizing-blog-experience-with-progressive-jpeg-pictures/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "cloxnu's Creative Space",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://creative.clox.nu/logo/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+
+
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://creative.clox.nu/" accesskey="h" title="I&#39;m cloxnu (Alt + H)">
+                <img src="/logo/logo.svg" alt="logo" aria-label="logo"
+                    height="35">I&#39;m cloxnu</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                
+                
+            </span>
+        </div>
+        <ul id="menu" onscroll="menu_on_scroll()">
+            <li>
+                <a href="https://creative.clox.nu/news/" title="📰 𝕹𝖊𝖜𝖘">
+                    <span>📰 𝕹𝖊𝖜𝖘</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://creative.clox.nu/archive/" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://creative.clox.nu/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://clox.nu" title="About">
+                    <span>About</span>
+                </a>
+            </li></ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+
+    <h1 class="post-title">
+      使用渐进式 JPEG 图片优化 blog 阅读体验
+    </h1>
+    <div class="post-meta">
+
+October 30, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
+
+</div>
+  </header> 
+
+  <div class="post-content">
+<p>从写好第一篇多图大图的 blog 那一刻起，我就一直在思考访问者如何快速加载这些图片提高阅读体验，因为这些图片动辄几兆甚至几十兆，而我又不希望压缩这些图片导致质量下降。</p>
+<p>所以在以往的多图 blog 中，访问者往往要等待很久的加载时间。</p>
+<p><img src="assets/IMG_1.jpg" alt="图片"></p>
+<p>既然是图片大小导致的「硬伤」，加载这些图片几乎都取决于访问者的网速，那么有没有办法从图片本身的角度出发，来优化这种加载时间？</p>
+<h2 id="什么是渐进式-jpegprogressive-jpeg">什么是渐进式 JPEG（Progressive JPEG）<a hidden class="anchor" aria-hidden="true" href="#什么是渐进式-jpegprogressive-jpeg">#</a></h2>
+<p>我们知道，JPEG 格式是目前兼容性最高，使用范围最广的图片有损压缩格式。而其中的编码方式分为多种，这里主要讨论两种：<strong>Baseline JPEG</strong> 和 <strong>Progressive JPEG</strong>。</p>
+<p>对于 <strong>Baseline JPEG</strong>，图片是从上到下一行行顺序存储的，因此在加载图片的时候能看到图片从上到下慢慢显现出来。</p>
+<p><img src="assets/IMG_2.gif" alt="图片"></p>
+<p>而 <strong>Progressive JPEG</strong>，图片会由模糊到清晰渐进式地分多次存储，因此在加载图片时看到的图片是由模糊到清晰渲染的。</p>
+<p><img src="assets/IMG_3.gif" alt="图片"></p>
+<blockquote>
+<p>图片来自「简书」</p>
+</blockquote>
+<p>这种渐进式 JPEG 显然可以在图片未加载完全的时候就能看到它的「预览」，而且渐进式 JPEG 的文件大小要略小于 Baseline JPEG。不过渐进式 JPEG 在 Windows 7 以前的 IE 等浏览器不受支持，会在完全加载完成后才显示图片。</p>
+<p>目前多图 blog 之所以加载时间很长，是因为这些图片存储的编码方式都是 Baseline JPEG。</p>
+<h2 id="heading">🎬<a hidden class="anchor" aria-hidden="true" href="#heading">#</a></h2>
+<p>于是，我在之前的 GitHub Actions 配置文件中补充了将这些图片转换为 Progressive JPEG 的命令，当前的 blog 在合并入主干分支后 GitHub Actions 会先使用 hugo 命令创建 HTML<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>，然后 Progressive JPEG 命令再将所有 JPEG 图片批量处理。</p>
+<p>在 Linux 中，使用 <a href="https://imagemagick.org/script/index.php">ImageMagick</a> 处理图片。其中的 <a href="https://imagemagick.org/script/command-line-options.php#interlace">-interlace</a> 选项有提供将图片转换为 Progressive JPEG。</p>
+<p>起初我使用命令</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ mogrify -verbose -interlace plane **/*.jpg
+</code></pre></div><p>匹配并转换目录下所有后缀为 .jpg 文件并转换为渐进式 JPEG，在我的 macOS Big Sur 中可以正常工作，但是在 GitHub Actions 运行后报错：</p>
+<pre tabindex="0"><code>mogrify-im6.q16: unable to open image `**/*.jpg': No such file or directory @ error/blob.c/OpenBlob/2874.
+</code></pre><p>于是我换了一种思路，可以用 <code>find</code> 命令先找到所有 JPEG 图片，然后再处理，这行命令就变成了</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ find . -type f -exec file --mime-type <span style="color:#f92672">{}</span> <span style="color:#ae81ff">\;</span> | awk -F <span style="color:#e6db74">&#39;: &#39;</span> <span style="color:#e6db74">&#39;{if ($NF == &#34;image/jpeg&#34;) print $1 }&#39;</span> | xargs mogrify -verbose -interlace plane
+</code></pre></div><p>运行正常。</p>
+<h2 id="值得优化的地方">值得优化的地方<a hidden class="anchor" aria-hidden="true" href="#值得优化的地方">#</a></h2>
+<ul>
+<li>可以不需要每次都转换所有图片，根据 <code>hugo</code> 命令生成的 HTML 与上一次的 HTML 的 diff，从而转换修改、添加和删去的图片。</li>
+<li>安装 ImageMagick 需要一部分时间，可以尝试用 Docker 容器取代。</li>
+</ul>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p><a href="/news/2021/10/25/gh-pages/">用 GitHub Actions 生成 blog 的 HTML 到 gh-pages 分支</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+</div>
+  <footer class="post-footer">
+    <nav class="paginav">
+      <a class="next" href="https://creative.clox.nu/blog/add-gps-exif-info-to-camera-photos/">
+        <span class="title">Next Page »</span>
+        <br>
+        <span>如何使用相机拍摄包含精准地理位置信息的照片</span>
+      </a>
+    </nav>
+  </footer>
+</article>
+    </main><footer class="footer">
+    <span>&copy; 2021 <a href="https://creative.clox.nu/">cloxnu&#39;s Creative Space</a></span>
+    <span>&middot;</span>
+    <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
+    <span>&middot;</span>
+    <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
+    <button class="top-link" id="top-link" type="button" accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a><div id="utter-container"></div>
+<script src="https://utteranc.es/client.js"
+    repo= 'cloxnu/creative.clox.nu'
+    issue-term= "pathname"
+    theme= 'preferred-color-scheme'
+    crossorigin= "anonymous"
+    async>
+</script>
+<script defer src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<script>
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+        }
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+</body>
+
+</html>

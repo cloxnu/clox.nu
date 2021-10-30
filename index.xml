@@ -6,10 +6,57 @@
         <description>Recent content on cloxnu&#39;s Creative Space</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Mon, 25 Oct 2021 22:00:09 +0800</lastBuildDate>
+        <lastBuildDate>Sat, 30 Oct 2021 02:14:30 +0800</lastBuildDate>
         
         <atom:link href="https://creative.clox.nu/index.xml" rel="self" type="application/rss+xml" />
         
+        
+        <item>
+            <title>使用渐进式 JPEG 图片优化 blog 阅读体验</title>
+            <link>https://creative.clox.nu/blog/optimizing-blog-experience-with-progressive-jpeg-pictures/</link>
+            <pubDate>Sat, 30 Oct 2021 02:14:30 +0800</pubDate>
+            
+            <guid>https://creative.clox.nu/blog/optimizing-blog-experience-with-progressive-jpeg-pictures/</guid>
+            <description>&lt;p&gt;从写好第一篇多图大图的 blog 那一刻起，我就一直在思考访问者如何快速加载这些图片提高阅读体验，因为这些图片动辄几兆甚至几十兆，而我又不希望压缩这些图片导致质量下降。&lt;/p&gt;
+&lt;p&gt;所以在以往的多图 blog 中，访问者往往要等待很久的加载时间。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/IMG_1.jpg&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;p&gt;既然是图片大小导致的「硬伤」，加载这些图片几乎都取决于访问者的网速，那么有没有办法从图片本身的角度出发，来优化这种加载时间？&lt;/p&gt;
+&lt;h2 id=&#34;什么是渐进式-jpegprogressive-jpeg&#34;&gt;什么是渐进式 JPEG（Progressive JPEG）&lt;/h2&gt;
+&lt;p&gt;我们知道，JPEG 格式是目前兼容性最高，使用范围最广的图片有损压缩格式。而其中的编码方式分为多种，这里主要讨论两种：&lt;strong&gt;Baseline JPEG&lt;/strong&gt; 和 &lt;strong&gt;Progressive JPEG&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;对于 &lt;strong&gt;Baseline JPEG&lt;/strong&gt;，图片是从上到下一行行顺序存储的，因此在加载图片的时候能看到图片从上到下慢慢显现出来。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/IMG_2.gif&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;p&gt;而 &lt;strong&gt;Progressive JPEG&lt;/strong&gt;，图片会由模糊到清晰渐进式地分多次存储，因此在加载图片时看到的图片是由模糊到清晰渲染的。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/IMG_3.gif&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;图片来自「简书」&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这种渐进式 JPEG 显然可以在图片未加载完全的时候就能看到它的「预览」，而且渐进式 JPEG 的文件大小要略小于 Baseline JPEG。不过渐进式 JPEG 在 Windows 7 以前的 IE 等浏览器不受支持，会在完全加载完成后才显示图片。&lt;/p&gt;
+&lt;p&gt;目前多图 blog 之所以加载时间很长，是因为这些图片存储的编码方式都是 Baseline JPEG。&lt;/p&gt;
+&lt;h2 id=&#34;heading&#34;&gt;🎬&lt;/h2&gt;
+&lt;p&gt;于是，我在之前的 GitHub Actions 配置文件中补充了将这些图片转换为 Progressive JPEG 的命令，当前的 blog 在合并入主干分支后 GitHub Actions 会先使用 hugo 命令创建 HTML&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;，然后 Progressive JPEG 命令再将所有 JPEG 图片批量处理。&lt;/p&gt;
+&lt;p&gt;在 Linux 中，使用 &lt;a href=&#34;https://imagemagick.org/script/index.php&#34;&gt;ImageMagick&lt;/a&gt; 处理图片。其中的 &lt;a href=&#34;https://imagemagick.org/script/command-line-options.php#interlace&#34;&gt;-interlace&lt;/a&gt; 选项有提供将图片转换为 Progressive JPEG。&lt;/p&gt;
+&lt;p&gt;起初我使用命令&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ mogrify -verbose -interlace plane **/*.jpg
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;匹配并转换目录下所有后缀为 .jpg 文件并转换为渐进式 JPEG，在我的 macOS Big Sur 中可以正常工作，但是在 GitHub Actions 运行后报错：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;mogrify-im6.q16: unable to open image `**/*.jpg&#39;: No such file or directory @ error/blob.c/OpenBlob/2874.
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;于是我换了一种思路，可以用 &lt;code&gt;find&lt;/code&gt; 命令先找到所有 JPEG 图片，然后再处理，这行命令就变成了&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ find . -type f -exec file --mime-type &lt;span style=&#34;color:#f92672&#34;&gt;{}&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\;&lt;/span&gt; | awk -F &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;: &amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;{if ($NF == &amp;#34;image/jpeg&amp;#34;) print $1 }&amp;#39;&lt;/span&gt; | xargs mogrify -verbose -interlace plane
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;运行正常。&lt;/p&gt;
+&lt;h2 id=&#34;值得优化的地方&#34;&gt;值得优化的地方&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;可以不需要每次都转换所有图片，根据 &lt;code&gt;hugo&lt;/code&gt; 命令生成的 HTML 与上一次的 HTML 的 diff，从而转换修改、添加和删去的图片。&lt;/li&gt;
+&lt;li&gt;安装 ImageMagick 需要一部分时间，可以尝试用 Docker 容器取代。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://creative.clox.nu/news/2021/10/25/gh-pages/&#34;&gt;用 GitHub Actions 生成 blog 的 HTML 到 gh-pages 分支&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</description>
+        </item>
         
         <item>
             <title>用 GitHub Actions 生成 blog 的 HTML 到 gh-pages 分支</title>
