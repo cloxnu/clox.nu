@@ -44,9 +44,7 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;运行后的多图 blog 体验效果：（无本地缓存）&lt;/p&gt;
 
 
-&lt;video controls width=100%&gt;
-    &lt;source src=&#34;assets/video.mov&#34; type=&#34;video/mov&#34;&gt;
-&lt;/video&gt;
+&lt;video controls src=&#34;assets/video.mov&#34; width=100%&gt;&lt;/video&gt;
 
 &lt;h2 id=&#34;值得优化的地方&#34;&gt;值得优化的地方&lt;/h2&gt;
 &lt;ul&gt;
