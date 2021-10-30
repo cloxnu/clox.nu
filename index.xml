@@ -41,7 +41,13 @@
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;mogrify-im6.q16: unable to open image `**/*.jpg&#39;: No such file or directory @ error/blob.c/OpenBlob/2874.
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;于是我换了一种思路，可以用 &lt;code&gt;find&lt;/code&gt; 命令先找到所有 JPEG 图片，然后再处理，这行命令就变成了&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ find . -type f -exec file --mime-type &lt;span style=&#34;color:#f92672&#34;&gt;{}&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\;&lt;/span&gt; | awk -F &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;: &amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;{if ($NF == &amp;#34;image/jpeg&amp;#34;) print $1 }&amp;#39;&lt;/span&gt; | xargs mogrify -verbose -interlace plane
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;运行正常。&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;运行后的多图 blog 体验效果：（无本地缓存）&lt;/p&gt;
+
+
+&lt;video controls width=100%&gt;
+    &lt;source src=&#34;assets/video.mov&#34; type=&#34;video/mov&#34;&gt;
+&lt;/video&gt;
+
 &lt;h2 id=&#34;值得优化的地方&#34;&gt;值得优化的地方&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;可以不需要每次都转换所有图片，根据 &lt;code&gt;hugo&lt;/code&gt; 命令生成的 HTML 与上一次的 HTML 的 diff，从而转换修改、添加和删去的图片。&lt;/li&gt;
