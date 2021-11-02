@@ -6,10 +6,20 @@
         <description>Recent content on cloxnu&#39;s Creative Space</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Sat, 30 Oct 2021 02:14:30 +0800</lastBuildDate>
+        <lastBuildDate>Tue, 02 Nov 2021 23:50:00 +0800</lastBuildDate>
         
         <atom:link href="https://creative.clox.nu/index.xml" rel="self" type="application/rss+xml" />
         
+        
+        <item>
+            <title>尝试玩玩 Apple Arcade</title>
+            <link>https://creative.clox.nu/news/2021/11/02/apple-arcade/</link>
+            <pubDate>Tue, 02 Nov 2021 23:50:00 +0800</pubDate>
+            
+            <guid>https://creative.clox.nu/news/2021/11/02/apple-arcade/</guid>
+            <description>&lt;p&gt;&lt;img src=&#34;assets/IMG_1.png&#34; alt=&#34;图片&#34;&gt;&lt;img src=&#34;assets/IMG_2.png&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+</description>
+        </item>
         
         <item>
             <title>使用渐进式 JPEG 图片优化 blog 阅读体验</title>
