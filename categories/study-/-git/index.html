@@ -146,7 +146,7 @@ if (!doNotTrack) {
     </h2>
   </header>
   <section class="entry-content">
-    <p>如何用 Git 命令修改历史提交 在实际工程中，有时我们在以往的提交中忘记提交部分代码，当想起来的时候已经提交过很多笔了。于是想要把当前的更改提交到历史 commit 中去。
+    <p>在实际工程中，有时我们在以往的提交中忘记提交部分代码，当想起来的时候已经提交过很多笔了。于是想要把当前的更改提交到历史 commit 中去。
 假设当前我们提交了三次：
 $ git log commit 0e162000e27ba998d5a92cc04b489e3d3ec0e30d (HEAD -&gt; master) Author: sidneysliu &lt;sidneysliu@tencent.com&gt; Date: Fri Nov 5 13:46:08 2021 &#43;0800 3rd commit commit f5f470406634bb255e4f19bf62780868afeed32d Author: sidneysliu &lt;sidneysliu@tencent.com&gt; Date: Fri Nov 5 13:45:21 2021 &#43;0800 2nd commit commit cf8c580d322e459fa1acf4ef1e6d08163aeb1a21 Author: sidneysliu &lt;sidneysliu@tencent.com&gt; Date: Fri Nov 5 13:41:30 2021 &#43;0800 1st commit 这几次提交就只涉及一个文件 1.txt
 $ cat 1.txt 11111111 22222222 33333333 其中第一行为第一次提交，第二行为第二次提交，第三行为第三次提交。
