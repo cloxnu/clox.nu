@@ -5,9 +5,6 @@ slug: how-to-amend-git-history-commit
 categories: study / git
 ---
 
-
-## 如何用 Git 命令修改历史提交
-
 在实际工程中，有时我们在以往的提交中忘记提交部分代码，当想起来的时候已经提交过很多笔了。于是想要把当前的更改提交到历史 commit 中去。
 
 假设当前我们提交了三次：
