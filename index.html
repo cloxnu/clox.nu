@@ -21,7 +21,7 @@
 <link rel="mask-icon" href="https://creative.clox.nu/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.88.1" />
+<meta name="generator" content="Hugo 0.89.1" />
 <link rel="alternate" type="application/rss&#43;xml" href="https://creative.clox.nu/index.xml">
 
 
@@ -44,7 +44,7 @@ if (!doNotTrack) {
 <meta property="og:description" content="Hi, I&#39;m creating more creative works. Here are my thoughts, essays and expectations." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://creative.clox.nu/" />
-<meta property="og:updated_time" content="2021-11-02T23:50:00+08:00" /><meta property="og:site_name" content="cloxnu&#39;s creative space" />
+<meta property="og:updated_time" content="2021-11-05T16:37:27+08:00" /><meta property="og:site_name" content="cloxnu&#39;s creative space" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="cloxnu&#39;s Creative Space"/>
 <meta name="twitter:description" content="Hi, I&#39;m creating more creative works. Here are my thoughts, essays and expectations."/>
@@ -189,6 +189,28 @@ if (!doNotTrack) {
 
 
 
+
+<article class="post-entry"> 
+
+  <header class="entry-header">
+    <h2>
+      如何用 Git 命令修改历史提交
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>如何用 Git 命令修改历史提交 在实际工程中，有时我们在以往的提交中忘记提交部分代码，当想起来的时候已经提交过很多笔了。于是想要把当前的更改提交到历史 commit 中去。
+假设当前我们提交了三次：
+$ git log commit 0e162000e27ba998d5a92cc04b489e3d3ec0e30d (HEAD -&gt; master) Author: sidneysliu &lt;sidneysliu@tencent.com&gt; Date: Fri Nov 5 13:46:08 2021 &#43;0800 3rd commit commit f5f470406634bb255e4f19bf62780868afeed32d Author: sidneysliu &lt;sidneysliu@tencent.com&gt; Date: Fri Nov 5 13:45:21 2021 &#43;0800 2nd commit commit cf8c580d322e459fa1acf4ef1e6d08163aeb1a21 Author: sidneysliu &lt;sidneysliu@tencent.com&gt; Date: Fri Nov 5 13:41:30 2021 &#43;0800 1st commit 这几次提交就只涉及一个文件 1.txt
+$ cat 1.txt 11111111 22222222 33333333 其中第一行为第一次提交，第二行为第二次提交，第三行为第三次提交。
+此时如果想要将第二次提交增加一个新文件 2.txt，该怎么操作呢？
+步骤  首先新建 2.txt  $ cat 2....</p>
+  </section>
+  <footer class="entry-footer">
+
+November 5, 2021&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Sidney Liu
+</footer>
+  <a class="entry-link" aria-label="post link to 如何用 Git 命令修改历史提交" href="https://creative.clox.nu/blog/how-to-amend-git-history-commit/"></a>
+</article>
 
 <article class="post-entry"> 
 
@@ -405,31 +427,6 @@ dist: bionic addons: snaps: - hugo install: - cd ./src/ - git submodule update -
 February 16, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
 </footer>
   <a class="entry-link" aria-label="post link to 使用 Travis CI 自动部署 Hugo 站点" href="https://creative.clox.nu/blog/deployment-based-on-travis-ci/"></a>
-</article>
-
-<article class="post-entry"> 
-
-  <header class="entry-header">
-    <h2>
-      关于本站
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>本站使用 Hugo 搭建而成，theme 主要使用 PaperMod，将源仓库 adityatelange / hugo-PaperMod fork 到自己的 GitHub 仓库 cloxnu / hugo-PaperMod 并手动增加Mathjax 特性后，本站仓库主题使用 git submodule 拉取。
-以下添加 Mathjax 特性过程参考 https://note.qidong.name/2018/03/hugo-mathjax/
-手动添加文件 layouts/partials/mathjax.html
-在 partials 目录下的文件 extend_head.html 添加代码
-即可。
-顺便在这里提一下 git submodule 和 git remote 在我 fork 了源仓库之后，使用命令
-git remote add upstream https://github.com/adityatelange/hugo-PaperMod.git 来配置一个 remote，参考 Configuring a remote for a fork ，并使用
-git fetch upstream 来同步远程仓库，参考 Syncing a fork 。将 Mathjax 特性添加之后，push 到自己 fork 的仓库，随后在本站仓库使用命令
-git submodule add https://github....</p>
-  </section>
-  <footer class="entry-footer">
-
-February 15, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
-</footer>
-  <a class="entry-link" aria-label="post link to 关于本站" href="https://creative.clox.nu/blog/about-this-site/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

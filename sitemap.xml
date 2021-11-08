@@ -2,10 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://creative.clox.nu/categories/</loc>
-    <lastmod>2021-11-02T23:50:00+08:00</lastmod>
-  </url><url>
     <loc>https://creative.clox.nu/</loc>
+    <lastmod>2021-11-05T16:37:27+08:00</lastmod>
+  </url><url>
+    <loc>https://creative.clox.nu/posts/</loc>
+    <lastmod>2021-11-05T16:37:27+08:00</lastmod>
+  </url><url>
+    <loc>https://creative.clox.nu/blog/how-to-amend-git-history-commit/</loc>
+    <lastmod>2021-11-05T16:37:27+08:00</lastmod>
+  </url><url>
+    <loc>https://creative.clox.nu/categories/</loc>
     <lastmod>2021-11-02T23:50:00+08:00</lastmod>
   </url><url>
     <loc>https://creative.clox.nu/categories/news/</loc>
@@ -18,9 +24,6 @@
     <lastmod>2021-10-30T02:14:30+08:00</lastmod>
   </url><url>
     <loc>https://creative.clox.nu/categories/creation/</loc>
-    <lastmod>2021-10-30T02:14:30+08:00</lastmod>
-  </url><url>
-    <loc>https://creative.clox.nu/posts/</loc>
     <lastmod>2021-10-30T02:14:30+08:00</lastmod>
   </url><url>
     <loc>https://creative.clox.nu/blog/optimizing-blog-experience-with-progressive-jpeg-pictures/</loc>
@@ -111,6 +114,8 @@
     <loc>https://creative.clox.nu/categories/study-/-algorithm/</loc>
   </url><url>
     <loc>https://creative.clox.nu/categories/study-/-app/</loc>
+  </url><url>
+    <loc>https://creative.clox.nu/categories/study-/-git/</loc>
   </url><url>
     <loc>https://creative.clox.nu/tags/</loc>
   </url>

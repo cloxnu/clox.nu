@@ -6,10 +6,195 @@
         <description>Recent content on cloxnu&#39;s Creative Space</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Tue, 02 Nov 2021 23:50:00 +0800</lastBuildDate>
+        <lastBuildDate>Fri, 05 Nov 2021 16:37:27 +0800</lastBuildDate>
         
         <atom:link href="https://creative.clox.nu/index.xml" rel="self" type="application/rss+xml" />
         
+        
+        <item>
+            <title>如何用 Git 命令修改历史提交</title>
+            <link>https://creative.clox.nu/blog/how-to-amend-git-history-commit/</link>
+            <pubDate>Fri, 05 Nov 2021 16:37:27 +0800</pubDate>
+            
+            <guid>https://creative.clox.nu/blog/how-to-amend-git-history-commit/</guid>
+            <description>&lt;h2 id=&#34;如何用-git-命令修改历史提交&#34;&gt;如何用 Git 命令修改历史提交&lt;/h2&gt;
+&lt;p&gt;在实际工程中，有时我们在以往的提交中忘记提交部分代码，当想起来的时候已经提交过很多笔了。于是想要把当前的更改提交到历史 commit 中去。&lt;/p&gt;
+&lt;p&gt;假设当前我们提交了三次：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ git log
+commit 0e162000e27ba998d5a92cc04b489e3d3ec0e30d &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;HEAD -&amp;gt; master&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+Author: sidneysliu &amp;lt;sidneysliu@tencent.com&amp;gt;
+Date:   Fri Nov &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; 13:46:08 &lt;span style=&#34;color:#ae81ff&#34;&gt;2021&lt;/span&gt; +0800
+
+    3rd commit
+
+commit f5f470406634bb255e4f19bf62780868afeed32d
+Author: sidneysliu &amp;lt;sidneysliu@tencent.com&amp;gt;
+Date:   Fri Nov &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; 13:45:21 &lt;span style=&#34;color:#ae81ff&#34;&gt;2021&lt;/span&gt; +0800
+
+    2nd commit
+
+commit cf8c580d322e459fa1acf4ef1e6d08163aeb1a21
+Author: sidneysliu &amp;lt;sidneysliu@tencent.com&amp;gt;
+Date:   Fri Nov &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; 13:41:30 &lt;span style=&#34;color:#ae81ff&#34;&gt;2021&lt;/span&gt; +0800
+
+    1st commit
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这几次提交就只涉及一个文件 &lt;code&gt;1.txt&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ cat 1.txt
+&lt;span style=&#34;color:#ae81ff&#34;&gt;11111111&lt;/span&gt;
+&lt;span style=&#34;color:#ae81ff&#34;&gt;22222222&lt;/span&gt;
+&lt;span style=&#34;color:#ae81ff&#34;&gt;33333333&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;其中第一行为第一次提交，第二行为第二次提交，第三行为第三次提交。&lt;/p&gt;
+&lt;p&gt;此时如果想要将第二次提交增加一个新文件 &lt;code&gt;2.txt&lt;/code&gt;，该怎么操作呢？&lt;/p&gt;
+&lt;h2 id=&#34;步骤&#34;&gt;步骤&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;首先新建 &lt;code&gt;2.txt&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ cat 2.txt
+&lt;span style=&#34;color:#ae81ff&#34;&gt;22222222&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;将当前的更改 stash&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ git stash
+Saved working directory and index state WIP on master: 0e16200 3rd commit
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;根据之前 &lt;code&gt;git log&lt;/code&gt; 打印的 commit 信息确定将要更改的 commit hash 值。然后使用 &lt;code&gt;git rebase -i&lt;/code&gt; （没错，这相当于一次 rebase）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ git rebase -i f5f470406634bb255e4f19bf62780868afeed32d^
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;⚠️ 注意：这里输入的提交 hash 值后需要加上 &lt;code&gt;^&lt;/code&gt;&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;，代表这次 commit 的父提交。或者：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ git rebase -i cf8c580d322e459fa1acf4ef1e6d08163aeb1a21
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;或&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ git rebase -i HEAD~2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果此时需要更改第一次提交，因为第一次提交没有父提交，所以应该输入命令&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ git rebase -i --root
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/blockquote&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;此时会进入 vim，编辑对于这些 commit 需要执行怎样的操作&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;pick f5f4704 2nd commit
+pick 0e16200 3rd commit
+
+# Rebase cf8c580..0e16200 onto cf8c580 (2 commands)
+#
+# Commands:
+# p, pick &amp;lt;commit&amp;gt; = use commit
+# r, reword &amp;lt;commit&amp;gt; = use commit, but edit the commit message
+# e, edit &amp;lt;commit&amp;gt; = use commit, but stop for amending
+# s, squash &amp;lt;commit&amp;gt; = use commit, but meld into previous commit
+# f, fixup &amp;lt;commit&amp;gt; = like &amp;quot;squash&amp;quot;, but discard this commit&#39;s log message
+# x, exec &amp;lt;command&amp;gt; = run command (the rest of the line) using shell
+# b, break = stop here (continue rebase later with &#39;git rebase --continue&#39;)
+# d, drop &amp;lt;commit&amp;gt; = remove commit
+# l, label &amp;lt;label&amp;gt; = label current HEAD with a name
+# t, reset &amp;lt;label&amp;gt; = reset HEAD to a label
+# m, merge [-C &amp;lt;commit&amp;gt; | -c &amp;lt;commit&amp;gt;] &amp;lt;label&amp;gt; [# &amp;lt;oneline&amp;gt;]
+# .       create a merge commit using the original merge commit&#39;s
+# .       message (or the oneline, if no original merge commit was
+# .       specified). Use -c &amp;lt;commit&amp;gt; to reword the commit message.
+#
+# These lines can be re-ordered; they are executed from top to bottom.
+#
+# If you remove a line here THAT COMMIT WILL BE LOST.
+#
+# However, if you remove everything, the rebase will be aborted.
+#
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;我们当前需要变更第二次 commit，所以应该把第一行的 &lt;code&gt;pick&lt;/code&gt; 改为 &lt;code&gt;edit&lt;/code&gt;，然后 &lt;code&gt;:wq&lt;/code&gt; 保存。&lt;/p&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;此时进入这样的画面&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Stopped at f5f4704...  2nd commit
+You can amend the commit now, with
+
+  git commit --amend 
+
+Once you are satisfied with your changes, run
+
+  git rebase --continue
+
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这时可以将我们 stash 后的更改 pop 出来&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ git stash pop
+interactive rebase in progress; onto cf8c580
+Last command &lt;span style=&#34;color:#66d9ef&#34;&gt;done&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; command &lt;span style=&#34;color:#66d9ef&#34;&gt;done&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;:
+   edit f5f4704 2nd commit
+Next command to &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; remaining command&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;:
+   pick 0e16200 3rd commit
+  &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;use &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;git rebase --edit-todo&amp;#34;&lt;/span&gt; to view and edit&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+You are currently editing a commit &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; rebasing branch &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;master&amp;#39;&lt;/span&gt; on &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;cf8c580&amp;#39;&lt;/span&gt;.
+  &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;use &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;git commit --amend&amp;#34;&lt;/span&gt; to amend the current commit&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+  &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;use &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;git rebase --continue&amp;#34;&lt;/span&gt; once you are satisfied with your changes&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+
+Changes to be committed:
+  &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;use &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;git restore --staged &amp;lt;file&amp;gt;...&amp;#34;&lt;/span&gt; to unstage&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+	new file:   2.txt
+
+Dropped refs/stash@&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;0&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;15fa455ffa846f31167b311c3b7b9314f6c944db&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;提交&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ git add .
+$ git commit --amend
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;并确认提交信息。&lt;/p&gt;
+&lt;ol start=&#34;7&#34;&gt;
+&lt;li&gt;继续进行 rebase&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ git rebase --continue
+Successfully rebased and updated refs/heads/master.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;结束。&lt;/p&gt;
+&lt;h2 id=&#34;验证&#34;&gt;验证&lt;/h2&gt;
+&lt;p&gt;此时我们看到第二次和第三次的提交的 hash 值都被修改了&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ git log
+commit 9522b421544a86b1fc7be32bac18e889fb57b096 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;HEAD -&amp;gt; master&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+Author: sidneysliu &amp;lt;sidneysliu@tencent.com&amp;gt;
+Date:   Fri Nov &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; 13:46:08 &lt;span style=&#34;color:#ae81ff&#34;&gt;2021&lt;/span&gt; +0800
+
+    3rd commit
+
+commit 903242f62a479417f1b3d759b0a64280ea43287b
+Author: sidneysliu &amp;lt;sidneysliu@tencent.com&amp;gt;
+Date:   Fri Nov &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; 13:45:21 &lt;span style=&#34;color:#ae81ff&#34;&gt;2021&lt;/span&gt; +0800
+
+    2nd commit
+
+commit cf8c580d322e459fa1acf4ef1e6d08163aeb1a21
+Author: sidneysliu &amp;lt;sidneysliu@tencent.com&amp;gt;
+Date:   Fri Nov &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; 13:41:30 &lt;span style=&#34;color:#ae81ff&#34;&gt;2021&lt;/span&gt; +0800
+
+    1st commit
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;查看第二次提交：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ git show HEAD^
+commit 903242f62a479417f1b3d759b0a64280ea43287b
+Author: sidneysliu &amp;lt;sidneysliu@tencent.com&amp;gt;
+Date:   Fri Nov &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; 13:45:21 &lt;span style=&#34;color:#ae81ff&#34;&gt;2021&lt;/span&gt; +0800
+
+    2nd commit
+
+diff --git a/1.txt b/1.txt
+index ca028fb..71d9a24 &lt;span style=&#34;color:#ae81ff&#34;&gt;100644&lt;/span&gt;
+--- a/1.txt
++++ b/1.txt
+@@ -1 +1,2 @@
+ &lt;span style=&#34;color:#ae81ff&#34;&gt;11111111&lt;/span&gt;
++22222222
+diff --git a/2.txt b/2.txt
+new file mode &lt;span style=&#34;color:#ae81ff&#34;&gt;100644&lt;/span&gt;
+index 0000000..75a1dd2
+--- /dev/null
++++ b/2.txt
+@@ -0,0 +1 @@
++22222222
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://segmentfault.com/a/1190000022506884&#34;&gt;https://segmentfault.com/a/1190000022506884&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</description>
+        </item>
         
         <item>
             <title>尝试玩玩 Apple Arcade</title>
