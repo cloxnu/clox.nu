@@ -1,4 +1,4 @@
-baseURL: https://creative.clox.nu/
+baseURL: https://clox.nu/
 languageCode: en-us
 title: cloxnu's Creative Space
 theme: "PaperMod"
@@ -20,7 +20,7 @@ params:
 
   utteranc:
     enable: true
-    repo: "cloxnu/creative.clox.nu"
+    repo: "cloxnu/clox.nu"
     issueTerm: "pathname"
     theme: "preferred-color-scheme"
 
@@ -73,7 +73,7 @@ menu:
       weight: 30
     - identifier: about
       name: About
-      url: https://clox.nu
+      url: https://about.clox.nu
       weight: 40
 
 
