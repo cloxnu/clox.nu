@@ -201,7 +201,7 @@ Date:   Fri Nov 5 13:41:30 2021 +0800
 ```shell
 $ git show HEAD^
 commit 903242f62a479417f1b3d759b0a64280ea43287b
-Author: sidneysliu <sidneysliu@tencent.com>
+Author: cloxnu <hi@clox.nu>
 Date:   Fri Nov 5 13:45:21 2021 +0800
 
     2nd commit
