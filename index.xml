@@ -21,19 +21,19 @@
 &lt;p&gt;假设当前我们提交了三次：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ git log
 commit 0e162000e27ba998d5a92cc04b489e3d3ec0e30d &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;HEAD -&amp;gt; master&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-Author: sidneysliu &amp;lt;sidneysliu@tencent.com&amp;gt;
+Author: cloxnu &amp;lt;hi@clox.nu&amp;gt;
 Date:   Fri Nov &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; 13:46:08 &lt;span style=&#34;color:#ae81ff&#34;&gt;2021&lt;/span&gt; +0800
 
     3rd commit
 
 commit f5f470406634bb255e4f19bf62780868afeed32d
-Author: sidneysliu &amp;lt;sidneysliu@tencent.com&amp;gt;
+Author: cloxnu &amp;lt;hi@clox.nu&amp;gt;
 Date:   Fri Nov &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; 13:45:21 &lt;span style=&#34;color:#ae81ff&#34;&gt;2021&lt;/span&gt; +0800
 
     2nd commit
 
 commit cf8c580d322e459fa1acf4ef1e6d08163aeb1a21
-Author: sidneysliu &amp;lt;sidneysliu@tencent.com&amp;gt;
+Author: cloxnu &amp;lt;hi@clox.nu&amp;gt;
 Date:   Fri Nov &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; 13:41:30 &lt;span style=&#34;color:#ae81ff&#34;&gt;2021&lt;/span&gt; +0800
 
     1st commit
@@ -146,19 +146,19 @@ Successfully rebased and updated refs/heads/master.
 &lt;p&gt;此时我们看到第二次和第三次的提交的 hash 值都被修改了&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ git log
 commit 9522b421544a86b1fc7be32bac18e889fb57b096 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;HEAD -&amp;gt; master&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-Author: sidneysliu &amp;lt;sidneysliu@tencent.com&amp;gt;
+Author: cloxnu &amp;lt;hi@clox.nu&amp;gt;
 Date:   Fri Nov &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; 13:46:08 &lt;span style=&#34;color:#ae81ff&#34;&gt;2021&lt;/span&gt; +0800
 
     3rd commit
 
 commit 903242f62a479417f1b3d759b0a64280ea43287b
-Author: sidneysliu &amp;lt;sidneysliu@tencent.com&amp;gt;
+Author: cloxnu &amp;lt;hi@clox.nu&amp;gt;
 Date:   Fri Nov &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; 13:45:21 &lt;span style=&#34;color:#ae81ff&#34;&gt;2021&lt;/span&gt; +0800
 
     2nd commit
 
 commit cf8c580d322e459fa1acf4ef1e6d08163aeb1a21
-Author: sidneysliu &amp;lt;sidneysliu@tencent.com&amp;gt;
+Author: cloxnu &amp;lt;hi@clox.nu&amp;gt;
 Date:   Fri Nov &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; 13:41:30 &lt;span style=&#34;color:#ae81ff&#34;&gt;2021&lt;/span&gt; +0800
 
     1st commit
