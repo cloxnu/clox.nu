@@ -57,7 +57,7 @@ params:
     - name: rss
       url: "/index.xml"
     - name: telegram
-      url: "https://t.me/imcloxnu
+      url: "https://t.me/imcloxnu"
 
 menu:
   main:
