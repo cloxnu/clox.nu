@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ℙ𝕣𝕠𝕕𝕦𝕔𝕥𝕚𝕧𝕚𝕥𝕪 on cloxnu&#39;s Creative Space</title>
-    <link>https://creative.clox.nu/posts/productivity/</link>
+    <link>https://clox.nu/posts/productivity/</link>
     <description>Recent content in ℙ𝕣𝕠𝕕𝕦𝕔𝕥𝕚𝕧𝕚𝕥𝕪 on cloxnu&#39;s Creative Space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 30 Mar 2021 13:17:00 +0800</lastBuildDate><atom:link href="https://creative.clox.nu/posts/productivity/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 30 Mar 2021 13:17:00 +0800</lastBuildDate><atom:link href="https://clox.nu/posts/productivity/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>如何在 iPad Pro 上高效地使用 Taio 创建 Hugo blog</title>
-      <link>https://creative.clox.nu/blog/how-to-use-taio-efficiently/</link>
+      <link>https://clox.nu/blog/how-to-use-taio-efficiently/</link>
       <pubDate>Mon, 30 Aug 2021 23:42:45 +0800</pubDate>
       
-      <guid>https://creative.clox.nu/blog/how-to-use-taio-efficiently/</guid>
+      <guid>https://clox.nu/blog/how-to-use-taio-efficiently/</guid>
       <description>本文来自生产力 ℙ𝕣𝕠𝕕𝕦𝕔𝕥𝕚𝕧𝕚𝕥𝕪 系列文章。
  我们知道，在一台安装了 Hugo 命令行工具的电脑上，只需运行命令
 $ hugo new ... 即可创建一个新的 blog。
@@ -29,10 +29,10 @@ PS：这里添加到 blog 的当前日期符合 ISO 8601 标准，时间格式�
     
     <item>
       <title>HackMD 的使用与思考</title>
-      <link>https://creative.clox.nu/blog/about-hackmd/</link>
+      <link>https://clox.nu/blog/about-hackmd/</link>
       <pubDate>Tue, 30 Mar 2021 13:41:30 +0800</pubDate>
       
-      <guid>https://creative.clox.nu/blog/about-hackmd/</guid>
+      <guid>https://clox.nu/blog/about-hackmd/</guid>
       <description>本文来自生产力 ℙ𝕣𝕠𝕕𝕦𝕔𝕥𝕚𝕧𝕚𝕥𝕪 系列文章。
  说到 Markdown 团队协作，就不得不提到 HackMD。
 我有一段时间在寻找 Markdown 合作 &amp;amp; 同步的过程中，偶然间发现了 HackMD，当时使用了一下，意外地发现相当好用。

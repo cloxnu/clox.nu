@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>cloxnu&#39;s Creative Space</title>
-        <link>https://creative.clox.nu/</link>
+        <link>https://clox.nu/</link>
         <description>Recent content on cloxnu&#39;s Creative Space</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <lastBuildDate>Fri, 05 Nov 2021 16:37:27 +0800</lastBuildDate>
         
-        <atom:link href="https://creative.clox.nu/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://clox.nu/index.xml" rel="self" type="application/rss+xml" />
         
         
         <item>
             <title>如何用 Git 命令修改历史提交</title>
-            <link>https://creative.clox.nu/blog/how-to-amend-git-history-commit/</link>
+            <link>https://clox.nu/blog/how-to-amend-git-history-commit/</link>
             <pubDate>Fri, 05 Nov 2021 16:37:27 +0800</pubDate>
             
-            <guid>https://creative.clox.nu/blog/how-to-amend-git-history-commit/</guid>
+            <guid>https://clox.nu/blog/how-to-amend-git-history-commit/</guid>
             <description>&lt;p&gt;在实际工程中，有时我们在以往的提交中忘记提交部分代码，当想起来的时候已经提交过很多笔了。于是想要把当前的更改提交到历史 commit 中去。&lt;/p&gt;
 &lt;p&gt;假设当前我们提交了三次：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ git log
@@ -197,20 +197,20 @@ index 0000000..75a1dd2
         
         <item>
             <title>尝试玩玩 Apple Arcade</title>
-            <link>https://creative.clox.nu/news/2021/11/02/apple-arcade/</link>
+            <link>https://clox.nu/news/2021/11/02/apple-arcade/</link>
             <pubDate>Tue, 02 Nov 2021 23:50:00 +0800</pubDate>
             
-            <guid>https://creative.clox.nu/news/2021/11/02/apple-arcade/</guid>
+            <guid>https://clox.nu/news/2021/11/02/apple-arcade/</guid>
             <description>&lt;p&gt;&lt;img src=&#34;assets/IMG_1.png&#34; alt=&#34;图片&#34;&gt;&lt;img src=&#34;assets/IMG_2.png&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
 </description>
         </item>
         
         <item>
             <title>使用渐进式 JPEG 图片优化 blog 阅读体验</title>
-            <link>https://creative.clox.nu/blog/optimizing-blog-experience-with-progressive-jpeg-pictures/</link>
+            <link>https://clox.nu/blog/optimizing-blog-experience-with-progressive-jpeg-pictures/</link>
             <pubDate>Sat, 30 Oct 2021 02:14:30 +0800</pubDate>
             
-            <guid>https://creative.clox.nu/blog/optimizing-blog-experience-with-progressive-jpeg-pictures/</guid>
+            <guid>https://clox.nu/blog/optimizing-blog-experience-with-progressive-jpeg-pictures/</guid>
             <description>&lt;p&gt;从写好第一篇多图大图的 blog 那一刻起，我就一直在思考访问者如何快速加载这些图片提高阅读体验，因为这些图片动辄几兆甚至几十兆，而我又不希望压缩这些图片导致质量下降。&lt;/p&gt;
 &lt;p&gt;所以在以往的多图 blog 中，访问者往往要等待很久的加载时间。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;assets/IMG_1.jpg&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
@@ -249,7 +249,7 @@ index 0000000..75a1dd2
 &lt;hr&gt;
 &lt;ol&gt;
 &lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
-&lt;p&gt;&lt;a href=&#34;https://creative.clox.nu/news/2021/10/25/gh-pages/&#34;&gt;用 GitHub Actions 生成 blog 的 HTML 到 gh-pages 分支&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://clox.nu/news/2021/10/25/gh-pages/&#34;&gt;用 GitHub Actions 生成 blog 的 HTML 到 gh-pages 分支&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/section&gt;
@@ -258,10 +258,10 @@ index 0000000..75a1dd2
         
         <item>
             <title>用 GitHub Actions 生成 blog 的 HTML 到 gh-pages 分支</title>
-            <link>https://creative.clox.nu/news/2021/10/25/gh-pages/</link>
+            <link>https://clox.nu/news/2021/10/25/gh-pages/</link>
             <pubDate>Mon, 25 Oct 2021 22:00:09 +0800</pubDate>
             
-            <guid>https://creative.clox.nu/news/2021/10/25/gh-pages/</guid>
+            <guid>https://clox.nu/news/2021/10/25/gh-pages/</guid>
             <description>&lt;p&gt;由于 blog 生成 HTML 会自动将所有资源复制到生成的目录中，因此将 output 目录放到新的分支中可以防止本地占用「双倍」空间，而且可以防止需要合并远端变更。&lt;/p&gt;
 &lt;p&gt;这是我的 GitHub Actions 执行代码：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# This is a basic workflow to help you get started with Actions&lt;/span&gt;
@@ -329,10 +329,10 @@ index 0000000..75a1dd2
         
         <item>
             <title>下单了一台 M1 Pro 的 MacBook Pro</title>
-            <link>https://creative.clox.nu/news/2021/10/20/buy-new-mbp/</link>
+            <link>https://clox.nu/news/2021/10/20/buy-new-mbp/</link>
             <pubDate>Wed, 20 Oct 2021 11:40:09 +0800</pubDate>
             
-            <guid>https://creative.clox.nu/news/2021/10/20/buy-new-mbp/</guid>
+            <guid>https://clox.nu/news/2021/10/20/buy-new-mbp/</guid>
             <description>&lt;p&gt;下单了一台 19 号凌晨发布的 MacBook Pro。&lt;/p&gt;
 &lt;p&gt;起初下了 16GB 内存版本的订单，26 号就到货还挺快的。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;assets/IMG_1.png&#34; alt=&#34;图片&#34;&gt;&lt;img src=&#34;assets/IMG_2.png&#34; alt=&#34;图片&#34;&gt;&lt;img src=&#34;assets/IMG_3.png&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
@@ -345,30 +345,30 @@ index 0000000..75a1dd2
         
         <item>
             <title>想写一个 AI 驱动的游戏</title>
-            <link>https://creative.clox.nu/news/2021/10/13/ai-game/</link>
+            <link>https://clox.nu/news/2021/10/13/ai-game/</link>
             <pubDate>Wed, 13 Oct 2021 22:00:09 +0800</pubDate>
             
-            <guid>https://creative.clox.nu/news/2021/10/13/ai-game/</guid>
+            <guid>https://clox.nu/news/2021/10/13/ai-game/</guid>
             <description>&lt;p&gt;想写一种没有输赢、创造类的游戏，这个游戏随机性很强，主要靠 AI；其次它不容易沉迷。&lt;/p&gt;
 </description>
         </item>
         
         <item>
             <title>想做一种永生的机器人</title>
-            <link>https://creative.clox.nu/news/2021/10/09/immortal-robot/</link>
+            <link>https://clox.nu/news/2021/10/09/immortal-robot/</link>
             <pubDate>Sat, 09 Oct 2021 15:18:57 +0800</pubDate>
             
-            <guid>https://creative.clox.nu/news/2021/10/09/immortal-robot/</guid>
+            <guid>https://clox.nu/news/2021/10/09/immortal-robot/</guid>
             <description>&lt;p&gt;想做一种永生的机器人，以后可以用我的身份代替我永生，那可太好了。&lt;/p&gt;
 </description>
         </item>
         
         <item>
             <title>如何使用相机拍摄包含精准地理位置信息的照片</title>
-            <link>https://creative.clox.nu/blog/add-gps-exif-info-to-camera-photos/</link>
+            <link>https://clox.nu/blog/add-gps-exif-info-to-camera-photos/</link>
             <pubDate>Thu, 07 Oct 2021 17:00:30 +0800</pubDate>
             
-            <guid>https://creative.clox.nu/blog/add-gps-exif-info-to-camera-photos/</guid>
+            <guid>https://clox.nu/blog/add-gps-exif-info-to-camera-photos/</guid>
             <description>&lt;h2 id=&#34;heading&#34;&gt;🤔&lt;/h2&gt;
 &lt;p&gt;当我们使用手机拍照时，按下快门的那一刻，程序会自动获取当前地理位置，并将其写入照片中。而当我们拥有海量包含地理位置并通过 iCloud 或者 NAS 管理的照片时，这些照片会被程序自动归类，因此可以省去大量整理照片的时间。&lt;/p&gt;
 &lt;p&gt;可是当拍照的设备转移到成像质量更好的相机时，我们却很难方便地获取地理位置信息，因为现在大多数的单反/无反相机都不带有 GPS 模块。因此目前这些相机的解决方案是通过手机蓝牙连接来获取 GPS 信息以写入照片。&lt;/p&gt;
@@ -442,10 +442,10 @@ index 0000000..75a1dd2
         
         <item>
             <title>购买 iPhone 13 的一天</title>
-            <link>https://creative.clox.nu/news/2021/09/25/iphone13/</link>
+            <link>https://clox.nu/news/2021/09/25/iphone13/</link>
             <pubDate>Sat, 25 Sep 2021 20:46:15 +0800</pubDate>
             
-            <guid>https://creative.clox.nu/news/2021/09/25/iphone13/</guid>
+            <guid>https://clox.nu/news/2021/09/25/iphone13/</guid>
             <description>&lt;p&gt;9 月 17 号那天，我拿到了等了很久的相机，也恰好是那天的前一天，我的 iPhone XR 坏掉了，连 MacBook 恢复模式都一直自己重启。iPhone 13 也恰好在这一天晚上 8 点开售，可是在这天我还没想好要换手机。&lt;/p&gt;
 &lt;p&gt;24 号，iPhone 13 开卖了，我才了解到 24-26 号 Apple Store 是只对预约的人开放的，同时这段时间我也意识到 24 号之前在 Apple Store App 里下单是没法选线下取货的（应该是 17 号晚上 8 点把名额抢完了），送货的话要等很久。所以工作人员让我留意一下抢 27 号及以后的线下取货。当时的截图是这样的：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;assets/IMG_2.jpg&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
@@ -472,10 +472,10 @@ index 0000000..75a1dd2
         
         <item>
             <title>我终于拿到了富士 X-S10</title>
-            <link>https://creative.clox.nu/news/2021/09/17/fujifilm-xs10/</link>
+            <link>https://clox.nu/news/2021/09/17/fujifilm-xs10/</link>
             <pubDate>Fri, 17 Sep 2021 14:30:42 +0800</pubDate>
             
-            <guid>https://creative.clox.nu/news/2021/09/17/fujifilm-xs10/</guid>
+            <guid>https://clox.nu/news/2021/09/17/fujifilm-xs10/</guid>
             <description>&lt;p&gt;一个月前的 8 月 14 日，我在线下订购了一台富士 X-S10，没想到在一个月后的今天才拿到这款超级缺货的相机📷&lt;/p&gt;
 &lt;p&gt;我将使用新的方式记录生活。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;assets/IMG_2.jpg&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
@@ -484,10 +484,10 @@ index 0000000..75a1dd2
         
         <item>
             <title>为 Hugo 站点添加自定义字体</title>
-            <link>https://creative.clox.nu/news/2021/09/09/hugo-custom-font/</link>
+            <link>https://clox.nu/news/2021/09/09/hugo-custom-font/</link>
             <pubDate>Thu, 09 Sep 2021 19:35:14 +0800</pubDate>
             
-            <guid>https://creative.clox.nu/news/2021/09/09/hugo-custom-font/</guid>
+            <guid>https://clox.nu/news/2021/09/09/hugo-custom-font/</guid>
             <description>&lt;p&gt;今天我把此 Hugo 站点关于 &lt;code&gt;code&lt;/code&gt; 部分的字体改为 Jetbrains Mono，大致进行了以下几步。&lt;/p&gt;
 &lt;p&gt;我使用的是 Papermod 主题，其 &lt;a href=&#34;https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#bundling-custom-css-with-themes-assets&#34;&gt;Wiki&lt;/a&gt; 页面有讲述关于如何加入自定义 css 的方法。&lt;/p&gt;
 &lt;p&gt;于是我尝试将用 jsDelivr 加速的 Jetbrains Mono 字体静态加载&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;并生效于 &lt;code&gt;code&lt;/code&gt; 中。&lt;/p&gt;
@@ -508,10 +508,10 @@ index 0000000..75a1dd2
         
         <item>
             <title>我使用 Cloudflare Pages 部署 Hugo 失败了</title>
-            <link>https://creative.clox.nu/news/2021/09/09/cloudflare-pages-failed/</link>
+            <link>https://clox.nu/news/2021/09/09/cloudflare-pages-failed/</link>
             <pubDate>Thu, 09 Sep 2021 10:56:03 +0800</pubDate>
             
-            <guid>https://creative.clox.nu/news/2021/09/09/cloudflare-pages-failed/</guid>
+            <guid>https://clox.nu/news/2021/09/09/cloudflare-pages-failed/</guid>
             <description>&lt;p&gt;&lt;a href=&#34;https://pages.cloudflare.com&#34;&gt;Cloudflare Pages&lt;/a&gt; 是一个 Cloudflare 于 2020 年末推出的 &lt;a href=&#34;https://jamstack.org&#34;&gt;Jamstack&lt;/a&gt; 平台。&lt;strong&gt;JAMstack&lt;/strong&gt; 指主要使用 Javascript, API, Markup 的一种安全快速的网站结构。&lt;/p&gt;
 &lt;p&gt;在此之前，这个 Hugo 站点是使用 GitHub Pages + Cloudflare CDN 这种方式运作的。于是今天尝试使用 Cloudflare Pages 部署。&lt;/p&gt;
 &lt;p&gt;进入官网之后，登录 -&amp;gt; GitHub 授权&lt;/p&gt;
@@ -529,10 +529,10 @@ index 0000000..75a1dd2
         
         <item>
             <title>使用 iPad Pro 体验 5-5.work</title>
-            <link>https://creative.clox.nu/news/2021/09/07/5-5-work/</link>
+            <link>https://clox.nu/news/2021/09/07/5-5-work/</link>
             <pubDate>Tue, 07 Sep 2021 00:12:12 +0800</pubDate>
             
-            <guid>https://creative.clox.nu/news/2021/09/07/5-5-work/</guid>
+            <guid>https://clox.nu/news/2021/09/07/5-5-work/</guid>
             <description>&lt;p&gt;我们在 2021 年 6 月发布了 &lt;a href=&#34;https://5-5.work&#34;&gt;无名速递&lt;/a&gt;（原名「五号电池」）的 2.0 版本，今天使用 iPad Pro 体验了一下。&lt;/p&gt;
 &lt;p&gt;打开网页&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;assets/IMG_1.png&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
@@ -603,10 +603,10 @@ index 0000000..75a1dd2
         
         <item>
             <title>如何用命令行将 Linux 服务器上的文件备份至 Dropbox</title>
-            <link>https://creative.clox.nu/blog/backup-files-on-linux-to-dropbox/</link>
+            <link>https://clox.nu/blog/backup-files-on-linux-to-dropbox/</link>
             <pubDate>Wed, 01 Sep 2021 23:02:22 +0800</pubDate>
             
-            <guid>https://creative.clox.nu/blog/backup-files-on-linux-to-dropbox/</guid>
+            <guid>https://clox.nu/blog/backup-files-on-linux-to-dropbox/</guid>
             <description>&lt;p&gt;又进入了新的一月，又到了服务器续费的时候。由于我前些天把我的 travel blog 变成静态页面了，因此原本 serve 了它一段时间的服务器也可以注销掉了，不过服务器上还存有一些需要保留的文件，于是今天想把这些文件放到 Dropbox 中。&lt;/p&gt;
 &lt;p&gt;参照 &lt;a href=&#34;https://www.dropbox.com/install-linux&#34;&gt;官方安装页面&lt;/a&gt;，先运行以下命令下载并解压 Dropbox。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ cd ~ &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; wget -O - &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://www.dropbox.com/download?plat=lnx.x86_64&amp;#34;&lt;/span&gt; | tar xzf -
@@ -655,11 +655,11 @@ index 0000000..75a1dd2
         
         <item>
             <title>如何在 iPad Pro 上高效地使用 Taio 创建 Hugo blog</title>
-            <link>https://creative.clox.nu/blog/how-to-use-taio-efficiently/</link>
+            <link>https://clox.nu/blog/how-to-use-taio-efficiently/</link>
             <pubDate>Mon, 30 Aug 2021 23:42:45 +0800</pubDate>
             
-            <guid>https://creative.clox.nu/blog/how-to-use-taio-efficiently/</guid>
-            <description>&lt;p&gt;本文来自生产力 &lt;a href=&#34;https://creative.clox.nu/posts/productivity/&#34;&gt;ℙ𝕣𝕠𝕕𝕦𝕔𝕥𝕚𝕧𝕚𝕥𝕪&lt;/a&gt; 系列文章。&lt;/p&gt;
+            <guid>https://clox.nu/blog/how-to-use-taio-efficiently/</guid>
+            <description>&lt;p&gt;本文来自生产力 &lt;a href=&#34;https://clox.nu/posts/productivity/&#34;&gt;ℙ𝕣𝕠𝕕𝕦𝕔𝕥𝕚𝕧𝕚𝕥𝕪&lt;/a&gt; 系列文章。&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;我们知道，在一台安装了 Hugo 命令行工具的电脑上，只需运行命令&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ hugo new ...
@@ -679,7 +679,7 @@ index 0000000..75a1dd2
 &lt;p&gt;&lt;img src=&#34;assets/IMG_7.gif&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
 &lt;p&gt;在某一分类文件夹下的任意文件里，点击右上角的闪电标志，运行「Create a Hugo blog」即可。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;assets/IMG_5.png&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
-&lt;p&gt;使用 Taio 写完整篇文章后，最终回到「Working Copy」，Commit &amp;amp; Push 自己的更改。剩下生成 HTML 的环节就交给 Travis CI 或者 GitHub Actions 去完成，详细配置请看 &lt;a href=&#34;https://creative.clox.nu/posts/creation/deployment-based-on-travis-ci/&#34;&gt;使用 Travis CI 自动部署 Hugo 站点&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;使用 Taio 写完整篇文章后，最终回到「Working Copy」，Commit &amp;amp; Push 自己的更改。剩下生成 HTML 的环节就交给 Travis CI 或者 GitHub Actions 去完成，详细配置请看 &lt;a href=&#34;https://clox.nu/posts/creation/deployment-based-on-travis-ci/&#34;&gt;使用 Travis CI 自动部署 Hugo 站点&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;PS：如果你的 GitHub 账号拥有 GitHub Student Developer Pack，则可以不需要为「Working Copy」购买 Pro。&lt;/p&gt;
 &lt;p&gt;本文使用 Taio 编辑，且仅使用 iPad Pro 进行发布。&lt;/p&gt;
 </description>
@@ -687,10 +687,10 @@ index 0000000..75a1dd2
         
         <item>
             <title>使用 GitHub Actions 自动部署我的 travel blog 站点</title>
-            <link>https://creative.clox.nu/blog/generate-my-travel-blog-by-github-actions/</link>
+            <link>https://clox.nu/blog/generate-my-travel-blog-by-github-actions/</link>
             <pubDate>Sat, 14 Aug 2021 20:41:00 +0800</pubDate>
             
-            <guid>https://creative.clox.nu/blog/generate-my-travel-blog-by-github-actions/</guid>
+            <guid>https://clox.nu/blog/generate-my-travel-blog-by-github-actions/</guid>
             <description>&lt;p&gt;前情提要：在我的 travel blog 的仓库根目录下，有一个叫 &lt;code&gt;gotravel&lt;/code&gt; 的文件，运行该文件即可自动生成网站，因此 GitHub Actions 只需要在我每次 push 之后运行这个文件再提交一次就可以了。&lt;/p&gt;
 &lt;p&gt;在 GitHub 仓库内点击菜单栏的 Actions，然后选择 set up a workflow yourself&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;assets/image-20210814204920751.png&#34; alt=&#34;image-20210814204920751&#34;&gt;&lt;/p&gt;
@@ -779,11 +779,11 @@ index 0000000..75a1dd2
         
         <item>
             <title>HackMD 的使用与思考</title>
-            <link>https://creative.clox.nu/blog/about-hackmd/</link>
+            <link>https://clox.nu/blog/about-hackmd/</link>
             <pubDate>Tue, 30 Mar 2021 13:41:30 +0800</pubDate>
             
-            <guid>https://creative.clox.nu/blog/about-hackmd/</guid>
-            <description>&lt;p&gt;本文来自生产力 &lt;a href=&#34;https://creative.clox.nu/posts/productivity/&#34;&gt;ℙ𝕣𝕠𝕕𝕦𝕔𝕥𝕚𝕧𝕚𝕥𝕪&lt;/a&gt; 系列文章。&lt;/p&gt;
+            <guid>https://clox.nu/blog/about-hackmd/</guid>
+            <description>&lt;p&gt;本文来自生产力 &lt;a href=&#34;https://clox.nu/posts/productivity/&#34;&gt;ℙ𝕣𝕠𝕕𝕦𝕔𝕥𝕚𝕧𝕚𝕥𝕪&lt;/a&gt; 系列文章。&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;说到 Markdown 团队协作，就不得不提到 &lt;a href=&#34;https://hackmd.io/&#34;&gt;HackMD&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;我有一段时间在寻找 Markdown 合作 &amp;amp; 同步的过程中，偶然间发现了 HackMD，当时使用了一下，意外地发现相当好用。&lt;/p&gt;
@@ -805,10 +805,10 @@ index 0000000..75a1dd2
         
         <item>
             <title>初识 React Native</title>
-            <link>https://creative.clox.nu/blog/get-started-with-react-native/</link>
+            <link>https://clox.nu/blog/get-started-with-react-native/</link>
             <pubDate>Mon, 01 Mar 2021 15:15:30 +0800</pubDate>
             
-            <guid>https://creative.clox.nu/blog/get-started-with-react-native/</guid>
+            <guid>https://clox.nu/blog/get-started-with-react-native/</guid>
             <description>&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
 &lt;p&gt;由于开发需要，稍稍玩了玩 React Native 开发一个 App 的简要流程。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://reactnative.dev/&#34;&gt;官网&lt;/a&gt;&lt;/p&gt;
@@ -860,10 +860,10 @@ expo start
         
         <item>
             <title>一个奇特的想法 - Site Net</title>
-            <link>https://creative.clox.nu/blog/site-net/</link>
+            <link>https://clox.nu/blog/site-net/</link>
             <pubDate>Sat, 20 Feb 2021 11:34:48 +0800</pubDate>
             
-            <guid>https://creative.clox.nu/blog/site-net/</guid>
+            <guid>https://clox.nu/blog/site-net/</guid>
             <description>&lt;p&gt;就在最近两天，我思考到关于如何做一个让知识体系更显而易见的个人网站时，想到了一个可以用一个程序来实现展示各网站关联的点子：类似于一个知识体系的构建，知识点 A 关联到知识点 B，知识点 B 关联到知识点 C，每个站点会指向它内部所含的链接的站点。&lt;/p&gt;
 &lt;p&gt;程序写出来之后首先就想要测试的就是 Wikipedia 的词条，经过域名过滤和标题过滤（让链接仅指向 Wikipedia 的站点而不是某些参考文献），原站点指向的站点实在是太多，图片上的字都有点看不清了。（以下是 Python 词条搜索 3,000 次的结果）&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;assets/wikipedia.png&#34; alt=&#34;Wikipedia&#34;&gt;&lt;/p&gt;
@@ -875,10 +875,10 @@ expo start
         
         <item>
             <title>使用 Travis CI 自动部署 Hugo 站点</title>
-            <link>https://creative.clox.nu/blog/deployment-based-on-travis-ci/</link>
+            <link>https://clox.nu/blog/deployment-based-on-travis-ci/</link>
             <pubDate>Tue, 16 Feb 2021 10:58:54 +0800</pubDate>
             
-            <guid>https://creative.clox.nu/blog/deployment-based-on-travis-ci/</guid>
+            <guid>https://clox.nu/blog/deployment-based-on-travis-ci/</guid>
             <description>&lt;p&gt;在 GitHub 仓库内创建 &lt;code&gt;.travis.yml&lt;/code&gt; 文件并添加以下内容后，即可自动部署此 Hugo 站点。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;dist&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;bionic&lt;/span&gt;
 &lt;span style=&#34;color:#f92672&#34;&gt;addons&lt;/span&gt;:
@@ -914,10 +914,10 @@ expo start
         
         <item>
             <title>关于本站</title>
-            <link>https://creative.clox.nu/blog/about-this-site/</link>
+            <link>https://clox.nu/blog/about-this-site/</link>
             <pubDate>Mon, 15 Feb 2021 00:21:45 +0800</pubDate>
             
-            <guid>https://creative.clox.nu/blog/about-this-site/</guid>
+            <guid>https://clox.nu/blog/about-this-site/</guid>
             <description>&lt;p&gt;本站使用 Hugo 搭建而成，theme 主要使用 PaperMod，将源仓库 &lt;a href=&#34;https://github.com/adityatelange/hugo-PaperMod&#34;&gt;adityatelange / hugo-PaperMod&lt;/a&gt; fork 到自己的 GitHub 仓库 &lt;a href=&#34;https://github.com/cloxnu/hugo-PaperMod&#34;&gt;cloxnu / hugo-PaperMod&lt;/a&gt; 并手动增加Mathjax 特性后，本站仓库主题使用 git submodule 拉取。&lt;/p&gt;
 &lt;p&gt;以下添加 Mathjax 特性过程参考 &lt;a href=&#34;https://note.qidong.name/2018/03/hugo-mathjax/&#34;&gt;https://note.qidong.name/2018/03/hugo-mathjax/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;手动添加文件 &lt;code&gt;layouts/partials/mathjax.html&lt;/code&gt;&lt;/p&gt;
@@ -941,10 +941,10 @@ git submodule update --remote
         
         <item>
             <title>The Amazing Things</title>
-            <link>https://creative.clox.nu/blog/the-amazing-things/</link>
+            <link>https://clox.nu/blog/the-amazing-things/</link>
             <pubDate>Sun, 14 Feb 2021 11:53:53 +0800</pubDate>
             
-            <guid>https://creative.clox.nu/blog/the-amazing-things/</guid>
+            <guid>https://clox.nu/blog/the-amazing-things/</guid>
             <description>&lt;p&gt;Now, here is another new place to inspire and create amazing things. There is not much space here, but it brings extraordinary encouragement.&lt;/p&gt;
 &lt;p&gt;I will always love, and pursue love.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;assets/screenshot.png&#34; alt=&#34;shot&#34;&gt;&lt;/p&gt;
@@ -953,10 +953,10 @@ git submodule update --remote
         
         <item>
             <title>Welcome to clox.nu</title>
-            <link>https://creative.clox.nu/blog/welcome-to-cloxnu/</link>
+            <link>https://clox.nu/blog/welcome-to-cloxnu/</link>
             <pubDate>Mon, 08 Feb 2021 20:00:00 +0800</pubDate>
             
-            <guid>https://creative.clox.nu/blog/welcome-to-cloxnu/</guid>
+            <guid>https://clox.nu/blog/welcome-to-cloxnu/</guid>
             <description>&lt;p&gt;&lt;a href=&#34;https://clox.nu&#34;&gt;clox.nu&lt;/a&gt; 已全面竣工，欢迎访问&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;assets/safari.png&#34; alt=&#34;safari&#34;&gt;&lt;/p&gt;
 
@@ -970,10 +970,10 @@ git submodule update --remote
         
         <item>
             <title>Generalized Suffix Tree</title>
-            <link>https://creative.clox.nu/blog/generalized-suffix-tree/</link>
+            <link>https://clox.nu/blog/generalized-suffix-tree/</link>
             <pubDate>Wed, 23 Dec 2020 00:00:00 +0800</pubDate>
             
-            <guid>https://creative.clox.nu/blog/generalized-suffix-tree/</guid>
+            <guid>https://clox.nu/blog/generalized-suffix-tree/</guid>
             <description>&lt;p&gt;An implementation of generalized suffix tree using Ukkonen&amp;rsquo;s algorithm.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;In this page:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -1069,10 +1069,10 @@ dp_time: 44179.36301231384 ms
         
         <item>
             <title>学校爬电费状态栏 App 的 macOS 开发日记</title>
-            <link>https://creative.clox.nu/blog/energy-charge-in-macos/</link>
+            <link>https://clox.nu/blog/energy-charge-in-macos/</link>
             <pubDate>Sat, 23 May 2020 00:35:00 +0800</pubDate>
             
-            <guid>https://creative.clox.nu/blog/energy-charge-in-macos/</guid>
+            <guid>https://clox.nu/blog/energy-charge-in-macos/</guid>
             <description>&lt;p&gt;Monitoring the energy charge work on macOS in CJLU.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;assets/display.png&#34; alt=&#34;display&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;如何在没接触过-macos-开发的情况下-4-个小时写一个学校爬电费状态栏-app&#34;&gt;如何在没接触过 macOS 开发的情况下 4 个小时写一个学校爬电费状态栏 App&lt;/h2&gt;
@@ -1116,19 +1116,19 @@ dp_time: 44179.36301231384 ms
         
         <item>
             <title>Archive</title>
-            <link>https://creative.clox.nu/archive/</link>
+            <link>https://clox.nu/archive/</link>
             <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
             
-            <guid>https://creative.clox.nu/archive/</guid>
+            <guid>https://clox.nu/archive/</guid>
             <description></description>
         </item>
         
         <item>
             <title>Search</title>
-            <link>https://creative.clox.nu/search/</link>
+            <link>https://clox.nu/search/</link>
             <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
             
-            <guid>https://creative.clox.nu/search/</guid>
+            <guid>https://clox.nu/search/</guid>
             <description></description>
         </item>
         

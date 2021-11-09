@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>news on cloxnu&#39;s Creative Space</title>
-    <link>https://creative.clox.nu/categories/news/</link>
+    <link>https://clox.nu/categories/news/</link>
     <description>Recent content in news on cloxnu&#39;s Creative Space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 02 Nov 2021 23:50:00 +0800</lastBuildDate><atom:link href="https://creative.clox.nu/categories/news/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 02 Nov 2021 23:50:00 +0800</lastBuildDate><atom:link href="https://clox.nu/categories/news/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>尝试玩玩 Apple Arcade</title>
-      <link>https://creative.clox.nu/news/2021/11/02/apple-arcade/</link>
+      <link>https://clox.nu/news/2021/11/02/apple-arcade/</link>
       <pubDate>Tue, 02 Nov 2021 23:50:00 +0800</pubDate>
       
-      <guid>https://creative.clox.nu/news/2021/11/02/apple-arcade/</guid>
+      <guid>https://clox.nu/news/2021/11/02/apple-arcade/</guid>
       <description></description>
     </item>
     
     <item>
       <title>用 GitHub Actions 生成 blog 的 HTML 到 gh-pages 分支</title>
-      <link>https://creative.clox.nu/news/2021/10/25/gh-pages/</link>
+      <link>https://clox.nu/news/2021/10/25/gh-pages/</link>
       <pubDate>Mon, 25 Oct 2021 22:00:09 +0800</pubDate>
       
-      <guid>https://creative.clox.nu/news/2021/10/25/gh-pages/</guid>
+      <guid>https://clox.nu/news/2021/10/25/gh-pages/</guid>
       <description>由于 blog 生成 HTML 会自动将所有资源复制到生成的目录中，因此将 output 目录放到新的分支中可以防止本地占用「双倍」空间，而且可以防止需要合并远端变更。
 这是我的 GitHub Actions 执行代码：
 # This is a basic workflow to help you get started with Actions name: build creative.clox.nu # Controls when the workflow will run on: # Triggers the workflow on push or pull request events but only for the main branch push: branches: [ main ] pull_request: branches: [ main ] # Allows you to run this workflow manually from the Actions tab workflow_dispatch: # A workflow run is made up of one or more jobs that can run sequentially or in parallel jobs: # This workflow contains a single job called &amp;#34;build&amp;#34; build: # The type of runner that the job will run on runs-on: ubuntu-latest # Steps represent a sequence of tasks that will be executed as part of the job steps: # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it - name: Checkout main uses: actions/checkout@v2 # Update theme  - name: Update theme run: git submodule update --init --recursive # Setup Hugo - name: Setup Hugo uses: peaceiris/actions-hugo@v2 with: hugo-version: &amp;#39;latest&amp;#39; # Build blog - name: Build working-directory: .</description>
@@ -29,10 +29,10 @@
     
     <item>
       <title>下单了一台 M1 Pro 的 MacBook Pro</title>
-      <link>https://creative.clox.nu/news/2021/10/20/buy-new-mbp/</link>
+      <link>https://clox.nu/news/2021/10/20/buy-new-mbp/</link>
       <pubDate>Wed, 20 Oct 2021 11:40:09 +0800</pubDate>
       
-      <guid>https://creative.clox.nu/news/2021/10/20/buy-new-mbp/</guid>
+      <guid>https://clox.nu/news/2021/10/20/buy-new-mbp/</guid>
       <description>下单了一台 19 号凌晨发布的 MacBook Pro。
 起初下了 16GB 内存版本的订单，26 号就到货还挺快的。
 后来被同事们强烈建议 32GB，退掉再订 32GB 版本。结果退款需要 5 个工作日😭
@@ -42,28 +42,28 @@
     
     <item>
       <title>想写一个 AI 驱动的游戏</title>
-      <link>https://creative.clox.nu/news/2021/10/13/ai-game/</link>
+      <link>https://clox.nu/news/2021/10/13/ai-game/</link>
       <pubDate>Wed, 13 Oct 2021 22:00:09 +0800</pubDate>
       
-      <guid>https://creative.clox.nu/news/2021/10/13/ai-game/</guid>
+      <guid>https://clox.nu/news/2021/10/13/ai-game/</guid>
       <description>想写一种没有输赢、创造类的游戏，这个游戏随机性很强，主要靠 AI；其次它不容易沉迷。</description>
     </item>
     
     <item>
       <title>想做一种永生的机器人</title>
-      <link>https://creative.clox.nu/news/2021/10/09/immortal-robot/</link>
+      <link>https://clox.nu/news/2021/10/09/immortal-robot/</link>
       <pubDate>Sat, 09 Oct 2021 15:18:57 +0800</pubDate>
       
-      <guid>https://creative.clox.nu/news/2021/10/09/immortal-robot/</guid>
+      <guid>https://clox.nu/news/2021/10/09/immortal-robot/</guid>
       <description>想做一种永生的机器人，以后可以用我的身份代替我永生，那可太好了。</description>
     </item>
     
     <item>
       <title>购买 iPhone 13 的一天</title>
-      <link>https://creative.clox.nu/news/2021/09/25/iphone13/</link>
+      <link>https://clox.nu/news/2021/09/25/iphone13/</link>
       <pubDate>Sat, 25 Sep 2021 20:46:15 +0800</pubDate>
       
-      <guid>https://creative.clox.nu/news/2021/09/25/iphone13/</guid>
+      <guid>https://clox.nu/news/2021/09/25/iphone13/</guid>
       <description>9 月 17 号那天，我拿到了等了很久的相机，也恰好是那天的前一天，我的 iPhone XR 坏掉了，连 MacBook 恢复模式都一直自己重启。iPhone 13 也恰好在这一天晚上 8 点开售，可是在这天我还没想好要换手机。
 24 号，iPhone 13 开卖了，我才了解到 24-26 号 Apple Store 是只对预约的人开放的，同时这段时间我也意识到 24 号之前在 Apple Store App 里下单是没法选线下取货的（应该是 17 号晚上 8 点把名额抢完了），送货的话要等很久。所以工作人员让我留意一下抢 27 号及以后的线下取货。当时的截图是这样的：
 24 号白天的时候，发现官网的某一页有这么一句话「预约系统的开放时间为每天上午 上午 6:00」。好了，定好闹钟，25 号早上 6 点抢。
@@ -76,20 +76,20 @@
     
     <item>
       <title>我终于拿到了富士 X-S10</title>
-      <link>https://creative.clox.nu/news/2021/09/17/fujifilm-xs10/</link>
+      <link>https://clox.nu/news/2021/09/17/fujifilm-xs10/</link>
       <pubDate>Fri, 17 Sep 2021 14:30:42 +0800</pubDate>
       
-      <guid>https://creative.clox.nu/news/2021/09/17/fujifilm-xs10/</guid>
+      <guid>https://clox.nu/news/2021/09/17/fujifilm-xs10/</guid>
       <description>一个月前的 8 月 14 日，我在线下订购了一台富士 X-S10，没想到在一个月后的今天才拿到这款超级缺货的相机📷
 我将使用新的方式记录生活。</description>
     </item>
     
     <item>
       <title>为 Hugo 站点添加自定义字体</title>
-      <link>https://creative.clox.nu/news/2021/09/09/hugo-custom-font/</link>
+      <link>https://clox.nu/news/2021/09/09/hugo-custom-font/</link>
       <pubDate>Thu, 09 Sep 2021 19:35:14 +0800</pubDate>
       
-      <guid>https://creative.clox.nu/news/2021/09/09/hugo-custom-font/</guid>
+      <guid>https://clox.nu/news/2021/09/09/hugo-custom-font/</guid>
       <description>今天我把此 Hugo 站点关于 code 部分的字体改为 Jetbrains Mono，大致进行了以下几步。
 我使用的是 Papermod 主题，其 Wiki 页面有讲述关于如何加入自定义 css 的方法。
 于是我尝试将用 jsDelivr 加速的 Jetbrains Mono 字体静态加载1并生效于 code 中。
@@ -102,10 +102,10 @@
     
     <item>
       <title>我使用 Cloudflare Pages 部署 Hugo 失败了</title>
-      <link>https://creative.clox.nu/news/2021/09/09/cloudflare-pages-failed/</link>
+      <link>https://clox.nu/news/2021/09/09/cloudflare-pages-failed/</link>
       <pubDate>Thu, 09 Sep 2021 10:56:03 +0800</pubDate>
       
-      <guid>https://creative.clox.nu/news/2021/09/09/cloudflare-pages-failed/</guid>
+      <guid>https://clox.nu/news/2021/09/09/cloudflare-pages-failed/</guid>
       <description>Cloudflare Pages 是一个 Cloudflare 于 2020 年末推出的 Jamstack 平台。JAMstack 指主要使用 Javascript, API, Markup 的一种安全快速的网站结构。
 在此之前，这个 Hugo 站点是使用 GitHub Pages + Cloudflare CDN 这种方式运作的。于是今天尝试使用 Cloudflare Pages 部署。
 进入官网之后，登录 -&amp;gt; GitHub 授权
@@ -117,10 +117,10 @@ Failed: an internal error occurred </description>
     
     <item>
       <title>使用 iPad Pro 体验 5-5.work</title>
-      <link>https://creative.clox.nu/news/2021/09/07/5-5-work/</link>
+      <link>https://clox.nu/news/2021/09/07/5-5-work/</link>
       <pubDate>Tue, 07 Sep 2021 00:12:12 +0800</pubDate>
       
-      <guid>https://creative.clox.nu/news/2021/09/07/5-5-work/</guid>
+      <guid>https://clox.nu/news/2021/09/07/5-5-work/</guid>
       <description>我们在 2021 年 6 月发布了 无名速递（原名「五号电池」）的 2.0 版本，今天使用 iPad Pro 体验了一下。
 打开网页
 创建房间，名为 1234

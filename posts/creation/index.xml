@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>cloxnu&#39;s Creative Space</title>
-    <link>https://creative.clox.nu/posts/creation/</link>
+    <link>https://clox.nu/posts/creation/</link>
     <description>Recent content on cloxnu&#39;s Creative Space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 30 Oct 2021 02:14:30 +0800</lastBuildDate><atom:link href="https://creative.clox.nu/posts/creation/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 30 Oct 2021 02:14:30 +0800</lastBuildDate><atom:link href="https://clox.nu/posts/creation/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>使用渐进式 JPEG 图片优化 blog 阅读体验</title>
-      <link>https://creative.clox.nu/blog/optimizing-blog-experience-with-progressive-jpeg-pictures/</link>
+      <link>https://clox.nu/blog/optimizing-blog-experience-with-progressive-jpeg-pictures/</link>
       <pubDate>Sat, 30 Oct 2021 02:14:30 +0800</pubDate>
       
-      <guid>https://creative.clox.nu/blog/optimizing-blog-experience-with-progressive-jpeg-pictures/</guid>
+      <guid>https://clox.nu/blog/optimizing-blog-experience-with-progressive-jpeg-pictures/</guid>
       <description>从写好第一篇多图大图的 blog 那一刻起，我就一直在思考访问者如何快速加载这些图片提高阅读体验，因为这些图片动辄几兆甚至几十兆，而我又不希望压缩这些图片导致质量下降。
 所以在以往的多图 blog 中，访问者往往要等待很久的加载时间。
 既然是图片大小导致的「硬伤」，加载这些图片几乎都取决于访问者的网速，那么有没有办法从图片本身的角度出发，来优化这种加载时间？
@@ -28,10 +28,10 @@
     
     <item>
       <title>如何使用相机拍摄包含精准地理位置信息的照片</title>
-      <link>https://creative.clox.nu/blog/add-gps-exif-info-to-camera-photos/</link>
+      <link>https://clox.nu/blog/add-gps-exif-info-to-camera-photos/</link>
       <pubDate>Thu, 07 Oct 2021 17:00:30 +0800</pubDate>
       
-      <guid>https://creative.clox.nu/blog/add-gps-exif-info-to-camera-photos/</guid>
+      <guid>https://clox.nu/blog/add-gps-exif-info-to-camera-photos/</guid>
       <description>🤔 当我们使用手机拍照时，按下快门的那一刻，程序会自动获取当前地理位置，并将其写入照片中。而当我们拥有海量包含地理位置并通过 iCloud 或者 NAS 管理的照片时，这些照片会被程序自动归类，因此可以省去大量整理照片的时间。
 可是当拍照的设备转移到成像质量更好的相机时，我们却很难方便地获取地理位置信息，因为现在大多数的单反/无反相机都不带有 GPS 模块。因此目前这些相机的解决方案是通过手机蓝牙连接来获取 GPS 信息以写入照片。
 在实际使用中，相机需要手机打开对应相机 App 并连接数秒才能更新正确位置，否则相机要么不会写入地理位置，要么写入一个老的地理位置。在拍照时如果总是需要用手机来连接，那一定相当影响拍摄体验。
@@ -43,10 +43,10 @@
     
     <item>
       <title>如何用命令行将 Linux 服务器上的文件备份至 Dropbox</title>
-      <link>https://creative.clox.nu/blog/backup-files-on-linux-to-dropbox/</link>
+      <link>https://clox.nu/blog/backup-files-on-linux-to-dropbox/</link>
       <pubDate>Wed, 01 Sep 2021 23:02:22 +0800</pubDate>
       
-      <guid>https://creative.clox.nu/blog/backup-files-on-linux-to-dropbox/</guid>
+      <guid>https://clox.nu/blog/backup-files-on-linux-to-dropbox/</guid>
       <description>又进入了新的一月，又到了服务器续费的时候。由于我前些天把我的 travel blog 变成静态页面了，因此原本 serve 了它一段时间的服务器也可以注销掉了，不过服务器上还存有一些需要保留的文件，于是今天想把这些文件放到 Dropbox 中。
 参照 官方安装页面，先运行以下命令下载并解压 Dropbox。
 $ cd ~ &amp;amp;&amp;amp; wget -O - &amp;#34;https://www.dropbox.com/download?plat=lnx.x86_64&amp;#34; | tar xzf - 然后在 home 目录就会产生一个 .dropbox-dist 目录，同样参照以上官方安装页面，运行这个目录下的 dropboxd 来启动 Dropbox 守护进程。
@@ -60,10 +60,10 @@ $ sudo apt install libc6 libglapi-mesa libxdamage1 libxfixes3 libxcb-glx0 libxcb
     
     <item>
       <title>使用 GitHub Actions 自动部署我的 travel blog 站点</title>
-      <link>https://creative.clox.nu/blog/generate-my-travel-blog-by-github-actions/</link>
+      <link>https://clox.nu/blog/generate-my-travel-blog-by-github-actions/</link>
       <pubDate>Sat, 14 Aug 2021 20:41:00 +0800</pubDate>
       
-      <guid>https://creative.clox.nu/blog/generate-my-travel-blog-by-github-actions/</guid>
+      <guid>https://clox.nu/blog/generate-my-travel-blog-by-github-actions/</guid>
       <description>前情提要：在我的 travel blog 的仓库根目录下，有一个叫 gotravel 的文件，运行该文件即可自动生成网站，因此 GitHub Actions 只需要在我每次 push 之后运行这个文件再提交一次就可以了。
 在 GitHub 仓库内点击菜单栏的 Actions，然后选择 set up a workflow yourself
 然后就会跳转至新建文件页面，以及 GitHub 自动生成最初的 main.yml 文件。
@@ -72,10 +72,10 @@ $ sudo apt install libc6 libglapi-mesa libxdamage1 libxfixes3 libxcb-glx0 libxcb
     
     <item>
       <title>一个奇特的想法 - Site Net</title>
-      <link>https://creative.clox.nu/blog/site-net/</link>
+      <link>https://clox.nu/blog/site-net/</link>
       <pubDate>Sat, 20 Feb 2021 11:34:48 +0800</pubDate>
       
-      <guid>https://creative.clox.nu/blog/site-net/</guid>
+      <guid>https://clox.nu/blog/site-net/</guid>
       <description>就在最近两天，我思考到关于如何做一个让知识体系更显而易见的个人网站时，想到了一个可以用一个程序来实现展示各网站关联的点子：类似于一个知识体系的构建，知识点 A 关联到知识点 B，知识点 B 关联到知识点 C，每个站点会指向它内部所含的链接的站点。
 程序写出来之后首先就想要测试的就是 Wikipedia 的词条，经过域名过滤和标题过滤（让链接仅指向 Wikipedia 的站点而不是某些参考文献），原站点指向的站点实在是太多，图片上的字都有点看不清了。（以下是 Python 词条搜索 3,000 次的结果）
 然后再试了一下 Apple 的中国官网，图比较密集所以将画布放大了一倍
@@ -84,20 +84,20 @@ $ sudo apt install libc6 libglapi-mesa libxdamage1 libxfixes3 libxcb-glx0 libxcb
     
     <item>
       <title>使用 Travis CI 自动部署 Hugo 站点</title>
-      <link>https://creative.clox.nu/blog/deployment-based-on-travis-ci/</link>
+      <link>https://clox.nu/blog/deployment-based-on-travis-ci/</link>
       <pubDate>Tue, 16 Feb 2021 10:58:54 +0800</pubDate>
       
-      <guid>https://creative.clox.nu/blog/deployment-based-on-travis-ci/</guid>
+      <guid>https://clox.nu/blog/deployment-based-on-travis-ci/</guid>
       <description>在 GitHub 仓库内创建 .travis.yml 文件并添加以下内容后，即可自动部署此 Hugo 站点。
 dist: bionic addons: snaps: - hugo install: - cd ./src/ - git submodule update --init --remote script: - hugo -D after_script: - cd .. - git config --global user.name &amp;#34;Travis CI&amp;#34; - git config --global user.email &amp;lt;your-email&amp;gt; - git remote set-url origin &amp;#34;https://${GITHUB_TOKEN}@github.com/&amp;lt;username&amp;gt;/&amp;lt;repo-name&amp;gt;.git&amp;#34; - git checkout main - git add . - git commit -m &amp;#34;Update Blog By TravisCI With Build $TRAVIS_BUILD_NUMBER&amp;#34; - git push origin   记得在 travis-ci.</description>
     </item>
     
     <item>
       <title>关于本站</title>
-      <link>https://creative.clox.nu/blog/about-this-site/</link>
+      <link>https://clox.nu/blog/about-this-site/</link>
       <pubDate>Mon, 15 Feb 2021 00:21:45 +0800</pubDate>
       
-      <guid>https://creative.clox.nu/blog/about-this-site/</guid>
+      <guid>https://clox.nu/blog/about-this-site/</guid>
       <description>本站使用 Hugo 搭建而成，theme 主要使用 PaperMod，将源仓库 adityatelange / hugo-PaperMod fork 到自己的 GitHub 仓库 cloxnu / hugo-PaperMod 并手动增加Mathjax 特性后，本站仓库主题使用 git submodule 拉取。
 以下添加 Mathjax 特性过程参考 https://note.qidong.name/2018/03/hugo-mathjax/
 手动添加文件 layouts/partials/mathjax.html
@@ -111,10 +111,10 @@ git submodule add https://github.</description>
     
     <item>
       <title>学校爬电费状态栏 App 的 macOS 开发日记</title>
-      <link>https://creative.clox.nu/blog/energy-charge-in-macos/</link>
+      <link>https://clox.nu/blog/energy-charge-in-macos/</link>
       <pubDate>Sat, 23 May 2020 00:35:00 +0800</pubDate>
       
-      <guid>https://creative.clox.nu/blog/energy-charge-in-macos/</guid>
+      <guid>https://clox.nu/blog/energy-charge-in-macos/</guid>
       <description>Monitoring the energy charge work on macOS in CJLU.
 如何在没接触过 macOS 开发的情况下 4 个小时写一个学校爬电费状态栏 App GitHub链接-Energy_Charge_in_MacOS
 About Energy_Charge  There is Docker version.   2020-05-23 00:35 更新 连接错误变灰
