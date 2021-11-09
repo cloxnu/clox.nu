@@ -165,7 +165,7 @@ Date:   Fri Nov &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; 13:41:3
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;查看第二次提交：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ git show HEAD^
 commit 903242f62a479417f1b3d759b0a64280ea43287b
-Author: sidneysliu &amp;lt;sidneysliu@tencent.com&amp;gt;
+Author: cloxnu &amp;lt;hi@clox.nu&amp;gt;
 Date:   Fri Nov &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; 13:45:21 &lt;span style=&#34;color:#ae81ff&#34;&gt;2021&lt;/span&gt; +0800
 
     2nd commit
