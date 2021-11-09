@@ -12,19 +12,19 @@ categories: study / git
 ```shell
 $ git log
 commit 0e162000e27ba998d5a92cc04b489e3d3ec0e30d (HEAD -> master)
-Author: sidneysliu <sidneysliu@tencent.com>
+Author: cloxnu <hi@clox.nu>
 Date:   Fri Nov 5 13:46:08 2021 +0800
 
     3rd commit
 
 commit f5f470406634bb255e4f19bf62780868afeed32d
-Author: sidneysliu <sidneysliu@tencent.com>
+Author: cloxnu <hi@clox.nu>
 Date:   Fri Nov 5 13:45:21 2021 +0800
 
     2nd commit
 
 commit cf8c580d322e459fa1acf4ef1e6d08163aeb1a21
-Author: sidneysliu <sidneysliu@tencent.com>
+Author: cloxnu <hi@clox.nu>
 Date:   Fri Nov 5 13:41:30 2021 +0800
 
     1st commit
@@ -178,19 +178,19 @@ Successfully rebased and updated refs/heads/master.
 ```shell
 $ git log
 commit 9522b421544a86b1fc7be32bac18e889fb57b096 (HEAD -> master)
-Author: sidneysliu <sidneysliu@tencent.com>
+Author: cloxnu <hi@clox.nu>
 Date:   Fri Nov 5 13:46:08 2021 +0800
 
     3rd commit
 
 commit 903242f62a479417f1b3d759b0a64280ea43287b
-Author: sidneysliu <sidneysliu@tencent.com>
+Author: cloxnu <hi@clox.nu>
 Date:   Fri Nov 5 13:45:21 2021 +0800
 
     2nd commit
 
 commit cf8c580d322e459fa1acf4ef1e6d08163aeb1a21
-Author: sidneysliu <sidneysliu@tencent.com>
+Author: cloxnu <hi@clox.nu>
 Date:   Fri Nov 5 13:41:30 2021 +0800
 
     1st commit
