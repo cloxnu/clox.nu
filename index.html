@@ -21,7 +21,7 @@
 <link rel="mask-icon" href="https://clox.nu/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.89.2" />
+<meta name="generator" content="Hugo 0.89.3" />
 <link rel="alternate" type="application/rss&#43;xml" href="https://clox.nu/index.xml">
 
 
@@ -44,7 +44,7 @@ if (!doNotTrack) {
 <meta property="og:description" content="Hi, I&#39;m creating more creative works. Here are my thoughts, essays and expectations." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://clox.nu/" />
-<meta property="og:updated_time" content="2021-11-05T16:37:27+08:00" /><meta property="og:site_name" content="cloxnu&#39;s creative space" />
+<meta property="og:updated_time" content="2021-11-16T22:00:00+08:00" /><meta property="og:site_name" content="cloxnu&#39;s creative space" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="cloxnu&#39;s Creative Space"/>
 <meta name="twitter:description" content="Hi, I&#39;m creating more creative works. Here are my thoughts, essays and expectations."/>
@@ -194,6 +194,45 @@ if (!doNotTrack) {
 
 
 
+
+<article class="post-entry"> 
+
+  <header class="entry-header">
+    <h2>
+      Telegram Bot 简明教程 II - 收指令与指令键盘
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>在此之前 Telegram Bot 简明教程 I - 注册与发消息
+收指令 python-telegram-bot wiki 页面 介绍了如何使用 Python 脚本实现与 Bot 交互。
+以下是根据这个 wiki 页面编写的例程。
+接收 /start 指令 from telegram import Update from telegram.ext import Updater, CallbackContext, CommandHandler token = &#39;2110628450:AAHQ78uj42ddtdsx0gKfaZGyFUhpnQ13vyM&#39; def start(update: Update, context: CallbackContext): context.bot.send_message(chat_id=update.effective_chat.id, text=&#34;Let&#39;s start!&#34;) # 或 # update.message.reply_text(&#34;Let&#39;s start!&#34;) if __name__ == &#39;__main__&#39;: updater = Updater(token=token, use_context=True) #1 start_handler = CommandHandler(&#39;start&#39;, start) #2 updater.dispatcher.add_handler(start_handler) #3 updater.start_polling() #4 updater.idle() #5  首先根据 token 创建一个 updater 对象； 定义 start 函数，在函数体中实现给发指令的那个 chat_id 发送消息「Let’s start!...</p>
+  </section>
+  <footer class="entry-footer">
+
+November 16, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Sidney Liu
+</footer>
+  <a class="entry-link" aria-label="post link to Telegram Bot 简明教程 II - 收指令与指令键盘" href="https://clox.nu/blog/brief-tutorial-on-telegram-bot-ii/"></a>
+</article>
+
+<article class="post-entry"> 
+
+  <header class="entry-header">
+    <h2>
+      Telegram Bot 简明教程 I - 注册与发消息
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>Telegram Bot，简而言之就是运行在 Telegram 上的可交互的「机器人」，你可以给它发送指令让它完成操作或是实现一些功能（付钱、游戏等等），或者可以在 Channel 或 Group 中发送特定消息。
+这是 官方介绍。它的主要原理就是开发者通过调用 Telegram Bot API 来实现接收指令、发消息以及实现各种功能。
+注册  与 @BotFather 对话，发送指令 /start 开始，/newbot 申请一个新的 Bot 账号。  接着，BotFather 会要求你输入这个 Bot 的名字和 ID。创建完成后，BotFather 会同时给你一个 token，记住这个 token。  此时，已经可以和这个 Bot 互动了，但是想要这个 Bot 也可以主动发消息，这时就要建立一个 Channel，并把这个 Bot 设置为管理员。这个 Channel 如果是 public，其链接可以自定义。这里以 private 为例。  由于 Channel 是 private，我们需要这个 Channel 的 ID 来操作，这里可以通过将 Channel 内的消息转发给 @JsonDumpBot 来查看。可以看到此 Channel 的 ID 是 -1001790411176。  发消息 在官方文档的 Making requests 介绍中讲到，可以使用 GET 或 POST 请求以下 URL。...</p>
+  </section>
+  <footer class="entry-footer">
+
+November 10, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
+</footer>
+  <a class="entry-link" aria-label="post link to Telegram Bot 简明教程 I - 注册与发消息" href="https://clox.nu/blog/brief-tutorial-on-telegram-bot-i/"></a>
+</article>
 
 <article class="post-entry"> 
 
@@ -394,44 +433,6 @@ cd rn_proj expo start 然后同时会打开一个 Web 控制台...</p>
 March 1, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
 </footer>
   <a class="entry-link" aria-label="post link to 初识 React Native" href="https://clox.nu/blog/get-started-with-react-native/"></a>
-</article>
-
-<article class="post-entry"> 
-
-  <header class="entry-header">
-    <h2>
-      一个奇特的想法 - Site Net
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>就在最近两天，我思考到关于如何做一个让知识体系更显而易见的个人网站时，想到了一个可以用一个程序来实现展示各网站关联的点子：类似于一个知识体系的构建，知识点 A 关联到知识点 B，知识点 B 关联到知识点 C，每个站点会指向它内部所含的链接的站点。
-程序写出来之后首先就想要测试的就是 Wikipedia 的词条，经过域名过滤和标题过滤（让链接仅指向 Wikipedia 的站点而不是某些参考文献），原站点指向的站点实在是太多，图片上的字都有点看不清了。（以下是 Python 词条搜索 3,000 次的结果）
-然后再试了一下 Apple 的中国官网，图比较密集所以将画布放大了一倍
-本工程的 GitHub 链接...</p>
-  </section>
-  <footer class="entry-footer">
-
-February 20, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
-</footer>
-  <a class="entry-link" aria-label="post link to 一个奇特的想法 - Site Net" href="https://clox.nu/blog/site-net/"></a>
-</article>
-
-<article class="post-entry"> 
-
-  <header class="entry-header">
-    <h2>
-      使用 Travis CI 自动部署 Hugo 站点
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>在 GitHub 仓库内创建 .travis.yml 文件并添加以下内容后，即可自动部署此 Hugo 站点。
-dist: bionic addons: snaps: - hugo install: - cd ./src/ - git submodule update --init --remote script: - hugo -D after_script: - cd .. - git config --global user.name &#34;Travis CI&#34; - git config --global user.email &lt;your-email&gt; - git remote set-url origin &#34;https://${GITHUB_TOKEN}@github.com/&lt;username&gt;/&lt;repo-name&gt;.git&#34; - git checkout main - git add . - git commit -m &#34;Update Blog By TravisCI With Build $TRAVIS_BUILD_NUMBER&#34; - git push origin   记得在 travis-ci....</p>
-  </section>
-  <footer class="entry-footer">
-
-February 16, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
-</footer>
-  <a class="entry-link" aria-label="post link to 使用 Travis CI 自动部署 Hugo 站点" href="https://clox.nu/blog/deployment-based-on-travis-ci/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

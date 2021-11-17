@@ -6,10 +6,175 @@
         <description>Recent content on cloxnu&#39;s Creative Space</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Fri, 05 Nov 2021 16:37:27 +0800</lastBuildDate>
+        <lastBuildDate>Tue, 16 Nov 2021 22:00:00 +0800</lastBuildDate>
         
         <atom:link href="https://clox.nu/index.xml" rel="self" type="application/rss+xml" />
         
+        
+        <item>
+            <title>Telegram Bot 简明教程 II - 收指令与指令键盘</title>
+            <link>https://clox.nu/blog/brief-tutorial-on-telegram-bot-ii/</link>
+            <pubDate>Tue, 16 Nov 2021 22:00:00 +0800</pubDate>
+            
+            <guid>https://clox.nu/blog/brief-tutorial-on-telegram-bot-ii/</guid>
+            <description>&lt;h2 id=&#34;在此之前&#34;&gt;在此之前&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;../brief-tutorial-on-telegram-bot-i/&#34;&gt;Telegram Bot 简明教程 I - 注册与发消息&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;收指令&#34;&gt;收指令&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/python-telegram-bot/python-telegram-bot/wiki/Extensions-%E2%80%93-Your-first-Bot&#34;&gt;python-telegram-bot wiki 页面&lt;/a&gt; 介绍了如何使用 Python 脚本实现与 Bot 交互。&lt;/p&gt;
+&lt;p&gt;以下是根据这个 wiki 页面编写的例程。&lt;/p&gt;
+&lt;h3 id=&#34;接收-start-指令&#34;&gt;接收 &lt;code&gt;/start&lt;/code&gt; 指令&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; telegram &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; Update
+&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; telegram.ext &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; Updater, CallbackContext, CommandHandler
+
+token &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;2110628450:AAHQ78uj42ddtdsx0gKfaZGyFUhpnQ13vyM&amp;#39;&lt;/span&gt;
+
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;start&lt;/span&gt;(update: Update, context: CallbackContext):
+    context&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;bot&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;send_message(chat_id&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;update&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;effective_chat&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;id, text&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Let&amp;#39;s start!&amp;#34;&lt;/span&gt;)
+    &lt;span style=&#34;color:#75715e&#34;&gt;# 或&lt;/span&gt;
+    &lt;span style=&#34;color:#75715e&#34;&gt;# update.message.reply_text(&amp;#34;Let&amp;#39;s start!&amp;#34;)&lt;/span&gt;
+
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; __name__ &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;:
+    updater &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; Updater(token&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;token, use_context&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;True&lt;/span&gt;) &lt;span style=&#34;color:#75715e&#34;&gt;#1&lt;/span&gt;
+    start_handler &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; CommandHandler(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;start&amp;#39;&lt;/span&gt;, start) &lt;span style=&#34;color:#75715e&#34;&gt;#2&lt;/span&gt;
+    updater&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;dispatcher&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;add_handler(start_handler) &lt;span style=&#34;color:#75715e&#34;&gt;#3&lt;/span&gt;
+    updater&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;start_polling() &lt;span style=&#34;color:#75715e&#34;&gt;#4&lt;/span&gt;
+    updater&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;idle() &lt;span style=&#34;color:#75715e&#34;&gt;#5&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol&gt;
+&lt;li&gt;首先根据 token 创建一个 &lt;code&gt;updater&lt;/code&gt; 对象；&lt;/li&gt;
+&lt;li&gt;定义 &lt;code&gt;start&lt;/code&gt; 函数，在函数体中实现给发指令的那个 &lt;code&gt;chat_id&lt;/code&gt; 发送消息「Let&amp;rsquo;s start!」，并将这个函数与 &lt;code&gt;start&lt;/code&gt; 指令关联；&lt;/li&gt;
+&lt;li&gt;将 &lt;code&gt;start&lt;/code&gt; 函数作为 &lt;code&gt;CommandHandler&lt;/code&gt; 添加到 &lt;code&gt;update.dispatcher&lt;/code&gt; 中；&lt;/li&gt;
+&lt;li&gt;当前设定的指令开始运作，程序会自动持续地向 Telegram 的服务器发送请求，以实时接收指令；&lt;/li&gt;
+&lt;li&gt;等待用户 Control-C 或者进程杀死。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;运行此程序，并与 Bot 对话，执行指令 &lt;code&gt;/start&lt;/code&gt; ，结果如下：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/IMG_1.jpg&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;对话&#34;&gt;对话&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; telegram &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; Update
+&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; telegram.ext &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; Updater, CallbackContext, CommandHandler, MessageHandler, Filters
+
+token &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;2110628450:AAHQ78uj42ddtdsx0gKfaZGyFUhpnQ13vyM&amp;#39;&lt;/span&gt;
+
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;echo&lt;/span&gt;(update: Update, context: CallbackContext):
+    context&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;bot&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;send_message(chat_id&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;update&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;effective_chat&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;id, text&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;update&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;message&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;text)
+    
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; __name__ &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;:
+    updater &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; Updater(token&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;token, use_context&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;True&lt;/span&gt;)
+    echo_handler &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; MessageHandler(Filters&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;text &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt; (&lt;span style=&#34;color:#f92672&#34;&gt;~&lt;/span&gt;Filters&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;command), echo) &lt;span style=&#34;color:#75715e&#34;&gt;#1&lt;/span&gt;
+    updater&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;dispatcher&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;add_handler(echo_handler) &lt;span style=&#34;color:#75715e&#34;&gt;#2&lt;/span&gt;
+    updater&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;start_polling()
+    updater&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;idle()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;将之前的代码稍作修改：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;将之前的 &lt;code&gt;start&lt;/code&gt; 函数改为 &lt;code&gt;echo&lt;/code&gt; 函数，其作用是将发给 Bot 的消息发送回来，并将之前的 &lt;code&gt;CommandHandler&lt;/code&gt; 改为 &lt;code&gt;MessageHandler&lt;/code&gt;，这里 &lt;code&gt;Filter&lt;/code&gt; 的作用是过滤文本和非指令信息；&lt;/li&gt;
+&lt;li&gt;添加到 &lt;code&gt;dispatcher&lt;/code&gt; 中。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;运行此程序，并与 Bot 对话，Bot 会将原话发送回来：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/IMG_2.jpg&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;指令键盘&#34;&gt;指令键盘&lt;/h3&gt;
+&lt;p&gt;关于这一部分，python-telegram-bot 有一个 &lt;a href=&#34;https://github.com/python-telegram-bot/python-telegram-bot/blob/master/examples/inlinekeyboard.py&#34;&gt;例程&lt;/a&gt;，和对应的 &lt;a href=&#34;https://github.com/python-telegram-bot/python-telegram-bot/wiki/InlineKeyboard-Example&#34;&gt;wiki&lt;/a&gt;。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; telegram &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; InlineKeyboardButton, InlineKeyboardMarkup, Update
+&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; telegram.ext &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; Updater, CallbackContext, CommandHandler, CallbackQueryHandler
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;start&lt;/span&gt;(update: Update, context: CallbackContext):
+    keyboard &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [
+        [
+            InlineKeyboardButton(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Option 1&amp;#34;&lt;/span&gt;, callback_data&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;1&amp;#39;&lt;/span&gt;),
+            InlineKeyboardButton(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Option 2&amp;#34;&lt;/span&gt;, callback_data&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;2&amp;#39;&lt;/span&gt;),
+        ],
+        [
+            InlineKeyboardButton(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Option 3&amp;#34;&lt;/span&gt;, callback_data&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;3&amp;#39;&lt;/span&gt;),
+        ]
+    ] &lt;span style=&#34;color:#75715e&#34;&gt;#1&lt;/span&gt;
+    reply_markup &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; InlineKeyboardMarkup(keyboard) &lt;span style=&#34;color:#75715e&#34;&gt;#2&lt;/span&gt;
+    update&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;message&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;reply_text(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Please choose:&amp;#34;&lt;/span&gt;, reply_markup&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;reply_markup) &lt;span style=&#34;color:#75715e&#34;&gt;#3&lt;/span&gt;
+
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;keyboard_callback&lt;/span&gt;(update: Update, context: CallbackContext): &lt;span style=&#34;color:#75715e&#34;&gt;#4&lt;/span&gt;
+    query &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; update&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;callback_query &lt;span style=&#34;color:#75715e&#34;&gt;#5&lt;/span&gt;
+    query&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;answer() &lt;span style=&#34;color:#75715e&#34;&gt;#6&lt;/span&gt;
+    query&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;edit_message_text(text&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Selected option: &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{&lt;/span&gt;query&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;data&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#75715e&#34;&gt;#7&lt;/span&gt;
+    
+&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; name &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;:
+    updater &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; Updater(token&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;token, use_context&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;True&lt;/span&gt;)
+    start_handler &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; CommandHandler(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;start&amp;#39;&lt;/span&gt;, start)
+    updater&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;dispatcher&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;add_handler(start_handler)
+    updater&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;dispatcher&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;add_handler(CallbackQueryHandler(keyboard_callback)) &lt;span style=&#34;color:#75715e&#34;&gt;#8&lt;/span&gt;
+    updater&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;start_polling()
+    updater&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;idle()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol&gt;
+&lt;li&gt;同样回到 &lt;code&gt;start&lt;/code&gt; 函数，这次我们更改下 &lt;code&gt;/start&lt;/code&gt; 指令内部逻辑，一开始定义了一个二维数组，我们可以简单地理解为定义了两排按钮，第一排是 &lt;code&gt;Option 1&lt;/code&gt; 和 &lt;code&gt;Option 2&lt;/code&gt;，第二排是 &lt;code&gt;Option 3&lt;/code&gt;；&lt;/li&gt;
+&lt;li&gt;将其转换为 &lt;code&gt;InlineKeyboardMarkup&lt;/code&gt; 类型以便发送；&lt;/li&gt;
+&lt;li&gt;将这个指令键盘作为回复发送；&lt;/li&gt;
+&lt;li&gt;定义一个新的函数，作为用户按键盘后的 handler；&lt;/li&gt;
+&lt;li&gt;当用户点击按钮，&lt;code&gt;update.callback_query&lt;/code&gt; 中拥有此指令信息，将其定义为 &lt;code&gt;query&lt;/code&gt;；&lt;/li&gt;
+&lt;li&gt;调用 &lt;code&gt;query&lt;/code&gt; 的 &lt;code&gt;answer()&lt;/code&gt; 方法，即告诉用户「回复」了这条指令，表现为客户端不再显示等待这条指令的 UI；&lt;/li&gt;
+&lt;li&gt;将用户选择的值作为一条消息覆盖原来的键盘消息；&lt;/li&gt;
+&lt;li&gt;将此 handler 加入 &lt;code&gt;dispatcher&lt;/code&gt;。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;运行此程序，并与 Bot 对话，执行指令 &lt;code&gt;/start&lt;/code&gt; ，结果如下：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/IMG_3.jpg&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;p&gt;当点选 &amp;ldquo;Option 1&amp;rdquo; 后，出现 Loading 的提示后，原消息更改为以下结果：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/IMG_4.jpg&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;下一步&#34;&gt;下一步&amp;hellip;&lt;/h2&gt;
+&lt;p&gt;未完待续&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>Telegram Bot 简明教程 I - 注册与发消息</title>
+            <link>https://clox.nu/blog/brief-tutorial-on-telegram-bot-i/</link>
+            <pubDate>Wed, 10 Nov 2021 00:47:13 +0800</pubDate>
+            
+            <guid>https://clox.nu/blog/brief-tutorial-on-telegram-bot-i/</guid>
+            <description>&lt;p&gt;Telegram Bot，简而言之就是运行在 Telegram 上的可交互的「机器人」，你可以给它发送指令让它完成操作或是实现一些功能（付钱、游戏等等），或者可以在 Channel 或 Group 中发送特定消息。&lt;/p&gt;
+&lt;p&gt;这是 &lt;a href=&#34;https://core.telegram.org/bots&#34;&gt;官方介绍&lt;/a&gt;。它的主要原理就是开发者通过调用 &lt;a href=&#34;https://core.telegram.org/bots/api&#34;&gt;Telegram Bot API&lt;/a&gt; 来实现接收指令、发消息以及实现各种功能。&lt;/p&gt;
+&lt;h2 id=&#34;注册&#34;&gt;注册&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;与 &lt;a href=&#34;https://t.me/BotFather&#34;&gt;@BotFather&lt;/a&gt; 对话，发送指令 &lt;code&gt;/start&lt;/code&gt; 开始，&lt;code&gt;/newbot&lt;/code&gt; 申请一个新的 Bot 账号。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;assets/IMG_1.png&#34; alt=&#34;图片&#34;&gt;&lt;img src=&#34;assets/IMG_2.png&#34; alt=&#34;图片&#34;&gt;&lt;img src=&#34;assets/IMG_3.png&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;接着，BotFather 会要求你输入这个 Bot 的名字和 ID。创建完成后，BotFather 会同时给你一个 token，记住这个 token。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;assets/IMG_4.jpg&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;此时，已经可以和这个 Bot 互动了，但是想要这个 Bot 也可以主动发消息，这时就要建立一个 Channel，并把这个 Bot 设置为管理员。这个 Channel 如果是 public，其链接可以自定义。这里以 private 为例。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;assets/IMG_5.png&#34; alt=&#34;图片&#34;&gt;&lt;img src=&#34;assets/IMG_6.png&#34; alt=&#34;图片&#34;&gt;&lt;img src=&#34;assets/IMG_7.png&#34; alt=&#34;图片&#34;&gt;&lt;img src=&#34;assets/IMG_8.png&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;由于 Channel 是 private，我们需要这个 Channel 的 ID 来操作，这里可以通过将 Channel 内的消息转发给 &lt;a href=&#34;https://t.me/JsonDumpBot&#34;&gt;@JsonDumpBot&lt;/a&gt; 来查看。可以看到此 Channel 的 ID 是 &lt;code&gt;-1001790411176&lt;/code&gt;。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;assets/IMG_9.png&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;发消息&#34;&gt;发消息&lt;/h2&gt;
+&lt;p&gt;在官方文档的 &lt;a href=&#34;https://core.telegram.org/bots/api#making-requests&#34;&gt;Making requests&lt;/a&gt; 介绍中讲到，可以使用 GET 或 POST 请求以下 URL。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;https://api.telegram.org/bot&amp;lt;token&amp;gt;/METHOD_NAME
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;同样在官方文档 &lt;a href=&#34;https://core.telegram.org/bots/api#sendmessage&#34;&gt;sendMessage&lt;/a&gt; 介绍中，列出了所有参数列表。在获取到 token 和 Channel ID 后，以下这条链接就是此 Bot 发给刚刚建立的 Channel 一条消息「Hello from robot」的请求。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;https://api.telegram.org/bot2110628450:AAHQ78uj42ddtdsx0gKfaZGyFUhpnQ13vyM/sendMessage?chat_id=-1001790411176&amp;amp;text=Hello%20from%20robot
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&#34;assets/IMG_10.jpg&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;p&gt;我们也可以编写以下 Python 程序，运行之后 Bot 同样会在此 Channel 发送一条信息「Hello from robot」。（在此之前需要安装 telegram 依赖 &lt;code&gt;pip install python-telegram-bot&lt;/code&gt;）&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; telegram
+
+bot &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; telegram&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;Bot(token&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;2110628450:AAHQ78uj42ddtdsx0gKfaZGyFUhpnQ13vyM&amp;#39;&lt;/span&gt;)
+print(bot&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;get_me())
+
+bot&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;send_message(text&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello from robot&amp;#34;&lt;/span&gt;, chat_id&lt;span style=&#34;color:#f92672&#34;&gt;=-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1001790411176&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a href=&#34;https://python-telegram-bot.readthedocs.io/en/stable/&#34;&gt;python-telegram-bot 官方文档&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;下一步&#34;&gt;下一步&amp;hellip;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;../brief-tutorial-on-telegram-bot-ii/&#34;&gt;Telegram Bot 简明教程 II - 收指令与指令键盘&lt;/a&gt;&lt;/p&gt;
+&lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/python-telegram-bot/python-telegram-bot&#34;&gt;https://github.com/python-telegram-bot/python-telegram-bot&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</description>
+        </item>
         
         <item>
             <title>如何用 Git 命令修改历史提交</title>
