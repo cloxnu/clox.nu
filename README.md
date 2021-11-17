@@ -4,10 +4,12 @@ Hi, I'm creating more creative works. Here are my thoughts, essays and expectati
  
 The website, https://clox.nu
 
-<table>
-    <tr>
-        <th>Travis CI build status</th>
-        <th><img src="https://travis-ci.com/cloxnu/creative.clox.nu.svg?branch=main" alt="build status"></th>
-    </tr>
-</table>
+| Build          | Status                                                       |
+| -------------- | ------------------------------------------------------------ |
+| Travis CI      | ![build status](https://travis-ci.com/cloxnu/creative.clox.nu.svg?branch=main) |
+| GitHub Actions | [![build creative.clox.nu](https://github.com/cloxnu/clox.nu/actions/workflows/main.yml/badge.svg)](https://github.com/cloxnu/clox.nu/actions/workflows/main.yml) |
+
+
+
+
 
