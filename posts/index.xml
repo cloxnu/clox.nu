@@ -6,7 +6,7 @@
     <description>Recent content in Posts on cloxnu&#39;s Creative Space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 16 Nov 2021 22:00:00 +0800</lastBuildDate><atom:link href="https://clox.nu/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 17 Nov 2021 22:30:00 +0800</lastBuildDate><atom:link href="https://clox.nu/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>如何用 Git 命令修改历史提交</title>
       <link>https://clox.nu/blog/how-to-amend-git-history-commit/</link>
