@@ -1,6 +1,6 @@
 ---
 title: "Telegram Bot 简明教程 II - 收指令与指令键盘"
-date: 2021-11-16T22:00:00+08:00
+date: 2021-11-17T22:30:00+08:00
 slug: brief-tutorial-on-telegram-bot-ii
 categories: creation
 ---
