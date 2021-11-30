@@ -6,10 +6,21 @@
         <description>Recent content on cloxnu&#39;s Creative Space</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Wed, 17 Nov 2021 22:30:00 +0800</lastBuildDate>
+        <lastBuildDate>Tue, 30 Nov 2021 13:40:00 +0800</lastBuildDate>
         
         <atom:link href="https://clox.nu/index.xml" rel="self" type="application/rss+xml" />
         
+        
+        <item>
+            <title>购买 Typora</title>
+            <link>https://clox.nu/news/2021/11/30/buy-typora/</link>
+            <pubDate>Tue, 30 Nov 2021 13:40:00 +0800</pubDate>
+            
+            <guid>https://clox.nu/news/2021/11/30/buy-typora/</guid>
+            <description>&lt;p&gt;前两天 Typora 收费了，为了避免以后会变成订阅制，我这个 markdown 重度用户就赶快买了&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/IMG_1.png&#34; alt=&#34;图片&#34;&gt;&lt;img src=&#34;assets/IMG_2.png&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+</description>
+        </item>
         
         <item>
             <title>Telegram Bot 简明教程 II - 收指令与指令键盘</title>
