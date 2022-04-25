@@ -9,6 +9,8 @@ slug: aacell-2-2-0
 
 [AA Cell - 文件装进来，电池丢过去](https://aacell.me)
 
+![图片](assets/IMG_2.jpg)
+
 ![图片](assets/IMG_1.png)
 
 ### 修复与更改
