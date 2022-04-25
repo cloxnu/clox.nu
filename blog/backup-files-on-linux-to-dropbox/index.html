@@ -29,7 +29,7 @@ $ sudo apt install libc6 libglapi-mesa libxdamage1 libxfixes3 libxcb-glx0 libxcb
 <link rel="mask-icon" href="https://clox.nu/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.92.2" />
+<meta name="generator" content="Hugo 0.97.3" />
 
 
 
@@ -233,14 +233,14 @@ September 1, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
   <div class="post-content">
 <p>又进入了新的一月，又到了服务器续费的时候。由于我前些天把我的 travel blog 变成静态页面了，因此原本 serve 了它一段时间的服务器也可以注销掉了，不过服务器上还存有一些需要保留的文件，于是今天想把这些文件放到 Dropbox 中。</p>
 <p>参照 <a href="https://www.dropbox.com/install-linux">官方安装页面</a>，先运行以下命令下载并解压 Dropbox。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ cd ~ <span style="color:#f92672">&amp;&amp;</span> wget -O - <span style="color:#e6db74">&#34;https://www.dropbox.com/download?plat=lnx.x86_64&#34;</span> | tar xzf -
-</code></pre></div><p>然后在 home 目录就会产生一个 <code>.dropbox-dist</code> 目录，同样参照以上官方安装页面，运行这个目录下的 <code>dropboxd</code> 来启动 Dropbox 守护进程。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ cd ~ <span style="color:#f92672">&amp;&amp;</span> wget -O - <span style="color:#e6db74">&#34;https://www.dropbox.com/download?plat=lnx.x86_64&#34;</span> | tar xzf -
+</span></span></code></pre></div><p>然后在 home 目录就会产生一个 <code>.dropbox-dist</code> 目录，同样参照以上官方安装页面，运行这个目录下的 <code>dropboxd</code> 来启动 Dropbox 守护进程。</p>
 <pre tabindex="0"><code>$ ~/.dropbox-dist/dropboxd
 </code></pre><p>我在运行这句命令之后这段程序执行了一些指令后报错。（我使用的是 Ubuntu 20.04 LTS）</p>
 <p><img src="assets/IMG_1.jpg" alt="图片"></p>
 <p>于是立马在 <a href="https://www.digitalocean.com/community/questions/how-to-configure-dropbox-on-ubuntu-20-04">DigitalOcean</a> 中找到答案，我缺少了一些依赖，运行以下命令解决此问题。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sudo apt install libc6 libglapi-mesa libxdamage1 libxfixes3 libxcb-glx0 libxcb-dri2-0 libxcb-dri3-0 libxcb-present0 libxcb-sync1 libxshmfence1 libxxf86vm1
-</code></pre></div><p>安装依赖后，运行上述命令，得到以下输出：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ sudo apt install libc6 libglapi-mesa libxdamage1 libxfixes3 libxcb-glx0 libxcb-dri2-0 libxcb-dri3-0 libxcb-present0 libxcb-sync1 libxshmfence1 libxxf86vm1
+</span></span></code></pre></div><p>安装依赖后，运行上述命令，得到以下输出：</p>
 <p><img src="assets/IMG_2.jpg" alt="图片"></p>
 <p>根据提示需要打开 URL 登录自己的账号以绑定这台服务器。打开后界面如下。</p>
 <p><img src="assets/IMG_3.png" alt="图片"></p>
@@ -253,10 +253,10 @@ September 1, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
 <p>此时 home 目录下已经出现了 <code>Dropbox</code> 目录，进入之后就可以看见自己 Dropbox 内部存放的文件。</p>
 <p><img src="assets/IMG_4.jpg" alt="图片"></p>
 <p>依照官方安装页面，可以通过下载一个 Python 脚本，可以更方便地用命令行控制 Dropbox。运行以下命令<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>来下载 Python 脚本到 <code>/usr/local/bin</code> 目录，即可快速执行。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sudo wget -O /usr/local/bin/dropbox <span style="color:#e6db74">&#34;https://www.dropbox.com/download?dl=packages/dropbox.py&#34;</span>
-</code></pre></div><p>再给它添加执行权限。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sudo chmod +x /usr/local/bin/dropbox
-</code></pre></div><p>然后运行 <code>dropbox</code> 命令即可。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ sudo wget -O /usr/local/bin/dropbox <span style="color:#e6db74">&#34;https://www.dropbox.com/download?dl=packages/dropbox.py&#34;</span>
+</span></span></code></pre></div><p>再给它添加执行权限。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ sudo chmod +x /usr/local/bin/dropbox
+</span></span></code></pre></div><p>然后运行 <code>dropbox</code> 命令即可。</p>
 <p><img src="assets/IMG_5.jpg" alt="图片"></p>
 <p>运行 <code>dropbox start</code> 启动守护进程。<code>dropbox status</code> 查看状态<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>。</p>
 <p>当操作 <code>Dropbox</code> 目录时，守护进程会将更新的内容自动同步至 Dropbox 云端。</p>
@@ -312,7 +312,7 @@ September 1, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
     crossorigin= "anonymous"
     async>
 </script>
-<script defer src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
+<script defer src="/assets/js/highlight.min.2840b7fccd34145847db71a290569594bdbdb00047097f75d6495d162f5d7dff.js" integrity="sha256-KEC3/M00FFhH23GikFaVlL29sABHCX911kldFi9dff8="
     onload="hljs.initHighlightingOnLoad();"></script>
 <script>
     window.onload = function () {

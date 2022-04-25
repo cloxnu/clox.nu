@@ -21,7 +21,7 @@
 <link rel="mask-icon" href="https://clox.nu/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.92.2" />
+<meta name="generator" content="Hugo 0.97.3" />
 <link rel="alternate" type="application/rss&#43;xml" href="https://clox.nu/posts/creation/index.xml">
 
 
@@ -165,7 +165,7 @@ if (!doNotTrack) {
     <p>在此之前 Telegram Bot 简明教程 I - 注册与发消息
 收指令 python-telegram-bot wiki 页面 介绍了如何使用 Python 脚本实现与 Bot 交互。
 以下是根据这个 wiki 页面编写的例程。
-接收 /start 指令 from telegram import Update from telegram.ext import Updater, CallbackContext, CommandHandler token = &#39;2110628450:AAHQ78uj42ddtdsx0gKfaZGyFUhpnQ13vyM&#39; def start(update: Update, context: CallbackContext): context.bot.send_message(chat_id=update.effective_chat.id, text=&#34;Let&#39;s start!&#34;) # 或 # update.message.reply_text(&#34;Let&#39;s start!&#34;) if __name__ == &#39;__main__&#39;: updater = Updater(token=token, use_context=True) #1 start_handler = CommandHandler(&#39;start&#39;, start) #2 updater.dispatcher.add_handler(start_handler) #3 updater.start_polling() #4 updater.idle() #5  首先根据 token 创建一个 updater 对象； 定义 start 函数，在函数体中实现给发指令的那个 chat_id 发送消息「Let’s start!...</p>
+接收 /start 指令 from telegram import Update from telegram.ext import Updater, CallbackContext, CommandHandler  token = &#39;2110628450:AAHQ78uj42ddtdsx0gKfaZGyFUhpnQ13vyM&#39;   def start(update: Update, context: CallbackContext):  context.bot.send_message(chat_id=update.effective_chat.id, text=&#34;Let&#39;s start!&#34;)  # 或  # update.message.reply_text(&#34;Let&#39;s start!&#34;)   if __name__ == &#39;__main__&#39;:  updater = Updater(token=token, use_context=True) #1  start_handler = CommandHandler(&#39;start&#39;, start) #2  updater....</p>
   </section>
   <footer class="entry-footer">
 
@@ -234,7 +234,7 @@ October 30, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
 于是经过一段时间的思考，找到了一个可行的方案：在拍照期间，可以用含有 GPS 模块的设备（例如手机）记录自己的轨迹信息，此后可以根据照片拍摄时间和这些轨迹信息计算拍摄的地点，因而写入照片 EXIF 信息中。
 动手 起初，我打算自己实现通过轨迹信息计算拍摄地点的脚本。
 首先通过手机上的轨迹记录软件得到一个 GPX 文件，GPX 文件的数据格式本质上是 XML。
-&lt;trk&gt; &lt;name&gt;...&lt;/name&gt; ... &lt;trkseg&gt; &lt;trkpt lat=&#34;30.313094&#34; lon=&#34;120.382447&#34;&gt; &lt;ele&gt;8.456302&lt;/ele&gt; &lt;extensions&gt; &lt;speed&gt;0.059180&lt;/speed&gt; &lt;/extensions&gt; &lt;hdop&gt;14.278474&lt;/hdop&gt; &lt;vdop&gt;10.027264&lt;/vdop&gt; &lt;course&gt;-1.000000&lt;/course&gt; &lt;time&gt;2021-05-08T13:31:10Z&lt;/time&gt; &lt;/trkpt&gt; &lt;trkpt lat=&#34;30.313110&#34; lon=&#34;120.382330&#34;&gt; &lt;ele&gt;9.418098&lt;/ele&gt; &lt;extensions&gt; &lt;speed&gt;0.938084&lt;/speed&gt; &lt;/extensions&gt; &lt;hdop&gt;14.331614&lt;/hdop&gt; &lt;vdop&gt;9.951165&lt;/vdop&gt; &lt;course&gt;286.357989&lt;/course&gt; &lt;time&gt;2021-05-08T13:32:06Z&lt;/time&gt; &lt;/trkpt&gt; &lt;/trkseg&gt; &lt;/trk&gt; 类似这样，每个 GPX 文件由 &lt;trk&gt; 标签对组成，&lt;trk&gt; 标签对又由 &lt;trkseg&gt; 标签对组成。事实上在 GPX 记录软件中可以通过暂停、继续在同一个 GPX 文件中记录多个轨迹。因此每个 GPX 文件可以解析出由 TrackSegment 为单位的多组数据。...</p>
+&lt;trk&gt;  &lt;name&gt;...&lt;/name&gt;  ...  &lt;trkseg&gt;  &lt;trkpt lat=&#34;30.313094&#34; lon=&#34;120.382447&#34;&gt;  &lt;ele&gt;8.456302&lt;/ele&gt;  &lt;extensions&gt;  &lt;speed&gt;0.059180&lt;/speed&gt;  &lt;/extensions&gt;  &lt;hdop&gt;14.278474&lt;/hdop&gt;  &lt;vdop&gt;10.027264&lt;/vdop&gt;  &lt;course&gt;-1.000000&lt;/course&gt;  &lt;time&gt;2021-05-08T13:31:10Z&lt;/time&gt;  &lt;/trkpt&gt;  &lt;trkpt lat=&#34;30.313110&#34; lon=&#34;120.382330&#34;&gt;  &lt;ele&gt;9.418098&lt;/ele&gt;  &lt;extensions&gt;  &lt;speed&gt;0.938084&lt;/speed&gt;  &lt;/extensions&gt;  &lt;hdop&gt;14.331614&lt;/hdop&gt;  &lt;vdop&gt;9....</p>
   </section>
   <footer class="entry-footer">
 
@@ -279,7 +279,7 @@ September 1, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
     <p>前情提要：在我的 travel blog 的仓库根目录下，有一个叫 gotravel 的文件，运行该文件即可自动生成网站，因此 GitHub Actions 只需要在我每次 push 之后运行这个文件再提交一次就可以了。
 在 GitHub 仓库内点击菜单栏的 Actions，然后选择 set up a workflow yourself
 然后就会跳转至新建文件页面，以及 GitHub 自动生成最初的 main.yml 文件。
-# This is a basic workflow to help you get started with Actions name: CI # Controls when the workflow will run on: # Triggers the workflow on push or pull request events but only for the master branch push: branches: [ master ] pull_request: branches: [ master ] # Allows you to run this workflow manually from the Actions tab workflow_dispatch: # A workflow run is made up of one or more jobs that can run sequentially or in parallel jobs: # This workflow contains a single job called &#34;build&#34; build: # The type of runner that the job will run on runs-on: ubuntu-latest # Steps represent a sequence of tasks that will be executed as part of the job steps: # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it - uses: actions/checkout@v2 # Runs a single command using the runners shell - name: Run a one-line script run: echo Hello, world!...</p>
+# This is a basic workflow to help you get started with Actions  name: CI  # Controls when the workflow will run on:  # Triggers the workflow on push or pull request events but only for the master branch  push:  branches: [ master ]  pull_request:  branches: [ master ]   # Allows you to run this workflow manually from the Actions tab  workflow_dispatch:  # A workflow run is made up of one or more jobs that can run sequentially or in parallel jobs:  # This workflow contains a single job called &#34;build&#34;  build:  # The type of runner that the job will run on  runs-on: ubuntu-latest   # Steps represent a sequence of tasks that will be executed as part of the job  steps:  # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it  - uses: actions/checkout@v2   # Runs a single command using the runners shell  - name: Run a one-line script  run: echo Hello, world!...</p>
   </section>
   <footer class="entry-footer">
 
@@ -317,7 +317,7 @@ February 20, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
   </header>
   <section class="entry-content">
     <p>在 GitHub 仓库内创建 .travis.yml 文件并添加以下内容后，即可自动部署此 Hugo 站点。
-dist: bionic addons: snaps: - hugo install: - cd ./src/ - git submodule update --init --remote script: - hugo -D after_script: - cd .. - git config --global user.name &#34;Travis CI&#34; - git config --global user.email &lt;your-email&gt; - git remote set-url origin &#34;https://${GITHUB_TOKEN}@github.com/&lt;username&gt;/&lt;repo-name&gt;.git&#34; - git checkout main - git add . - git commit -m &#34;Update Blog By TravisCI With Build $TRAVIS_BUILD_NUMBER&#34; - git push origin   记得在 travis-ci....</p>
+dist: bionic addons:  snaps:  - hugo  install:  - cd ./src/  - git submodule update --init --remote  script:  - hugo -D  after_script:  - cd ..  - git config --global user.name &#34;Travis CI&#34;  - git config --global user.email &lt;your-email&gt;  - git remote set-url origin &#34;https://${GITHUB_TOKEN}@github.com/&lt;username&gt;/&lt;repo-name&gt;.git&#34;  - git checkout main  - git add ....</p>
   </section>
   <footer class="entry-footer">
 

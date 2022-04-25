@@ -6,10 +6,27 @@
         <description>Recent content on cloxnu&#39;s Creative Space</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Wed, 19 Jan 2022 20:52:57 +0800</lastBuildDate>
+        <lastBuildDate>Mon, 25 Apr 2022 10:22:59 +0800</lastBuildDate>
         
         <atom:link href="https://clox.nu/index.xml" rel="self" type="application/rss+xml" />
         
+        
+        <item>
+            <title>AA Cell 2.2.0 正式版发布！</title>
+            <link>https://clox.nu/blog/aacell-2-2-0/</link>
+            <pubDate>Mon, 25 Apr 2022 10:22:59 +0800</pubDate>
+            
+            <guid>https://clox.nu/blog/aacell-2-2-0/</guid>
+            <description>&lt;p&gt;在经过长时间的研究，这个版本改回了原来 1.x 的电池 logo，名称再次改为「5 号电池」（「AA Cell」）&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://aacell.me&#34;&gt;AA Cell - 文件装进来，电池丢过去&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/IMG_1.png&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;修复与更改&#34;&gt;修复与更改&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;更改 logo，标语以及价值观&lt;/li&gt;
+&lt;li&gt;点击充电可将电池充满，不再需要付费&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
         
         <item>
             <title>最近迷上了 Wordle</title>
@@ -77,25 +94,25 @@
 &lt;p&gt;&lt;a href=&#34;https://github.com/python-telegram-bot/python-telegram-bot/wiki/Extensions-%E2%80%93-Your-first-Bot&#34;&gt;python-telegram-bot wiki 页面&lt;/a&gt; 介绍了如何使用 Python 脚本实现与 Bot 交互。&lt;/p&gt;
 &lt;p&gt;以下是根据这个 wiki 页面编写的例程。&lt;/p&gt;
 &lt;h3 id=&#34;接收-start-指令&#34;&gt;接收 &lt;code&gt;/start&lt;/code&gt; 指令&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; telegram &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; Update
-&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; telegram.ext &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; Updater, CallbackContext, CommandHandler
-
-token &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;2110628450:AAHQ78uj42ddtdsx0gKfaZGyFUhpnQ13vyM&amp;#39;&lt;/span&gt;
-
-
-&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;start&lt;/span&gt;(update: Update, context: CallbackContext):
-    context&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;bot&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;send_message(chat_id&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;update&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;effective_chat&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;id, text&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Let&amp;#39;s start!&amp;#34;&lt;/span&gt;)
-    &lt;span style=&#34;color:#75715e&#34;&gt;# 或&lt;/span&gt;
-    &lt;span style=&#34;color:#75715e&#34;&gt;# update.message.reply_text(&amp;#34;Let&amp;#39;s start!&amp;#34;)&lt;/span&gt;
-
-
-&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; __name__ &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;:
-    updater &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; Updater(token&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;token, use_context&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;True&lt;/span&gt;) &lt;span style=&#34;color:#75715e&#34;&gt;#1&lt;/span&gt;
-    start_handler &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; CommandHandler(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;start&amp;#39;&lt;/span&gt;, start) &lt;span style=&#34;color:#75715e&#34;&gt;#2&lt;/span&gt;
-    updater&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;dispatcher&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;add_handler(start_handler) &lt;span style=&#34;color:#75715e&#34;&gt;#3&lt;/span&gt;
-    updater&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;start_polling() &lt;span style=&#34;color:#75715e&#34;&gt;#4&lt;/span&gt;
-    updater&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;idle() &lt;span style=&#34;color:#75715e&#34;&gt;#5&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; telegram &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; Update
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; telegram.ext &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; Updater, CallbackContext, CommandHandler
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;token &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;2110628450:AAHQ78uj42ddtdsx0gKfaZGyFUhpnQ13vyM&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;start&lt;/span&gt;(update: Update, context: CallbackContext):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    context&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;bot&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;send_message(chat_id&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;update&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;effective_chat&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;id, text&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Let&amp;#39;s start!&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# 或&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# update.message.reply_text(&amp;#34;Let&amp;#39;s start!&amp;#34;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; __name__ &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    updater &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; Updater(token&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;token, use_context&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;True&lt;/span&gt;) &lt;span style=&#34;color:#75715e&#34;&gt;#1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    start_handler &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; CommandHandler(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;start&amp;#39;&lt;/span&gt;, start) &lt;span style=&#34;color:#75715e&#34;&gt;#2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    updater&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;dispatcher&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;add_handler(start_handler) &lt;span style=&#34;color:#75715e&#34;&gt;#3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    updater&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;start_polling() &lt;span style=&#34;color:#75715e&#34;&gt;#4&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    updater&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;idle() &lt;span style=&#34;color:#75715e&#34;&gt;#5&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol&gt;
 &lt;li&gt;首先根据 token 创建一个 &lt;code&gt;updater&lt;/code&gt; 对象；&lt;/li&gt;
 &lt;li&gt;定义 &lt;code&gt;start&lt;/code&gt; 函数，在函数体中实现给发指令的那个 &lt;code&gt;chat_id&lt;/code&gt; 发送消息「Let&amp;rsquo;s start!」，并将这个函数与 &lt;code&gt;start&lt;/code&gt; 指令关联；&lt;/li&gt;
 &lt;li&gt;将 &lt;code&gt;start&lt;/code&gt; 函数作为 &lt;code&gt;CommandHandler&lt;/code&gt; 添加到 &lt;code&gt;update.dispatcher&lt;/code&gt; 中；&lt;/li&gt;
@@ -105,23 +122,23 @@ token &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#
 &lt;p&gt;运行此程序，并与 Bot 对话，执行指令 &lt;code&gt;/start&lt;/code&gt; ，结果如下：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;assets/IMG_1.jpg&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;对话&#34;&gt;对话&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; telegram &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; Update
-&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; telegram.ext &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; Updater, CallbackContext, CommandHandler, MessageHandler, Filters
-
-token &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;2110628450:AAHQ78uj42ddtdsx0gKfaZGyFUhpnQ13vyM&amp;#39;&lt;/span&gt;
-
-
-&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;echo&lt;/span&gt;(update: Update, context: CallbackContext):
-    context&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;bot&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;send_message(chat_id&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;update&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;effective_chat&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;id, text&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;update&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;message&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;text)
-    
-
-&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; __name__ &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;:
-    updater &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; Updater(token&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;token, use_context&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;True&lt;/span&gt;)
-    echo_handler &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; MessageHandler(Filters&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;text &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt; (&lt;span style=&#34;color:#f92672&#34;&gt;~&lt;/span&gt;Filters&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;command), echo) &lt;span style=&#34;color:#75715e&#34;&gt;#1&lt;/span&gt;
-    updater&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;dispatcher&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;add_handler(echo_handler) &lt;span style=&#34;color:#75715e&#34;&gt;#2&lt;/span&gt;
-    updater&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;start_polling()
-    updater&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;idle()
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;将之前的代码稍作修改：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; telegram &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; Update
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; telegram.ext &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; Updater, CallbackContext, CommandHandler, MessageHandler, Filters
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;token &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;2110628450:AAHQ78uj42ddtdsx0gKfaZGyFUhpnQ13vyM&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;echo&lt;/span&gt;(update: Update, context: CallbackContext):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    context&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;bot&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;send_message(chat_id&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;update&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;effective_chat&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;id, text&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;update&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;message&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;text)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; __name__ &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    updater &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; Updater(token&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;token, use_context&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;True&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    echo_handler &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; MessageHandler(Filters&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;text &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt; (&lt;span style=&#34;color:#f92672&#34;&gt;~&lt;/span&gt;Filters&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;command), echo) &lt;span style=&#34;color:#75715e&#34;&gt;#1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    updater&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;dispatcher&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;add_handler(echo_handler) &lt;span style=&#34;color:#75715e&#34;&gt;#2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    updater&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;start_polling()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    updater&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;idle()
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;将之前的代码稍作修改：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;将之前的 &lt;code&gt;start&lt;/code&gt; 函数改为 &lt;code&gt;echo&lt;/code&gt; 函数，其作用是将发给 Bot 的消息发送回来，并将之前的 &lt;code&gt;CommandHandler&lt;/code&gt; 改为 &lt;code&gt;MessageHandler&lt;/code&gt;，这里 &lt;code&gt;Filter&lt;/code&gt; 的作用是过滤文本和非指令信息；&lt;/li&gt;
 &lt;li&gt;添加到 &lt;code&gt;dispatcher&lt;/code&gt; 中。&lt;/li&gt;
@@ -130,36 +147,36 @@ token &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#
 &lt;p&gt;&lt;img src=&#34;assets/IMG_2.jpg&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;指令键盘&#34;&gt;指令键盘&lt;/h3&gt;
 &lt;p&gt;关于这一部分，python-telegram-bot 有一个 &lt;a href=&#34;https://github.com/python-telegram-bot/python-telegram-bot/blob/master/examples/inlinekeyboard.py&#34;&gt;例程&lt;/a&gt;，和对应的 &lt;a href=&#34;https://github.com/python-telegram-bot/python-telegram-bot/wiki/InlineKeyboard-Example&#34;&gt;wiki&lt;/a&gt;。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; telegram &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; InlineKeyboardButton, InlineKeyboardMarkup, Update
-&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; telegram.ext &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; Updater, CallbackContext, CommandHandler, CallbackQueryHandler
-
-&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;start&lt;/span&gt;(update: Update, context: CallbackContext):
-    keyboard &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [
-        [
-            InlineKeyboardButton(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Option 1&amp;#34;&lt;/span&gt;, callback_data&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;1&amp;#39;&lt;/span&gt;),
-            InlineKeyboardButton(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Option 2&amp;#34;&lt;/span&gt;, callback_data&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;2&amp;#39;&lt;/span&gt;),
-        ],
-        [
-            InlineKeyboardButton(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Option 3&amp;#34;&lt;/span&gt;, callback_data&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;3&amp;#39;&lt;/span&gt;),
-        ]
-    ] &lt;span style=&#34;color:#75715e&#34;&gt;#1&lt;/span&gt;
-    reply_markup &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; InlineKeyboardMarkup(keyboard) &lt;span style=&#34;color:#75715e&#34;&gt;#2&lt;/span&gt;
-    update&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;message&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;reply_text(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Please choose:&amp;#34;&lt;/span&gt;, reply_markup&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;reply_markup) &lt;span style=&#34;color:#75715e&#34;&gt;#3&lt;/span&gt;
-
-
-&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;keyboard_callback&lt;/span&gt;(update: Update, context: CallbackContext): &lt;span style=&#34;color:#75715e&#34;&gt;#4&lt;/span&gt;
-    query &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; update&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;callback_query &lt;span style=&#34;color:#75715e&#34;&gt;#5&lt;/span&gt;
-    query&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;answer() &lt;span style=&#34;color:#75715e&#34;&gt;#6&lt;/span&gt;
-    query&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;edit_message_text(text&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Selected option: &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{&lt;/span&gt;query&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;data&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#75715e&#34;&gt;#7&lt;/span&gt;
-    
-&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; name &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;:
-    updater &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; Updater(token&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;token, use_context&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;True&lt;/span&gt;)
-    start_handler &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; CommandHandler(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;start&amp;#39;&lt;/span&gt;, start)
-    updater&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;dispatcher&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;add_handler(start_handler)
-    updater&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;dispatcher&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;add_handler(CallbackQueryHandler(keyboard_callback)) &lt;span style=&#34;color:#75715e&#34;&gt;#8&lt;/span&gt;
-    updater&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;start_polling()
-    updater&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;idle()
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; telegram &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; InlineKeyboardButton, InlineKeyboardMarkup, Update
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; telegram.ext &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; Updater, CallbackContext, CommandHandler, CallbackQueryHandler
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;start&lt;/span&gt;(update: Update, context: CallbackContext):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    keyboard &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            InlineKeyboardButton(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Option 1&amp;#34;&lt;/span&gt;, callback_data&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;1&amp;#39;&lt;/span&gt;),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            InlineKeyboardButton(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Option 2&amp;#34;&lt;/span&gt;, callback_data&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;2&amp;#39;&lt;/span&gt;),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        ],
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            InlineKeyboardButton(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Option 3&amp;#34;&lt;/span&gt;, callback_data&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;3&amp;#39;&lt;/span&gt;),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ] &lt;span style=&#34;color:#75715e&#34;&gt;#1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    reply_markup &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; InlineKeyboardMarkup(keyboard) &lt;span style=&#34;color:#75715e&#34;&gt;#2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    update&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;message&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;reply_text(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Please choose:&amp;#34;&lt;/span&gt;, reply_markup&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;reply_markup) &lt;span style=&#34;color:#75715e&#34;&gt;#3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;keyboard_callback&lt;/span&gt;(update: Update, context: CallbackContext): &lt;span style=&#34;color:#75715e&#34;&gt;#4&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    query &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; update&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;callback_query &lt;span style=&#34;color:#75715e&#34;&gt;#5&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    query&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;answer() &lt;span style=&#34;color:#75715e&#34;&gt;#6&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    query&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;edit_message_text(text&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Selected option: &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{&lt;/span&gt;query&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;data&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#75715e&#34;&gt;#7&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; name &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    updater &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; Updater(token&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;token, use_context&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;True&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    start_handler &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; CommandHandler(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;start&amp;#39;&lt;/span&gt;, start)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    updater&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;dispatcher&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;add_handler(start_handler)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    updater&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;dispatcher&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;add_handler(CallbackQueryHandler(keyboard_callback)) &lt;span style=&#34;color:#75715e&#34;&gt;#8&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    updater&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;start_polling()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    updater&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;idle()
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol&gt;
 &lt;li&gt;同样回到 &lt;code&gt;start&lt;/code&gt; 函数，这次我们更改下 &lt;code&gt;/start&lt;/code&gt; 指令内部逻辑，一开始定义了一个二维数组，我们可以简单地理解为定义了两排按钮，第一排是 &lt;code&gt;Option 1&lt;/code&gt; 和 &lt;code&gt;Option 2&lt;/code&gt;，第二排是 &lt;code&gt;Option 3&lt;/code&gt;；&lt;/li&gt;
 &lt;li&gt;将其转换为 &lt;code&gt;InlineKeyboardMarkup&lt;/code&gt; 类型以便发送；&lt;/li&gt;
 &lt;li&gt;将这个指令键盘作为回复发送；&lt;/li&gt;
@@ -220,13 +237,13 @@ token &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;https://api.telegram.org/bot2110628450:AAHQ78uj42ddtdsx0gKfaZGyFUhpnQ13vyM/sendMessage?chat_id=-1001790411176&amp;amp;text=Hello%20from%20robot
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&#34;assets/IMG_10.jpg&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
 &lt;p&gt;我们也可以编写以下 Python 程序，运行之后 Bot 同样会在此 Channel 发送一条信息「Hello from robot」。（在此之前需要安装 telegram 依赖 &lt;code&gt;pip install python-telegram-bot&lt;/code&gt;）&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; telegram
-
-bot &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; telegram&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;Bot(token&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;2110628450:AAHQ78uj42ddtdsx0gKfaZGyFUhpnQ13vyM&amp;#39;&lt;/span&gt;)
-print(bot&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;get_me())
-
-bot&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;send_message(text&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello from robot&amp;#34;&lt;/span&gt;, chat_id&lt;span style=&#34;color:#f92672&#34;&gt;=-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1001790411176&lt;/span&gt;)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a href=&#34;https://python-telegram-bot.readthedocs.io/en/stable/&#34;&gt;python-telegram-bot 官方文档&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; telegram
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bot &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; telegram&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;Bot(token&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;2110628450:AAHQ78uj42ddtdsx0gKfaZGyFUhpnQ13vyM&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;print(bot&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;get_me())
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bot&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;send_message(text&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello from robot&amp;#34;&lt;/span&gt;, chat_id&lt;span style=&#34;color:#f92672&#34;&gt;=-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1001790411176&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a href=&#34;https://python-telegram-bot.readthedocs.io/en/stable/&#34;&gt;python-telegram-bot 官方文档&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;下一步&#34;&gt;下一步&amp;hellip;&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;../brief-tutorial-on-telegram-bot-ii/&#34;&gt;Telegram Bot 简明教程 II - 收指令与指令键盘&lt;/a&gt;&lt;/p&gt;
 &lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
@@ -248,57 +265,56 @@ bot&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;send_message(text&lt;
             <guid>https://clox.nu/blog/how-to-amend-git-history-commit/</guid>
             <description>&lt;p&gt;在实际工程中，有时我们在以往的提交中忘记提交部分代码，当想起来的时候已经提交过很多笔了。于是想要把当前的更改提交到历史 commit 中去。&lt;/p&gt;
 &lt;p&gt;假设当前我们提交了三次：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ git log
-commit 0e162000e27ba998d5a92cc04b489e3d3ec0e30d &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;HEAD -&amp;gt; master&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-Author: cloxnu &amp;lt;hi@clox.nu&amp;gt;
-Date:   Fri Nov &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; 13:46:08 &lt;span style=&#34;color:#ae81ff&#34;&gt;2021&lt;/span&gt; +0800
-
-    3rd commit
-
-commit f5f470406634bb255e4f19bf62780868afeed32d
-Author: cloxnu &amp;lt;hi@clox.nu&amp;gt;
-Date:   Fri Nov &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; 13:45:21 &lt;span style=&#34;color:#ae81ff&#34;&gt;2021&lt;/span&gt; +0800
-
-    2nd commit
-
-commit cf8c580d322e459fa1acf4ef1e6d08163aeb1a21
-Author: cloxnu &amp;lt;hi@clox.nu&amp;gt;
-Date:   Fri Nov &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; 13:41:30 &lt;span style=&#34;color:#ae81ff&#34;&gt;2021&lt;/span&gt; +0800
-
-    1st commit
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这几次提交就只涉及一个文件 &lt;code&gt;1.txt&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ cat 1.txt
-&lt;span style=&#34;color:#ae81ff&#34;&gt;11111111&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;22222222&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;33333333&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;其中第一行为第一次提交，第二行为第二次提交，第三行为第三次提交。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ git log
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;commit 0e162000e27ba998d5a92cc04b489e3d3ec0e30d &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;HEAD -&amp;gt; master&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Author: cloxnu &amp;lt;hi@clox.nu&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Date:   Fri Nov &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; 13:46:08 &lt;span style=&#34;color:#ae81ff&#34;&gt;2021&lt;/span&gt; +0800
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    3rd commit
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;commit f5f470406634bb255e4f19bf62780868afeed32d
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Author: cloxnu &amp;lt;hi@clox.nu&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Date:   Fri Nov &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; 13:45:21 &lt;span style=&#34;color:#ae81ff&#34;&gt;2021&lt;/span&gt; +0800
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    2nd commit
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;commit cf8c580d322e459fa1acf4ef1e6d08163aeb1a21
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Author: cloxnu &amp;lt;hi@clox.nu&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Date:   Fri Nov &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; 13:41:30 &lt;span style=&#34;color:#ae81ff&#34;&gt;2021&lt;/span&gt; +0800
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    1st commit
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这几次提交就只涉及一个文件 &lt;code&gt;1.txt&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cat 1.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;11111111&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;22222222&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;33333333&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;其中第一行为第一次提交，第二行为第二次提交，第三行为第三次提交。&lt;/p&gt;
 &lt;p&gt;此时如果想要将第二次提交增加一个新文件 &lt;code&gt;2.txt&lt;/code&gt;，该怎么操作呢？&lt;/p&gt;
 &lt;h2 id=&#34;步骤&#34;&gt;步骤&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;首先新建 &lt;code&gt;2.txt&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ cat 2.txt
-&lt;span style=&#34;color:#ae81ff&#34;&gt;22222222&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cat 2.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;22222222&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;将当前的更改 stash&lt;/li&gt;
 &lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ git stash
-Saved working directory and index state WIP on master: 0e16200 3rd commit
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ git stash
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Saved working directory and index state WIP on master: 0e16200 3rd commit
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
 &lt;li&gt;根据之前 &lt;code&gt;git log&lt;/code&gt; 打印的 commit 信息确定将要更改的 commit hash 值。然后使用 &lt;code&gt;git rebase -i&lt;/code&gt; （没错，这相当于一次 rebase）&lt;/li&gt;
 &lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ git rebase -i f5f470406634bb255e4f19bf62780868afeed32d^
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ git rebase -i f5f470406634bb255e4f19bf62780868afeed32d^
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
 &lt;p&gt;⚠️ 注意：这里输入的提交 hash 值后需要加上 &lt;code&gt;^&lt;/code&gt;&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;，代表这次 commit 的父提交。或者：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ git rebase -i cf8c580d322e459fa1acf4ef1e6d08163aeb1a21
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;或&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ git rebase -i HEAD~2
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ git rebase -i cf8c580d322e459fa1acf4ef1e6d08163aeb1a21
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;或&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ git rebase -i HEAD~2
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/blockquote&gt;
 &lt;blockquote&gt;
 &lt;p&gt;如果此时需要更改第一次提交，因为第一次提交没有父提交，所以应该输入命令&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ git rebase -i --root
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ git rebase -i --root
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/blockquote&gt;
 &lt;ol start=&#34;4&#34;&gt;
 &lt;li&gt;此时会进入 vim，编辑对于这些 commit 需要执行怎样的操作&lt;/li&gt;
 &lt;/ol&gt;
@@ -312,14 +328,14 @@ pick 0e16200 3rd commit
 # r, reword &amp;lt;commit&amp;gt; = use commit, but edit the commit message
 # e, edit &amp;lt;commit&amp;gt; = use commit, but stop for amending
 # s, squash &amp;lt;commit&amp;gt; = use commit, but meld into previous commit
-# f, fixup &amp;lt;commit&amp;gt; = like &amp;quot;squash&amp;quot;, but discard this commit&#39;s log message
+# f, fixup &amp;lt;commit&amp;gt; = like &amp;#34;squash&amp;#34;, but discard this commit&amp;#39;s log message
 # x, exec &amp;lt;command&amp;gt; = run command (the rest of the line) using shell
-# b, break = stop here (continue rebase later with &#39;git rebase --continue&#39;)
+# b, break = stop here (continue rebase later with &amp;#39;git rebase --continue&amp;#39;)
 # d, drop &amp;lt;commit&amp;gt; = remove commit
 # l, label &amp;lt;label&amp;gt; = label current HEAD with a name
 # t, reset &amp;lt;label&amp;gt; = reset HEAD to a label
 # m, merge [-C &amp;lt;commit&amp;gt; | -c &amp;lt;commit&amp;gt;] &amp;lt;label&amp;gt; [# &amp;lt;oneline&amp;gt;]
-# .       create a merge commit using the original merge commit&#39;s
+# .       create a merge commit using the original merge commit&amp;#39;s
 # .       message (or the oneline, if no original merge commit was
 # .       specified). Use -c &amp;lt;commit&amp;gt; to reword the commit message.
 #
@@ -341,79 +357,78 @@ You can amend the commit now, with
 Once you are satisfied with your changes, run
 
   git rebase --continue
-
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这时可以将我们 stash 后的更改 pop 出来&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ git stash pop
-interactive rebase in progress; onto cf8c580
-Last command &lt;span style=&#34;color:#66d9ef&#34;&gt;done&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; command &lt;span style=&#34;color:#66d9ef&#34;&gt;done&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;:
-   edit f5f4704 2nd commit
-Next command to &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; remaining command&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;:
-   pick 0e16200 3rd commit
-  &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;use &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;git rebase --edit-todo&amp;#34;&lt;/span&gt; to view and edit&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-You are currently editing a commit &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; rebasing branch &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;master&amp;#39;&lt;/span&gt; on &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;cf8c580&amp;#39;&lt;/span&gt;.
-  &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;use &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;git commit --amend&amp;#34;&lt;/span&gt; to amend the current commit&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-  &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;use &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;git rebase --continue&amp;#34;&lt;/span&gt; once you are satisfied with your changes&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-
-Changes to be committed:
-  &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;use &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;git restore --staged &amp;lt;file&amp;gt;...&amp;#34;&lt;/span&gt; to unstage&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-	new file:   2.txt
-
-Dropped refs/stash@&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;0&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;15fa455ffa846f31167b311c3b7b9314f6c944db&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;6&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ git stash pop
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;interactive rebase in progress; onto cf8c580
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Last command &lt;span style=&#34;color:#66d9ef&#34;&gt;done&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; command &lt;span style=&#34;color:#66d9ef&#34;&gt;done&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   edit f5f4704 2nd commit
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Next command to &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; remaining command&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   pick 0e16200 3rd commit
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;use &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;git rebase --edit-todo&amp;#34;&lt;/span&gt; to view and edit&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;You are currently editing a commit &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; rebasing branch &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;master&amp;#39;&lt;/span&gt; on &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;cf8c580&amp;#39;&lt;/span&gt;.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;use &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;git commit --amend&amp;#34;&lt;/span&gt; to amend the current commit&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;use &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;git rebase --continue&amp;#34;&lt;/span&gt; once you are satisfied with your changes&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Changes to be committed:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;use &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;git restore --staged &amp;lt;file&amp;gt;...&amp;#34;&lt;/span&gt; to unstage&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	new file:   2.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Dropped refs/stash@&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;0&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;15fa455ffa846f31167b311c3b7b9314f6c944db&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;6&#34;&gt;
 &lt;li&gt;提交&lt;/li&gt;
 &lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ git add .
-$ git commit --amend
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;并确认提交信息。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ git add .
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ git commit --amend
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;并确认提交信息。&lt;/p&gt;
 &lt;ol start=&#34;7&#34;&gt;
 &lt;li&gt;继续进行 rebase&lt;/li&gt;
 &lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ git rebase --continue
-Successfully rebased and updated refs/heads/master.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;结束。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ git rebase --continue
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Successfully rebased and updated refs/heads/master.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;结束。&lt;/p&gt;
 &lt;h2 id=&#34;验证&#34;&gt;验证&lt;/h2&gt;
 &lt;p&gt;此时我们看到第二次和第三次的提交的 hash 值都被修改了&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ git log
-commit 9522b421544a86b1fc7be32bac18e889fb57b096 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;HEAD -&amp;gt; master&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-Author: cloxnu &amp;lt;hi@clox.nu&amp;gt;
-Date:   Fri Nov &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; 13:46:08 &lt;span style=&#34;color:#ae81ff&#34;&gt;2021&lt;/span&gt; +0800
-
-    3rd commit
-
-commit 903242f62a479417f1b3d759b0a64280ea43287b
-Author: cloxnu &amp;lt;hi@clox.nu&amp;gt;
-Date:   Fri Nov &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; 13:45:21 &lt;span style=&#34;color:#ae81ff&#34;&gt;2021&lt;/span&gt; +0800
-
-    2nd commit
-
-commit cf8c580d322e459fa1acf4ef1e6d08163aeb1a21
-Author: cloxnu &amp;lt;hi@clox.nu&amp;gt;
-Date:   Fri Nov &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; 13:41:30 &lt;span style=&#34;color:#ae81ff&#34;&gt;2021&lt;/span&gt; +0800
-
-    1st commit
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;查看第二次提交：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ git show HEAD^
-commit 903242f62a479417f1b3d759b0a64280ea43287b
-Author: cloxnu &amp;lt;hi@clox.nu&amp;gt;
-Date:   Fri Nov &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; 13:45:21 &lt;span style=&#34;color:#ae81ff&#34;&gt;2021&lt;/span&gt; +0800
-
-    2nd commit
-
-diff --git a/1.txt b/1.txt
-index ca028fb..71d9a24 &lt;span style=&#34;color:#ae81ff&#34;&gt;100644&lt;/span&gt;
---- a/1.txt
-+++ b/1.txt
-@@ -1 +1,2 @@
- &lt;span style=&#34;color:#ae81ff&#34;&gt;11111111&lt;/span&gt;
-+22222222
-diff --git a/2.txt b/2.txt
-new file mode &lt;span style=&#34;color:#ae81ff&#34;&gt;100644&lt;/span&gt;
-index 0000000..75a1dd2
---- /dev/null
-+++ b/2.txt
-@@ -0,0 +1 @@
-+22222222
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ git log
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;commit 9522b421544a86b1fc7be32bac18e889fb57b096 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;HEAD -&amp;gt; master&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Author: cloxnu &amp;lt;hi@clox.nu&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Date:   Fri Nov &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; 13:46:08 &lt;span style=&#34;color:#ae81ff&#34;&gt;2021&lt;/span&gt; +0800
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    3rd commit
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;commit 903242f62a479417f1b3d759b0a64280ea43287b
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Author: cloxnu &amp;lt;hi@clox.nu&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Date:   Fri Nov &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; 13:45:21 &lt;span style=&#34;color:#ae81ff&#34;&gt;2021&lt;/span&gt; +0800
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    2nd commit
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;commit cf8c580d322e459fa1acf4ef1e6d08163aeb1a21
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Author: cloxnu &amp;lt;hi@clox.nu&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Date:   Fri Nov &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; 13:41:30 &lt;span style=&#34;color:#ae81ff&#34;&gt;2021&lt;/span&gt; +0800
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    1st commit
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;查看第二次提交：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ git show HEAD^
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;commit 903242f62a479417f1b3d759b0a64280ea43287b
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Author: cloxnu &amp;lt;hi@clox.nu&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Date:   Fri Nov &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; 13:45:21 &lt;span style=&#34;color:#ae81ff&#34;&gt;2021&lt;/span&gt; +0800
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    2nd commit
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;diff --git a/1.txt b/1.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;index ca028fb..71d9a24 &lt;span style=&#34;color:#ae81ff&#34;&gt;100644&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--- a/1.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;+++ b/1.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;@@ -1 +1,2 @@
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;11111111&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;+22222222
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;diff --git a/2.txt b/2.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;new file mode &lt;span style=&#34;color:#ae81ff&#34;&gt;100644&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;index 0000000..75a1dd2
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--- /dev/null
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;+++ b/2.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;@@ -0,0 +1 @@
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;+22222222
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
 &lt;hr&gt;
 &lt;ol&gt;
 &lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
@@ -459,12 +474,12 @@ index 0000000..75a1dd2
 &lt;p&gt;于是，我在之前的 GitHub Actions 配置文件中补充了将这些图片转换为 Progressive JPEG 的命令，当前的 blog 在合并入主干分支后 GitHub Actions 会先使用 hugo 命令创建 HTML&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;，然后 Progressive JPEG 命令再将所有 JPEG 图片批量处理。&lt;/p&gt;
 &lt;p&gt;在 Linux 中，使用 &lt;a href=&#34;https://imagemagick.org/script/index.php&#34;&gt;ImageMagick&lt;/a&gt; 处理图片。其中的 &lt;a href=&#34;https://imagemagick.org/script/command-line-options.php#interlace&#34;&gt;-interlace&lt;/a&gt; 选项有提供将图片转换为 Progressive JPEG。&lt;/p&gt;
 &lt;p&gt;起初我使用命令&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ mogrify -verbose -interlace plane **/*.jpg
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;匹配并转换目录下所有后缀为 .jpg 文件并转换为渐进式 JPEG，在我的 macOS Big Sur 中可以正常工作，但是在 GitHub Actions 运行后报错：&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;mogrify-im6.q16: unable to open image `**/*.jpg&#39;: No such file or directory @ error/blob.c/OpenBlob/2874.
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ mogrify -verbose -interlace plane **/*.jpg
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;匹配并转换目录下所有后缀为 .jpg 文件并转换为渐进式 JPEG，在我的 macOS Big Sur 中可以正常工作，但是在 GitHub Actions 运行后报错：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;mogrify-im6.q16: unable to open image `**/*.jpg&amp;#39;: No such file or directory @ error/blob.c/OpenBlob/2874.
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;于是我换了一种思路，可以用 &lt;code&gt;find&lt;/code&gt; 命令先找到所有 JPEG 图片，然后再处理，这行命令就变成了&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ find . -type f -exec file --mime-type &lt;span style=&#34;color:#f92672&#34;&gt;{}&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\;&lt;/span&gt; | awk -F &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;: &amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;{if ($NF == &amp;#34;image/jpeg&amp;#34;) print $1 }&amp;#39;&lt;/span&gt; | xargs mogrify -verbose -interlace plane
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;运行后的多图 blog 体验效果：（无本地缓存）&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ find . -type f -exec file --mime-type &lt;span style=&#34;color:#f92672&#34;&gt;{}&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\;&lt;/span&gt; | awk -F &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;: &amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;{if ($NF == &amp;#34;image/jpeg&amp;#34;) print $1 }&amp;#39;&lt;/span&gt; | xargs mogrify -verbose -interlace plane
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;运行后的多图 blog 体验效果：（无本地缓存）&lt;/p&gt;
 
 
 &lt;video controls src=&#34;assets/video.mov&#34; width=100%&gt;&lt;/video&gt;
@@ -493,66 +508,66 @@ index 0000000..75a1dd2
             <guid>https://clox.nu/news/2021/10/25/gh-pages/</guid>
             <description>&lt;p&gt;由于 blog 生成 HTML 会自动将所有资源复制到生成的目录中，因此将 output 目录放到新的分支中可以防止本地占用「双倍」空间，而且可以防止需要合并远端变更。&lt;/p&gt;
 &lt;p&gt;这是我的 GitHub Actions 执行代码：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# This is a basic workflow to help you get started with Actions&lt;/span&gt;
-
-&lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;build creative.clox.nu&lt;/span&gt;
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# Controls when the workflow will run&lt;/span&gt;
-&lt;span style=&#34;color:#f92672&#34;&gt;on&lt;/span&gt;:
-  &lt;span style=&#34;color:#75715e&#34;&gt;# Triggers the workflow on push or pull request events but only for the main branch&lt;/span&gt;
-  &lt;span style=&#34;color:#f92672&#34;&gt;push&lt;/span&gt;:
-    &lt;span style=&#34;color:#f92672&#34;&gt;branches&lt;/span&gt;: [ &lt;span style=&#34;color:#ae81ff&#34;&gt;main ]&lt;/span&gt;
-  &lt;span style=&#34;color:#f92672&#34;&gt;pull_request&lt;/span&gt;:
-    &lt;span style=&#34;color:#f92672&#34;&gt;branches&lt;/span&gt;: [ &lt;span style=&#34;color:#ae81ff&#34;&gt;main ]&lt;/span&gt;
-
-  &lt;span style=&#34;color:#75715e&#34;&gt;# Allows you to run this workflow manually from the Actions tab&lt;/span&gt;
-  &lt;span style=&#34;color:#f92672&#34;&gt;workflow_dispatch&lt;/span&gt;:
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# A workflow run is made up of one or more jobs that can run sequentially or in parallel&lt;/span&gt;
-&lt;span style=&#34;color:#f92672&#34;&gt;jobs&lt;/span&gt;:
-  &lt;span style=&#34;color:#75715e&#34;&gt;# This workflow contains a single job called &amp;#34;build&amp;#34;&lt;/span&gt;
-  &lt;span style=&#34;color:#f92672&#34;&gt;build&lt;/span&gt;:
-    &lt;span style=&#34;color:#75715e&#34;&gt;# The type of runner that the job will run on&lt;/span&gt;
-    &lt;span style=&#34;color:#f92672&#34;&gt;runs-on&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;ubuntu-latest&lt;/span&gt;
-
-    &lt;span style=&#34;color:#75715e&#34;&gt;# Steps represent a sequence of tasks that will be executed as part of the job&lt;/span&gt;
-    &lt;span style=&#34;color:#f92672&#34;&gt;steps&lt;/span&gt;:
-      &lt;span style=&#34;color:#75715e&#34;&gt;# Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it&lt;/span&gt;
-      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Checkout main&lt;/span&gt;
-        &lt;span style=&#34;color:#f92672&#34;&gt;uses&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;actions/checkout@v2&lt;/span&gt;
-
-      &lt;span style=&#34;color:#75715e&#34;&gt;# Update theme &lt;/span&gt;
-      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Update theme&lt;/span&gt;
-        &lt;span style=&#34;color:#f92672&#34;&gt;run&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;git submodule update --init --recursive&lt;/span&gt;
-
-      &lt;span style=&#34;color:#75715e&#34;&gt;# Setup Hugo&lt;/span&gt;
-      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Setup Hugo&lt;/span&gt;
-        &lt;span style=&#34;color:#f92672&#34;&gt;uses&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;peaceiris/actions-hugo@v2&lt;/span&gt;
-        &lt;span style=&#34;color:#f92672&#34;&gt;with&lt;/span&gt;:
-          &lt;span style=&#34;color:#f92672&#34;&gt;hugo-version&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;latest&amp;#39;&lt;/span&gt;
-        
-      &lt;span style=&#34;color:#75715e&#34;&gt;# Build blog&lt;/span&gt;
-      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Build&lt;/span&gt;
-        &lt;span style=&#34;color:#f92672&#34;&gt;working-directory&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;./src/&lt;/span&gt;
-        &lt;span style=&#34;color:#f92672&#34;&gt;run&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;hugo&lt;/span&gt;
-        
-      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Checkout gh-pages&lt;/span&gt;
-        &lt;span style=&#34;color:#f92672&#34;&gt;run&lt;/span&gt;: |&lt;span style=&#34;color:#e6db74&#34;&gt;
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;          git fetch
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;          git checkout gh-pages
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;          ls | grep -v docs | grep -v CNAME | xargs rm -r
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;          mv docs/* .
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;          rm -r docs/&lt;/span&gt;          
-      
-      &lt;span style=&#34;color:#75715e&#34;&gt;# Commit &amp;amp; Push&lt;/span&gt;
-      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Commit &amp;amp; Push changes&lt;/span&gt;
-        &lt;span style=&#34;color:#f92672&#34;&gt;uses&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;actions-js/push@master&lt;/span&gt;
-        &lt;span style=&#34;color:#f92672&#34;&gt;with&lt;/span&gt;:
-          &lt;span style=&#34;color:#f92672&#34;&gt;github_token&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;${{ secrets.GITHUB_TOKEN }}&lt;/span&gt;
-          &lt;span style=&#34;color:#f92672&#34;&gt;branch&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;gh-pages&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;其中，&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;ls | grep -v docs | grep -v CNAME | xargs rm -r
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;是指删除不包括 docs 目录和 CNAME 文件的所有非隐藏文件。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# This is a basic workflow to help you get started with Actions&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;build creative.clox.nu&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Controls when the workflow will run&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;on&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# Triggers the workflow on push or pull request events but only for the main branch&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;push&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;branches&lt;/span&gt;: [ &lt;span style=&#34;color:#ae81ff&#34;&gt;main ]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;pull_request&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;branches&lt;/span&gt;: [ &lt;span style=&#34;color:#ae81ff&#34;&gt;main ]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# Allows you to run this workflow manually from the Actions tab&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;workflow_dispatch&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# A workflow run is made up of one or more jobs that can run sequentially or in parallel&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;jobs&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# This workflow contains a single job called &amp;#34;build&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;build&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# The type of runner that the job will run on&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;runs-on&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;ubuntu-latest&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# Steps represent a sequence of tasks that will be executed as part of the job&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;steps&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#75715e&#34;&gt;# Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Checkout main&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;uses&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;actions/checkout@v2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#75715e&#34;&gt;# Update theme &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Update theme&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;run&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;git submodule update --init --recursive&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#75715e&#34;&gt;# Setup Hugo&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Setup Hugo&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;uses&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;peaceiris/actions-hugo@v2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;with&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;hugo-version&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;latest&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#75715e&#34;&gt;# Build blog&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Build&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;working-directory&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;./src/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;run&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;hugo&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Checkout gh-pages&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;run&lt;/span&gt;: |&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;          git fetch
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;          git checkout gh-pages
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;          ls | grep -v docs | grep -v CNAME | xargs rm -r
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;          mv docs/* .
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;          rm -r docs/&lt;/span&gt;          
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#75715e&#34;&gt;# Commit &amp;amp; Push&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Commit &amp;amp; Push changes&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;uses&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;actions-js/push@master&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;with&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;github_token&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;${{ secrets.GITHUB_TOKEN }}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;branch&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;gh-pages&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;其中，&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ls | grep -v docs | grep -v CNAME | xargs rm -r
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;是指删除不包括 docs 目录和 CNAME 文件的所有非隐藏文件。&lt;/p&gt;
 </description>
         </item>
         
@@ -607,33 +622,33 @@ index 0000000..75a1dd2
 &lt;h2 id=&#34;动手&#34;&gt;动手&lt;/h2&gt;
 &lt;p&gt;起初，我打算自己实现通过轨迹信息计算拍摄地点的脚本。&lt;/p&gt;
 &lt;p&gt;首先通过手机上的轨迹记录软件得到一个 GPX 文件，GPX 文件的数据格式本质上是 XML。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;trk&amp;gt;&lt;/span&gt;
-    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;name&amp;gt;&lt;/span&gt;...&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
-    ...
-    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;trkseg&amp;gt;&lt;/span&gt;
-        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;trkpt&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;lat=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;30.313094&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;lon=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;120.382447&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
-            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;ele&amp;gt;&lt;/span&gt;8.456302&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/ele&amp;gt;&lt;/span&gt;
-            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;extensions&amp;gt;&lt;/span&gt;
-                &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;speed&amp;gt;&lt;/span&gt;0.059180&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/speed&amp;gt;&lt;/span&gt;
-            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/extensions&amp;gt;&lt;/span&gt;
-            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;hdop&amp;gt;&lt;/span&gt;14.278474&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/hdop&amp;gt;&lt;/span&gt;
-            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;vdop&amp;gt;&lt;/span&gt;10.027264&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/vdop&amp;gt;&lt;/span&gt;
-            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;course&amp;gt;&lt;/span&gt;-1.000000&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/course&amp;gt;&lt;/span&gt;
-            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;time&amp;gt;&lt;/span&gt;2021-05-08T13:31:10Z&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/time&amp;gt;&lt;/span&gt;
-        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/trkpt&amp;gt;&lt;/span&gt;
-        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;trkpt&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;lat=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;30.313110&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;lon=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;120.382330&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
-            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;ele&amp;gt;&lt;/span&gt;9.418098&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/ele&amp;gt;&lt;/span&gt;
-            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;extensions&amp;gt;&lt;/span&gt;
-                &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;speed&amp;gt;&lt;/span&gt;0.938084&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/speed&amp;gt;&lt;/span&gt;
-            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/extensions&amp;gt;&lt;/span&gt;
-            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;hdop&amp;gt;&lt;/span&gt;14.331614&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/hdop&amp;gt;&lt;/span&gt;
-            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;vdop&amp;gt;&lt;/span&gt;9.951165&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/vdop&amp;gt;&lt;/span&gt;
-            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;course&amp;gt;&lt;/span&gt;286.357989&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/course&amp;gt;&lt;/span&gt;
-            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;time&amp;gt;&lt;/span&gt;2021-05-08T13:32:06Z&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/time&amp;gt;&lt;/span&gt;
-        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/trkpt&amp;gt;&lt;/span&gt;
-    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/trkseg&amp;gt;&lt;/span&gt;
-&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/trk&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;类似这样，每个 GPX 文件由 &lt;code&gt;&amp;lt;trk&amp;gt;&lt;/code&gt; 标签对组成，&lt;code&gt;&amp;lt;trk&amp;gt;&lt;/code&gt; 标签对又由 &lt;code&gt;&amp;lt;trkseg&amp;gt;&lt;/code&gt; 标签对组成。事实上在 GPX 记录软件中可以通过暂停、继续在同一个 GPX 文件中记录多个轨迹。因此每个 GPX 文件可以解析出由 &lt;code&gt;TrackSegment&lt;/code&gt; 为单位的多组数据。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;trk&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;name&amp;gt;&lt;/span&gt;...&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;trkseg&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;trkpt&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;lat=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;30.313094&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;lon=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;120.382447&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;ele&amp;gt;&lt;/span&gt;8.456302&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/ele&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;extensions&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;speed&amp;gt;&lt;/span&gt;0.059180&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/speed&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/extensions&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;hdop&amp;gt;&lt;/span&gt;14.278474&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/hdop&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;vdop&amp;gt;&lt;/span&gt;10.027264&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/vdop&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;course&amp;gt;&lt;/span&gt;-1.000000&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/course&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;time&amp;gt;&lt;/span&gt;2021-05-08T13:31:10Z&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/time&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/trkpt&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;trkpt&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;lat=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;30.313110&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;lon=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;120.382330&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;ele&amp;gt;&lt;/span&gt;9.418098&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/ele&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;extensions&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;speed&amp;gt;&lt;/span&gt;0.938084&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/speed&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/extensions&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;hdop&amp;gt;&lt;/span&gt;14.331614&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/hdop&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;vdop&amp;gt;&lt;/span&gt;9.951165&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/vdop&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;course&amp;gt;&lt;/span&gt;286.357989&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/course&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;time&amp;gt;&lt;/span&gt;2021-05-08T13:32:06Z&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/time&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/trkpt&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/trkseg&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/trk&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;类似这样，每个 GPX 文件由 &lt;code&gt;&amp;lt;trk&amp;gt;&lt;/code&gt; 标签对组成，&lt;code&gt;&amp;lt;trk&amp;gt;&lt;/code&gt; 标签对又由 &lt;code&gt;&amp;lt;trkseg&amp;gt;&lt;/code&gt; 标签对组成。事实上在 GPX 记录软件中可以通过暂停、继续在同一个 GPX 文件中记录多个轨迹。因此每个 GPX 文件可以解析出由 &lt;code&gt;TrackSegment&lt;/code&gt; 为单位的多组数据。&lt;/p&gt;
 &lt;p&gt;因此，即便有多个 GPX 文件，同样可以解析成以 &lt;code&gt;TrackSegment&lt;/code&gt; 为元的多组数据。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;TrackSegment&lt;/code&gt; 是由一个个 &lt;code&gt;TrackPoint&lt;/code&gt; 组成的，我们假设这些 &lt;code&gt;TrackPoint&lt;/code&gt; 都是按时间顺序排列的（事实上除非人为，否则用 GPX 软件记录下来的轨迹都是按照时间顺序排列的，不过跨越时区的记录可能是个大问题），且没有时间重叠，因此我们可以仅用 &lt;code&gt;TrackSegment&lt;/code&gt; 的第一个 &lt;code&gt;TrackPoint&lt;/code&gt; 的时间（即开始时间）为键，排序所有 &lt;code&gt;TrackSegment&lt;/code&gt;，得到 &lt;code&gt;sortedSegments&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;接下来开始遍历照片，取得照片的拍摄时间，然后依据二分法，即可在 &lt;code&gt;O(log n)&lt;/code&gt; 的时间内从包含这些 &lt;code&gt;TrackSegment&lt;/code&gt; 的起始时间和结束时间的数组中轻松找到这个拍摄时间存在于哪个 &lt;code&gt;TrackSegment&lt;/code&gt;，或者不存在于任何一个 &lt;code&gt;TrackSegment&lt;/code&gt;。&lt;/p&gt;
@@ -838,14 +853,14 @@ index 0000000..75a1dd2
             <guid>https://clox.nu/blog/backup-files-on-linux-to-dropbox/</guid>
             <description>&lt;p&gt;又进入了新的一月，又到了服务器续费的时候。由于我前些天把我的 travel blog 变成静态页面了，因此原本 serve 了它一段时间的服务器也可以注销掉了，不过服务器上还存有一些需要保留的文件，于是今天想把这些文件放到 Dropbox 中。&lt;/p&gt;
 &lt;p&gt;参照 &lt;a href=&#34;https://www.dropbox.com/install-linux&#34;&gt;官方安装页面&lt;/a&gt;，先运行以下命令下载并解压 Dropbox。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ cd ~ &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; wget -O - &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://www.dropbox.com/download?plat=lnx.x86_64&amp;#34;&lt;/span&gt; | tar xzf -
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后在 home 目录就会产生一个 &lt;code&gt;.dropbox-dist&lt;/code&gt; 目录，同样参照以上官方安装页面，运行这个目录下的 &lt;code&gt;dropboxd&lt;/code&gt; 来启动 Dropbox 守护进程。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cd ~ &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; wget -O - &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://www.dropbox.com/download?plat=lnx.x86_64&amp;#34;&lt;/span&gt; | tar xzf -
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后在 home 目录就会产生一个 &lt;code&gt;.dropbox-dist&lt;/code&gt; 目录，同样参照以上官方安装页面，运行这个目录下的 &lt;code&gt;dropboxd&lt;/code&gt; 来启动 Dropbox 守护进程。&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ ~/.dropbox-dist/dropboxd
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;我在运行这句命令之后这段程序执行了一些指令后报错。（我使用的是 Ubuntu 20.04 LTS）&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;assets/IMG_1.jpg&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
 &lt;p&gt;于是立马在 &lt;a href=&#34;https://www.digitalocean.com/community/questions/how-to-configure-dropbox-on-ubuntu-20-04&#34;&gt;DigitalOcean&lt;/a&gt; 中找到答案，我缺少了一些依赖，运行以下命令解决此问题。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ sudo apt install libc6 libglapi-mesa libxdamage1 libxfixes3 libxcb-glx0 libxcb-dri2-0 libxcb-dri3-0 libxcb-present0 libxcb-sync1 libxshmfence1 libxxf86vm1
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装依赖后，运行上述命令，得到以下输出：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo apt install libc6 libglapi-mesa libxdamage1 libxfixes3 libxcb-glx0 libxcb-dri2-0 libxcb-dri3-0 libxcb-present0 libxcb-sync1 libxshmfence1 libxxf86vm1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装依赖后，运行上述命令，得到以下输出：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;assets/IMG_2.jpg&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
 &lt;p&gt;根据提示需要打开 URL 登录自己的账号以绑定这台服务器。打开后界面如下。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;assets/IMG_3.png&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
@@ -858,10 +873,10 @@ index 0000000..75a1dd2
 &lt;p&gt;此时 home 目录下已经出现了 &lt;code&gt;Dropbox&lt;/code&gt; 目录，进入之后就可以看见自己 Dropbox 内部存放的文件。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;assets/IMG_4.jpg&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
 &lt;p&gt;依照官方安装页面，可以通过下载一个 Python 脚本，可以更方便地用命令行控制 Dropbox。运行以下命令&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;来下载 Python 脚本到 &lt;code&gt;/usr/local/bin&lt;/code&gt; 目录，即可快速执行。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ sudo wget -O /usr/local/bin/dropbox &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://www.dropbox.com/download?dl=packages/dropbox.py&amp;#34;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;再给它添加执行权限。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ sudo chmod +x /usr/local/bin/dropbox
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后运行 &lt;code&gt;dropbox&lt;/code&gt; 命令即可。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo wget -O /usr/local/bin/dropbox &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://www.dropbox.com/download?dl=packages/dropbox.py&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;再给它添加执行权限。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo chmod +x /usr/local/bin/dropbox
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后运行 &lt;code&gt;dropbox&lt;/code&gt; 命令即可。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;assets/IMG_5.jpg&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
 &lt;p&gt;运行 &lt;code&gt;dropbox start&lt;/code&gt; 启动守护进程。&lt;code&gt;dropbox status&lt;/code&gt; 查看状态&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
 &lt;p&gt;当操作 &lt;code&gt;Dropbox&lt;/code&gt; 目录时，守护进程会将更新的内容自动同步至 Dropbox 云端。&lt;/p&gt;
@@ -891,8 +906,8 @@ index 0000000..75a1dd2
             <description>&lt;p&gt;本文来自生产力 &lt;a href=&#34;https://clox.nu/posts/productivity/&#34;&gt;ℙ𝕣𝕠𝕕𝕦𝕔𝕥𝕚𝕧𝕚𝕥𝕪&lt;/a&gt; 系列文章。&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;我们知道，在一台安装了 Hugo 命令行工具的电脑上，只需运行命令&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ hugo new ...
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;即可创建一个新的 blog。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ hugo new ...
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;即可创建一个新的 blog。&lt;/p&gt;
 &lt;p&gt;为了发挥 iPad Pro 的「生产力」属性，我使用 Taio 的「动作」实现了此命令，因此可以在 iPad Pro 上高效快速地撰写 blog。&lt;/p&gt;
 &lt;p&gt;首先使用「Working Copy」拉取 GitHub 上的 blog 远程仓库。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;assets/IMG_1.png&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
@@ -925,83 +940,81 @@ index 0000000..75a1dd2
 &lt;p&gt;&lt;img src=&#34;assets/image-20210814204920751.png&#34; alt=&#34;image-20210814204920751&#34;&gt;&lt;/p&gt;
 &lt;p&gt;然后就会跳转至新建文件页面，以及 GitHub 自动生成最初的 &lt;code&gt;main.yml&lt;/code&gt; 文件。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;assets/image-20210814205057441.png&#34; alt=&#34;image-20210814205057441&#34;&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# This is a basic workflow to help you get started with Actions&lt;/span&gt;
-
-&lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;CI&lt;/span&gt;
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# Controls when the workflow will run&lt;/span&gt;
-&lt;span style=&#34;color:#f92672&#34;&gt;on&lt;/span&gt;:
-  &lt;span style=&#34;color:#75715e&#34;&gt;# Triggers the workflow on push or pull request events but only for the master branch&lt;/span&gt;
-  &lt;span style=&#34;color:#f92672&#34;&gt;push&lt;/span&gt;:
-    &lt;span style=&#34;color:#f92672&#34;&gt;branches&lt;/span&gt;: [ &lt;span style=&#34;color:#ae81ff&#34;&gt;master ]&lt;/span&gt;
-  &lt;span style=&#34;color:#f92672&#34;&gt;pull_request&lt;/span&gt;:
-    &lt;span style=&#34;color:#f92672&#34;&gt;branches&lt;/span&gt;: [ &lt;span style=&#34;color:#ae81ff&#34;&gt;master ]&lt;/span&gt;
-
-  &lt;span style=&#34;color:#75715e&#34;&gt;# Allows you to run this workflow manually from the Actions tab&lt;/span&gt;
-  &lt;span style=&#34;color:#f92672&#34;&gt;workflow_dispatch&lt;/span&gt;:
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# A workflow run is made up of one or more jobs that can run sequentially or in parallel&lt;/span&gt;
-&lt;span style=&#34;color:#f92672&#34;&gt;jobs&lt;/span&gt;:
-  &lt;span style=&#34;color:#75715e&#34;&gt;# This workflow contains a single job called &amp;#34;build&amp;#34;&lt;/span&gt;
-  &lt;span style=&#34;color:#f92672&#34;&gt;build&lt;/span&gt;:
-    &lt;span style=&#34;color:#75715e&#34;&gt;# The type of runner that the job will run on&lt;/span&gt;
-    &lt;span style=&#34;color:#f92672&#34;&gt;runs-on&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;ubuntu-latest&lt;/span&gt;
-
-    &lt;span style=&#34;color:#75715e&#34;&gt;# Steps represent a sequence of tasks that will be executed as part of the job&lt;/span&gt;
-    &lt;span style=&#34;color:#f92672&#34;&gt;steps&lt;/span&gt;:
-      &lt;span style=&#34;color:#75715e&#34;&gt;# Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it&lt;/span&gt;
-      - &lt;span style=&#34;color:#f92672&#34;&gt;uses&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;actions/checkout@v2&lt;/span&gt;
-
-      &lt;span style=&#34;color:#75715e&#34;&gt;# Runs a single command using the runners shell&lt;/span&gt;
-      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Run a one-line script&lt;/span&gt;
-        &lt;span style=&#34;color:#f92672&#34;&gt;run&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;echo Hello, world!&lt;/span&gt;
-
-      &lt;span style=&#34;color:#75715e&#34;&gt;# Runs a set of commands using the runners shell&lt;/span&gt;
-      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Run a multi-line script&lt;/span&gt;
-        &lt;span style=&#34;color:#f92672&#34;&gt;run&lt;/span&gt;: |&lt;span style=&#34;color:#e6db74&#34;&gt;
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;          echo Add other actions to build,
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;          echo test, and deploy your project.&lt;/span&gt;          
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;修改为：（这里使用了 &lt;code&gt;actions-js/push@master&lt;/code&gt; 来 Commit &amp;amp; Push）&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# This is a basic workflow to help you get started with Actions&lt;/span&gt;
-
-&lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;CI&lt;/span&gt;
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# Controls when the workflow will run&lt;/span&gt;
-&lt;span style=&#34;color:#f92672&#34;&gt;on&lt;/span&gt;:
-  &lt;span style=&#34;color:#75715e&#34;&gt;# Triggers the workflow on push or pull request events but only for the master branch&lt;/span&gt;
-  &lt;span style=&#34;color:#f92672&#34;&gt;push&lt;/span&gt;:
-    &lt;span style=&#34;color:#f92672&#34;&gt;branches&lt;/span&gt;: [ &lt;span style=&#34;color:#ae81ff&#34;&gt;master ]&lt;/span&gt;
-  &lt;span style=&#34;color:#f92672&#34;&gt;pull_request&lt;/span&gt;:
-    &lt;span style=&#34;color:#f92672&#34;&gt;branches&lt;/span&gt;: [ &lt;span style=&#34;color:#ae81ff&#34;&gt;master ]&lt;/span&gt;
-
-  &lt;span style=&#34;color:#75715e&#34;&gt;# Allows you to run this workflow manually from the Actions tab&lt;/span&gt;
-  &lt;span style=&#34;color:#f92672&#34;&gt;workflow_dispatch&lt;/span&gt;:
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# A workflow run is made up of one or more jobs that can run sequentially or in parallel&lt;/span&gt;
-&lt;span style=&#34;color:#f92672&#34;&gt;jobs&lt;/span&gt;:
-  &lt;span style=&#34;color:#75715e&#34;&gt;# This workflow contains a single job called &amp;#34;build&amp;#34;&lt;/span&gt;
-  &lt;span style=&#34;color:#f92672&#34;&gt;build&lt;/span&gt;:
-    &lt;span style=&#34;color:#75715e&#34;&gt;# The type of runner that the job will run on&lt;/span&gt;
-    &lt;span style=&#34;color:#f92672&#34;&gt;runs-on&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;ubuntu-latest&lt;/span&gt;
-
-    &lt;span style=&#34;color:#75715e&#34;&gt;# Steps represent a sequence of tasks that will be executed as part of the job&lt;/span&gt;
-    &lt;span style=&#34;color:#f92672&#34;&gt;steps&lt;/span&gt;:
-      &lt;span style=&#34;color:#75715e&#34;&gt;# Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it&lt;/span&gt;
-      - &lt;span style=&#34;color:#f92672&#34;&gt;uses&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;actions/checkout@v2&lt;/span&gt;
-      
-      &lt;span style=&#34;color:#75715e&#34;&gt;# Generate website&lt;/span&gt;
-      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Run generator&lt;/span&gt;
-        &lt;span style=&#34;color:#f92672&#34;&gt;run&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;gotravel_linux_arm64&lt;/span&gt;
-        
-      &lt;span style=&#34;color:#75715e&#34;&gt;# Commit &amp;amp; Push&lt;/span&gt;
-      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Commit &amp;amp; Push changes&lt;/span&gt;
-        &lt;span style=&#34;color:#f92672&#34;&gt;uses&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;actions-js/push@master&lt;/span&gt;
-        &lt;span style=&#34;color:#f92672&#34;&gt;with&lt;/span&gt;:
-          &lt;span style=&#34;color:#f92672&#34;&gt;github_token&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;${{ secrets.GITHUB_TOKEN }}&lt;/span&gt;
-          &lt;span style=&#34;color:#f92672&#34;&gt;branch&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;master&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;最终 build success：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# This is a basic workflow to help you get started with Actions&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;CI&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Controls when the workflow will run&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;on&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# Triggers the workflow on push or pull request events but only for the master branch&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;push&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;branches&lt;/span&gt;: [ &lt;span style=&#34;color:#ae81ff&#34;&gt;master ]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;pull_request&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;branches&lt;/span&gt;: [ &lt;span style=&#34;color:#ae81ff&#34;&gt;master ]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# Allows you to run this workflow manually from the Actions tab&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;workflow_dispatch&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# A workflow run is made up of one or more jobs that can run sequentially or in parallel&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;jobs&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# This workflow contains a single job called &amp;#34;build&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;build&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# The type of runner that the job will run on&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;runs-on&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;ubuntu-latest&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# Steps represent a sequence of tasks that will be executed as part of the job&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;steps&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#75715e&#34;&gt;# Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;uses&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;actions/checkout@v2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#75715e&#34;&gt;# Runs a single command using the runners shell&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Run a one-line script&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;run&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;echo Hello, world!&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#75715e&#34;&gt;# Runs a set of commands using the runners shell&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Run a multi-line script&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;run&lt;/span&gt;: |&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;          echo Add other actions to build,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;          echo test, and deploy your project.&lt;/span&gt;          
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;修改为：（这里使用了 &lt;code&gt;actions-js/push@master&lt;/code&gt; 来 Commit &amp;amp; Push）&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# This is a basic workflow to help you get started with Actions&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;CI&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Controls when the workflow will run&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;on&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# Triggers the workflow on push or pull request events but only for the master branch&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;push&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;branches&lt;/span&gt;: [ &lt;span style=&#34;color:#ae81ff&#34;&gt;master ]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;pull_request&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;branches&lt;/span&gt;: [ &lt;span style=&#34;color:#ae81ff&#34;&gt;master ]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# Allows you to run this workflow manually from the Actions tab&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;workflow_dispatch&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# A workflow run is made up of one or more jobs that can run sequentially or in parallel&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;jobs&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# This workflow contains a single job called &amp;#34;build&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;build&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# The type of runner that the job will run on&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;runs-on&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;ubuntu-latest&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# Steps represent a sequence of tasks that will be executed as part of the job&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;steps&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#75715e&#34;&gt;# Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;uses&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;actions/checkout@v2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#75715e&#34;&gt;# Generate website&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Run generator&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;run&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;gotravel_linux_arm64&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#75715e&#34;&gt;# Commit &amp;amp; Push&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Commit &amp;amp; Push changes&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;uses&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;actions-js/push@master&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;with&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;github_token&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;${{ secrets.GITHUB_TOKEN }}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;branch&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;master&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;最终 build success：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;assets/image-20210814220043703.png&#34; alt=&#34;image-20210814220043703&#34;&gt;&lt;/p&gt;
 </description>
         </item>
@@ -1043,22 +1056,22 @@ index 0000000..75a1dd2
 &lt;p&gt;&lt;a href=&#34;https://reactnative.dev/&#34;&gt;官网&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;安装使用时，可以使用 &lt;a href=&#34;https://expo.io/&#34;&gt;Expo&lt;/a&gt; ，可以省去在 Xcode 或者 Android Studio 配置的过程。&lt;/p&gt;
 &lt;p&gt;运行以下命令安装 Expo&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;npm install -g expo-cli
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;注意这里在 &lt;code&gt;npm&lt;/code&gt; 前不要加 &lt;code&gt;sudo&lt;/code&gt;，请提前确保权限通顺&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo chown -R &lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;whoami&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt; ~/.npm
-sudo chown -R &lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;whoami&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt; /usr/local/lib/node_modules
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装好后，我试图运行 Expo，但是得到了 Expo 不支持当前的 Node 版本的错误，于是运行 &lt;code&gt;nvm&lt;/code&gt; 来安装最新版本 Node（以下是未安装 &lt;code&gt;nvm&lt;/code&gt; 的版本）：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo npm install -g n
-sudo n latest
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;或者，使用 &lt;code&gt;yarn&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;yarn global add expo-cli
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;开始&#34;&gt;开始&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npm install -g expo-cli
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;注意这里在 &lt;code&gt;npm&lt;/code&gt; 前不要加 &lt;code&gt;sudo&lt;/code&gt;，请提前确保权限通顺&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo chown -R &lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;whoami&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt; ~/.npm
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo chown -R &lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;whoami&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt; /usr/local/lib/node_modules
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装好后，我试图运行 Expo，但是得到了 Expo 不支持当前的 Node 版本的错误，于是运行 &lt;code&gt;nvm&lt;/code&gt; 来安装最新版本 Node（以下是未安装 &lt;code&gt;nvm&lt;/code&gt; 的版本）：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo npm install -g n
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo n latest
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;或者，使用 &lt;code&gt;yarn&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;yarn global add expo-cli
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;开始&#34;&gt;开始&lt;/h2&gt;
 &lt;p&gt;安装好后，生成第一个项目：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;expo init rn_proj
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;进入目录并运行&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;cd rn_proj
-expo start
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;assets/start.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;expo init rn_proj
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;进入目录并运行&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cd rn_proj
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;expo start
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;assets/start.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;然后同时会打开一个 Web 控制台&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;assets/web_console.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;然后在待调试的设备上下载 Expo Go 后扫码即可开始调试&lt;/p&gt;
@@ -1068,8 +1081,8 @@ expo start
 &lt;p&gt;&lt;img src=&#34;assets/real_device.PNG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;模拟器运行&#34;&gt;模拟器运行&lt;/h3&gt;
 &lt;p&gt;这里我弄了好久一直卡在安装 Expo Go 到模拟器中，看到网络流量情况才发现下载一直没有用代理，macOS 需要开启终端代理才可。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;export https_proxy&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;http://127.0.0.1:7890 http_proxy&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;http://127.0.0.1:7890 all_proxy&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;socks5://127.0.0.1:7890
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这里的端口需要设置为代理的端口，我使用的 Clash 可以自动生成终端代理命令。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;export https_proxy&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;http://127.0.0.1:7890 http_proxy&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;http://127.0.0.1:7890 all_proxy&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;socks5://127.0.0.1:7890
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这里的端口需要设置为代理的端口，我使用的 Clash 可以自动生成终端代理命令。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;assets/running.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;运行于-web&#34;&gt;运行于 Web&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;assets/run_in_web.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
@@ -1077,13 +1090,13 @@ expo start
 &lt;p&gt;写代码时每当修改保存，只要当前还处于 &lt;code&gt;expo start&lt;/code&gt; 状态，真机或模拟器上的画面就会跟着改变&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;或者直接使用-react-native&#34;&gt;或者直接使用 React Native&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;npx react-native init rn_proj
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;或&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;yarn react-native init rn_proj
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npx react-native init rn_proj
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;或&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;yarn react-native init rn_proj
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
 &lt;p&gt;国内访问记得设置代理&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;npm config set proxy&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;http://127.0.0.1:xxxx
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npm config set proxy&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;http://127.0.0.1:xxxx
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/blockquote&gt;
 </description>
         </item>
         
@@ -1109,28 +1122,28 @@ expo start
             
             <guid>https://clox.nu/blog/deployment-based-on-travis-ci/</guid>
             <description>&lt;p&gt;在 GitHub 仓库内创建 &lt;code&gt;.travis.yml&lt;/code&gt; 文件并添加以下内容后，即可自动部署此 Hugo 站点。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;dist&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;bionic&lt;/span&gt;
-&lt;span style=&#34;color:#f92672&#34;&gt;addons&lt;/span&gt;:
-  &lt;span style=&#34;color:#f92672&#34;&gt;snaps&lt;/span&gt;:
-    - &lt;span style=&#34;color:#ae81ff&#34;&gt;hugo&lt;/span&gt;
-
-&lt;span style=&#34;color:#f92672&#34;&gt;install&lt;/span&gt;:
-  - &lt;span style=&#34;color:#ae81ff&#34;&gt;cd ./src/&lt;/span&gt;
-  - &lt;span style=&#34;color:#ae81ff&#34;&gt;git submodule update --init --remote&lt;/span&gt;
-
-&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt;:
-  - &lt;span style=&#34;color:#ae81ff&#34;&gt;hugo -D&lt;/span&gt;
-
-&lt;span style=&#34;color:#f92672&#34;&gt;after_script&lt;/span&gt;:
-  - &lt;span style=&#34;color:#ae81ff&#34;&gt;cd ..&lt;/span&gt;
-  - &lt;span style=&#34;color:#ae81ff&#34;&gt;git config --global user.name &amp;#34;Travis CI&amp;#34;&lt;/span&gt;
-  - &lt;span style=&#34;color:#ae81ff&#34;&gt;git config --global user.email &amp;lt;your-email&amp;gt;&lt;/span&gt;
-  - &lt;span style=&#34;color:#ae81ff&#34;&gt;git remote set-url origin &amp;#34;https://${GITHUB_TOKEN}@github.com/&amp;lt;username&amp;gt;/&amp;lt;repo-name&amp;gt;.git&amp;#34;&lt;/span&gt;
-  - &lt;span style=&#34;color:#ae81ff&#34;&gt;git checkout main&lt;/span&gt;
-  - &lt;span style=&#34;color:#ae81ff&#34;&gt;git add .&lt;/span&gt;
-  - &lt;span style=&#34;color:#ae81ff&#34;&gt;git commit -m &amp;#34;Update Blog By TravisCI With Build $TRAVIS_BUILD_NUMBER&amp;#34;&lt;/span&gt;
-  - &lt;span style=&#34;color:#ae81ff&#34;&gt;git push origin&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;dist&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;bionic&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;addons&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;snaps&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    - &lt;span style=&#34;color:#ae81ff&#34;&gt;hugo&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;install&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  - &lt;span style=&#34;color:#ae81ff&#34;&gt;cd ./src/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  - &lt;span style=&#34;color:#ae81ff&#34;&gt;git submodule update --init --remote&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  - &lt;span style=&#34;color:#ae81ff&#34;&gt;hugo -D&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;after_script&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  - &lt;span style=&#34;color:#ae81ff&#34;&gt;cd ..&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  - &lt;span style=&#34;color:#ae81ff&#34;&gt;git config --global user.name &amp;#34;Travis CI&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  - &lt;span style=&#34;color:#ae81ff&#34;&gt;git config --global user.email &amp;lt;your-email&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  - &lt;span style=&#34;color:#ae81ff&#34;&gt;git remote set-url origin &amp;#34;https://${GITHUB_TOKEN}@github.com/&amp;lt;username&amp;gt;/&amp;lt;repo-name&amp;gt;.git&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  - &lt;span style=&#34;color:#ae81ff&#34;&gt;git checkout main&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  - &lt;span style=&#34;color:#ae81ff&#34;&gt;git add .&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  - &lt;span style=&#34;color:#ae81ff&#34;&gt;git commit -m &amp;#34;Update Blog By TravisCI With Build $TRAVIS_BUILD_NUMBER&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  - &lt;span style=&#34;color:#ae81ff&#34;&gt;git push origin&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;记得在 &lt;a href=&#34;https://travis-ci.com&#34;&gt;travis-ci.com&lt;/a&gt; 网站内添加 &lt;code&gt;GITHUB_TOKEN&lt;/code&gt; 键值，以确认 &lt;code&gt;git push&lt;/code&gt; 能正常运行。&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;install&lt;/code&gt; 内的 &lt;code&gt;cd ./src/&lt;/code&gt; 是针对当前仓库的源码是存于 &lt;code&gt;src&lt;/code&gt; 文件夹内，而 &lt;code&gt;after_script&lt;/code&gt; 中的 &lt;code&gt;cd ..&lt;/code&gt; 是返回根目录的做法。&lt;/li&gt;
@@ -1156,14 +1169,14 @@ expo start
 &lt;p&gt;即可。&lt;/p&gt;
 &lt;h2 id=&#34;顺便在这里提一下-git-submodule-和-git-remote&#34;&gt;顺便在这里提一下 &lt;code&gt;git submodule&lt;/code&gt; 和 &lt;code&gt;git remote&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;在我 fork 了源仓库之后，使用命令&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;git remote add upstream https://github.com/adityatelange/hugo-PaperMod.git
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;来配置一个 remote，参考 &lt;a href=&#34;https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/configuring-a-remote-for-a-fork&#34;&gt;Configuring a remote for a fork&lt;/a&gt; ，并使用&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;git fetch upstream
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;来同步远程仓库，参考 &lt;a href=&#34;https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/syncing-a-fork&#34;&gt;Syncing a fork&lt;/a&gt; 。将 Mathjax 特性添加之后，push 到自己 fork 的仓库，随后在本站仓库使用命令&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;git submodule add https://github.com/cloxnu/hugo-PaperMod themes/PaperMod
-git submodule init
-git submodule update --remote
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;即可更新新的带有 Mathjax 特性的 PaperMod 主题了。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git remote add upstream https://github.com/adityatelange/hugo-PaperMod.git
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;来配置一个 remote，参考 &lt;a href=&#34;https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/configuring-a-remote-for-a-fork&#34;&gt;Configuring a remote for a fork&lt;/a&gt; ，并使用&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git fetch upstream
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;来同步远程仓库，参考 &lt;a href=&#34;https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/syncing-a-fork&#34;&gt;Syncing a fork&lt;/a&gt; 。将 Mathjax 特性添加之后，push 到自己 fork 的仓库，随后在本站仓库使用命令&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git submodule add https://github.com/cloxnu/hugo-PaperMod themes/PaperMod
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git submodule init
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git submodule update --remote
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;即可更新新的带有 Mathjax 特性的 PaperMod 主题了。&lt;/p&gt;
 &lt;p&gt;RSS 源参考 &lt;a href=&#34;https://gideonwolfe.com/posts/sysadmin/hugo/hugorss/&#34;&gt;这里&lt;/a&gt;&lt;/p&gt;
 </description>
         </item>
@@ -1219,14 +1232,14 @@ git submodule update --remote
 &lt;p&gt;Given two or more strings, find the longest common substring of these strings. Concretely, the longest common substring of the two strings &lt;em&gt;&amp;ldquo;cacaocac&amp;rdquo;&lt;/em&gt; and &lt;em&gt;&amp;ldquo;ccaooc&amp;rdquo;&lt;/em&gt; is &lt;em&gt;&amp;ldquo;cao&amp;rdquo;&lt;/em&gt;. This seems like a simple problem, but until today, it still requires a complicated algorithm to be solved in a reasonable time.&lt;/p&gt;
 &lt;p&gt;This repo has implemented an algorithm to solve this problem by constructing a tree called Generalized Suffix Tree (GST). GST is a tree structure which contains sets of suffix strings of the origin string. Usually, the string will be appended a unique character &lt;em&gt;&amp;quot;$&amp;quot;&lt;/em&gt; for representing &amp;ldquo;the end&amp;rdquo;, this is to avoid some nodes not splitting due to repeated ending characters.&lt;/p&gt;
 &lt;p&gt;There are 2 algorithms for constructing a GST: &lt;strong&gt;McCreight&amp;rsquo;s algorithm (1976)&lt;/strong&gt;, &lt;strong&gt;Ukkonen&amp;rsquo;s algorithm (1995)&lt;/strong&gt;. The latter has been implemented here.&lt;/p&gt;
-&lt;p&gt;The visualized GST of &lt;em&gt;&amp;ldquo;cacaocac$&amp;quot;&lt;/em&gt; as follows, made in &lt;a href=&#34;http://brenden.github.io/ukkonen-animation/&#34;&gt;http://brenden.github.io/ukkonen-animation/&lt;/a&gt; :&lt;/p&gt;
+&lt;p&gt;The visualized GST of &lt;em&gt;&amp;ldquo;cacaocac$&amp;rdquo;&lt;/em&gt; as follows, made in &lt;a href=&#34;http://brenden.github.io/ukkonen-animation/&#34;&gt;http://brenden.github.io/ukkonen-animation/&lt;/a&gt; :&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;assets/GST4cacaocac.png&#34; alt=&#34;GST-for-cacaocac&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;how-it-works&#34;&gt;How it works&lt;/h2&gt;
 &lt;p&gt;After cloning this repo, we can get the same result by running these codes in the &lt;code&gt;Application.py&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;tree &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; STree()
-tree&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;build_with_automatic_end([&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;cacaocac&amp;#34;&lt;/span&gt;])
-print(tree)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;and then, something will appear in the console:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;tree &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; STree()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;tree&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;build_with_automatic_end([&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;cacaocac&amp;#34;&lt;/span&gt;])
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;print(tree)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;and then, something will appear in the console:&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cacaocac$ ----&amp;gt; ⊥
 c ----&amp;gt; cacaocac$
 	a ----&amp;gt; a
@@ -1254,10 +1267,10 @@ $ (end)
 &lt;p&gt;So, back to the topic, how does this tree solve the longest common substring problem?&lt;/p&gt;
 &lt;p&gt;In the &lt;code&gt;Application.py&lt;/code&gt;, the &lt;code&gt;lcs2&lt;/code&gt; function find the lcs of two strings. The method &lt;code&gt;build_with_automatic_end&lt;/code&gt; in the &lt;code&gt;STree&lt;/code&gt; will concatenate a list of strings with the ending characters &lt;em&gt;&amp;quot;$&amp;quot;&lt;/em&gt;, and construct a suffix tree. With the help of &lt;code&gt;end_idxes&lt;/code&gt;, these &lt;em&gt;&amp;quot;$&amp;quot;&lt;/em&gt; are different, and they represent the end of different strings. &lt;code&gt;STree&lt;/code&gt; will automatically treat these &lt;em&gt;&amp;quot;$&amp;quot;&lt;/em&gt; as different from other characters, so the character &lt;em&gt;&amp;quot;$&amp;quot;&lt;/em&gt; itself is just designed for readability of suffix tree printing. The &lt;code&gt;lcs2&lt;/code&gt; function will traverse the tree and find the deepest non-leaf node that contains the leaf nodes of all string indexes in the string list.&lt;/p&gt;
 &lt;p&gt;Similarly, it can also be demonstrated using the following codes in &lt;code&gt;Application.py&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;print(lcs2(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;cacaocac&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ccaooc&amp;#34;&lt;/span&gt;))
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;or&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;print(lcs([&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;cacaocac&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ccaooc&amp;#34;&lt;/span&gt;]))
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The &lt;code&gt;lcs&lt;/code&gt; function can find the longest common substring of multiple strings.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;print(lcs2(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;cacaocac&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ccaooc&amp;#34;&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;or&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;print(lcs([&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;cacaocac&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ccaooc&amp;#34;&lt;/span&gt;]))
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The &lt;code&gt;lcs&lt;/code&gt; function can find the longest common substring of multiple strings.&lt;/p&gt;
 &lt;p&gt;The last two commands have the same result:&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cao
 &lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;gst-versus-dynamic-programming&#34;&gt;GST versus Dynamic programming&lt;/h2&gt;
@@ -1266,29 +1279,29 @@ $ (end)
 &lt;p&gt;&lt;code&gt;len&lt;/code&gt; is the length range of the strings, &lt;code&gt;com_len&lt;/code&gt; is the length range of the common part of the strings.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;len = (800, 1600)&lt;/code&gt; &lt;code&gt;com_len = (100, 200)&lt;/code&gt;&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;random string has been generated
-gst_res: wTE^s&amp;gt;:x,k~%i3pRtdasZ&amp;gt;eLXrU5gbU#ptQF*?$ta,)k~znS*D/Ja:0L}@.X~i~E~{@NsKlK5c#`4v?v.$O]ts&amp;amp;/LNl&amp;lt;m]ww`Z!4G3vPd:@guRfCuz3DSRNHcVu~[r7s8J`X&amp;amp;/uETtiU[$N0p2.$SV2T&amp;gt;&amp;lt;WTzqLVm:KkC3uE#2SIj63h?3BZYv;G*bl&#39;PnNYhQ0M
-dp_res: wTE^s&amp;gt;:x,k~%i3pRtdasZ&amp;gt;eLXrU5gbU#ptQF*?$ta,)k~znS*D/Ja:0L}@.X~i~E~{@NsKlK5c#`4v?v.$O]ts&amp;amp;/LNl&amp;lt;m]ww`Z!4G3vPd:@guRfCuz3DSRNHcVu~[r7s8J`X&amp;amp;/uETtiU[$N0p2.$SV2T&amp;gt;&amp;lt;WTzqLVm:KkC3uE#2SIj63h?3BZYv;G*bl&#39;PnNYhQ0M
+gst_res: wTE^s&amp;gt;:x,k~%i3pRtdasZ&amp;gt;eLXrU5gbU#ptQF*?$ta,)k~znS*D/Ja:0L}@.X~i~E~{@NsKlK5c#`4v?v.$O]ts&amp;amp;/LNl&amp;lt;m]ww`Z!4G3vPd:@guRfCuz3DSRNHcVu~[r7s8J`X&amp;amp;/uETtiU[$N0p2.$SV2T&amp;gt;&amp;lt;WTzqLVm:KkC3uE#2SIj63h?3BZYv;G*bl&amp;#39;PnNYhQ0M
+dp_res: wTE^s&amp;gt;:x,k~%i3pRtdasZ&amp;gt;eLXrU5gbU#ptQF*?$ta,)k~znS*D/Ja:0L}@.X~i~E~{@NsKlK5c#`4v?v.$O]ts&amp;amp;/LNl&amp;lt;m]ww`Z!4G3vPd:@guRfCuz3DSRNHcVu~[r7s8J`X&amp;amp;/uETtiU[$N0p2.$SV2T&amp;gt;&amp;lt;WTzqLVm:KkC3uE#2SIj63h?3BZYv;G*bl&amp;#39;PnNYhQ0M
 
 gst_time: 12.598991394042969 ms
 dp_time: 284.3668460845947 ms
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;code&gt;len = (5000, 8000)&lt;/code&gt; &lt;code&gt;com_len = (250, 800)&lt;/code&gt;&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;random string has been generated
-gst_res: q3U&#39;GCA9;dw}9nrT#R?&amp;quot;odw~HAK,&amp;amp;l;bd}VQ)h`15TAw6K/I1V]#;OSDj%(XmDp[&amp;amp;i}@$k($Bk8X4c&amp;quot;j(rXff9MK:E#`&amp;gt;B&amp;amp;&#39;SF`CgMP&amp;lt;`XOp!8g%&amp;amp;4fpbq&amp;lt;!Q*o4[9W}TXabj4FTele0?~Cm.S,8~)B(U9&amp;lt;m~[1.9/3XGR/@nIt,X3@k}D&amp;quot;U&amp;quot;h@!/C&amp;amp;92s09RU^DLrqo6[}s}Wlr:,VyYX&amp;gt;f{rx&amp;amp;&amp;gt;8bH`VaZy^3pId.A]XO/zgD@26wN:Y23@t(.&amp;gt;3$T6c8?L&#39;l&amp;quot;ZC?0PK,2tWNqa,S&amp;gt;VTe!!%L^n;;up&amp;lt;:Hw;gUtFp^dD]F8&amp;gt;!&#39;}vg^PNK4K&amp;quot;L7X&amp;lt;w;roH:&amp;amp;&amp;lt;jEzZJJPg5qd&#39;J!SWTP%N!CDDaxr7vBX.4@)9OO!Mg;S;M&#39;;VSV]^YZO9ww9k$H;Z^XcXKY@?Naa&amp;lt;jO$LEy`#e1&amp;amp;ywU8Yzq9PNAA^gQ58B?&#39;?)KiKt)$ztM~IrnJ&amp;lt;$;2%%?m&amp;quot;&amp;lt;dme7df&amp;gt;:b?j.A8dM2dH/!K!*o)glG[F&amp;gt;&amp;lt;aZ?c`By5{zEICgq[&amp;lt;M:D&amp;quot;LD;*FPJOzo9o,wXxKz@2];:g$oNrDhc/g{M9z9xTP[FllH/r!YrW!KMG!y(.$mO7Wzj31vMF2&amp;gt;YD?Y&amp;quot;I?t7FX!nWL[S&amp;gt;kLN1Ga7YN&#39;XrG*fxylmtBri/R!0nEGQ3ZG`xQ1o[~Z?1&amp;lt;VKMzKn90J^9#5J&amp;lt;:{3diD*o4Fn.WppQJ7&amp;gt;Z#1cQgV2(GX54S*)0@vQvFs^!/fag#p6kHgwB9{5)u:d9R
-dp_res: q3U&#39;GCA9;dw}9nrT#R?&amp;quot;odw~HAK,&amp;amp;l;bd}VQ)h`15TAw6K/I1V]#;OSDj%(XmDp[&amp;amp;i}@$k($Bk8X4c&amp;quot;j(rXff9MK:E#`&amp;gt;B&amp;amp;&#39;SF`CgMP&amp;lt;`XOp!8g%&amp;amp;4fpbq&amp;lt;!Q*o4[9W}TXabj4FTele0?~Cm.S,8~)B(U9&amp;lt;m~[1.9/3XGR/@nIt,X3@k}D&amp;quot;U&amp;quot;h@!/C&amp;amp;92s09RU^DLrqo6[}s}Wlr:,VyYX&amp;gt;f{rx&amp;amp;&amp;gt;8bH`VaZy^3pId.A]XO/zgD@26wN:Y23@t(.&amp;gt;3$T6c8?L&#39;l&amp;quot;ZC?0PK,2tWNqa,S&amp;gt;VTe!!%L^n;;up&amp;lt;:Hw;gUtFp^dD]F8&amp;gt;!&#39;}vg^PNK4K&amp;quot;L7X&amp;lt;w;roH:&amp;amp;&amp;lt;jEzZJJPg5qd&#39;J!SWTP%N!CDDaxr7vBX.4@)9OO!Mg;S;M&#39;;VSV]^YZO9ww9k$H;Z^XcXKY@?Naa&amp;lt;jO$LEy`#e1&amp;amp;ywU8Yzq9PNAA^gQ58B?&#39;?)KiKt)$ztM~IrnJ&amp;lt;$;2%%?m&amp;quot;&amp;lt;dme7df&amp;gt;:b?j.A8dM2dH/!K!*o)glG[F&amp;gt;&amp;lt;aZ?c`By5{zEICgq[&amp;lt;M:D&amp;quot;LD;*FPJOzo9o,wXxKz@2];:g$oNrDhc/g{M9z9xTP[FllH/r!YrW!KMG!y(.$mO7Wzj31vMF2&amp;gt;YD?Y&amp;quot;I?t7FX!nWL[S&amp;gt;kLN1Ga7YN&#39;XrG*fxylmtBri/R!0nEGQ3ZG`xQ1o[~Z?1&amp;lt;VKMzKn90J^9#5J&amp;lt;:{3diD*o4Fn.WppQJ7&amp;gt;Z#1cQgV2(GX54S*)0@vQvFs^!/fag#p6kHgwB9{5)u:d9R
+gst_res: q3U&amp;#39;GCA9;dw}9nrT#R?&amp;#34;odw~HAK,&amp;amp;l;bd}VQ)h`15TAw6K/I1V]#;OSDj%(XmDp[&amp;amp;i}@$k($Bk8X4c&amp;#34;j(rXff9MK:E#`&amp;gt;B&amp;amp;&amp;#39;SF`CgMP&amp;lt;`XOp!8g%&amp;amp;4fpbq&amp;lt;!Q*o4[9W}TXabj4FTele0?~Cm.S,8~)B(U9&amp;lt;m~[1.9/3XGR/@nIt,X3@k}D&amp;#34;U&amp;#34;h@!/C&amp;amp;92s09RU^DLrqo6[}s}Wlr:,VyYX&amp;gt;f{rx&amp;amp;&amp;gt;8bH`VaZy^3pId.A]XO/zgD@26wN:Y23@t(.&amp;gt;3$T6c8?L&amp;#39;l&amp;#34;ZC?0PK,2tWNqa,S&amp;gt;VTe!!%L^n;;up&amp;lt;:Hw;gUtFp^dD]F8&amp;gt;!&amp;#39;}vg^PNK4K&amp;#34;L7X&amp;lt;w;roH:&amp;amp;&amp;lt;jEzZJJPg5qd&amp;#39;J!SWTP%N!CDDaxr7vBX.4@)9OO!Mg;S;M&amp;#39;;VSV]^YZO9ww9k$H;Z^XcXKY@?Naa&amp;lt;jO$LEy`#e1&amp;amp;ywU8Yzq9PNAA^gQ58B?&amp;#39;?)KiKt)$ztM~IrnJ&amp;lt;$;2%%?m&amp;#34;&amp;lt;dme7df&amp;gt;:b?j.A8dM2dH/!K!*o)glG[F&amp;gt;&amp;lt;aZ?c`By5{zEICgq[&amp;lt;M:D&amp;#34;LD;*FPJOzo9o,wXxKz@2];:g$oNrDhc/g{M9z9xTP[FllH/r!YrW!KMG!y(.$mO7Wzj31vMF2&amp;gt;YD?Y&amp;#34;I?t7FX!nWL[S&amp;gt;kLN1Ga7YN&amp;#39;XrG*fxylmtBri/R!0nEGQ3ZG`xQ1o[~Z?1&amp;lt;VKMzKn90J^9#5J&amp;lt;:{3diD*o4Fn.WppQJ7&amp;gt;Z#1cQgV2(GX54S*)0@vQvFs^!/fag#p6kHgwB9{5)u:d9R
+dp_res: q3U&amp;#39;GCA9;dw}9nrT#R?&amp;#34;odw~HAK,&amp;amp;l;bd}VQ)h`15TAw6K/I1V]#;OSDj%(XmDp[&amp;amp;i}@$k($Bk8X4c&amp;#34;j(rXff9MK:E#`&amp;gt;B&amp;amp;&amp;#39;SF`CgMP&amp;lt;`XOp!8g%&amp;amp;4fpbq&amp;lt;!Q*o4[9W}TXabj4FTele0?~Cm.S,8~)B(U9&amp;lt;m~[1.9/3XGR/@nIt,X3@k}D&amp;#34;U&amp;#34;h@!/C&amp;amp;92s09RU^DLrqo6[}s}Wlr:,VyYX&amp;gt;f{rx&amp;amp;&amp;gt;8bH`VaZy^3pId.A]XO/zgD@26wN:Y23@t(.&amp;gt;3$T6c8?L&amp;#39;l&amp;#34;ZC?0PK,2tWNqa,S&amp;gt;VTe!!%L^n;;up&amp;lt;:Hw;gUtFp^dD]F8&amp;gt;!&amp;#39;}vg^PNK4K&amp;#34;L7X&amp;lt;w;roH:&amp;amp;&amp;lt;jEzZJJPg5qd&amp;#39;J!SWTP%N!CDDaxr7vBX.4@)9OO!Mg;S;M&amp;#39;;VSV]^YZO9ww9k$H;Z^XcXKY@?Naa&amp;lt;jO$LEy`#e1&amp;amp;ywU8Yzq9PNAA^gQ58B?&amp;#39;?)KiKt)$ztM~IrnJ&amp;lt;$;2%%?m&amp;#34;&amp;lt;dme7df&amp;gt;:b?j.A8dM2dH/!K!*o)glG[F&amp;gt;&amp;lt;aZ?c`By5{zEICgq[&amp;lt;M:D&amp;#34;LD;*FPJOzo9o,wXxKz@2];:g$oNrDhc/g{M9z9xTP[FllH/r!YrW!KMG!y(.$mO7Wzj31vMF2&amp;gt;YD?Y&amp;#34;I?t7FX!nWL[S&amp;gt;kLN1Ga7YN&amp;#39;XrG*fxylmtBri/R!0nEGQ3ZG`xQ1o[~Z?1&amp;lt;VKMzKn90J^9#5J&amp;lt;:{3diD*o4Fn.WppQJ7&amp;gt;Z#1cQgV2(GX54S*)0@vQvFs^!/fag#p6kHgwB9{5)u:d9R
 
 gst_time: 79.45418357849121 ms
 dp_time: 10244.915962219238 ms
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;code&gt;len = (5000, 8000)&lt;/code&gt; &lt;code&gt;com_len = (250, 800)&lt;/code&gt;&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;random string has been generated
-gst_res: Hu4XU.if.j/h9DAT3.2RI&amp;quot;9LVeR6qoG}HOB#V[qdN[TQ!%IG#v7l]&#39;4pTA;.G^zhWt%/B0P4ATaG&amp;gt;FDZj?GNH&amp;quot;V%NW(.uL?O.5tJCv6d7[}e.&amp;lt;$SFXv(C&amp;amp;ww&amp;gt;9a&#39;Con(V}MK&amp;lt;exxZ@1.1&amp;lt;7&amp;lt;Wo%wGyjB0FPpcxPLIy^LRZS@c;eel4sUF:iqcGlhz3]z&amp;amp;M&amp;amp;]qk&amp;amp;.H3]vqI7YG)#&amp;amp;}U3sa&amp;quot;6c6H*y{3&amp;gt;9MiHB!W4N1YwR[,qdn:nw$M&amp;quot;g]Ic6S$*[FIzaOZ[fHT&amp;lt;04&amp;lt;$R$[f#.%MscaTy[6?gJ:Qq
-dp_res: Hu4XU.if.j/h9DAT3.2RI&amp;quot;9LVeR6qoG}HOB#V[qdN[TQ!%IG#v7l]&#39;4pTA;.G^zhWt%/B0P4ATaG&amp;gt;FDZj?GNH&amp;quot;V%NW(.uL?O.5tJCv6d7[}e.&amp;lt;$SFXv(C&amp;amp;ww&amp;gt;9a&#39;Con(V}MK&amp;lt;exxZ@1.1&amp;lt;7&amp;lt;Wo%wGyjB0FPpcxPLIy^LRZS@c;eel4sUF:iqcGlhz3]z&amp;amp;M&amp;amp;]qk&amp;amp;.H3]vqI7YG)#&amp;amp;}U3sa&amp;quot;6c6H*y{3&amp;gt;9MiHB!W4N1YwR[,qdn:nw$M&amp;quot;g]Ic6S$*[FIzaOZ[fHT&amp;lt;04&amp;lt;$R$[f#.%MscaTy[6?gJ:Qq
+gst_res: Hu4XU.if.j/h9DAT3.2RI&amp;#34;9LVeR6qoG}HOB#V[qdN[TQ!%IG#v7l]&amp;#39;4pTA;.G^zhWt%/B0P4ATaG&amp;gt;FDZj?GNH&amp;#34;V%NW(.uL?O.5tJCv6d7[}e.&amp;lt;$SFXv(C&amp;amp;ww&amp;gt;9a&amp;#39;Con(V}MK&amp;lt;exxZ@1.1&amp;lt;7&amp;lt;Wo%wGyjB0FPpcxPLIy^LRZS@c;eel4sUF:iqcGlhz3]z&amp;amp;M&amp;amp;]qk&amp;amp;.H3]vqI7YG)#&amp;amp;}U3sa&amp;#34;6c6H*y{3&amp;gt;9MiHB!W4N1YwR[,qdn:nw$M&amp;#34;g]Ic6S$*[FIzaOZ[fHT&amp;lt;04&amp;lt;$R$[f#.%MscaTy[6?gJ:Qq
+dp_res: Hu4XU.if.j/h9DAT3.2RI&amp;#34;9LVeR6qoG}HOB#V[qdN[TQ!%IG#v7l]&amp;#39;4pTA;.G^zhWt%/B0P4ATaG&amp;gt;FDZj?GNH&amp;#34;V%NW(.uL?O.5tJCv6d7[}e.&amp;lt;$SFXv(C&amp;amp;ww&amp;gt;9a&amp;#39;Con(V}MK&amp;lt;exxZ@1.1&amp;lt;7&amp;lt;Wo%wGyjB0FPpcxPLIy^LRZS@c;eel4sUF:iqcGlhz3]z&amp;amp;M&amp;amp;]qk&amp;amp;.H3]vqI7YG)#&amp;amp;}U3sa&amp;#34;6c6H*y{3&amp;gt;9MiHB!W4N1YwR[,qdn:nw$M&amp;#34;g]Ic6S$*[FIzaOZ[fHT&amp;lt;04&amp;lt;$R$[f#.%MscaTy[6?gJ:Qq
 
 gst_time: 63.52519989013672 ms
 dp_time: 6668.108701705933 ms
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;code&gt;len = (10000, 20000)&lt;/code&gt; &lt;code&gt;com_len = (500, 1000)&lt;/code&gt;&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;random string has been generated
-gst_res: hee!!i$;hIn8&amp;amp;;Y)bU2BC^Bu{Ek]2}}`SvD&amp;gt;Fj!{%XS#pl6wMh#CDKe&#39;zk%N@mAC]r9[k:g{!Q&amp;lt;B0NQ&amp;quot;#&amp;quot;E&amp;lt;P@in$7]^fkn3tO:5q:lb%!Y5N3[rJBd7I@,6Uf{hNv5o$M%~]~9IS4#ho}]3A&amp;quot;~B9yLF!0&#39;`R(}le0KAMF/J7@EG/d&amp;amp;W/m`XcBt[,Bp0M8m6J]%#mh.^&amp;quot;:CsZw6~!w6eq[)WdAI/&#39;D`Tq.`*t[H5yVEk3mpRKZv&amp;lt;eMZj&#39;R?*zeA,!goeNt&amp;quot;5th.0^LN2xB$wy.*xP(cCW4)zZv#XS.#&amp;lt;&amp;amp;*&amp;quot;spzHfnG:78~P5z%a`Dn1g3&amp;gt;nF5CZm?;EfbKD/(g$!SIAxSRWce&amp;quot;Qf&#39;WbyceqGrh&amp;gt;uhP45R$:h?fJfEFk]@5P{]n2H/KgDGUA~`Q1&#39;&amp;lt;Z}66!s#V&amp;gt;B%&amp;gt;B1L3cIq?;ytc/E?mDmA2;m5LwdI@8)l3@&amp;amp;ZpdKp0&#39;f{VS@ahmmE!f.)kO(nNcVsU?yGEAzu&amp;quot;I/RH:N6&amp;quot;1xFvp~ipR~$7FJ@NLTs[VW^hng1bfc&amp;amp;!ieEbY.)uYN@Ux$(#~]WSyY/alVsiq1uv0u%tVx&#39;kS&amp;gt;x}dkUN5&amp;amp;lY!xy&amp;amp;Y]:wZU;gIXZ&amp;gt;h)mS7,au
-dp_res: hee!!i$;hIn8&amp;amp;;Y)bU2BC^Bu{Ek]2}}`SvD&amp;gt;Fj!{%XS#pl6wMh#CDKe&#39;zk%N@mAC]r9[k:g{!Q&amp;lt;B0NQ&amp;quot;#&amp;quot;E&amp;lt;P@in$7]^fkn3tO:5q:lb%!Y5N3[rJBd7I@,6Uf{hNv5o$M%~]~9IS4#ho}]3A&amp;quot;~B9yLF!0&#39;`R(}le0KAMF/J7@EG/d&amp;amp;W/m`XcBt[,Bp0M8m6J]%#mh.^&amp;quot;:CsZw6~!w6eq[)WdAI/&#39;D`Tq.`*t[H5yVEk3mpRKZv&amp;lt;eMZj&#39;R?*zeA,!goeNt&amp;quot;5th.0^LN2xB$wy.*xP(cCW4)zZv#XS.#&amp;lt;&amp;amp;*&amp;quot;spzHfnG:78~P5z%a`Dn1g3&amp;gt;nF5CZm?;EfbKD/(g$!SIAxSRWce&amp;quot;Qf&#39;WbyceqGrh&amp;gt;uhP45R$:h?fJfEFk]@5P{]n2H/KgDGUA~`Q1&#39;&amp;lt;Z}66!s#V&amp;gt;B%&amp;gt;B1L3cIq?;ytc/E?mDmA2;m5LwdI@8)l3@&amp;amp;ZpdKp0&#39;f{VS@ahmmE!f.)kO(nNcVsU?yGEAzu&amp;quot;I/RH:N6&amp;quot;1xFvp~ipR~$7FJ@NLTs[VW^hng1bfc&amp;amp;!ieEbY.)uYN@Ux$(#~]WSyY/alVsiq1uv0u%tVx&#39;kS&amp;gt;x}dkUN5&amp;amp;lY!xy&amp;amp;Y]:wZU;gIXZ&amp;gt;h)mS7,au
+gst_res: hee!!i$;hIn8&amp;amp;;Y)bU2BC^Bu{Ek]2}}`SvD&amp;gt;Fj!{%XS#pl6wMh#CDKe&amp;#39;zk%N@mAC]r9[k:g{!Q&amp;lt;B0NQ&amp;#34;#&amp;#34;E&amp;lt;P@in$7]^fkn3tO:5q:lb%!Y5N3[rJBd7I@,6Uf{hNv5o$M%~]~9IS4#ho}]3A&amp;#34;~B9yLF!0&amp;#39;`R(}le0KAMF/J7@EG/d&amp;amp;W/m`XcBt[,Bp0M8m6J]%#mh.^&amp;#34;:CsZw6~!w6eq[)WdAI/&amp;#39;D`Tq.`*t[H5yVEk3mpRKZv&amp;lt;eMZj&amp;#39;R?*zeA,!goeNt&amp;#34;5th.0^LN2xB$wy.*xP(cCW4)zZv#XS.#&amp;lt;&amp;amp;*&amp;#34;spzHfnG:78~P5z%a`Dn1g3&amp;gt;nF5CZm?;EfbKD/(g$!SIAxSRWce&amp;#34;Qf&amp;#39;WbyceqGrh&amp;gt;uhP45R$:h?fJfEFk]@5P{]n2H/KgDGUA~`Q1&amp;#39;&amp;lt;Z}66!s#V&amp;gt;B%&amp;gt;B1L3cIq?;ytc/E?mDmA2;m5LwdI@8)l3@&amp;amp;ZpdKp0&amp;#39;f{VS@ahmmE!f.)kO(nNcVsU?yGEAzu&amp;#34;I/RH:N6&amp;#34;1xFvp~ipR~$7FJ@NLTs[VW^hng1bfc&amp;amp;!ieEbY.)uYN@Ux$(#~]WSyY/alVsiq1uv0u%tVx&amp;#39;kS&amp;gt;x}dkUN5&amp;amp;lY!xy&amp;amp;Y]:wZU;gIXZ&amp;gt;h)mS7,au
+dp_res: hee!!i$;hIn8&amp;amp;;Y)bU2BC^Bu{Ek]2}}`SvD&amp;gt;Fj!{%XS#pl6wMh#CDKe&amp;#39;zk%N@mAC]r9[k:g{!Q&amp;lt;B0NQ&amp;#34;#&amp;#34;E&amp;lt;P@in$7]^fkn3tO:5q:lb%!Y5N3[rJBd7I@,6Uf{hNv5o$M%~]~9IS4#ho}]3A&amp;#34;~B9yLF!0&amp;#39;`R(}le0KAMF/J7@EG/d&amp;amp;W/m`XcBt[,Bp0M8m6J]%#mh.^&amp;#34;:CsZw6~!w6eq[)WdAI/&amp;#39;D`Tq.`*t[H5yVEk3mpRKZv&amp;lt;eMZj&amp;#39;R?*zeA,!goeNt&amp;#34;5th.0^LN2xB$wy.*xP(cCW4)zZv#XS.#&amp;lt;&amp;amp;*&amp;#34;spzHfnG:78~P5z%a`Dn1g3&amp;gt;nF5CZm?;EfbKD/(g$!SIAxSRWce&amp;#34;Qf&amp;#39;WbyceqGrh&amp;gt;uhP45R$:h?fJfEFk]@5P{]n2H/KgDGUA~`Q1&amp;#39;&amp;lt;Z}66!s#V&amp;gt;B%&amp;gt;B1L3cIq?;ytc/E?mDmA2;m5LwdI@8)l3@&amp;amp;ZpdKp0&amp;#39;f{VS@ahmmE!f.)kO(nNcVsU?yGEAzu&amp;#34;I/RH:N6&amp;#34;1xFvp~ipR~$7FJ@NLTs[VW^hng1bfc&amp;amp;!ieEbY.)uYN@Ux$(#~]WSyY/alVsiq1uv0u%tVx&amp;#39;kS&amp;gt;x}dkUN5&amp;amp;lY!xy&amp;amp;Y]:wZU;gIXZ&amp;gt;h)mS7,au
 
 gst_time: 164.72983360290527 ms
 dp_time: 44179.36301231384 ms

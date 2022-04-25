@@ -23,7 +23,7 @@
 <link rel="mask-icon" href="https://clox.nu/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.92.2" />
+<meta name="generator" content="Hugo 0.97.3" />
 
 
 
@@ -92,7 +92,7 @@ if (!doNotTrack) {
   "keywords": [
     
   ],
-  "articleBody": "Telegram Bot，简而言之就是运行在 Telegram 上的可交互的「机器人」，你可以给它发送指令让它完成操作或是实现一些功能（付钱、游戏等等），或者可以在 Channel 或 Group 中发送特定消息。\n这是 官方介绍。它的主要原理就是开发者通过调用 Telegram Bot API 来实现接收指令、发消息以及实现各种功能。\n注册  与 @BotFather 对话，发送指令 /start 开始，/newbot 申请一个新的 Bot 账号。  接着，BotFather 会要求你输入这个 Bot 的名字和 ID。创建完成后，BotFather 会同时给你一个 token，记住这个 token。  此时，已经可以和这个 Bot 互动了，但是想要这个 Bot 也可以主动发消息，这时就要建立一个 Channel，并把这个 Bot 设置为管理员。这个 Channel 如果是 public，其链接可以自定义。这里以 private 为例。  由于 Channel 是 private，我们需要这个 Channel 的 ID 来操作，这里可以通过将 Channel 内的消息转发给 @JsonDumpBot 来查看。可以看到此 Channel 的 ID 是 -1001790411176。  发消息 在官方文档的 Making requests 介绍中讲到，可以使用 GET 或 POST 请求以下 URL。\nhttps://api.telegram.org/bot/METHOD_NAME 同样在官方文档 sendMessage 介绍中，列出了所有参数列表。在获取到 token 和 Channel ID 后，以下这条链接就是此 Bot 发给刚刚建立的 Channel 一条消息「Hello from robot」的请求。\nhttps://api.telegram.org/bot2110628450:AAHQ78uj42ddtdsx0gKfaZGyFUhpnQ13vyM/sendMessage?chat_id=-1001790411176\u0026text=Hello%20from%20robot 我们也可以编写以下 Python 程序，运行之后 Bot 同样会在此 Channel 发送一条信息「Hello from robot」。（在此之前需要安装 telegram 依赖 pip install python-telegram-bot）1\nimport telegram bot = telegram.Bot(token='2110628450:AAHQ78uj42ddtdsx0gKfaZGyFUhpnQ13vyM') print(bot.get_me()) bot.send_message(text=\"Hello from robot\", chat_id=-1001790411176) python-telegram-bot 官方文档\n下一步… Telegram Bot 简明教程 II - 收指令与指令键盘\n  https://github.com/python-telegram-bot/python-telegram-bot ↩︎\n   ",
+  "articleBody": "Telegram Bot，简而言之就是运行在 Telegram 上的可交互的「机器人」，你可以给它发送指令让它完成操作或是实现一些功能（付钱、游戏等等），或者可以在 Channel 或 Group 中发送特定消息。\n这是 官方介绍。它的主要原理就是开发者通过调用 Telegram Bot API 来实现接收指令、发消息以及实现各种功能。\n注册  与 @BotFather 对话，发送指令 /start 开始，/newbot 申请一个新的 Bot 账号。  接着，BotFather 会要求你输入这个 Bot 的名字和 ID。创建完成后，BotFather 会同时给你一个 token，记住这个 token。  此时，已经可以和这个 Bot 互动了，但是想要这个 Bot 也可以主动发消息，这时就要建立一个 Channel，并把这个 Bot 设置为管理员。这个 Channel 如果是 public，其链接可以自定义。这里以 private 为例。  由于 Channel 是 private，我们需要这个 Channel 的 ID 来操作，这里可以通过将 Channel 内的消息转发给 @JsonDumpBot 来查看。可以看到此 Channel 的 ID 是 -1001790411176。  发消息 在官方文档的 Making requests 介绍中讲到，可以使用 GET 或 POST 请求以下 URL。\nhttps://api.telegram.org/bot/METHOD_NAME 同样在官方文档 sendMessage 介绍中，列出了所有参数列表。在获取到 token 和 Channel ID 后，以下这条链接就是此 Bot 发给刚刚建立的 Channel 一条消息「Hello from robot」的请求。\nhttps://api.telegram.org/bot2110628450:AAHQ78uj42ddtdsx0gKfaZGyFUhpnQ13vyM/sendMessage?chat_id=-1001790411176\u0026text=Hello%20from%20robot 我们也可以编写以下 Python 程序，运行之后 Bot 同样会在此 Channel 发送一条信息「Hello from robot」。（在此之前需要安装 telegram 依赖 pip install python-telegram-bot）1\nimport telegram  bot = telegram.Bot(token='2110628450:AAHQ78uj42ddtdsx0gKfaZGyFUhpnQ13vyM') print(bot.get_me())  bot.send_message(text=\"Hello from robot\", chat_id=-1001790411176) python-telegram-bot 官方文档\n下一步… Telegram Bot 简明教程 II - 收指令与指令键盘\n  https://github.com/python-telegram-bot/python-telegram-bot ↩︎\n   ",
   "wordCount" : "121",
   "inLanguage": "en",
   "datePublished": "2021-11-10T00:47:13+08:00",
@@ -239,13 +239,13 @@ November 10, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
 <pre tabindex="0"><code>https://api.telegram.org/bot2110628450:AAHQ78uj42ddtdsx0gKfaZGyFUhpnQ13vyM/sendMessage?chat_id=-1001790411176&amp;text=Hello%20from%20robot
 </code></pre><p><img src="assets/IMG_10.jpg" alt="图片"></p>
 <p>我们也可以编写以下 Python 程序，运行之后 Bot 同样会在此 Channel 发送一条信息「Hello from robot」。（在此之前需要安装 telegram 依赖 <code>pip install python-telegram-bot</code>）<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#f92672">import</span> telegram
-
-bot <span style="color:#f92672">=</span> telegram<span style="color:#f92672">.</span>Bot(token<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;2110628450:AAHQ78uj42ddtdsx0gKfaZGyFUhpnQ13vyM&#39;</span>)
-print(bot<span style="color:#f92672">.</span>get_me())
-
-bot<span style="color:#f92672">.</span>send_message(text<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Hello from robot&#34;</span>, chat_id<span style="color:#f92672">=-</span><span style="color:#ae81ff">1001790411176</span>)
-</code></pre></div><p><a href="https://python-telegram-bot.readthedocs.io/en/stable/">python-telegram-bot 官方文档</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#f92672">import</span> telegram
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>bot <span style="color:#f92672">=</span> telegram<span style="color:#f92672">.</span>Bot(token<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;2110628450:AAHQ78uj42ddtdsx0gKfaZGyFUhpnQ13vyM&#39;</span>)
+</span></span><span style="display:flex;"><span>print(bot<span style="color:#f92672">.</span>get_me())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>bot<span style="color:#f92672">.</span>send_message(text<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Hello from robot&#34;</span>, chat_id<span style="color:#f92672">=-</span><span style="color:#ae81ff">1001790411176</span>)
+</span></span></code></pre></div><p><a href="https://python-telegram-bot.readthedocs.io/en/stable/">python-telegram-bot 官方文档</a></p>
 <h2 id="下一步">下一步&hellip;<a hidden class="anchor" aria-hidden="true" href="#下一步">#</a></h2>
 <p><a href="../brief-tutorial-on-telegram-bot-ii/">Telegram Bot 简明教程 II - 收指令与指令键盘</a></p>
 <section class="footnotes" role="doc-endnotes">
@@ -294,7 +294,7 @@ bot<span style="color:#f92672">.</span>send_message(text<span style="color:#f926
     crossorigin= "anonymous"
     async>
 </script>
-<script defer src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
+<script defer src="/assets/js/highlight.min.2840b7fccd34145847db71a290569594bdbdb00047097f75d6495d162f5d7dff.js" integrity="sha256-KEC3/M00FFhH23GikFaVlL29sABHCX911kldFi9dff8="
     onload="hljs.initHighlightingOnLoad();"></script>
 <script>
     window.onload = function () {

@@ -29,7 +29,7 @@ git submodule add https://github.">
 <link rel="mask-icon" href="https://clox.nu/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.92.2" />
+<meta name="generator" content="Hugo 0.97.3" />
 
 
 
@@ -240,14 +240,14 @@ February 15, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
 <p>即可。</p>
 <h2 id="顺便在这里提一下-git-submodule-和-git-remote">顺便在这里提一下 <code>git submodule</code> 和 <code>git remote</code><a hidden class="anchor" aria-hidden="true" href="#顺便在这里提一下-git-submodule-和-git-remote">#</a></h2>
 <p>在我 fork 了源仓库之后，使用命令</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git remote add upstream https://github.com/adityatelange/hugo-PaperMod.git
-</code></pre></div><p>来配置一个 remote，参考 <a href="https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/configuring-a-remote-for-a-fork">Configuring a remote for a fork</a> ，并使用</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git fetch upstream
-</code></pre></div><p>来同步远程仓库，参考 <a href="https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/syncing-a-fork">Syncing a fork</a> 。将 Mathjax 特性添加之后，push 到自己 fork 的仓库，随后在本站仓库使用命令</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git submodule add https://github.com/cloxnu/hugo-PaperMod themes/PaperMod
-git submodule init
-git submodule update --remote
-</code></pre></div><p>即可更新新的带有 Mathjax 特性的 PaperMod 主题了。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git remote add upstream https://github.com/adityatelange/hugo-PaperMod.git
+</span></span></code></pre></div><p>来配置一个 remote，参考 <a href="https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/configuring-a-remote-for-a-fork">Configuring a remote for a fork</a> ，并使用</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git fetch upstream
+</span></span></code></pre></div><p>来同步远程仓库，参考 <a href="https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/syncing-a-fork">Syncing a fork</a> 。将 Mathjax 特性添加之后，push 到自己 fork 的仓库，随后在本站仓库使用命令</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git submodule add https://github.com/cloxnu/hugo-PaperMod themes/PaperMod
+</span></span><span style="display:flex;"><span>git submodule init
+</span></span><span style="display:flex;"><span>git submodule update --remote
+</span></span></code></pre></div><p>即可更新新的带有 Mathjax 特性的 PaperMod 主题了。</p>
 <p>RSS 源参考 <a href="https://gideonwolfe.com/posts/sysadmin/hugo/hugorss/">这里</a></p>
 
 </div>
@@ -287,7 +287,7 @@ git submodule update --remote
     crossorigin= "anonymous"
     async>
 </script>
-<script defer src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
+<script defer src="/assets/js/highlight.min.2840b7fccd34145847db71a290569594bdbdb00047097f75d6495d162f5d7dff.js" integrity="sha256-KEC3/M00FFhH23GikFaVlL29sABHCX911kldFi9dff8="
     onload="hljs.initHighlightingOnLoad();"></script>
 <script>
     window.onload = function () {

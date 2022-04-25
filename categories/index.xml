@@ -6,7 +6,16 @@
     <description>Recent content in Categories on cloxnu&#39;s Creative Space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 19 Jan 2022 20:52:57 +0800</lastBuildDate><atom:link href="https://clox.nu/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 25 Apr 2022 10:22:59 +0800</lastBuildDate><atom:link href="https://clox.nu/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>love</title>
+      <link>https://clox.nu/categories/love/</link>
+      <pubDate>Mon, 25 Apr 2022 10:22:59 +0800</pubDate>
+      
+      <guid>https://clox.nu/categories/love/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>news</title>
       <link>https://clox.nu/categories/news/</link>
@@ -31,15 +40,6 @@
       <pubDate>Mon, 30 Aug 2021 23:42:45 +0800</pubDate>
       
       <guid>https://clox.nu/categories/productivity/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>love</title>
-      <link>https://clox.nu/categories/love/</link>
-      <pubDate>Sun, 14 Feb 2021 11:53:53 +0800</pubDate>
-      
-      <guid>https://clox.nu/categories/love/</guid>
       <description></description>
     </item>
     

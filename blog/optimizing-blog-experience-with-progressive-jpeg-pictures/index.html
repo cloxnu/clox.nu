@@ -31,7 +31,7 @@
 <link rel="mask-icon" href="https://clox.nu/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.92.2" />
+<meta name="generator" content="Hugo 0.97.3" />
 
 
 
@@ -256,12 +256,12 @@ October 30, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
 <p>于是，我在之前的 GitHub Actions 配置文件中补充了将这些图片转换为 Progressive JPEG 的命令，当前的 blog 在合并入主干分支后 GitHub Actions 会先使用 hugo 命令创建 HTML<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>，然后 Progressive JPEG 命令再将所有 JPEG 图片批量处理。</p>
 <p>在 Linux 中，使用 <a href="https://imagemagick.org/script/index.php">ImageMagick</a> 处理图片。其中的 <a href="https://imagemagick.org/script/command-line-options.php#interlace">-interlace</a> 选项有提供将图片转换为 Progressive JPEG。</p>
 <p>起初我使用命令</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ mogrify -verbose -interlace plane **/*.jpg
-</code></pre></div><p>匹配并转换目录下所有后缀为 .jpg 文件并转换为渐进式 JPEG，在我的 macOS Big Sur 中可以正常工作，但是在 GitHub Actions 运行后报错：</p>
-<pre tabindex="0"><code>mogrify-im6.q16: unable to open image `**/*.jpg': No such file or directory @ error/blob.c/OpenBlob/2874.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ mogrify -verbose -interlace plane **/*.jpg
+</span></span></code></pre></div><p>匹配并转换目录下所有后缀为 .jpg 文件并转换为渐进式 JPEG，在我的 macOS Big Sur 中可以正常工作，但是在 GitHub Actions 运行后报错：</p>
+<pre tabindex="0"><code>mogrify-im6.q16: unable to open image `**/*.jpg&#39;: No such file or directory @ error/blob.c/OpenBlob/2874.
 </code></pre><p>于是我换了一种思路，可以用 <code>find</code> 命令先找到所有 JPEG 图片，然后再处理，这行命令就变成了</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ find . -type f -exec file --mime-type <span style="color:#f92672">{}</span> <span style="color:#ae81ff">\;</span> | awk -F <span style="color:#e6db74">&#39;: &#39;</span> <span style="color:#e6db74">&#39;{if ($NF == &#34;image/jpeg&#34;) print $1 }&#39;</span> | xargs mogrify -verbose -interlace plane
-</code></pre></div><p>运行后的多图 blog 体验效果：（无本地缓存）</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ find . -type f -exec file --mime-type <span style="color:#f92672">{}</span> <span style="color:#ae81ff">\;</span> | awk -F <span style="color:#e6db74">&#39;: &#39;</span> <span style="color:#e6db74">&#39;{if ($NF == &#34;image/jpeg&#34;) print $1 }&#39;</span> | xargs mogrify -verbose -interlace plane
+</span></span></code></pre></div><p>运行后的多图 blog 体验效果：（无本地缓存）</p>
 
 
 <video controls src="assets/video.mov" width=100%></video>
@@ -317,7 +317,7 @@ October 30, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
     crossorigin= "anonymous"
     async>
 </script>
-<script defer src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
+<script defer src="/assets/js/highlight.min.2840b7fccd34145847db71a290569594bdbdb00047097f75d6495d162f5d7dff.js" integrity="sha256-KEC3/M00FFhH23GikFaVlL29sABHCX911kldFi9dff8="
     onload="hljs.initHighlightingOnLoad();"></script>
 <script>
     window.onload = function () {
