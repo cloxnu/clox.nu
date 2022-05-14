@@ -5,12 +5,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>study / app | cloxnu&#39;s Creative Space</title>
+<title>cloxnu&#39;s Creative Space</title>
 
 <meta name="keywords" content="" />
 <meta name="description" content="Hi, I&#39;m creating more creative works. Here are my thoughts, essays and expectations.">
 <meta name="author" content="Sidney Liu">
-<link rel="canonical" href="https://clox.nu/categories/study-/-app/" />
+<link rel="canonical" href="https://clox.nu/posts/creation/" />
 <link href="/assets/css/stylesheet.min.555a4d6fef760f048c5b1bf30019b077e4b6fb2de917654189208a1f5141f43b.css" integrity="sha256-VVpNb&#43;92DwSMWxvzABmwd&#43;S2&#43;y3pF2VBiSCKH1FB9Ds=" rel="preload stylesheet"
     as="style">
 
@@ -22,7 +22,7 @@
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <meta name="generator" content="Hugo 0.98.0" />
-<link rel="alternate" type="application/rss&#43;xml" href="https://clox.nu/categories/study-/-app/index.xml">
+<link rel="alternate" type="application/rss&#43;xml" href="https://clox.nu/posts/creation/index.xml">
 
 
 
@@ -40,14 +40,37 @@ if (!doNotTrack) {
 }
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
-<meta property="og:title" content="study / app" />
+<meta property="og:title" content="" />
 <meta property="og:description" content="Hi, I&#39;m creating more creative works. Here are my thoughts, essays and expectations." />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://clox.nu/categories/study-/-app/" />
-<meta property="og:site_name" content="cloxnu&#39;s creative space" />
+<meta property="og:url" content="https://clox.nu/posts/creation/" />
+<meta property="og:updated_time" content="2022-05-14T14:43:51+08:00" /><meta property="og:site_name" content="cloxnu&#39;s creative space" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="study / app"/>
+<meta name="twitter:title" content=""/>
 <meta name="twitter:description" content="Hi, I&#39;m creating more creative works. Here are my thoughts, essays and expectations."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://clox.nu/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "https://clox.nu/posts/creation/"
+    }
+  ]
+}
+</script>
+
 
 
 
@@ -76,9 +99,6 @@ if (!doNotTrack) {
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://clox.nu/" accesskey="h" title="I&#39;m cloxnu (Alt + H)">
-                <img src="/logo/logo.svg" alt="logo" aria-label="logo"
-                    height="35">I&#39;m cloxnu</a>
             <span class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -129,40 +149,43 @@ if (!doNotTrack) {
 </header>
 
     <main class="main"> 
-<header class="page-header">
-
-  <h1>study / app</h1>
-</header>
 
 
 
 
 
-<article class="post-entry tag-entry"> 
+<article class="post-entry"> 
 
   <header class="entry-header">
     <h2>
-      初识 React Native
+      学校爬电费状态栏 App 的 macOS 开发日记
     </h2>
   </header>
   <section class="entry-content">
-    <p>安装 由于开发需要，稍稍玩了玩 React Native 开发一个 App 的简要流程。
-官网
-安装使用时，可以使用 Expo ，可以省去在 Xcode 或者 Android Studio 配置的过程。
-运行以下命令安装 Expo
-npm install -g expo-cli 注意这里在 npm 前不要加 sudo，请提前确保权限通顺
-sudo chown -R $(whoami) ~/.npm sudo chown -R $(whoami) /usr/local/lib/node_modules 安装好后，我试图运行 Expo，但是得到了 Expo 不支持当前的 Node 版本的错误，于是运行 nvm 来安装最新版本 Node（以下是未安装 nvm 的版本）：
-sudo npm install -g n sudo n latest 或者，使用 yarn
-yarn global add expo-cli 开始 安装好后，生成第一个项目：
-expo init rn_proj 进入目录并运行
-cd rn_proj expo start 然后同时会打开一个 Web 控制台...</p>
+    <p>Monitoring the energy charge work on macOS in CJLU.
+如何在没接触过 macOS 开发的情况下 4 个小时写一个学校爬电费状态栏 App GitHub链接-Energy_Charge_in_MacOS
+About Energy_Charge  There is Docker version.   2020-05-23 00:35 更新 连接错误变灰
+低电费变红
+其他寝室
+ 缘起 学校寝室里配了台台式，写了大半学期的 iOS，这一切都如此顺利。
+不过就在刚刚，一位大佬朋友突然向我展示了他找到的查寝室电费网址 POST 参数。这不禁让我陷入了思考（因为平常我得经常看着点电费不然没电费了电脑黑屏警告233）。然后我顺便查了下我们寝室的电费，nm只有 1 块 5 了！！！
+开发一个 macOS 的爬电费 App 就这样开始了。
+—- 四个小时前
+ Hardworking… Xcode - File - New - Project…
+然后选择 macOS App，这一切看起来如此自然，然而第一个困扰我的出现了 — url request 如何实现。
+一向喜欢用第三方库的我，果不其然又发现了一个好用的 url request 库，它叫 Alamofire。这个库用来写请求超级超级容易，不过我完全不知道请求完成后得到的 request 应该怎么用，后来找到它的文档这里...</p>
   </section>
   <footer class="entry-footer">
 
-March 1, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
+May 23, 2020&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
 </footer>
-  <a class="entry-link" aria-label="post link to 初识 React Native" href="https://clox.nu/blog/get-started-with-react-native/"></a>
+  <a class="entry-link" aria-label="post link to 学校爬电费状态栏 App 的 macOS 开发日记" href="https://clox.nu/blog/energy-charge-in-macos/"></a>
 </article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="https://clox.nu/posts/creation/">« Prev Page</a>
+  </nav>
+</footer>
 
     </main><footer class="footer">
     <span>&copy; 2022 <a href="https://clox.nu/">cloxnu&#39;s Creative Space</a></span>

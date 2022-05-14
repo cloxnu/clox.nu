@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Palette 1.0 上架 App Store | cloxnu&#39;s Creative Space</title>
+
+<meta name="keywords" content="" />
+<meta name="description" content="这是一款很随意的 app，但这也是一款可以用 iPad 制作出来并可维护的 app。
+ 链接在这里
+楔子 当我第一次吃惊地发现 iPad 居然可以用 Playground 写一个 app 并上架到 App Store 时，于是脑海里瞬间浮现出无数个想法，然后立马去试试。
+那时我完全没有接触过 SwiftUI，但是在我尝试试着在 iPad 上写一些代码时，借助 Playground 里的 code snippet，我竟发现 SwiftUI 原来现在已经发展到可以如此便捷高效地构建一个 app。
+然后我就决定写一个颜色转换再加上可以配色的超简洁的 app。
+说起颜色转换，我不止一次开发跟颜色相关的项目，上次是在钟大的 JSBox 里写了一个颜色转换的 script。
+几年前，我曾做过一个叫「今天的颜色」的 app，它的功能非常简单，就是生成一个颜色，每天一个不同的颜色，同时还会把 logo 改成当天的颜色。却也是因为功能太简单，被 App Store 拒绝上架。时到今日，today&rsquo;s color 的 block 在这个 app 会在未来某个版本安排一下～纪念一下。
+Just Do It 4 月末，我开始了这个项目，经历了十几个版本的测试，也就大概十几天，上架了 App Store，在前几天还因为 App Store Connect 的服务不稳定稍稍拖慢上架速度。
+在 iPad 上开发过程中，还是给了我以下几点不方便的因素：
+ 难以调试，只允许做一个非常简单的项目，一旦复杂起来遇到不好解决的 bug 就得去 mac 上调试 搜索功能不够强大 性能不够，遇到较复杂的语句就无法编译，有时候会导致整个 Playground 卡住（可能是 bug）（就算是 M1 的 iPad 也性能不够，跟 mac 上的 M1 应该是缩水了的） 无法做本地化 等等&hellip;  iPad 上开发 app 还有许多需要改善的地方，但这样的思路的确是一个相当好的思路，试想一下如果未来的 iPad 可以允许我们每个人轻松做一个游戏然后上架，每个人都可以把自己的想象发挥到极致而无需担心实现的难度，Apple 官方提供一套无版权的人物角色模型，类似现在的 SF Symbol。下一个时代是人人创作者的时代。">
+<meta name="author" content="Sidney Liu">
+<link rel="canonical" href="https://clox.nu/blog/palette-1.0-release/" />
+<link href="/assets/css/stylesheet.min.555a4d6fef760f048c5b1bf30019b077e4b6fb2de917654189208a1f5141f43b.css" integrity="sha256-VVpNb&#43;92DwSMWxvzABmwd&#43;S2&#43;y3pF2VBiSCKH1FB9Ds=" rel="preload stylesheet"
+    as="style">
+
+<link rel="icon" href="https://clox.nu/logo/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://clox.nu/logo/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://clox.nu/logo/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://clox.nu/apple-touch-icon.png">
+<link rel="mask-icon" href="https://clox.nu/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.98.0" />
+
+
+
+
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-151087524-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<meta property="og:title" content="Palette 1.0 上架 App Store" />
+<meta property="og:description" content="这是一款很随意的 app，但这也是一款可以用 iPad 制作出来并可维护的 app。
+ 链接在这里
+楔子 当我第一次吃惊地发现 iPad 居然可以用 Playground 写一个 app 并上架到 App Store 时，于是脑海里瞬间浮现出无数个想法，然后立马去试试。
+那时我完全没有接触过 SwiftUI，但是在我尝试试着在 iPad 上写一些代码时，借助 Playground 里的 code snippet，我竟发现 SwiftUI 原来现在已经发展到可以如此便捷高效地构建一个 app。
+然后我就决定写一个颜色转换再加上可以配色的超简洁的 app。
+说起颜色转换，我不止一次开发跟颜色相关的项目，上次是在钟大的 JSBox 里写了一个颜色转换的 script。
+几年前，我曾做过一个叫「今天的颜色」的 app，它的功能非常简单，就是生成一个颜色，每天一个不同的颜色，同时还会把 logo 改成当天的颜色。却也是因为功能太简单，被 App Store 拒绝上架。时到今日，today&rsquo;s color 的 block 在这个 app 会在未来某个版本安排一下～纪念一下。
+Just Do It 4 月末，我开始了这个项目，经历了十几个版本的测试，也就大概十几天，上架了 App Store，在前几天还因为 App Store Connect 的服务不稳定稍稍拖慢上架速度。
+在 iPad 上开发过程中，还是给了我以下几点不方便的因素：
+ 难以调试，只允许做一个非常简单的项目，一旦复杂起来遇到不好解决的 bug 就得去 mac 上调试 搜索功能不够强大 性能不够，遇到较复杂的语句就无法编译，有时候会导致整个 Playground 卡住（可能是 bug）（就算是 M1 的 iPad 也性能不够，跟 mac 上的 M1 应该是缩水了的） 无法做本地化 等等&hellip;  iPad 上开发 app 还有许多需要改善的地方，但这样的思路的确是一个相当好的思路，试想一下如果未来的 iPad 可以允许我们每个人轻松做一个游戏然后上架，每个人都可以把自己的想象发挥到极致而无需担心实现的难度，Apple 官方提供一套无版权的人物角色模型，类似现在的 SF Symbol。下一个时代是人人创作者的时代。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://clox.nu/blog/palette-1.0-release/" />
+<meta property="og:image" content="https://clox.nu/assets/IMG_1.png" /><meta property="article:published_time" content="2022-05-14T14:43:51+08:00" />
+<meta property="article:modified_time" content="2022-05-14T14:43:51+08:00" /><meta property="og:site_name" content="cloxnu&#39;s creative space" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://clox.nu/assets/IMG_1.png" />
+<meta name="twitter:title" content="Palette 1.0 上架 App Store"/>
+<meta name="twitter:description" content="这是一款很随意的 app，但这也是一款可以用 iPad 制作出来并可维护的 app。
+ 链接在这里
+楔子 当我第一次吃惊地发现 iPad 居然可以用 Playground 写一个 app 并上架到 App Store 时，于是脑海里瞬间浮现出无数个想法，然后立马去试试。
+那时我完全没有接触过 SwiftUI，但是在我尝试试着在 iPad 上写一些代码时，借助 Playground 里的 code snippet，我竟发现 SwiftUI 原来现在已经发展到可以如此便捷高效地构建一个 app。
+然后我就决定写一个颜色转换再加上可以配色的超简洁的 app。
+说起颜色转换，我不止一次开发跟颜色相关的项目，上次是在钟大的 JSBox 里写了一个颜色转换的 script。
+几年前，我曾做过一个叫「今天的颜色」的 app，它的功能非常简单，就是生成一个颜色，每天一个不同的颜色，同时还会把 logo 改成当天的颜色。却也是因为功能太简单，被 App Store 拒绝上架。时到今日，today&rsquo;s color 的 block 在这个 app 会在未来某个版本安排一下～纪念一下。
+Just Do It 4 月末，我开始了这个项目，经历了十几个版本的测试，也就大概十几天，上架了 App Store，在前几天还因为 App Store Connect 的服务不稳定稍稍拖慢上架速度。
+在 iPad 上开发过程中，还是给了我以下几点不方便的因素：
+ 难以调试，只允许做一个非常简单的项目，一旦复杂起来遇到不好解决的 bug 就得去 mac 上调试 搜索功能不够强大 性能不够，遇到较复杂的语句就无法编译，有时候会导致整个 Playground 卡住（可能是 bug）（就算是 M1 的 iPad 也性能不够，跟 mac 上的 M1 应该是缩水了的） 无法做本地化 等等&hellip;  iPad 上开发 app 还有许多需要改善的地方，但这样的思路的确是一个相当好的思路，试想一下如果未来的 iPad 可以允许我们每个人轻松做一个游戏然后上架，每个人都可以把自己的想象发挥到极致而无需担心实现的难度，Apple 官方提供一套无版权的人物角色模型，类似现在的 SF Symbol。下一个时代是人人创作者的时代。"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://clox.nu/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "https://clox.nu/posts/creation/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Palette 1.0 上架 App Store",
+      "item": "https://clox.nu/blog/palette-1.0-release/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Palette 1.0 上架 App Store",
+  "name": "Palette 1.0 上架 App Store",
+  "description": "这是一款很随意的 app，但这也是一款可以用 iPad 制作出来并可维护的 app。\n 链接在这里\n楔子 当我第一次吃惊地发现 iPad 居然可以用 Playground 写一个 app 并上架到 App Store 时，于是脑海里瞬间浮现出无数个想法，然后立马去试试。\n那时我完全没有接触过 SwiftUI，但是在我尝试试着在 iPad 上写一些代码时， …",
+  "keywords": [
+    
+  ],
+  "articleBody": " 这是一款很随意的 app，但这也是一款可以用 iPad 制作出来并可维护的 app。\n 链接在这里\n楔子 当我第一次吃惊地发现 iPad 居然可以用 Playground 写一个 app 并上架到 App Store 时，于是脑海里瞬间浮现出无数个想法，然后立马去试试。\n那时我完全没有接触过 SwiftUI，但是在我尝试试着在 iPad 上写一些代码时，借助 Playground 里的 code snippet，我竟发现 SwiftUI 原来现在已经发展到可以如此便捷高效地构建一个 app。\n然后我就决定写一个颜色转换再加上可以配色的超简洁的 app。\n说起颜色转换，我不止一次开发跟颜色相关的项目，上次是在钟大的 JSBox 里写了一个颜色转换的 script。\n几年前，我曾做过一个叫「今天的颜色」的 app，它的功能非常简单，就是生成一个颜色，每天一个不同的颜色，同时还会把 logo 改成当天的颜色。却也是因为功能太简单，被 App Store 拒绝上架。时到今日，today’s color 的 block 在这个 app 会在未来某个版本安排一下～纪念一下。\nJust Do It 4 月末，我开始了这个项目，经历了十几个版本的测试，也就大概十几天，上架了 App Store，在前几天还因为 App Store Connect 的服务不稳定稍稍拖慢上架速度。\n在 iPad 上开发过程中，还是给了我以下几点不方便的因素：\n 难以调试，只允许做一个非常简单的项目，一旦复杂起来遇到不好解决的 bug 就得去 mac 上调试 搜索功能不够强大 性能不够，遇到较复杂的语句就无法编译，有时候会导致整个 Playground 卡住（可能是 bug）（就算是 M1 的 iPad 也性能不够，跟 mac 上的 M1 应该是缩水了的） 无法做本地化 等等…  iPad 上开发 app 还有许多需要改善的地方，但这样的思路的确是一个相当好的思路，试想一下如果未来的 iPad 可以允许我们每个人轻松做一个游戏然后上架，每个人都可以把自己的想象发挥到极致而无需担心实现的难度，Apple 官方提供一套无版权的人物角色模型，类似现在的 SF Symbol。下一个时代是人人创作者的时代。\n预告一下 未来，这些调颜色的 block，还会新增配色，色相环等等，敬请期待～\n",
+  "wordCount" : "93",
+  "inLanguage": "en",
+  "image":"https://clox.nu/assets/IMG_1.png","datePublished": "2022-05-14T14:43:51+08:00",
+  "dateModified": "2022-05-14T14:43:51+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "Sidney Liu"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://clox.nu/blog/palette-1.0-release/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "cloxnu's Creative Space",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://clox.nu/logo/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+
+
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://clox.nu/" accesskey="h" title="I&#39;m cloxnu (Alt + H)">
+                <img src="/logo/logo.svg" alt="logo" aria-label="logo"
+                    height="35">I&#39;m cloxnu</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                
+                
+            </span>
+        </div>
+        <ul id="menu" onscroll="menu_on_scroll()">
+            <li>
+                <a href="https://clox.nu/news/" title="📰 𝕹𝖊𝖜𝖘">
+                    <span>📰 𝕹𝖊𝖜𝖘</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://clox.nu/archive/" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://clox.nu/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://about.clox.nu" title="About">
+                    <span>About</span>
+                </a>
+            </li></ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+
+    <h1 class="post-title">
+      Palette 1.0 上架 App Store
+    </h1>
+    <div class="post-meta">
+
+May 14, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
+
+</div>
+  </header> 
+<figure class="entry-cover">
+        <img srcset="https://clox.nu/blog/palette-1.0-release/assets/IMG_1_hu0aca83503a10e4bb9e0da20cea7c4b4b_3684937_360x0_resize_box_3.png 360w ,https://clox.nu/blog/palette-1.0-release/assets/IMG_1_hu0aca83503a10e4bb9e0da20cea7c4b4b_3684937_480x0_resize_box_3.png 480w ,https://clox.nu/blog/palette-1.0-release/assets/IMG_1_hu0aca83503a10e4bb9e0da20cea7c4b4b_3684937_720x0_resize_box_3.png 720w ,https://clox.nu/blog/palette-1.0-release/assets/IMG_1_hu0aca83503a10e4bb9e0da20cea7c4b4b_3684937_1080x0_resize_box_3.png 1080w ,https://clox.nu/blog/palette-1.0-release/assets/IMG_1.png 1170w"
+            sizes="(min-width: 768px) 720px, 100vw" src="https://clox.nu/blog/palette-1.0-release/assets/IMG_1.png" alt="" />
+        
+</figure>
+
+  <div class="post-content">
+<blockquote>
+<p>这是一款很随意的 app，但这也是一款可以用 iPad 制作出来并可维护的 app。</p>
+</blockquote>
+<p><a href="https://apps.apple.com/app/palette-color-conversion/id1623551390">链接在这里</a></p>
+<h2 id="楔子">楔子<a hidden class="anchor" aria-hidden="true" href="#楔子">#</a></h2>
+<p>当我第一次吃惊地发现 iPad 居然可以用 Playground 写一个 app 并上架到 App Store 时，于是脑海里瞬间浮现出无数个想法，然后立马去试试。</p>
+<p>那时我完全没有接触过 SwiftUI，但是在我尝试试着在 iPad 上写一些代码时，借助 Playground 里的 code snippet，我竟发现 SwiftUI 原来现在已经发展到可以如此便捷高效地构建一个 app。</p>
+<p>然后我就决定写一个颜色转换再加上可以配色的超简洁的 app。</p>
+<p>说起颜色转换，我不止一次开发跟颜色相关的项目，上次是在钟大的 JSBox 里写了一个颜色转换的 script。</p>
+<p><img src="assets/IMG_2.png" alt="图片"></p>
+<p>几年前，我曾做过一个叫「今天的颜色」的 app，它的功能非常简单，就是生成一个颜色，每天一个不同的颜色，同时还会把 logo 改成当天的颜色。却也是因为功能太简单，被 App Store 拒绝上架。时到今日，today&rsquo;s color 的 block 在这个 app 会在未来某个版本安排一下～纪念一下。</p>
+<h2 id="just-do-it">Just Do It<a hidden class="anchor" aria-hidden="true" href="#just-do-it">#</a></h2>
+<p>4 月末，我开始了这个项目，经历了十几个版本的测试，也就大概十几天，上架了 App Store，在前几天还因为 App Store Connect 的服务不稳定稍稍拖慢上架速度。</p>
+<p><img src="assets/IMG_3.png" alt="图片"></p>
+<p>在 iPad 上开发过程中，还是给了我以下几点不方便的因素：</p>
+<ul>
+<li>难以调试，只允许做一个非常简单的项目，一旦复杂起来遇到不好解决的 bug 就得去 mac 上调试</li>
+<li>搜索功能不够强大</li>
+<li>性能不够，遇到较复杂的语句就无法编译，有时候会导致整个 Playground 卡住（可能是 bug）（就算是 M1 的 iPad 也性能不够，跟 mac 上的 M1 应该是缩水了的）</li>
+<li>无法做本地化</li>
+<li>等等&hellip;</li>
+</ul>
+<p>iPad 上开发 app 还有许多需要改善的地方，但这样的思路的确是一个相当好的思路，试想一下如果未来的 iPad 可以允许我们每个人轻松做一个游戏然后上架，每个人都可以把自己的想象发挥到极致而无需担心实现的难度，Apple 官方提供一套无版权的人物角色模型，类似现在的 SF Symbol。下一个时代是人人创作者的时代。</p>
+<h2 id="预告一下">预告一下<a hidden class="anchor" aria-hidden="true" href="#预告一下">#</a></h2>
+<p>未来，这些调颜色的 block，还会新增配色，色相环等等，敬请期待～</p>
+
+</div>
+  <footer class="post-footer">
+    <nav class="paginav">
+      <a class="next" href="https://clox.nu/blog/aacell-2-2-0/">
+        <span class="title">Next Page »</span>
+        <br>
+        <span>AA Cell 2.2.0 正式版发布！</span>
+      </a>
+    </nav>
+  </footer>
+</article>
+    </main><footer class="footer">
+    <span>&copy; 2022 <a href="https://clox.nu/">cloxnu&#39;s Creative Space</a></span>
+    <span>&middot;</span>
+    <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
+    <span>&middot;</span>
+    <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
+    <button class="top-link" id="top-link" type="button" accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a><div id="utter-container"></div>
+<script src="https://utteranc.es/client.js"
+    repo= 'cloxnu/clox.nu'
+    issue-term= "pathname"
+    theme= 'preferred-color-scheme'
+    crossorigin= "anonymous"
+    async>
+</script>
+<script defer src="/assets/js/highlight.min.2840b7fccd34145847db71a290569594bdbdb00047097f75d6495d162f5d7dff.js" integrity="sha256-KEC3/M00FFhH23GikFaVlL29sABHCX911kldFi9dff8="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<script>
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+        }
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+</body>
+
+</html>
