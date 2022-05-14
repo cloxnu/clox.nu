@@ -3,11 +3,11 @@ title: Palette 1.0 上架 App Store
 date: 2022-05-14T14:43:51+08:00
 categories: creation
 slug: palette-1.0-release
-cover: 
-    image: "assets/IMG_1.png"
 ---
 
 > 这是一款很随意的 app，但这也是一款可以用 iPad 制作出来并可维护的 app。
+
+![图片](assets/IMG_1.png)
 
 [链接在这里](https://apps.apple.com/app/palette-color-conversion/id1623551390)
 
