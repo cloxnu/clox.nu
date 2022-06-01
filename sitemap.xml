@@ -2,11 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://clox.nu/posts/creation/</loc>
+    <lastmod>2022-06-01T14:42:36+08:00</lastmod>
+  </url><url>
     <loc>https://clox.nu/categories/</loc>
-    <lastmod>2022-06-01T10:35:59+08:00</lastmod>
+    <lastmod>2022-06-01T14:42:36+08:00</lastmod>
   </url><url>
     <loc>https://clox.nu/</loc>
-    <lastmod>2022-06-01T10:35:59+08:00</lastmod>
+    <lastmod>2022-06-01T14:42:36+08:00</lastmod>
+  </url><url>
+    <loc>https://clox.nu/categories/creation/</loc>
+    <lastmod>2022-06-01T14:42:36+08:00</lastmod>
+  </url><url>
+    <loc>https://clox.nu/posts/</loc>
+    <lastmod>2022-06-01T14:42:36+08:00</lastmod>
+  </url><url>
+    <loc>https://clox.nu/blog/siri-shortcut-and-taio-actions/</loc>
+    <lastmod>2022-06-01T14:42:36+08:00</lastmod>
   </url><url>
     <loc>https://clox.nu/categories/news/</loc>
     <lastmod>2022-06-01T10:35:59+08:00</lastmod>
@@ -14,16 +26,7 @@
     <loc>https://clox.nu/news/2022/06/01/61-apple-design-awards/</loc>
     <lastmod>2022-06-01T10:35:59+08:00</lastmod>
   </url><url>
-    <loc>https://clox.nu/posts/creation/</loc>
-    <lastmod>2022-05-14T14:43:51+08:00</lastmod>
-  </url><url>
-    <loc>https://clox.nu/categories/creation/</loc>
-    <lastmod>2022-05-14T14:43:51+08:00</lastmod>
-  </url><url>
     <loc>https://clox.nu/blog/palette-1.0-release/</loc>
-    <lastmod>2022-05-14T14:43:51+08:00</lastmod>
-  </url><url>
-    <loc>https://clox.nu/posts/</loc>
     <lastmod>2022-05-14T14:43:51+08:00</lastmod>
   </url><url>
     <loc>https://clox.nu/posts/love/</loc>

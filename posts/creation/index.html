@@ -44,7 +44,7 @@ if (!doNotTrack) {
 <meta property="og:description" content="Hi, I&#39;m creating more creative works. Here are my thoughts, essays and expectations." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://clox.nu/posts/creation/" />
-<meta property="og:updated_time" content="2022-05-14T14:43:51+08:00" /><meta property="og:site_name" content="cloxnu&#39;s creative space" />
+<meta property="og:updated_time" content="2022-06-01T14:42:36+08:00" /><meta property="og:site_name" content="cloxnu&#39;s creative space" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
 <meta name="twitter:description" content="Hi, I&#39;m creating more creative works. Here are my thoughts, essays and expectations."/>
@@ -153,6 +153,28 @@ if (!doNotTrack) {
 
 
 
+
+<article class="post-entry"> 
+
+  <header class="entry-header">
+    <h2>
+      使用「快捷指令」配合「Taio」完成 Blog 写作并发布
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>可能是 Blog 发布流程太长太麻烦，导致我总是不太经常写 Blog，但这次我发现「快捷指令」可以把「Working Copy」的 Commit、Push、Pull 等操作集成起来，而且也可以使用 Taio 动作，于是行动起来。
+在 Taio 动作中我写了两个动作，分别是创建 Post 和创建 News，在运行这个快捷指令时可以选择创建 News 还是 Post，如果是 Post，那还需要选择类别，类别列表通过「Taio」的获取目录可以获得现有的类别，否则也可以新建类别。
+创建 Post 的动作可以接受一个输入参数，即类别。
+这个打开链接就是打开根目录的 README.md 文件，后面的文件指令才能找到正确的路径。
+运行 大功告成～ 剩下就是发 Blog 然后等着 GitHub Actions 去处理啦
+把这几个 Blog 操作合成一个小组件，简单易用～...</p>
+  </section>
+  <footer class="entry-footer">
+
+June 1, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
+</footer>
+  <a class="entry-link" aria-label="post link to 使用「快捷指令」配合「Taio」完成 Blog 写作并发布" href="https://clox.nu/blog/siri-shortcut-and-taio-actions/"></a>
+</article>
 
 <article class="post-entry"> 
 
@@ -351,31 +373,6 @@ dist: bionic addons: snaps: - hugo install: - cd ./src/ - git submodule update -
 February 16, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
 </footer>
   <a class="entry-link" aria-label="post link to 使用 Travis CI 自动部署 Hugo 站点" href="https://clox.nu/blog/deployment-based-on-travis-ci/"></a>
-</article>
-
-<article class="post-entry"> 
-
-  <header class="entry-header">
-    <h2>
-      关于本站
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>本站使用 Hugo 搭建而成，theme 主要使用 PaperMod，将源仓库 adityatelange / hugo-PaperMod fork 到自己的 GitHub 仓库 cloxnu / hugo-PaperMod 并手动增加Mathjax 特性后，本站仓库主题使用 git submodule 拉取。
-以下添加 Mathjax 特性过程参考 https://note.qidong.name/2018/03/hugo-mathjax/
-手动添加文件 layouts/partials/mathjax.html
-在 partials 目录下的文件 extend_head.html 添加代码
-即可。
-顺便在这里提一下 git submodule 和 git remote 在我 fork 了源仓库之后，使用命令
-git remote add upstream https://github.com/adityatelange/hugo-PaperMod.git 来配置一个 remote，参考 Configuring a remote for a fork ，并使用
-git fetch upstream 来同步远程仓库，参考 Syncing a fork 。将 Mathjax 特性添加之后，push 到自己 fork 的仓库，随后在本站仓库使用命令
-git submodule add https://github....</p>
-  </section>
-  <footer class="entry-footer">
-
-February 15, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
-</footer>
-  <a class="entry-link" aria-label="post link to 关于本站" href="https://clox.nu/blog/about-this-site/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
