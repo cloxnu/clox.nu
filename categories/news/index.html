@@ -21,7 +21,7 @@
 <link rel="mask-icon" href="https://clox.nu/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.98.0" />
+<meta name="generator" content="Hugo 0.100.0" />
 <link rel="alternate" type="application/rss&#43;xml" href="https://clox.nu/categories/news/index.xml">
 
 
@@ -44,7 +44,7 @@ if (!doNotTrack) {
 <meta property="og:description" content="Hi, I&#39;m creating more creative works. Here are my thoughts, essays and expectations." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://clox.nu/categories/news/" />
-<meta property="og:updated_time" content="2022-01-19T20:52:57+08:00" /><meta property="og:site_name" content="cloxnu&#39;s creative space" />
+<meta property="og:updated_time" content="2022-06-01T10:35:59+08:00" /><meta property="og:site_name" content="cloxnu&#39;s creative space" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="news"/>
 <meta name="twitter:description" content="Hi, I&#39;m creating more creative works. Here are my thoughts, essays and expectations."/>
@@ -137,6 +137,24 @@ if (!doNotTrack) {
 
 
 
+
+<article class="post-entry tag-entry"> 
+
+  <header class="entry-header">
+    <h2>
+      关于 Apple Design Awards 的感慨
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>真的特别感慨，我从大一开始学习 iOS 的时候就一直有获得 Apple Design Awards 的梦想，直到今天，也总有各种各样的原因没法专注于这件事把它做好。不管怎么样，恭喜 61，恭喜谜底科技！感谢 61 给所有开发者带来积极的正能量！
+今天居然是 6 月 1 号！...</p>
+  </section>
+  <footer class="entry-footer">
+
+June 1, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
+</footer>
+  <a class="entry-link" aria-label="post link to 关于 Apple Design Awards 的感慨" href="https://clox.nu/news/2022/06/01/61-apple-design-awards/"></a>
+</article>
 
 <article class="post-entry tag-entry"> 
 
@@ -269,7 +287,7 @@ November 2, 2021&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Sidney Liu
   <section class="entry-content">
     <p>由于 blog 生成 HTML 会自动将所有资源复制到生成的目录中，因此将 output 目录放到新的分支中可以防止本地占用「双倍」空间，而且可以防止需要合并远端变更。
 这是我的 GitHub Actions 执行代码：
-# This is a basic workflow to help you get started with Actions  name: build creative.clox.nu  # Controls when the workflow will run on:  # Triggers the workflow on push or pull request events but only for the main branch  push:  branches: [ main ]  pull_request:  branches: [ main ]   # Allows you to run this workflow manually from the Actions tab  workflow_dispatch:  # A workflow run is made up of one or more jobs that can run sequentially or in parallel jobs:  # This workflow contains a single job called &#34;build&#34;  build:  # The type of runner that the job will run on  runs-on: ubuntu-latest   # Steps represent a sequence of tasks that will be executed as part of the job  steps:  # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it  - name: Checkout main  uses: actions/checkout@v2   # Update theme   - name: Update theme  run: git submodule update --init --recursive   # Setup Hugo  - name: Setup Hugo  uses: peaceiris/actions-hugo@v2  with:  hugo-version: &#39;latest&#39;   # Build blog  - name: Build  working-directory: ....</p>
+# This is a basic workflow to help you get started with Actions name: build creative.clox.nu # Controls when the workflow will run on: # Triggers the workflow on push or pull request events but only for the main branch push: branches: [ main ] pull_request: branches: [ main ] # Allows you to run this workflow manually from the Actions tab workflow_dispatch: # A workflow run is made up of one or more jobs that can run sequentially or in parallel jobs: # This workflow contains a single job called &#34;build&#34; build: # The type of runner that the job will run on runs-on: ubuntu-latest # Steps represent a sequence of tasks that will be executed as part of the job steps: # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it - name: Checkout main uses: actions/checkout@v2 # Update theme - name: Update theme run: git submodule update --init --recursive # Setup Hugo - name: Setup Hugo uses: peaceiris/actions-hugo@v2 with: hugo-version: &#39;latest&#39; # Build blog - name: Build working-directory: ....</p>
   </section>
   <footer class="entry-footer">
 
@@ -297,23 +315,6 @@ October 25, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Sidney Liu
 October 20, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
 </footer>
   <a class="entry-link" aria-label="post link to 下单了一台 M1 Pro 的 MacBook Pro" href="https://clox.nu/news/2021/10/20/buy-new-mbp/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-
-  <header class="entry-header">
-    <h2>
-      想写一个 AI 驱动的游戏
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>想写一种没有输赢、创造类的游戏，这个游戏随机性很强，主要靠 AI；其次它不容易沉迷。...</p>
-  </section>
-  <footer class="entry-footer">
-
-October 13, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
-</footer>
-  <a class="entry-link" aria-label="post link to 想写一个 AI 驱动的游戏" href="https://clox.nu/news/2021/10/13/ai-game/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

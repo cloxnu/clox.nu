@@ -6,7 +6,17 @@
     <description>Recent content in news on cloxnu&#39;s Creative Space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 19 Jan 2022 20:52:57 +0800</lastBuildDate><atom:link href="https://clox.nu/categories/news/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 Jun 2022 10:35:59 +0800</lastBuildDate><atom:link href="https://clox.nu/categories/news/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>关于 Apple Design Awards 的感慨</title>
+      <link>https://clox.nu/news/2022/06/01/61-apple-design-awards/</link>
+      <pubDate>Wed, 01 Jun 2022 10:35:59 +0800</pubDate>
+      
+      <guid>https://clox.nu/news/2022/06/01/61-apple-design-awards/</guid>
+      <description>真的特别感慨，我从大一开始学习 iOS 的时候就一直有获得 Apple Design Awards 的梦想，直到今天，也总有各种各样的原因没法专注于这件事把它做好。不管怎么样，恭喜 61，恭喜谜底科技！感谢 61 给所有开发者带来积极的正能量！
+今天居然是 6 月 1 号！</description>
+    </item>
+    
     <item>
       <title>最近迷上了 Wordle</title>
       <link>https://clox.nu/news/2022/01/19/wordle_fan/</link>
@@ -80,7 +90,7 @@
       <guid>https://clox.nu/news/2021/10/25/gh-pages/</guid>
       <description>由于 blog 生成 HTML 会自动将所有资源复制到生成的目录中，因此将 output 目录放到新的分支中可以防止本地占用「双倍」空间，而且可以防止需要合并远端变更。
 这是我的 GitHub Actions 执行代码：
-# This is a basic workflow to help you get started with Actions  name: build creative.clox.nu  # Controls when the workflow will run on:  # Triggers the workflow on push or pull request events but only for the main branch  push:  branches: [ main ]  pull_request:  branches: [ main ]   # Allows you to run this workflow manually from the Actions tab  workflow_dispatch:  # A workflow run is made up of one or more jobs that can run sequentially or in parallel jobs:  # This workflow contains a single job called &amp;#34;build&amp;#34;  build:  # The type of runner that the job will run on  runs-on: ubuntu-latest   # Steps represent a sequence of tasks that will be executed as part of the job  steps:  # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it  - name: Checkout main  uses: actions/checkout@v2   # Update theme   - name: Update theme  run: git submodule update --init --recursive   # Setup Hugo  - name: Setup Hugo  uses: peaceiris/actions-hugo@v2  with:  hugo-version: &amp;#39;latest&amp;#39;   # Build blog  - name: Build  working-directory: .</description>
+# This is a basic workflow to help you get started with Actions name: build creative.clox.nu # Controls when the workflow will run on: # Triggers the workflow on push or pull request events but only for the main branch push: branches: [ main ] pull_request: branches: [ main ] # Allows you to run this workflow manually from the Actions tab workflow_dispatch: # A workflow run is made up of one or more jobs that can run sequentially or in parallel jobs: # This workflow contains a single job called &amp;#34;build&amp;#34; build: # The type of runner that the job will run on runs-on: ubuntu-latest # Steps represent a sequence of tasks that will be executed as part of the job steps: # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it - name: Checkout main uses: actions/checkout@v2 # Update theme - name: Update theme run: git submodule update --init --recursive # Setup Hugo - name: Setup Hugo uses: peaceiris/actions-hugo@v2 with: hugo-version: &amp;#39;latest&amp;#39; # Build blog - name: Build working-directory: .</description>
     </item>
     
     <item>
@@ -152,8 +162,7 @@
 发布后，网站上并没有生效。
 进行网页检查后发现，一般的 code 块 css 选择器是 .post-content code 而我这里只用了 code，因此我的 font-family 属性优先级太低了。
 因此解决方式就是在 font-family 后增加 !important，或把自定义的 css 的选择器也改为 .post-content code 即可解决问题。
-  https://gist.github.com/Albert221/753d7f8955eeb6f5e50486fce048e39f&amp;#160;&amp;#x21a9;&amp;#xfe0e;
-   </description>
+https://gist.github.com/Albert221/753d7f8955eeb6f5e50486fce048e39f&amp;#160;&amp;#x21a9;&amp;#xfe0e;</description>
     </item>
     
     <item>
@@ -182,14 +191,14 @@ Failed: an internal error occurred </description>
 创建房间，名为 1234
 点击魔法棒可以切换主题
 点击左上角的链接可以弹出房间二维码，即当前房间的链接
- 可以使用消息框在房间内发消息，其他人也可以看到
- 在 iPad 上 drag &amp;amp; drop 一张照片可以上传至房间
- 左上角点击切换布局：列表和网格
- 为房间购买电池，免费房间的文件可以存储一周
- drag &amp;amp; drop 多张照片
- 新建类别
- 多选 &amp;amp; 移动文件到新类别
- 断开连接时，会有弹框提醒已断开</description>
+可以使用消息框在房间内发消息，其他人也可以看到
+在 iPad 上 drag &amp;amp; drop 一张照片可以上传至房间
+左上角点击切换布局：列表和网格
+为房间购买电池，免费房间的文件可以存储一周
+drag &amp;amp; drop 多张照片
+新建类别
+多选 &amp;amp; 移动文件到新类别
+断开连接时，会有弹框提醒已断开</description>
     </item>
     
   </channel>

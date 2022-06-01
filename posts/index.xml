@@ -15,9 +15,10 @@
       <guid>https://clox.nu/blog/how-to-amend-git-history-commit/</guid>
       <description>在实际工程中，有时我们在以往的提交中忘记提交部分代码，当想起来的时候已经提交过很多笔了。于是想要把当前的更改提交到历史 commit 中去。
 假设当前我们提交了三次：
-$ git log commit 0e162000e27ba998d5a92cc04b489e3d3ec0e30d (HEAD -&amp;gt; master) Author: cloxnu &amp;lt;hi@clox.nu&amp;gt; Date: Fri Nov 5 13:46:08 2021 +0800   3rd commit  commit f5f470406634bb255e4f19bf62780868afeed32d Author: cloxnu &amp;lt;hi@clox.nu&amp;gt; Date: Fri Nov 5 13:45:21 2021 +0800   2nd commit  commit cf8c580d322e459fa1acf4ef1e6d08163aeb1a21 Author: cloxnu &amp;lt;hi@clox.nu&amp;gt; Date: Fri Nov 5 13:41:30 2021 +0800   1st commit 这几次提交就只涉及一个文件 1.txt
+$ git log commit 0e162000e27ba998d5a92cc04b489e3d3ec0e30d (HEAD -&amp;gt; master) Author: cloxnu &amp;lt;hi@clox.nu&amp;gt; Date: Fri Nov 5 13:46:08 2021 +0800 3rd commit commit f5f470406634bb255e4f19bf62780868afeed32d Author: cloxnu &amp;lt;hi@clox.nu&amp;gt; Date: Fri Nov 5 13:45:21 2021 +0800 2nd commit commit cf8c580d322e459fa1acf4ef1e6d08163aeb1a21 Author: cloxnu &amp;lt;hi@clox.nu&amp;gt; Date: Fri Nov 5 13:41:30 2021 +0800 1st commit 这几次提交就只涉及一个文件 1.txt
 $ cat 1.txt 11111111 22222222 33333333 其中第一行为第一次提交，第二行为第二次提交，第三行为第三次提交。
-此时如果想要将第二次提交增加一个新文件 2.</description>
+此时如果想要将第二次提交增加一个新文件 2.txt，该怎么操作呢？
+步骤 首先新建 2.txt $ cat 2.txt 22222222 将当前的更改 stash $ git stash Saved working directory and index state WIP on master: 0e16200 3rd commit 根据之前 git log 打印的 commit 信息确定将要更改的 commit hash 值。然后使用 git rebase -i （没错，这相当于一次 rebase） $ git rebase -i f5f470406634bb255e4f19bf62780868afeed32d^ ⚠️ 注意：这里输入的提交 hash 值后需要加上 ^1，代表这次 commit 的父提交。或者：</description>
     </item>
     
     <item>
@@ -46,10 +47,10 @@ cd rn_proj expo start 然后同时会打开一个 Web 控制台</description>
       <guid>https://clox.nu/blog/generalized-suffix-tree/</guid>
       <description>An implementation of generalized suffix tree using Ukkonen&amp;rsquo;s algorithm.
 In this page:
- The longest common substring problem How it works GST versus Dynamic programming   Inspired by:
+The longest common substring problem How it works GST versus Dynamic programming Inspired by:
 Ukkonen, E. On-line construction of suffix trees. Algorithmica 14, 249–260 (1995).
 https://www.cs.helsinki.fi/u/ukkonen/SuffixT1withFigs.pdf
- The longest common substring problem Given two or more strings, find the longest common substring of these strings. Concretely, the longest common substring of the two strings &amp;ldquo;cacaocac&amp;rdquo; and &amp;ldquo;ccaooc&amp;rdquo; is &amp;ldquo;cao&amp;rdquo;.</description>
+The longest common substring problem Given two or more strings, find the longest common substring of these strings. Concretely, the longest common substring of the two strings &amp;ldquo;cacaocac&amp;rdquo; and &amp;ldquo;ccaooc&amp;rdquo; is &amp;ldquo;cao&amp;rdquo;. This seems like a simple problem, but until today, it still requires a complicated algorithm to be solved in a reasonable time.</description>
     </item>
     
   </channel>
