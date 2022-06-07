@@ -8,6 +8,16 @@
     <language>en-us</language>
     <lastBuildDate>Sat, 04 Sep 2021 12:00:00 +0800</lastBuildDate><atom:link href="https://clox.nu/news/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>使用 Taio 完成 Playground 项目的 i18n</title>
+      <link>https://clox.nu/news/2022/06/07/i18n-use-taio/</link>
+      <pubDate>Tue, 07 Jun 2022 11:34:55 +0800</pubDate>
+      
+      <guid>https://clox.nu/news/2022/06/07/i18n-use-taio/</guid>
+      <description>由于 Playground 无法编辑 .strings 文件，可以使用 Taio 编辑这个文件来进行本地化操作。
+不过 Playground 新建的项目可能暂时还不支持本地化，导致运行在其他语言环境的设备上仍然显示英语本地化结果。</description>
+    </item>
+    
+    <item>
       <title>旅行 Blog 新地址</title>
       <link>https://clox.nu/news/2022/06/06/new-travel-blog-domain/</link>
       <pubDate>Mon, 06 Jun 2022 21:23:03 +0800</pubDate>

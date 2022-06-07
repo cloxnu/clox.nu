@@ -44,7 +44,7 @@ if (!doNotTrack) {
 <meta property="og:description" content="Hi, I&#39;m creating more creative works. Here are my thoughts, essays and expectations." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://clox.nu/categories/news/" />
-<meta property="og:updated_time" content="2022-06-06T21:23:03+08:00" /><meta property="og:site_name" content="cloxnu&#39;s creative space" />
+<meta property="og:updated_time" content="2022-06-07T11:34:55+08:00" /><meta property="og:site_name" content="cloxnu&#39;s creative space" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="news"/>
 <meta name="twitter:description" content="Hi, I&#39;m creating more creative works. Here are my thoughts, essays and expectations."/>
@@ -137,6 +137,25 @@ if (!doNotTrack) {
 
 
 
+
+<article class="post-entry tag-entry"> 
+
+  <header class="entry-header">
+    <h2>
+      用 GitHub Actions 生成 blog 的 HTML 到 gh-pages 分支
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>由于 blog 生成 HTML 会自动将所有资源复制到生成的目录中，因此将 output 目录放到新的分支中可以防止本地占用「双倍」空间，而且可以防止需要合并远端变更。
+这是我的 GitHub Actions 执行代码：
+# This is a basic workflow to help you get started with Actions name: build creative.clox.nu # Controls when the workflow will run on: # Triggers the workflow on push or pull request events but only for the main branch push: branches: [ main ] pull_request: branches: [ main ] # Allows you to run this workflow manually from the Actions tab workflow_dispatch: # A workflow run is made up of one or more jobs that can run sequentially or in parallel jobs: # This workflow contains a single job called &#34;build&#34; build: # The type of runner that the job will run on runs-on: ubuntu-latest # Steps represent a sequence of tasks that will be executed as part of the job steps: # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it - name: Checkout main uses: actions/checkout@v2 # Update theme - name: Update theme run: git submodule update --init --recursive # Setup Hugo - name: Setup Hugo uses: peaceiris/actions-hugo@v2 with: hugo-version: &#39;latest&#39; # Build blog - name: Build working-directory: ....</p>
+  </section>
+  <footer class="entry-footer">
+
+October 25, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Sidney Liu
+</footer>
+  <a class="entry-link" aria-label="post link to 用 GitHub Actions 生成 blog 的 HTML 到 gh-pages 分支" href="https://clox.nu/news/2021/10/25/gh-pages/"></a>
+</article>
 
 <article class="post-entry tag-entry"> 
 
