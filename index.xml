@@ -6,10 +6,23 @@
         <description>Recent content on cloxnu&#39;s Creative Space</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Tue, 07 Jun 2022 11:34:55 +0800</lastBuildDate>
+        <lastBuildDate>Fri, 10 Jun 2022 17:53:20 +0800</lastBuildDate>
         
         <atom:link href="https://clox.nu/index.xml" rel="self" type="application/rss+xml" />
         
+        
+        <item>
+            <title>Palette 1.1 发布</title>
+            <link>https://clox.nu/blog/palette-1.1/</link>
+            <pubDate>Fri, 10 Jun 2022 17:53:20 +0800</pubDate>
+            
+            <guid>https://clox.nu/blog/palette-1.1/</guid>
+            <description>&lt;p&gt;&lt;img src=&#34;assets/IMG_1.png&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;p&gt;新版本的 Palette 发布了，这次有了中文标题和描述。&lt;/p&gt;
+&lt;p&gt;这次还增加了许多可配置的新 Block，其中主要包括一个 Color Mixing 的模块，其 Block 包含自己可以存储调色板的 Palette Block，和一些可供挑选颜色的 Block。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://apps.apple.com/cn/app/%E8%B0%83%E8%89%B2%E6%9D%BF-%E7%AE%80%E5%8D%95%E9%AB%98%E6%95%88%E7%9A%84%E8%B0%83%E8%89%B2%E5%B7%A5%E5%85%B7/id1623551390&#34;&gt;Palette on the App Store&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
         
         <item>
             <title>使用 Taio 完成 Playground 项目的 i18n</title>

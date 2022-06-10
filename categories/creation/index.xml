@@ -6,7 +6,18 @@
     <description>Recent content in creation on cloxnu&#39;s Creative Space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Jun 2022 14:42:36 +0800</lastBuildDate><atom:link href="https://clox.nu/categories/creation/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 10 Jun 2022 17:53:20 +0800</lastBuildDate><atom:link href="https://clox.nu/categories/creation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Palette 1.1 发布</title>
+      <link>https://clox.nu/blog/palette-1.1/</link>
+      <pubDate>Fri, 10 Jun 2022 17:53:20 +0800</pubDate>
+      
+      <guid>https://clox.nu/blog/palette-1.1/</guid>
+      <description>新版本的 Palette 发布了，这次有了中文标题和描述。
+这次还增加了许多可配置的新 Block，其中主要包括一个 Color Mixing 的模块，其 Block 包含自己可以存储调色板的 Palette Block，和一些可供挑选颜色的 Block。
+Palette on the App Store</description>
+    </item>
+    
     <item>
       <title>使用「快捷指令」配合「Taio」完成 Blog 写作并发布</title>
       <link>https://clox.nu/blog/siri-shortcut-and-taio-actions/</link>
