@@ -6,10 +6,26 @@
         <description>Recent content on cloxnu&#39;s Creative Space</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Fri, 10 Jun 2022 17:53:20 +0800</lastBuildDate>
+        <lastBuildDate>Mon, 27 Jun 2022 15:19:14 +0800</lastBuildDate>
         
         <atom:link href="https://clox.nu/index.xml" rel="self" type="application/rss+xml" />
         
+        
+        <item>
+            <title>Day1 我的糍粑</title>
+            <link>https://clox.nu/blog/catday1-my-cat-ciba/</link>
+            <pubDate>Mon, 27 Jun 2022 15:19:14 +0800</pubDate>
+            
+            <guid>https://clox.nu/blog/catday1-my-cat-ciba/</guid>
+            <description>&lt;p&gt;6.26&lt;/p&gt;
+&lt;p&gt;在搬家的同时，还迎来了一个新成员，我的糍粑&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/IMG_1.jpg&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/IMG_2.jpg&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/IMG_3.jpg&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/IMG_4.jpg&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/IMG_5.jpg&#34; alt=&#34;图片&#34;&gt;&lt;/p&gt;
+</description>
+        </item>
         
         <item>
             <title>Palette 1.1 发布</title>
