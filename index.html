@@ -44,7 +44,7 @@ if (!doNotTrack) {
 <meta property="og:description" content="Hi, I&#39;m creating more creative works. Here are my thoughts, essays and expectations." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://clox.nu/" />
-<meta property="og:updated_time" content="2022-06-27T15:19:14+08:00" /><meta property="og:site_name" content="cloxnu&#39;s creative space" />
+<meta property="og:updated_time" content="2022-06-30T11:39:34+08:00" /><meta property="og:site_name" content="cloxnu&#39;s creative space" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="cloxnu&#39;s Creative Space"/>
 <meta name="twitter:description" content="Hi, I&#39;m creating more creative works. Here are my thoughts, essays and expectations."/>
@@ -194,6 +194,26 @@ if (!doNotTrack) {
 
 
 
+
+<article class="post-entry"> 
+
+  <header class="entry-header">
+    <h2>
+      Day2 糍粑起床巨早
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>6.30
+这几天糍粑每次都 6 点把我搞醒，22 点左右就睡了，它的作息相当规律
+然后又买了自动喂食器和摄像头
+准备给猫开一个视频账号，尝试下视频创作...</p>
+  </section>
+  <footer class="entry-footer">
+
+June 30, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
+</footer>
+  <a class="entry-link" aria-label="post link to Day2 糍粑起床巨早" href="https://clox.nu/blog/catday2-ciba/"></a>
+</article>
 
 <article class="post-entry"> 
 
@@ -385,29 +405,6 @@ November 5, 2021&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Sidney Liu
 October 30, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
 </footer>
   <a class="entry-link" aria-label="post link to 使用渐进式 JPEG 图片优化 blog 阅读体验" href="https://clox.nu/blog/optimizing-blog-experience-with-progressive-jpeg-pictures/"></a>
-</article>
-
-<article class="post-entry"> 
-
-  <header class="entry-header">
-    <h2>
-      如何使用相机拍摄包含精准地理位置信息的照片
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>🤔 当我们使用手机拍照时，按下快门的那一刻，程序会自动获取当前地理位置，并将其写入照片中。而当我们拥有海量包含地理位置并通过 iCloud 或者 NAS 管理的照片时，这些照片会被程序自动归类，因此可以省去大量整理照片的时间。
-可是当拍照的设备转移到成像质量更好的相机时，我们却很难方便地获取地理位置信息，因为现在大多数的单反/无反相机都不带有 GPS 模块。因此目前这些相机的解决方案是通过手机蓝牙连接来获取 GPS 信息以写入照片。
-在实际使用中，相机需要手机打开对应相机 App 并连接数秒才能更新正确位置，否则相机要么不会写入地理位置，要么写入一个老的地理位置。在拍照时如果总是需要用手机来连接，那一定相当影响拍摄体验。
-于是经过一段时间的思考，找到了一个可行的方案：在拍照期间，可以用含有 GPS 模块的设备（例如手机）记录自己的轨迹信息，此后可以根据照片拍摄时间和这些轨迹信息计算拍摄的地点，因而写入照片 EXIF 信息中。
-动手 起初，我打算自己实现通过轨迹信息计算拍摄地点的脚本。
-首先通过手机上的轨迹记录软件得到一个 GPX 文件，GPX 文件的数据格式本质上是 XML。
-&lt;trk&gt; &lt;name&gt;...&lt;/name&gt; ... &lt;trkseg&gt; &lt;trkpt lat=&#34;30.313094&#34; lon=&#34;120.382447&#34;&gt; &lt;ele&gt;8.456302&lt;/ele&gt; &lt;extensions&gt; &lt;speed&gt;0.059180&lt;/speed&gt; &lt;/extensions&gt; &lt;hdop&gt;14.278474&lt;/hdop&gt; &lt;vdop&gt;10.027264&lt;/vdop&gt; &lt;course&gt;-1.000000&lt;/course&gt; &lt;time&gt;2021-05-08T13:31:10Z&lt;/time&gt; &lt;/trkpt&gt; &lt;trkpt lat=&#34;30.313110&#34; lon=&#34;120.382330&#34;&gt; &lt;ele&gt;9.418098&lt;/ele&gt; &lt;extensions&gt; &lt;speed&gt;0.938084&lt;/speed&gt; &lt;/extensions&gt; &lt;hdop&gt;14.331614&lt;/hdop&gt; &lt;vdop&gt;9.951165&lt;/vdop&gt; &lt;course&gt;286.357989&lt;/course&gt; &lt;time&gt;2021-05-08T13:32:06Z&lt;/time&gt; &lt;/trkpt&gt; &lt;/trkseg&gt; &lt;/trk&gt; 类似这样，每个 GPX 文件由 &lt;trk&gt; 标签对组成，&lt;trk&gt; 标签对又由 &lt;trkseg&gt; 标签对组成。事实上在 GPX 记录软件中可以通过暂停、继续在同一个 GPX 文件中记录多个轨迹。因此每个 GPX 文件可以解析出由 TrackSegment 为单位的多组数据。...</p>
-  </section>
-  <footer class="entry-footer">
-
-October 7, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Sidney Liu
-</footer>
-  <a class="entry-link" aria-label="post link to 如何使用相机拍摄包含精准地理位置信息的照片" href="https://clox.nu/blog/add-gps-exif-info-to-camera-photos/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
