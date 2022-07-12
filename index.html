@@ -152,7 +152,7 @@ if (!doNotTrack) {
         <p><p>Welcome to cloxnu&rsquo;s creative space.</p>
 <ul>
 <li>📖 My series of articles:</li>
-<li><a href="/posts/productivity/">ℙ𝕣𝕠𝕕𝕦𝕔𝕥𝕚𝕧𝕚𝕥𝕪</a> | <a href="https://thecommandbook.clox.nu">The Command Book</a> | <a href="/posts/cat-diary">糍粑日记</a></li>
+<li><a href="/posts/productivity/">ℙ𝕣𝕠𝕕𝕦𝕔𝕥𝕚𝕧𝕚𝕥𝕪</a> | <a href="https://thecommandbook.clox.nu">The Command Book</a> | <a href="/cat-diary">糍粑日记</a></li>
 </ul>
 </p>
     </section>
@@ -194,63 +194,6 @@ if (!doNotTrack) {
 
 
 
-
-<article class="post-entry"> 
-
-  <header class="entry-header">
-    <h2>
-      Day3 今日开荤
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>这两天买了个猫爬架，可是糍粑很少去猫爬架上玩
-饿坏的小猫
-还是那么可爱...</p>
-  </section>
-  <footer class="entry-footer">
-
-July 5, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
-</footer>
-  <a class="entry-link" aria-label="post link to Day3 今日开荤" href="https://clox.nu/blog/catday3-new-food/"></a>
-</article>
-
-<article class="post-entry"> 
-
-  <header class="entry-header">
-    <h2>
-      Day2 糍粑起床巨早
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>6.30
-这几天糍粑每次都 6 点把我搞醒，22 点左右就睡了，它的作息相当规律
-然后又买了自动喂食器和摄像头
-准备给猫开一个视频账号，尝试下视频创作...</p>
-  </section>
-  <footer class="entry-footer">
-
-June 30, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
-</footer>
-  <a class="entry-link" aria-label="post link to Day2 糍粑起床巨早" href="https://clox.nu/blog/catday2-ciba/"></a>
-</article>
-
-<article class="post-entry"> 
-
-  <header class="entry-header">
-    <h2>
-      Day1 我的糍粑
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>6.26
-在搬家的同时，还迎来了一个新成员，我的糍粑...</p>
-  </section>
-  <footer class="entry-footer">
-
-June 27, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
-</footer>
-  <a class="entry-link" aria-label="post link to Day1 我的糍粑" href="https://clox.nu/blog/catday1-my-cat-ciba/"></a>
-</article>
 
 <article class="post-entry"> 
 
@@ -397,6 +340,82 @@ $ cat 1.txt 11111111 22222222 33333333 其中第一行为第一次提交，第�
 November 5, 2021&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Sidney Liu
 </footer>
   <a class="entry-link" aria-label="post link to 如何用 Git 命令修改历史提交" href="https://clox.nu/blog/how-to-amend-git-history-commit/"></a>
+</article>
+
+<article class="post-entry"> 
+
+  <header class="entry-header">
+    <h2>
+      使用渐进式 JPEG 图片优化 blog 阅读体验
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>从写好第一篇多图大图的 blog 那一刻起，我就一直在思考访问者如何快速加载这些图片提高阅读体验，因为这些图片动辄几兆甚至几十兆，而我又不希望压缩这些图片导致质量下降。
+所以在以往的多图 blog 中，访问者往往要等待很久的加载时间。
+既然是图片大小导致的「硬伤」，加载这些图片几乎都取决于访问者的网速，那么有没有办法从图片本身的角度出发，来优化这种加载时间？
+什么是渐进式 JPEG（Progressive JPEG） 我们知道，JPEG 格式是目前兼容性最高，使用范围最广的图片有损压缩格式。而其中的编码方式分为多种，这里主要讨论两种：Baseline JPEG 和 Progressive JPEG。
+对于 Baseline JPEG，图片是从上到下一行行顺序存储的，因此在加载图片的时候能看到图片从上到下慢慢显现出来。
+而 Progressive JPEG，图片会由模糊到清晰渐进式地分多次存储，因此在加载图片时看到的图片是由模糊到清晰渲染的。
+图片来自「简书」
+这种渐进式 JPEG 显然可以在图片未加载完全的时候就能看到它的「预览」，而且渐进式 JPEG 的文件大小要略小于 Baseline JPEG。不过渐进式 JPEG 在 Windows 7 以前的 IE 等浏览器不受支持，会在完全加载完成后才显示图片。
+目前多图 blog 之所以加载时间很长，是因为这些图片存储的编码方式都是 Baseline JPEG。
+🎬 于是，我在之前的 GitHub Actions 配置文件中补充了将这些图片转换为 Progressive JPEG 的命令，当前的 blog 在合并入主干分支后 GitHub Actions 会先使用 hugo 命令创建 HTML1，然后 Progressive JPEG 命令再将所有 JPEG 图片批量处理。
+在 Linux 中，使用 ImageMagick 处理图片。其中的 -interlace 选项有提供将图片转换为 Progressive JPEG。...</p>
+  </section>
+  <footer class="entry-footer">
+
+October 30, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
+</footer>
+  <a class="entry-link" aria-label="post link to 使用渐进式 JPEG 图片优化 blog 阅读体验" href="https://clox.nu/blog/optimizing-blog-experience-with-progressive-jpeg-pictures/"></a>
+</article>
+
+<article class="post-entry"> 
+
+  <header class="entry-header">
+    <h2>
+      如何使用相机拍摄包含精准地理位置信息的照片
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>🤔 当我们使用手机拍照时，按下快门的那一刻，程序会自动获取当前地理位置，并将其写入照片中。而当我们拥有海量包含地理位置并通过 iCloud 或者 NAS 管理的照片时，这些照片会被程序自动归类，因此可以省去大量整理照片的时间。
+可是当拍照的设备转移到成像质量更好的相机时，我们却很难方便地获取地理位置信息，因为现在大多数的单反/无反相机都不带有 GPS 模块。因此目前这些相机的解决方案是通过手机蓝牙连接来获取 GPS 信息以写入照片。
+在实际使用中，相机需要手机打开对应相机 App 并连接数秒才能更新正确位置，否则相机要么不会写入地理位置，要么写入一个老的地理位置。在拍照时如果总是需要用手机来连接，那一定相当影响拍摄体验。
+于是经过一段时间的思考，找到了一个可行的方案：在拍照期间，可以用含有 GPS 模块的设备（例如手机）记录自己的轨迹信息，此后可以根据照片拍摄时间和这些轨迹信息计算拍摄的地点，因而写入照片 EXIF 信息中。
+动手 起初，我打算自己实现通过轨迹信息计算拍摄地点的脚本。
+首先通过手机上的轨迹记录软件得到一个 GPX 文件，GPX 文件的数据格式本质上是 XML。
+&lt;trk&gt; &lt;name&gt;...&lt;/name&gt; ... &lt;trkseg&gt; &lt;trkpt lat=&#34;30.313094&#34; lon=&#34;120.382447&#34;&gt; &lt;ele&gt;8.456302&lt;/ele&gt; &lt;extensions&gt; &lt;speed&gt;0.059180&lt;/speed&gt; &lt;/extensions&gt; &lt;hdop&gt;14.278474&lt;/hdop&gt; &lt;vdop&gt;10.027264&lt;/vdop&gt; &lt;course&gt;-1.000000&lt;/course&gt; &lt;time&gt;2021-05-08T13:31:10Z&lt;/time&gt; &lt;/trkpt&gt; &lt;trkpt lat=&#34;30.313110&#34; lon=&#34;120.382330&#34;&gt; &lt;ele&gt;9.418098&lt;/ele&gt; &lt;extensions&gt; &lt;speed&gt;0.938084&lt;/speed&gt; &lt;/extensions&gt; &lt;hdop&gt;14.331614&lt;/hdop&gt; &lt;vdop&gt;9.951165&lt;/vdop&gt; &lt;course&gt;286.357989&lt;/course&gt; &lt;time&gt;2021-05-08T13:32:06Z&lt;/time&gt; &lt;/trkpt&gt; &lt;/trkseg&gt; &lt;/trk&gt; 类似这样，每个 GPX 文件由 &lt;trk&gt; 标签对组成，&lt;trk&gt; 标签对又由 &lt;trkseg&gt; 标签对组成。事实上在 GPX 记录软件中可以通过暂停、继续在同一个 GPX 文件中记录多个轨迹。因此每个 GPX 文件可以解析出由 TrackSegment 为单位的多组数据。...</p>
+  </section>
+  <footer class="entry-footer">
+
+October 7, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Sidney Liu
+</footer>
+  <a class="entry-link" aria-label="post link to 如何使用相机拍摄包含精准地理位置信息的照片" href="https://clox.nu/blog/add-gps-exif-info-to-camera-photos/"></a>
+</article>
+
+<article class="post-entry"> 
+
+  <header class="entry-header">
+    <h2>
+      如何用命令行将 Linux 服务器上的文件备份至 Dropbox
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>又进入了新的一月，又到了服务器续费的时候。由于我前些天把我的 travel blog 变成静态页面了，因此原本 serve 了它一段时间的服务器也可以注销掉了，不过服务器上还存有一些需要保留的文件，于是今天想把这些文件放到 Dropbox 中。
+参照 官方安装页面，先运行以下命令下载并解压 Dropbox。
+$ cd ~ &amp;&amp; wget -O - &#34;https://www.dropbox.com/download?plat=lnx.x86_64&#34; | tar xzf - 然后在 home 目录就会产生一个 .dropbox-dist 目录，同样参照以上官方安装页面，运行这个目录下的 dropboxd 来启动 Dropbox 守护进程。
+$ ~/.dropbox-dist/dropboxd 我在运行这句命令之后这段程序执行了一些指令后报错。（我使用的是 Ubuntu 20.04 LTS）
+于是立马在 DigitalOcean 中找到答案，我缺少了一些依赖，运行以下命令解决此问题。
+$ sudo apt install libc6 libglapi-mesa libxdamage1 libxfixes3 libxcb-glx0 libxcb-dri2-0 libxcb-dri3-0 libxcb-present0 libxcb-sync1 libxshmfence1 libxxf86vm1 安装依赖后，运行上述命令，得到以下输出：
+根据提示需要打开 URL 登录自己的账号以绑定这台服务器。打开后界面如下。
+如果自己的 Dropbox 账号是通过 Google 或者 Apple 登录的话，需要先登录自己的账号设置一个密码才能在这里登录。
+登录之后，控制台会出现一句话，
+This computer is now linked to Dropbox....</p>
+  </section>
+  <footer class="entry-footer">
+
+September 1, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
+</footer>
+  <a class="entry-link" aria-label="post link to 如何用命令行将 Linux 服务器上的文件备份至 Dropbox" href="https://clox.nu/blog/backup-files-on-linux-to-dropbox/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
