@@ -2,13 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://clox.nu/categories/cat-diary/</loc>
-    <lastmod>2022-07-05T14:30:55+08:00</lastmod>
-  </url><url>
     <loc>https://clox.nu/categories/</loc>
-    <lastmod>2022-07-05T14:30:55+08:00</lastmod>
+    <lastmod>2022-12-11T19:50:34+08:00</lastmod>
   </url><url>
     <loc>https://clox.nu/</loc>
+    <lastmod>2022-12-11T19:50:34+08:00</lastmod>
+  </url><url>
+    <loc>https://clox.nu/categories/news/</loc>
+    <lastmod>2022-12-11T19:50:34+08:00</lastmod>
+  </url><url>
+    <loc>https://clox.nu/news/2022/12/11/new-orange-hair/</loc>
+    <lastmod>2022-12-11T19:50:34+08:00</lastmod>
+  </url><url>
+    <loc>https://clox.nu/categories/cat-diary/</loc>
     <lastmod>2022-07-05T14:30:55+08:00</lastmod>
   </url><url>
     <loc>https://clox.nu/cat-diary/2022/catday3-new-food/</loc>
@@ -34,9 +40,6 @@
   </url><url>
     <loc>https://clox.nu/posts/</loc>
     <lastmod>2022-06-10T17:53:20+08:00</lastmod>
-  </url><url>
-    <loc>https://clox.nu/categories/news/</loc>
-    <lastmod>2022-06-07T11:34:55+08:00</lastmod>
   </url><url>
     <loc>https://clox.nu/news/2022/06/07/i18n-use-taio/</loc>
     <lastmod>2022-06-07T11:34:55+08:00</lastmod>
