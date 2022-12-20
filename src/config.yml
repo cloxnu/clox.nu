@@ -58,8 +58,6 @@ params:
       url: "/index.xml"
     - name: telegram
       url: "https://t.me/imcloxnu"
-    - name: jike 
-      url: "https://okjk.co/4NeHCX"
 
 menu:
   main:
