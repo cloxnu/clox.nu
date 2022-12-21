@@ -148,207 +148,227 @@ if (!doNotTrack) {
 
 
 <article class="post-entry"> 
-
-  <header class="entry-header">
-    <h2>
-      我的 M1 Pro 到了
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>...</p>
-  </section>
-  <footer class="entry-footer">
-
-November 14, 2021&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Sidney Liu
-</footer>
-  <a class="entry-link" aria-label="post link to 我的 M1 Pro 到了" href="https://clox.nu/news/2021/11/14/my-new-m1-pro/"></a>
-</article>
-
-<article class="post-entry"> 
-
-  <header class="entry-header">
-    <h2>
-      尝试玩玩 Apple Arcade
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>...</p>
-  </section>
-  <footer class="entry-footer">
-
-November 2, 2021&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Sidney Liu
-</footer>
-  <a class="entry-link" aria-label="post link to 尝试玩玩 Apple Arcade" href="https://clox.nu/news/2021/11/02/apple-arcade/"></a>
-</article>
-
-<article class="post-entry"> 
-
-  <header class="entry-header">
-    <h2>
-      用 GitHub Actions 生成 blog 的 HTML 到 gh-pages 分支
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>由于 blog 生成 HTML 会自动将所有资源复制到生成的目录中，因此将 output 目录放到新的分支中可以防止本地占用「双倍」空间，而且可以防止需要合并远端变更。
-这是我的 GitHub Actions 执行代码：
-# This is a basic workflow to help you get started with Actions name: build creative.clox.nu # Controls when the workflow will run on: # Triggers the workflow on push or pull request events but only for the main branch push: branches: [ main ] pull_request: branches: [ main ] # Allows you to run this workflow manually from the Actions tab workflow_dispatch: # A workflow run is made up of one or more jobs that can run sequentially or in parallel jobs: # This workflow contains a single job called &#34;build&#34; build: # The type of runner that the job will run on runs-on: ubuntu-latest # Steps represent a sequence of tasks that will be executed as part of the job steps: # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it - name: Checkout main uses: actions/checkout@v2 # Update theme - name: Update theme run: git submodule update --init --recursive # Setup Hugo - name: Setup Hugo uses: peaceiris/actions-hugo@v2 with: hugo-version: &#39;latest&#39; # Build blog - name: Build working-directory: ....</p>
-  </section>
-  <footer class="entry-footer">
-
-October 25, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Sidney Liu
-</footer>
-  <a class="entry-link" aria-label="post link to 用 GitHub Actions 生成 blog 的 HTML 到 gh-pages 分支" href="https://clox.nu/news/2021/10/25/gh-pages/"></a>
-</article>
-
-<article class="post-entry"> 
-
-  <header class="entry-header">
-    <h2>
-      下单了一台 M1 Pro 的 MacBook Pro
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>下单了一台 19 号凌晨发布的 MacBook Pro。
-起初下了 16GB 内存版本的订单，26 号就到货还挺快的。
-后来被同事们强烈建议 32GB，退掉再订 32GB 版本。结果退款需要 5 个工作日😭
-而且发货时间也变长了。
-希望自己能用新电脑创造更多有意义的事情！...</p>
-  </section>
-  <footer class="entry-footer">
-
-October 20, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
-</footer>
-  <a class="entry-link" aria-label="post link to 下单了一台 M1 Pro 的 MacBook Pro" href="https://clox.nu/news/2021/10/20/buy-new-mbp/"></a>
-</article>
-
-<article class="post-entry"> 
-
-  <header class="entry-header">
-    <h2>
-      想写一个 AI 驱动的游戏
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>想写一种没有输赢、创造类的游戏，这个游戏随机性很强，主要靠 AI；其次它不容易沉迷。...</p>
-  </section>
-  <footer class="entry-footer">
-
-October 13, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
-</footer>
-  <a class="entry-link" aria-label="post link to 想写一个 AI 驱动的游戏" href="https://clox.nu/news/2021/10/13/ai-game/"></a>
-</article>
-
-<article class="post-entry"> 
-
-  <header class="entry-header">
-    <h2>
-      想做一种永生的机器人
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>想做一种永生的机器人，以后可以用我的身份代替我永生，那可太好了。...</p>
-  </section>
-  <footer class="entry-footer">
-
-October 9, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
-</footer>
-  <a class="entry-link" aria-label="post link to 想做一种永生的机器人" href="https://clox.nu/news/2021/10/09/immortal-robot/"></a>
-</article>
-
-<article class="post-entry"> 
 <figure class="entry-cover">
-        <img srcset="https://clox.nu/news/2021/09/25/iphone13/assets/IMG_1_hu7eed33e292db07d13b4b982685e8924e_12008672_360x0_resize_q75_box.jpg 360w ,https://clox.nu/news/2021/09/25/iphone13/assets/IMG_1_hu7eed33e292db07d13b4b982685e8924e_12008672_480x0_resize_q75_box.jpg 480w ,https://clox.nu/news/2021/09/25/iphone13/assets/IMG_1_hu7eed33e292db07d13b4b982685e8924e_12008672_720x0_resize_q75_box.jpg 720w ,https://clox.nu/news/2021/09/25/iphone13/assets/IMG_1_hu7eed33e292db07d13b4b982685e8924e_12008672_1080x0_resize_q75_box.jpg 1080w ,https://clox.nu/news/2021/09/25/iphone13/assets/IMG_1_hu7eed33e292db07d13b4b982685e8924e_12008672_1500x0_resize_q75_box.jpg 1500w ,https://clox.nu/news/2021/09/25/iphone13/assets/IMG_1.jpg 6240w"
-            sizes="(min-width: 768px) 720px, 100vw" src="https://clox.nu/news/2021/09/25/iphone13/assets/IMG_1.jpg" alt="" />
+        <img srcset="https://clox.nu/blog/how-to-use-taio-efficiently/assets/cover_hu7ac983d1e9134e29936211c2e2aff80f_627265_360x0_resize_box_3.png 360w ,https://clox.nu/blog/how-to-use-taio-efficiently/assets/cover_hu7ac983d1e9134e29936211c2e2aff80f_627265_480x0_resize_box_3.png 480w ,https://clox.nu/blog/how-to-use-taio-efficiently/assets/cover_hu7ac983d1e9134e29936211c2e2aff80f_627265_720x0_resize_box_3.png 720w ,https://clox.nu/blog/how-to-use-taio-efficiently/assets/cover_hu7ac983d1e9134e29936211c2e2aff80f_627265_1080x0_resize_box_3.png 1080w ,https://clox.nu/blog/how-to-use-taio-efficiently/assets/cover_hu7ac983d1e9134e29936211c2e2aff80f_627265_1500x0_resize_box_3.png 1500w ,https://clox.nu/blog/how-to-use-taio-efficiently/assets/cover.png 3171w"
+            sizes="(min-width: 768px) 720px, 100vw" src="https://clox.nu/blog/how-to-use-taio-efficiently/assets/cover.png" alt="" />
 </figure>
 
   <header class="entry-header">
     <h2>
-      购买 iPhone 13 的一天
+      如何在 iPad Pro 上高效地使用 Taio 创建 Hugo blog
     </h2>
   </header>
   <section class="entry-content">
-    <p>9 月 17 号那天，我拿到了等了很久的相机，也恰好是那天的前一天，我的 iPhone XR 坏掉了，连 MacBook 恢复模式都一直自己重启。iPhone 13 也恰好在这一天晚上 8 点开售，可是在这天我还没想好要换手机。
-24 号，iPhone 13 开卖了，我才了解到 24-26 号 Apple Store 是只对预约的人开放的，同时这段时间我也意识到 24 号之前在 Apple Store App 里下单是没法选线下取货的（应该是 17 号晚上 8 点把名额抢完了），送货的话要等很久。所以工作人员让我留意一下抢 27 号及以后的线下取货。当时的截图是这样的：
-24 号白天的时候，发现官网的某一页有这么一句话「预约系统的开放时间为每天上午 上午 6:00」。好了，定好闹钟，25 号早上 6 点抢。
-结果早上 6 点的时候，线下取货最开始确实只能选 27 号取货，可是我最想选的 256GB 粉色刚好没有了。在我正纠结颜色的时候，突然取货时间可以选 25 号了。
-最后从纠结的 512GB 粉改为了 256GB 蓝，预约了 25 号下午 3 点取货。
-那天下午，到 Apple Store 的时候，在离店很远的地方就需要出示预约二维码，通过一个用围栏围成的长长的过道，才能进入 Apple Store。
-进入之后，在一位工作人员的处理下，很快就拿到了 iPhone 13，由于这种特殊的「限流」处理，店内出现了罕见的「工作人员比顾客多」的特殊现象。
-当时还玩了玩其他设备，mini 是真的小巧...</p>
+    <p>本文来自生产力 ℙ𝕣𝕠𝕕𝕦𝕔𝕥𝕚𝕧𝕚𝕥𝕪 系列文章。
+我们知道，在一台安装了 Hugo 命令行工具的电脑上，只需运行命令
+$ hugo new ... 即可创建一个新的 blog。
+为了发挥 iPad Pro 的「生产力」属性，我使用 Taio 的「动作」实现了此命令，因此可以在 iPad Pro 上高效快速地撰写 blog。
+首先使用「Working Copy」拉取 GitHub 上的 blog 远程仓库。
+然后打开 Taio，将刚刚拉取下来的远程仓库的本地地址添加到 Taio 的「添加的位置」中。
+添加完成后，在「动作库」中创建新动作，取名叫「Create a Hugo blog」。
+以下是一个创建新 blog 的简单版本，运行之后会要求输入 blog 目录名，标题，以及类别，然后会在当前目录下创建这个目录，以及这个目录下的 index.md。
+PS：这里添加到 blog 的当前日期符合 ISO 8601 标准，时间格式为 yyyy-MM-dd&#39;T&#39;HH:mm:ssxxx
+然后将写好的动作拖移到「编辑器」文件夹中，意味着可以在编辑器的快捷动作里运行。
+在某一分类文件夹下的任意文件里，点击右上角的闪电标志，运行「Create a Hugo blog」即可。
+使用 Taio 写完整篇文章后，最终回到「Working Copy」，Commit &amp; Push 自己的更改。剩下生成 HTML 的环节就交给 Travis CI 或者 GitHub Actions 去完成，详细配置请看 使用 Travis CI 自动部署 Hugo 站点...</p>
   </section>
   <footer class="entry-footer">
 
-September 25, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
+August 30, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
 </footer>
-  <a class="entry-link" aria-label="post link to 购买 iPhone 13 的一天" href="https://clox.nu/news/2021/09/25/iphone13/"></a>
-</article>
-
-<article class="post-entry"> 
-<figure class="entry-cover">
-        <img srcset="https://clox.nu/news/2021/09/17/fujifilm-xs10/assets/IMG_1_hu6bc71d45963bb5f03c01f213839778c2_1806101_360x0_resize_q75_box.jpg 360w ,https://clox.nu/news/2021/09/17/fujifilm-xs10/assets/IMG_1_hu6bc71d45963bb5f03c01f213839778c2_1806101_480x0_resize_q75_box.jpg 480w ,https://clox.nu/news/2021/09/17/fujifilm-xs10/assets/IMG_1_hu6bc71d45963bb5f03c01f213839778c2_1806101_720x0_resize_q75_box.jpg 720w ,https://clox.nu/news/2021/09/17/fujifilm-xs10/assets/IMG_1_hu6bc71d45963bb5f03c01f213839778c2_1806101_1080x0_resize_q75_box.jpg 1080w ,https://clox.nu/news/2021/09/17/fujifilm-xs10/assets/IMG_1_hu6bc71d45963bb5f03c01f213839778c2_1806101_1500x0_resize_q75_box.jpg 1500w ,https://clox.nu/news/2021/09/17/fujifilm-xs10/assets/IMG_1.jpg 4032w"
-            sizes="(min-width: 768px) 720px, 100vw" src="https://clox.nu/news/2021/09/17/fujifilm-xs10/assets/IMG_1.jpg" alt="" />
-</figure>
-
-  <header class="entry-header">
-    <h2>
-      我终于拿到了富士 X-S10
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>一个月前的 8 月 14 日，我在线下订购了一台富士 X-S10，没想到在一个月后的今天才拿到这款超级缺货的相机📷
-我将使用新的方式记录生活。...</p>
-  </section>
-  <footer class="entry-footer">
-
-September 17, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
-</footer>
-  <a class="entry-link" aria-label="post link to 我终于拿到了富士 X-S10" href="https://clox.nu/news/2021/09/17/fujifilm-xs10/"></a>
+  <a class="entry-link" aria-label="post link to 如何在 iPad Pro 上高效地使用 Taio 创建 Hugo blog" href="https://clox.nu/blog/how-to-use-taio-efficiently/"></a>
 </article>
 
 <article class="post-entry"> 
 
   <header class="entry-header">
     <h2>
-      为 Hugo 站点添加自定义字体
+      使用 GitHub Actions 自动部署我的 travel blog 站点
     </h2>
   </header>
   <section class="entry-content">
-    <p>今天我把此 Hugo 站点关于 code 部分的字体改为 Jetbrains Mono，大致进行了以下几步。
-我使用的是 Papermod 主题，其 Wiki 页面有讲述关于如何加入自定义 css 的方法。
-于是我尝试将用 jsDelivr 加速的 Jetbrains Mono 字体静态加载1并生效于 code 中。
-发布后，网站上并没有生效。
-进行网页检查后发现，一般的 code 块 css 选择器是 .post-content code 而我这里只用了 code，因此我的 font-family 属性优先级太低了。
-因此解决方式就是在 font-family 后增加 !important，或把自定义的 css 的选择器也改为 .post-content code 即可解决问题。
-https://gist.github.com/Albert221/753d7f8955eeb6f5e50486fce048e39f ↩︎...</p>
+    <p>前情提要：在我的 travel blog 的仓库根目录下，有一个叫 gotravel 的文件，运行该文件即可自动生成网站，因此 GitHub Actions 只需要在我每次 push 之后运行这个文件再提交一次就可以了。
+在 GitHub 仓库内点击菜单栏的 Actions，然后选择 set up a workflow yourself
+然后就会跳转至新建文件页面，以及 GitHub 自动生成最初的 main.yml 文件。
+# This is a basic workflow to help you get started with Actions name: CI # Controls when the workflow will run on: # Triggers the workflow on push or pull request events but only for the master branch push: branches: [ master ] pull_request: branches: [ master ] # Allows you to run this workflow manually from the Actions tab workflow_dispatch: # A workflow run is made up of one or more jobs that can run sequentially or in parallel jobs: # This workflow contains a single job called &#34;build&#34; build: # The type of runner that the job will run on runs-on: ubuntu-latest # Steps represent a sequence of tasks that will be executed as part of the job steps: # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it - uses: actions/checkout@v2 # Runs a single command using the runners shell - name: Run a one-line script run: echo Hello, world!...</p>
   </section>
   <footer class="entry-footer">
 
-September 9, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
+August 14, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Sidney Liu
 </footer>
-  <a class="entry-link" aria-label="post link to 为 Hugo 站点添加自定义字体" href="https://clox.nu/news/2021/09/09/hugo-custom-font/"></a>
+  <a class="entry-link" aria-label="post link to 使用 GitHub Actions 自动部署我的 travel blog 站点" href="https://clox.nu/blog/generate-my-travel-blog-by-github-actions/"></a>
 </article>
 
 <article class="post-entry"> 
 
   <header class="entry-header">
     <h2>
-      我使用 Cloudflare Pages 部署 Hugo 失败了
+      HackMD 的使用与思考
     </h2>
   </header>
   <section class="entry-content">
-    <p>Cloudflare Pages 是一个 Cloudflare 于 2020 年末推出的 Jamstack 平台。JAMstack 指主要使用 Javascript, API, Markup 的一种安全快速的网站结构。
-在此之前，这个 Hugo 站点是使用 GitHub Pages &#43; Cloudflare CDN 这种方式运作的。于是今天尝试使用 Cloudflare Pages 部署。
-进入官网之后，登录 -&gt; GitHub 授权
-由于 Cloudflare Pages 是直接支持了 Hugo，配置阶段简单快速。
-第一次构建失败，日志反映出 theme 内部的 html template 编译错误。
-然后我尝试了指定几个 Hugo 版本，但是最终仍然失败，从日志中看到构建已经成功了，但是部署错误，以收到这条错误告终：
-Failed: an internal error occurred ...</p>
+    <p>本文来自生产力 ℙ𝕣𝕠𝕕𝕦𝕔𝕥𝕚𝕧𝕚𝕥𝕪 系列文章。
+说到 Markdown 团队协作，就不得不提到 HackMD。
+我有一段时间在寻找 Markdown 合作 &amp; 同步的过程中，偶然间发现了 HackMD，当时使用了一下，意外地发现相当好用。
+HackMD 支持 MathJax 公式，以下是官方宣传的特色功能：（当时觉得这正是我想要的）
+注册账号登录以后，在个人页面可以建立不同的空间，给不同的文件放置不同的标签。这里的标签就已经起到了分类的作用，所以 HackMD 没有「文件夹」。
+我立马新建了一个团队空间，新建了一个新的笔记，写作页面相当干净简洁，该有的功能都有。
+在团队协作方面，正在编辑这篇文章的人可以同时看见其他协作者正在编辑的位置，编辑一段文字后还可以看见这段文字是谁写的，不同作者用不同颜色表示在这段文字的左边或者下面，如上图编辑页面。
+在「共享」弹窗中还可以修改阅读或编辑这篇文章的权限，URL 以及浏览方式。
+另外，GitHub 同步只能绑定一个 GitHub 账号的其中一个仓库中的一个文件，这样每次新建一个文件就得手动在 GitHub 新建一个文件了，如果它可以自动同步并且不同账号可以同步不同 GitHub 账号就好了。
+HackMD 还有大量的功能与操作，这是 官方文档。...</p>
   </section>
   <footer class="entry-footer">
 
-September 9, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
+March 30, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
 </footer>
-  <a class="entry-link" aria-label="post link to 我使用 Cloudflare Pages 部署 Hugo 失败了" href="https://clox.nu/news/2021/09/09/cloudflare-pages-failed/"></a>
+  <a class="entry-link" aria-label="post link to HackMD 的使用与思考" href="https://clox.nu/blog/about-hackmd/"></a>
+</article>
+
+<article class="post-entry"> 
+
+  <header class="entry-header">
+    <h2>
+      初识 React Native
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>安装 由于开发需要，稍稍玩了玩 React Native 开发一个 App 的简要流程。
+官网
+安装使用时，可以使用 Expo ，可以省去在 Xcode 或者 Android Studio 配置的过程。
+运行以下命令安装 Expo
+npm install -g expo-cli 注意这里在 npm 前不要加 sudo，请提前确保权限通顺
+sudo chown -R $(whoami) ~/.npm sudo chown -R $(whoami) /usr/local/lib/node_modules 安装好后，我试图运行 Expo，但是得到了 Expo 不支持当前的 Node 版本的错误，于是运行 nvm 来安装最新版本 Node（以下是未安装 nvm 的版本）：
+sudo npm install -g n sudo n latest 或者，使用 yarn
+yarn global add expo-cli 开始 安装好后，生成第一个项目：
+expo init rn_proj 进入目录并运行
+cd rn_proj expo start 然后同时会打开一个 Web 控制台...</p>
+  </section>
+  <footer class="entry-footer">
+
+March 1, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
+</footer>
+  <a class="entry-link" aria-label="post link to 初识 React Native" href="https://clox.nu/blog/get-started-with-react-native/"></a>
+</article>
+
+<article class="post-entry"> 
+
+  <header class="entry-header">
+    <h2>
+      一个奇特的想法 - Site Net
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>就在最近两天，我思考到关于如何做一个让知识体系更显而易见的个人网站时，想到了一个可以用一个程序来实现展示各网站关联的点子：类似于一个知识体系的构建，知识点 A 关联到知识点 B，知识点 B 关联到知识点 C，每个站点会指向它内部所含的链接的站点。
+程序写出来之后首先就想要测试的就是 Wikipedia 的词条，经过域名过滤和标题过滤（让链接仅指向 Wikipedia 的站点而不是某些参考文献），原站点指向的站点实在是太多，图片上的字都有点看不清了。（以下是 Python 词条搜索 3,000 次的结果）
+然后再试了一下 Apple 的中国官网，图比较密集所以将画布放大了一倍
+本工程的 GitHub 链接...</p>
+  </section>
+  <footer class="entry-footer">
+
+February 20, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
+</footer>
+  <a class="entry-link" aria-label="post link to 一个奇特的想法 - Site Net" href="https://clox.nu/blog/site-net/"></a>
+</article>
+
+<article class="post-entry"> 
+
+  <header class="entry-header">
+    <h2>
+      使用 Travis CI 自动部署 Hugo 站点
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>在 GitHub 仓库内创建 .travis.yml 文件并添加以下内容后，即可自动部署此 Hugo 站点。
+dist: bionic addons: snaps: - hugo install: - cd ./src/ - git submodule update --init --remote script: - hugo -D after_script: - cd .. - git config --global user.name &#34;Travis CI&#34; - git config --global user.email &lt;your-email&gt; - git remote set-url origin &#34;https://${GITHUB_TOKEN}@github.com/&lt;username&gt;/&lt;repo-name&gt;.git&#34; - git checkout main - git add . - git commit -m &#34;Update Blog By TravisCI With Build $TRAVIS_BUILD_NUMBER&#34; - git push origin 记得在 travis-ci....</p>
+  </section>
+  <footer class="entry-footer">
+
+February 16, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
+</footer>
+  <a class="entry-link" aria-label="post link to 使用 Travis CI 自动部署 Hugo 站点" href="https://clox.nu/blog/deployment-based-on-travis-ci/"></a>
+</article>
+
+<article class="post-entry"> 
+
+  <header class="entry-header">
+    <h2>
+      关于本站
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>本站使用 Hugo 搭建而成，theme 主要使用 PaperMod，将源仓库 adityatelange / hugo-PaperMod fork 到自己的 GitHub 仓库 cloxnu / hugo-PaperMod 并手动增加Mathjax 特性后，本站仓库主题使用 git submodule 拉取。
+以下添加 Mathjax 特性过程参考 https://note.qidong.name/2018/03/hugo-mathjax/
+手动添加文件 layouts/partials/mathjax.html
+在 partials 目录下的文件 extend_head.html 添加代码
+即可。
+顺便在这里提一下 git submodule 和 git remote 在我 fork 了源仓库之后，使用命令
+git remote add upstream https://github.com/adityatelange/hugo-PaperMod.git 来配置一个 remote，参考 Configuring a remote for a fork ，并使用
+git fetch upstream 来同步远程仓库，参考 Syncing a fork 。将 Mathjax 特性添加之后，push 到自己 fork 的仓库，随后在本站仓库使用命令
+git submodule add https://github....</p>
+  </section>
+  <footer class="entry-footer">
+
+February 15, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
+</footer>
+  <a class="entry-link" aria-label="post link to 关于本站" href="https://clox.nu/blog/about-this-site/"></a>
+</article>
+
+<article class="post-entry"> 
+
+  <header class="entry-header">
+    <h2>
+      The Amazing Things
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>Now, here is another new place to inspire and create amazing things. There is not much space here, but it brings extraordinary encouragement.
+I will always love, and pursue love....</p>
+  </section>
+  <footer class="entry-footer">
+
+February 14, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
+</footer>
+  <a class="entry-link" aria-label="post link to The Amazing Things" href="https://clox.nu/blog/the-amazing-things/"></a>
+</article>
+
+<article class="post-entry"> 
+
+  <header class="entry-header">
+    <h2>
+      Welcome to clox.nu
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>clox.nu 已全面竣工，欢迎访问...</p>
+  </section>
+  <footer class="entry-footer">
+
+February 8, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
+</footer>
+  <a class="entry-link" aria-label="post link to Welcome to clox.nu" href="https://clox.nu/blog/welcome-to-cloxnu/"></a>
+</article>
+
+<article class="post-entry"> 
+
+  <header class="entry-header">
+    <h2>
+      Generalized Suffix Tree
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>An implementation of generalized suffix tree using Ukkonen’s algorithm.
+In this page:
+The longest common substring problem How it works GST versus Dynamic programming Inspired by:
+Ukkonen, E. On-line construction of suffix trees. Algorithmica 14, 249–260 (1995).
+https://www.cs.helsinki.fi/u/ukkonen/SuffixT1withFigs.pdf
+The longest common substring problem Given two or more strings, find the longest common substring of these strings. Concretely, the longest common substring of the two strings “cacaocac” and “ccaooc” is “cao”. This seems like a simple problem, but until today, it still requires a complicated algorithm to be solved in a reasonable time....</p>
+  </section>
+  <footer class="entry-footer">
+
+December 23, 2020&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Sidney Liu
+</footer>
+  <a class="entry-link" aria-label="post link to Generalized Suffix Tree" href="https://clox.nu/blog/generalized-suffix-tree/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
