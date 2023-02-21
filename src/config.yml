@@ -59,6 +59,9 @@ params:
     - name: telegram
       url: "https://t.me/imcloxnu"
 
+  mainSections:
+    - posts
+
 menu:
   main:
     - identifier: news
