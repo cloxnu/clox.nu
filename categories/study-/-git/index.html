@@ -21,7 +21,7 @@
 <link rel="mask-icon" href="https://clox.nu/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.110.0">
+<meta name="generator" content="Hugo 0.89.2" />
 <link rel="alternate" type="application/rss&#43;xml" href="https://clox.nu/categories/study-/-git/index.xml">
 
 
@@ -151,7 +151,7 @@ if (!doNotTrack) {
 $ git log commit 0e162000e27ba998d5a92cc04b489e3d3ec0e30d (HEAD -&gt; master) Author: cloxnu &lt;hi@clox.nu&gt; Date: Fri Nov 5 13:46:08 2021 &#43;0800 3rd commit commit f5f470406634bb255e4f19bf62780868afeed32d Author: cloxnu &lt;hi@clox.nu&gt; Date: Fri Nov 5 13:45:21 2021 &#43;0800 2nd commit commit cf8c580d322e459fa1acf4ef1e6d08163aeb1a21 Author: cloxnu &lt;hi@clox.nu&gt; Date: Fri Nov 5 13:41:30 2021 &#43;0800 1st commit 这几次提交就只涉及一个文件 1.txt
 $ cat 1.txt 11111111 22222222 33333333 其中第一行为第一次提交，第二行为第二次提交，第三行为第三次提交。
 此时如果想要将第二次提交增加一个新文件 2.txt，该怎么操作呢？
-步骤 首先新建 2.txt $ cat 2.txt 22222222 将当前的更改 stash $ git stash Saved working directory and index state WIP on master: 0e16200 3rd commit 根据之前 git log 打印的 commit 信息确定将要更改的 commit hash 值。然后使用 git rebase -i （没错，这相当于一次 rebase） $ git rebase -i f5f470406634bb255e4f19bf62780868afeed32d^ ⚠️ 注意：这里输入的提交 hash 值后需要加上 ^1，代表这次 commit 的父提交。或者：...</p>
+步骤  首先新建 2.txt  $ cat 2....</p>
   </section>
   <footer class="entry-footer">
 
@@ -161,7 +161,7 @@ November 5, 2021&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Sidney Liu
 </article>
 
     </main><footer class="footer">
-    <span>&copy; 2023 <a href="https://clox.nu/">cloxnu&#39;s Creative Space</a></span>
+    <span>&copy; 2024 <a href="https://clox.nu/">cloxnu&#39;s Creative Space</a></span>
     <span>&middot;</span>
     <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
     <span>&middot;</span>

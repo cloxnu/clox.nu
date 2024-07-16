@@ -21,7 +21,7 @@
 <link rel="mask-icon" href="https://clox.nu/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.110.0">
+<meta name="generator" content="Hugo 0.89.2" />
 <link rel="alternate" type="application/rss&#43;xml" href="https://clox.nu/posts/creation/index.xml">
 
 
@@ -222,7 +222,7 @@ June 1, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
   </header>
   <section class="entry-content">
     <p>这是一款很随意的 app，但这也是一款可以用 iPad 制作出来并可维护的 app。
-链接在这里
+ 链接在这里
 楔子 当我第一次吃惊地发现 iPad 居然可以用 Playground 写一个 app 并上架到 App Store 时，于是脑海里瞬间浮现出无数个想法，然后立马去试试。
 那时我完全没有接触过 SwiftUI，但是在我尝试试着在 iPad 上写一些代码时，借助 Playground 里的 code snippet，我竟发现 SwiftUI 原来现在已经发展到可以如此便捷高效地构建一个 app。
 然后我就决定写一个颜色转换再加上可以配色的超简洁的 app。
@@ -230,7 +230,7 @@ June 1, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
 几年前，我曾做过一个叫「今天的颜色」的 app，它的功能非常简单，就是生成一个颜色，每天一个不同的颜色，同时还会把 logo 改成当天的颜色。却也是因为功能太简单，被 App Store 拒绝上架。时到今日，today’s color 的 block 在这个 app 会在未来某个版本安排一下～纪念一下。
 Just Do It 4 月末，我开始了这个项目，经历了十几个版本的测试，也就大概十几天，上架了 App Store，在前几天还因为 App Store Connect 的服务不稳定稍稍拖慢上架速度。
 在 iPad 上开发过程中，还是给了我以下几点不方便的因素：
-难以调试，只允许做一个非常简单的项目，一旦复杂起来遇到不好解决的 bug 就得去 mac 上调试 搜索功能不够强大 性能不够，遇到较复杂的语句就无法编译，有时候会导致整个 Playground 卡住（可能是 bug）（就算是 M1 的 iPad 也性能不够，跟 mac 上的 M1 应该是缩水了的） 无法做本地化 等等… iPad 上开发 app 还有许多需要改善的地方，但这样的思路的确是一个相当好的思路，试想一下如果未来的 iPad 可以允许我们每个人轻松做一个游戏然后上架，每个人都可以把自己的想象发挥到极致而无需担心实现的难度，Apple 官方提供一套无版权的人物角色模型，类似现在的 SF Symbol。下一个时代是人人创作者的时代。...</p>
+ 难以调试，只允许做一个非常简单的项目，一旦复杂起来遇到不好解决的 bug 就得去 mac 上调试 搜索功能不够强大 性能不够，遇到较复杂的语句就无法编译，有时候会导致整个 Playground 卡住（可能是 bug）（就算是 M1 的 iPad 也性能不够，跟 mac 上的 M1 应该是缩水了的） 无法做本地化 等等…  iPad 上开发 app 还有许多需要改善的地方，但这样的思路的确是一个相当好的思路，试想一下如果未来的 iPad 可以允许我们每个人轻松做一个游戏然后上架，每个人都可以把自己的想象发挥到极致而无需担心实现的难度，Apple 官方提供一套无版权的人物角色模型，类似现在的 SF Symbol。下一个时代是人人创作者的时代。...</p>
   </section>
   <footer class="entry-footer">
 
@@ -250,7 +250,7 @@ May 14, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
     <p>在此之前 Telegram Bot 简明教程 I - 注册与发消息
 收指令 python-telegram-bot wiki 页面 介绍了如何使用 Python 脚本实现与 Bot 交互。
 以下是根据这个 wiki 页面编写的例程。
-接收 /start 指令 from telegram import Update from telegram.ext import Updater, CallbackContext, CommandHandler token = &#39;2110628450:AAHQ78uj42ddtdsx0gKfaZGyFUhpnQ13vyM&#39; def start(update: Update, context: CallbackContext): context.bot.send_message(chat_id=update.effective_chat.id, text=&#34;Let&#39;s start!&#34;) # 或 # update.message.reply_text(&#34;Let&#39;s start!&#34;) if __name__ == &#39;__main__&#39;: updater = Updater(token=token, use_context=True) #1 start_handler = CommandHandler(&#39;start&#39;, start) #2 updater.dispatcher.add_handler(start_handler) #3 updater.start_polling() #4 updater.idle() #5 首先根据 token 创建一个 updater 对象； 定义 start 函数，在函数体中实现给发指令的那个 chat_id 发送消息「Let’s start!...</p>
+接收 /start 指令 from telegram import Update from telegram.ext import Updater, CallbackContext, CommandHandler token = &#39;2110628450:AAHQ78uj42ddtdsx0gKfaZGyFUhpnQ13vyM&#39; def start(update: Update, context: CallbackContext): context.bot.send_message(chat_id=update.effective_chat.id, text=&#34;Let&#39;s start!&#34;) # 或 # update.message.reply_text(&#34;Let&#39;s start!&#34;) if __name__ == &#39;__main__&#39;: updater = Updater(token=token, use_context=True) #1 start_handler = CommandHandler(&#39;start&#39;, start) #2 updater.dispatcher.add_handler(start_handler) #3 updater.start_polling() #4 updater.idle() #5  首先根据 token 创建一个 updater 对象； 定义 start 函数，在函数体中实现给发指令的那个 chat_id 发送消息「Let’s start!...</p>
   </section>
   <footer class="entry-footer">
 
@@ -269,7 +269,7 @@ November 17, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Sidney Liu
   <section class="entry-content">
     <p>Telegram Bot，简而言之就是运行在 Telegram 上的可交互的「机器人」，你可以给它发送指令让它完成操作或是实现一些功能（付钱、游戏等等），或者可以在 Channel 或 Group 中发送特定消息。
 这是 官方介绍。它的主要原理就是开发者通过调用 Telegram Bot API 来实现接收指令、发消息以及实现各种功能。
-注册 与 @BotFather 对话，发送指令 /start 开始，/newbot 申请一个新的 Bot 账号。 接着，BotFather 会要求你输入这个 Bot 的名字和 ID。创建完成后，BotFather 会同时给你一个 token，记住这个 token。 此时，已经可以和这个 Bot 互动了，但是想要这个 Bot 也可以主动发消息，这时就要建立一个 Channel，并把这个 Bot 设置为管理员。这个 Channel 如果是 public，其链接可以自定义。这里以 private 为例。 由于 Channel 是 private，我们需要这个 Channel 的 ID 来操作，这里可以通过将 Channel 内的消息转发给 @JsonDumpBot 来查看。可以看到此 Channel 的 ID 是 -1001790411176。 发消息 在官方文档的 Making requests 介绍中讲到，可以使用 GET 或 POST 请求以下 URL。...</p>
+注册  与 @BotFather 对话，发送指令 /start 开始，/newbot 申请一个新的 Bot 账号。  接着，BotFather 会要求你输入这个 Bot 的名字和 ID。创建完成后，BotFather 会同时给你一个 token，记住这个 token。  此时，已经可以和这个 Bot 互动了，但是想要这个 Bot 也可以主动发消息，这时就要建立一个 Channel，并把这个 Bot 设置为管理员。这个 Channel 如果是 public，其链接可以自定义。这里以 private 为例。  由于 Channel 是 private，我们需要这个 Channel 的 ID 来操作，这里可以通过将 Channel 内的消息转发给 @JsonDumpBot 来查看。可以看到此 Channel 的 ID 是 -1001790411176。  发消息 在官方文档的 Making requests 介绍中讲到，可以使用 GET 或 POST 请求以下 URL。...</p>
   </section>
   <footer class="entry-footer">
 
@@ -292,8 +292,8 @@ November 10, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
 什么是渐进式 JPEG（Progressive JPEG） 我们知道，JPEG 格式是目前兼容性最高，使用范围最广的图片有损压缩格式。而其中的编码方式分为多种，这里主要讨论两种：Baseline JPEG 和 Progressive JPEG。
 对于 Baseline JPEG，图片是从上到下一行行顺序存储的，因此在加载图片的时候能看到图片从上到下慢慢显现出来。
 而 Progressive JPEG，图片会由模糊到清晰渐进式地分多次存储，因此在加载图片时看到的图片是由模糊到清晰渲染的。
-图片来自「简书」
-这种渐进式 JPEG 显然可以在图片未加载完全的时候就能看到它的「预览」，而且渐进式 JPEG 的文件大小要略小于 Baseline JPEG。不过渐进式 JPEG 在 Windows 7 以前的 IE 等浏览器不受支持，会在完全加载完成后才显示图片。
+ 图片来自「简书」
+ 这种渐进式 JPEG 显然可以在图片未加载完全的时候就能看到它的「预览」，而且渐进式 JPEG 的文件大小要略小于 Baseline JPEG。不过渐进式 JPEG 在 Windows 7 以前的 IE 等浏览器不受支持，会在完全加载完成后才显示图片。
 目前多图 blog 之所以加载时间很长，是因为这些图片存储的编码方式都是 Baseline JPEG。
 🎬 于是，我在之前的 GitHub Actions 配置文件中补充了将这些图片转换为 Progressive JPEG 的命令，当前的 blog 在合并入主干分支后 GitHub Actions 会先使用 hugo 命令创建 HTML1，然后 Progressive JPEG 命令再将所有 JPEG 图片批量处理。
 在 Linux 中，使用 ImageMagick 处理图片。其中的 -interlace 选项有提供将图片转换为 Progressive JPEG。...</p>
@@ -343,9 +343,8 @@ $ ~/.dropbox-dist/dropboxd 我在运行这句命令之后这段程序执行了�
 于是立马在 DigitalOcean 中找到答案，我缺少了一些依赖，运行以下命令解决此问题。
 $ sudo apt install libc6 libglapi-mesa libxdamage1 libxfixes3 libxcb-glx0 libxcb-dri2-0 libxcb-dri3-0 libxcb-present0 libxcb-sync1 libxshmfence1 libxxf86vm1 安装依赖后，运行上述命令，得到以下输出：
 根据提示需要打开 URL 登录自己的账号以绑定这台服务器。打开后界面如下。
-如果自己的 Dropbox 账号是通过 Google 或者 Apple 登录的话，需要先登录自己的账号设置一个密码才能在这里登录。
-登录之后，控制台会出现一句话，
-This computer is now linked to Dropbox....</p>
+ 如果自己的 Dropbox 账号是通过 Google 或者 Apple 登录的话，需要先登录自己的账号设置一个密码才能在这里登录。
+ 登录之后，控制台会出现一句话，...</p>
   </section>
   <footer class="entry-footer">
 
@@ -380,7 +379,7 @@ August 14, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Sidney Liu
 </footer>
 
     </main><footer class="footer">
-    <span>&copy; 2023 <a href="https://clox.nu/">cloxnu&#39;s Creative Space</a></span>
+    <span>&copy; 2024 <a href="https://clox.nu/">cloxnu&#39;s Creative Space</a></span>
     <span>&middot;</span>
     <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
     <span>&middot;</span>

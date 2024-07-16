@@ -21,7 +21,7 @@
 <link rel="mask-icon" href="https://clox.nu/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.110.0">
+<meta name="generator" content="Hugo 0.89.2" />
 <link rel="alternate" type="application/rss&#43;xml" href="https://clox.nu/index.xml">
 
 
@@ -44,7 +44,7 @@ if (!doNotTrack) {
 <meta property="og:description" content="Hi, I&#39;m creating more creative works. Here are my thoughts, essays and expectations." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://clox.nu/" />
-<meta property="og:updated_time" content="2023-02-10T23:00:58+08:00" /><meta property="og:site_name" content="cloxnu&#39;s creative space" />
+<meta property="og:updated_time" content="2024-07-16T10:33:30+08:00" /><meta property="og:site_name" content="cloxnu&#39;s creative space" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="cloxnu&#39;s Creative Space"/>
 <meta name="twitter:description" content="Hi, I&#39;m creating more creative works. Here are my thoughts, essays and expectations."/>
@@ -151,6 +151,29 @@ if (!doNotTrack) {
 
   <header class="entry-header">
     <h2>
+      如何使用相机拍摄包含精准地理位置信息的照片
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>🤔 当我们使用手机拍照时，按下快门的那一刻，程序会自动获取当前地理位置，并将其写入照片中。而当我们拥有海量包含地理位置并通过 iCloud 或者 NAS 管理的照片时，这些照片会被程序自动归类，因此可以省去大量整理照片的时间。
+可是当拍照的设备转移到成像质量更好的相机时，我们却很难方便地获取地理位置信息，因为现在大多数的单反/无反相机都不带有 GPS 模块。因此目前这些相机的解决方案是通过手机蓝牙连接来获取 GPS 信息以写入照片。
+在实际使用中，相机需要手机打开对应相机 App 并连接数秒才能更新正确位置，否则相机要么不会写入地理位置，要么写入一个老的地理位置。在拍照时如果总是需要用手机来连接，那一定相当影响拍摄体验。
+于是经过一段时间的思考，找到了一个可行的方案：在拍照期间，可以用含有 GPS 模块的设备（例如手机）记录自己的轨迹信息，此后可以根据照片拍摄时间和这些轨迹信息计算拍摄的地点，因而写入照片 EXIF 信息中。
+动手 起初，我打算自己实现通过轨迹信息计算拍摄地点的脚本。
+首先通过手机上的轨迹记录软件得到一个 GPX 文件，GPX 文件的数据格式本质上是 XML。
+&lt;trk&gt; &lt;name&gt;...&lt;/name&gt; ... &lt;trkseg&gt; &lt;trkpt lat=&#34;30.313094&#34; lon=&#34;120.382447&#34;&gt; &lt;ele&gt;8.456302&lt;/ele&gt; &lt;extensions&gt; &lt;speed&gt;0.059180&lt;/speed&gt; &lt;/extensions&gt; &lt;hdop&gt;14.278474&lt;/hdop&gt; &lt;vdop&gt;10.027264&lt;/vdop&gt; &lt;course&gt;-1.000000&lt;/course&gt; &lt;time&gt;2021-05-08T13:31:10Z&lt;/time&gt; &lt;/trkpt&gt; &lt;trkpt lat=&#34;30.313110&#34; lon=&#34;120.382330&#34;&gt; &lt;ele&gt;9.418098&lt;/ele&gt; &lt;extensions&gt; &lt;speed&gt;0.938084&lt;/speed&gt; &lt;/extensions&gt; &lt;hdop&gt;14.331614&lt;/hdop&gt; &lt;vdop&gt;9.951165&lt;/vdop&gt; &lt;course&gt;286.357989&lt;/course&gt; &lt;time&gt;2021-05-08T13:32:06Z&lt;/time&gt; &lt;/trkpt&gt; &lt;/trkseg&gt; &lt;/trk&gt; 类似这样，每个 GPX 文件由 &lt;trk&gt; 标签对组成，&lt;trk&gt; 标签对又由 &lt;trkseg&gt; 标签对组成。事实上在 GPX 记录软件中可以通过暂停、继续在同一个 GPX 文件中记录多个轨迹。因此每个 GPX 文件可以解析出由 TrackSegment 为单位的多组数据。...</p>
+  </section>
+  <footer class="entry-footer">
+
+October 7, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Sidney Liu
+</footer>
+  <a class="entry-link" aria-label="post link to 如何使用相机拍摄包含精准地理位置信息的照片" href="https://clox.nu/blog/add-gps-exif-info-to-camera-photos/"></a>
+</article>
+
+<article class="post-entry"> 
+
+  <header class="entry-header">
+    <h2>
       如何用命令行将 Linux 服务器上的文件备份至 Dropbox
     </h2>
   </header>
@@ -162,9 +185,8 @@ $ ~/.dropbox-dist/dropboxd 我在运行这句命令之后这段程序执行了�
 于是立马在 DigitalOcean 中找到答案，我缺少了一些依赖，运行以下命令解决此问题。
 $ sudo apt install libc6 libglapi-mesa libxdamage1 libxfixes3 libxcb-glx0 libxcb-dri2-0 libxcb-dri3-0 libxcb-present0 libxcb-sync1 libxshmfence1 libxxf86vm1 安装依赖后，运行上述命令，得到以下输出：
 根据提示需要打开 URL 登录自己的账号以绑定这台服务器。打开后界面如下。
-如果自己的 Dropbox 账号是通过 Google 或者 Apple 登录的话，需要先登录自己的账号设置一个密码才能在这里登录。
-登录之后，控制台会出现一句话，
-This computer is now linked to Dropbox....</p>
+ 如果自己的 Dropbox 账号是通过 Google 或者 Apple 登录的话，需要先登录自己的账号设置一个密码才能在这里登录。
+ 登录之后，控制台会出现一句话，...</p>
   </section>
   <footer class="entry-footer">
 
@@ -186,7 +208,7 @@ September 1, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
   </header>
   <section class="entry-content">
     <p>本文来自生产力 ℙ𝕣𝕠𝕕𝕦𝕔𝕥𝕚𝕧𝕚𝕥𝕪 系列文章。
-我们知道，在一台安装了 Hugo 命令行工具的电脑上，只需运行命令
+ 我们知道，在一台安装了 Hugo 命令行工具的电脑上，只需运行命令
 $ hugo new ... 即可创建一个新的 blog。
 为了发挥 iPad Pro 的「生产力」属性，我使用 Taio 的「动作」实现了此命令，因此可以在 iPad Pro 上高效快速地撰写 blog。
 首先使用「Working Copy」拉取 GitHub 上的 blog 远程仓库。
@@ -234,7 +256,7 @@ August 14, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Sidney Liu
   </header>
   <section class="entry-content">
     <p>本文来自生产力 ℙ𝕣𝕠𝕕𝕦𝕔𝕥𝕚𝕧𝕚𝕥𝕪 系列文章。
-说到 Markdown 团队协作，就不得不提到 HackMD。
+ 说到 Markdown 团队协作，就不得不提到 HackMD。
 我有一段时间在寻找 Markdown 合作 &amp; 同步的过程中，偶然间发现了 HackMD，当时使用了一下，意外地发现相当好用。
 HackMD 支持 MathJax 公式，以下是官方宣传的特色功能：（当时觉得这正是我想要的）
 注册账号登录以后，在个人页面可以建立不同的空间，给不同的文件放置不同的标签。这里的标签就已经起到了分类的作用，所以 HackMD 没有「文件夹」。
@@ -306,7 +328,7 @@ February 20, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
   </header>
   <section class="entry-content">
     <p>在 GitHub 仓库内创建 .travis.yml 文件并添加以下内容后，即可自动部署此 Hugo 站点。
-dist: bionic addons: snaps: - hugo install: - cd ./src/ - git submodule update --init --remote script: - hugo -D after_script: - cd .. - git config --global user.name &#34;Travis CI&#34; - git config --global user.email &lt;your-email&gt; - git remote set-url origin &#34;https://${GITHUB_TOKEN}@github.com/&lt;username&gt;/&lt;repo-name&gt;.git&#34; - git checkout main - git add . - git commit -m &#34;Update Blog By TravisCI With Build $TRAVIS_BUILD_NUMBER&#34; - git push origin 记得在 travis-ci....</p>
+dist: bionic addons: snaps: - hugo install: - cd ./src/ - git submodule update --init --remote script: - hugo -D after_script: - cd .. - git config --global user.name &#34;Travis CI&#34; - git config --global user.email &lt;your-email&gt; - git remote set-url origin &#34;https://${GITHUB_TOKEN}@github.com/&lt;username&gt;/&lt;repo-name&gt;.git&#34; - git checkout main - git add . - git commit -m &#34;Update Blog By TravisCI With Build $TRAVIS_BUILD_NUMBER&#34; - git push origin   记得在 travis-ci....</p>
   </section>
   <footer class="entry-footer">
 
@@ -357,23 +379,6 @@ February 14, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
 </footer>
   <a class="entry-link" aria-label="post link to The Amazing Things" href="https://clox.nu/blog/the-amazing-things/"></a>
 </article>
-
-<article class="post-entry"> 
-
-  <header class="entry-header">
-    <h2>
-      Welcome to clox.nu
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>clox.nu 已全面竣工，欢迎访问...</p>
-  </section>
-  <footer class="entry-footer">
-
-February 8, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
-</footer>
-  <a class="entry-link" aria-label="post link to Welcome to clox.nu" href="https://clox.nu/blog/welcome-to-cloxnu/"></a>
-</article>
 <footer class="page-footer">
   <nav class="pagination">
     <a class="prev" href="https://clox.nu/">« Prev Page</a>
@@ -382,7 +387,7 @@ February 8, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
 </footer>
 
     </main><footer class="footer">
-    <span>&copy; 2023 <a href="https://clox.nu/">cloxnu&#39;s Creative Space</a></span>
+    <span>&copy; 2024 <a href="https://clox.nu/">cloxnu&#39;s Creative Space</a></span>
     <span>&middot;</span>
     <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
     <span>&middot;</span>

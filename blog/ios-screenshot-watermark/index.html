@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>iOS 上的屏幕截图隐藏 / 显示内容的研究 | cloxnu&#39;s Creative Space</title>
+
+<meta name="keywords" content="" />
+<meta name="description" content="背景 在现代数字交流中，屏幕截图成为一种常见的工具，不仅用于记录和保存内容，还广泛用于分享信息。一篇题为《Why do people take Screenshots on their Smartphones?》1 的研究论文指出，有97%的受访者曾将截图发送给他人。这一数据表明，屏幕截图不仅仅是个人记录的手段，更是一种重要的社交互动方式。通过截图，用户能够快速分享对话、通知或有用的内容，从而在信息传播和交流中发挥关键作用。
+然而，对于这样高比例的分享行为，用户可能的目的有：
+ 认为当前屏幕的内容有趣，想要分享给其他人； 认为当前屏幕的内容不符合预期，想要反馈给开发者；  于是，我们可以从中做出这些事：
+ 在用户截图时将品牌 logo 放置在不影响其他内容的地方，提高品牌宣传力； 将屏幕截图中的敏感信息隐藏起来，防止这些内容暴露给其他人，保护用户隐私； 在隐私协议允许范围内将诊断信息隐藏在截图中，从而更好地优化产品可能遇到的问题；  因此，接下来我们将开始研究实现方式。
+使用 mask 隐藏 / 显示信息 本质上来讲，我们如果做到了可以在截屏时隐藏信息，那也就同样做到了显示信息，我们可以通过隐藏 / 显示蒙板的内容来控制实际内容的显示。对于 SwiftUI，有以下代码：
+content .mask { ZStack { Color.white HideWhenTakingScreenshot { Color.black } } .compositingGroup() .luminanceToAlpha() } 假设我们已经实现了 HideWhenTakingScreenshot 中的内容，在屏幕截图时隐藏 Color.black ，对于 content ，也就相当于在屏幕截图时显示了，UIKit 同理。
+在屏幕截图时隐藏信息 经过层层过滤，其实我们的真实需求是如何在屏幕截图时隐藏信息。
+UITextField 的神奇作用 说到隐私保护，我们不得不想起当用户在密码框中输入密码时作为 iOS 系统级的保护，他会在用户截屏时自动隐藏密码输入框，如以下代码所示：
+struct PasswordTextView: UIViewRepresentable { @Binding var password: String? func makeUIView(context: Context) -&gt; UITextField { let textField = UITextField() textField.">
+<meta name="author" content="Sidney Liu">
+<link rel="canonical" href="https://clox.nu/blog/ios-screenshot-watermark/" />
+<link href="/assets/css/stylesheet.min.555a4d6fef760f048c5b1bf30019b077e4b6fb2de917654189208a1f5141f43b.css" integrity="sha256-VVpNb&#43;92DwSMWxvzABmwd&#43;S2&#43;y3pF2VBiSCKH1FB9Ds=" rel="preload stylesheet"
+    as="style">
+
+<link rel="icon" href="https://clox.nu/logo/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://clox.nu/logo/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://clox.nu/logo/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://clox.nu/apple-touch-icon.png">
+<link rel="mask-icon" href="https://clox.nu/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.89.2" />
+
+
+
+
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-151087524-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<meta property="og:title" content="iOS 上的屏幕截图隐藏 / 显示内容的研究" />
+<meta property="og:description" content="背景 在现代数字交流中，屏幕截图成为一种常见的工具，不仅用于记录和保存内容，还广泛用于分享信息。一篇题为《Why do people take Screenshots on their Smartphones?》1 的研究论文指出，有97%的受访者曾将截图发送给他人。这一数据表明，屏幕截图不仅仅是个人记录的手段，更是一种重要的社交互动方式。通过截图，用户能够快速分享对话、通知或有用的内容，从而在信息传播和交流中发挥关键作用。
+然而，对于这样高比例的分享行为，用户可能的目的有：
+ 认为当前屏幕的内容有趣，想要分享给其他人； 认为当前屏幕的内容不符合预期，想要反馈给开发者；  于是，我们可以从中做出这些事：
+ 在用户截图时将品牌 logo 放置在不影响其他内容的地方，提高品牌宣传力； 将屏幕截图中的敏感信息隐藏起来，防止这些内容暴露给其他人，保护用户隐私； 在隐私协议允许范围内将诊断信息隐藏在截图中，从而更好地优化产品可能遇到的问题；  因此，接下来我们将开始研究实现方式。
+使用 mask 隐藏 / 显示信息 本质上来讲，我们如果做到了可以在截屏时隐藏信息，那也就同样做到了显示信息，我们可以通过隐藏 / 显示蒙板的内容来控制实际内容的显示。对于 SwiftUI，有以下代码：
+content .mask { ZStack { Color.white HideWhenTakingScreenshot { Color.black } } .compositingGroup() .luminanceToAlpha() } 假设我们已经实现了 HideWhenTakingScreenshot 中的内容，在屏幕截图时隐藏 Color.black ，对于 content ，也就相当于在屏幕截图时显示了，UIKit 同理。
+在屏幕截图时隐藏信息 经过层层过滤，其实我们的真实需求是如何在屏幕截图时隐藏信息。
+UITextField 的神奇作用 说到隐私保护，我们不得不想起当用户在密码框中输入密码时作为 iOS 系统级的保护，他会在用户截屏时自动隐藏密码输入框，如以下代码所示：
+struct PasswordTextView: UIViewRepresentable { @Binding var password: String? func makeUIView(context: Context) -&gt; UITextField { let textField = UITextField() textField." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://clox.nu/blog/ios-screenshot-watermark/" />
+<meta property="article:published_time" content="2024-07-16T10:33:30+08:00" />
+<meta property="article:modified_time" content="2024-07-16T10:33:30+08:00" /><meta property="og:site_name" content="cloxnu&#39;s creative space" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="iOS 上的屏幕截图隐藏 / 显示内容的研究"/>
+<meta name="twitter:description" content="背景 在现代数字交流中，屏幕截图成为一种常见的工具，不仅用于记录和保存内容，还广泛用于分享信息。一篇题为《Why do people take Screenshots on their Smartphones?》1 的研究论文指出，有97%的受访者曾将截图发送给他人。这一数据表明，屏幕截图不仅仅是个人记录的手段，更是一种重要的社交互动方式。通过截图，用户能够快速分享对话、通知或有用的内容，从而在信息传播和交流中发挥关键作用。
+然而，对于这样高比例的分享行为，用户可能的目的有：
+ 认为当前屏幕的内容有趣，想要分享给其他人； 认为当前屏幕的内容不符合预期，想要反馈给开发者；  于是，我们可以从中做出这些事：
+ 在用户截图时将品牌 logo 放置在不影响其他内容的地方，提高品牌宣传力； 将屏幕截图中的敏感信息隐藏起来，防止这些内容暴露给其他人，保护用户隐私； 在隐私协议允许范围内将诊断信息隐藏在截图中，从而更好地优化产品可能遇到的问题；  因此，接下来我们将开始研究实现方式。
+使用 mask 隐藏 / 显示信息 本质上来讲，我们如果做到了可以在截屏时隐藏信息，那也就同样做到了显示信息，我们可以通过隐藏 / 显示蒙板的内容来控制实际内容的显示。对于 SwiftUI，有以下代码：
+content .mask { ZStack { Color.white HideWhenTakingScreenshot { Color.black } } .compositingGroup() .luminanceToAlpha() } 假设我们已经实现了 HideWhenTakingScreenshot 中的内容，在屏幕截图时隐藏 Color.black ，对于 content ，也就相当于在屏幕截图时显示了，UIKit 同理。
+在屏幕截图时隐藏信息 经过层层过滤，其实我们的真实需求是如何在屏幕截图时隐藏信息。
+UITextField 的神奇作用 说到隐私保护，我们不得不想起当用户在密码框中输入密码时作为 iOS 系统级的保护，他会在用户截屏时自动隐藏密码输入框，如以下代码所示：
+struct PasswordTextView: UIViewRepresentable { @Binding var password: String? func makeUIView(context: Context) -&gt; UITextField { let textField = UITextField() textField."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://clox.nu/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "iOS 上的屏幕截图隐藏 / 显示内容的研究",
+      "item": "https://clox.nu/blog/ios-screenshot-watermark/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "iOS 上的屏幕截图隐藏 / 显示内容的研究",
+  "name": "iOS 上的屏幕截图隐藏 \/ 显示内容的研究",
+  "description": "背景 在现代数字交流中，屏幕截图成为一种常见的工具，不仅用于记录和保存内容，还广泛用于分享信息。一篇题为《Why do people take Screenshots on their Smartphones?》1 的研究论文指出，有97%的受访者曾将截图发送给他人。这一数据表明，屏幕截图不仅仅是个人记录的手段，更是一种重要的社交互动方式。通过截图，用户能够 …",
+  "keywords": [
+    
+  ],
+  "articleBody": "背景 在现代数字交流中，屏幕截图成为一种常见的工具，不仅用于记录和保存内容，还广泛用于分享信息。一篇题为《Why do people take Screenshots on their Smartphones?》1 的研究论文指出，有97%的受访者曾将截图发送给他人。这一数据表明，屏幕截图不仅仅是个人记录的手段，更是一种重要的社交互动方式。通过截图，用户能够快速分享对话、通知或有用的内容，从而在信息传播和交流中发挥关键作用。\n然而，对于这样高比例的分享行为，用户可能的目的有：\n 认为当前屏幕的内容有趣，想要分享给其他人； 认为当前屏幕的内容不符合预期，想要反馈给开发者；  于是，我们可以从中做出这些事：\n 在用户截图时将品牌 logo 放置在不影响其他内容的地方，提高品牌宣传力； 将屏幕截图中的敏感信息隐藏起来，防止这些内容暴露给其他人，保护用户隐私； 在隐私协议允许范围内将诊断信息隐藏在截图中，从而更好地优化产品可能遇到的问题；  因此，接下来我们将开始研究实现方式。\n使用 mask 隐藏 / 显示信息 本质上来讲，我们如果做到了可以在截屏时隐藏信息，那也就同样做到了显示信息，我们可以通过隐藏 / 显示蒙板的内容来控制实际内容的显示。对于 SwiftUI，有以下代码：\ncontent .mask { ZStack { Color.white HideWhenTakingScreenshot { Color.black } } .compositingGroup() .luminanceToAlpha() } 假设我们已经实现了 HideWhenTakingScreenshot 中的内容，在屏幕截图时隐藏 Color.black ，对于 content ，也就相当于在屏幕截图时显示了，UIKit 同理。\n在屏幕截图时隐藏信息 经过层层过滤，其实我们的真实需求是如何在屏幕截图时隐藏信息。\nUITextField 的神奇作用 说到隐私保护，我们不得不想起当用户在密码框中输入密码时作为 iOS 系统级的保护，他会在用户截屏时自动隐藏密码输入框，如以下代码所示：\nstruct PasswordTextView: UIViewRepresentable { @Binding var password: String? func makeUIView(context: Context) - UITextField { let textField = UITextField() textField.isSecureTextEntry = true return textField } func updateUIView(_ uiView: UITextField, context: Context) { uiView.text = password } } 这是一个最简单的用 UIKit 实现的密码框，可以将这个 PasswordTextView 添加到 SwiftUI 视图中，于是我们发现，当输入一些密码后并截图，密码框会在截图中消失不见。\n那么这是如何做到的呢？我意识到一定是 isSecureTextEntry 这个属性在作祟，因为只要去掉这一行，截图消失这一效果将不再起作用。\n于是我们可以使用 LLDB 命令找到 setSecureTextEntry: 这个方法调用的具体位置。\n(lldb) image lookup -n \"-[UITextField setSecureTextEntry:]\" 1 match found in /Library/Developer/CoreSimulator/Volumes/iOS_22A5297f/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 18.0.simruntime/Contents/Resources/RuntimeRoot/System/Library/PrivateFrameworks/UIKitCore.framework/UIKitCore: Address: UIKitCore[0x00000000011406bc] (UIKitCore.__TEXT.__text + 18073272) Summary: UIKitCore`-[UITextField setSecureTextEntry:] 看起来这发生在 UIKitCore.framework ，将这个文件在反编译软件里进行反编译后，并找到 -[UITextField setSecureTextEntry:] ，于是得到这个方法实现的伪代码：\n/* @class UITextField */ -(int)setSecureTextEntry:(int)arg2 { r2 = arg2; r1 = arg1; r31 = r31 - 0x30; var_10 = r20; stack[-24] = r19; saved_fp = r29; stack[-8] = r30; r20 = r2; r19 = arg0; [arg0 textInputTraits]; r0 = loc_18c2b3a10(); var_18 = r0; if ([r0 isSecureTextEntry] != r20) { r2 = r20; [var_18 setSecureTextEntry:r2]; [r19 _didChangeSecureTextEntry]; } r0 = var_18; if (((stack[-8] ^ stack[-8] * 0x2) \u0026 0x40000000) != 0x0) { asm { brk #0xc471 }; r0 = loc_1868d24b4(r0, r1, r2); } else { r0 = loc_18c2b3bb0(); } return r0; } 从这段伪代码中可以看出，其中最具嫌疑的是 17 行的 [var_18 setSecureTextEntry:r2]; 和 18 行的 [r19 _didChangeSecureTextEntry]; ，我们可以先排除 18 行的影响。因我们已知 11 行 r19 = arg0 即汇编代码中 mov x19, x0 ，所以这里的 r19 相当于当前 UITextField 实例。故这一行实际是在调用 [UITextField _didChangeSecureTextEntry] 。于是我们在这行打上断点：\n(lldb) b -[UITextField _didChangeSecureTextEntry] Breakpoint 1: where = UIKitCore`-[UITextField _didChangeSecureTextEntry], address = 0x0000000185d95714 运行代码，直到程序停在断点位置，随后使用命令：\n(lldb) thread return 直接返回当前函数。然后继续运行代码，我们可以看到文本框的密码特性将不再生效，截图也不再隐藏，于是我们断定具体生效位置是在 [UITextField _didChangeSecureTextEntry] 内部。\n证明 在源代码中我们使用 Objective-C 定义 SWTextField ，继承 UITextField ，声明 _didChangeSecureTextEntry 并覆写 isSecureTextEntry get 方法：\n@interface SWTextField : UITextField - (void)_didChangeSecureTextEntry; @end @implementation SWTextField - (BOOL)isSecureTextEntry { return YES; } @end 然后将 PasswordTextView 改成：\nstruct PasswordTextView: UIViewRepresentable { @Binding var password: String? func makeUIView(context: Context) - UITextField { let textField = SWTextField() textField._didChangeSecureTextEntry() return textField } func updateUIView(_ uiView: UITextField, context: Context) { uiView.text = password } } 即可看到能够证明 _didChangeSecureTextEntry 方法是有效的。\nDive into [UITextField _didChangeSecureTextEntry] 回到断点 [UITextField _didChangeSecureTextEntry，我们可以在 Xcode 中看到：\nUIKitCore`-[UITextField _didChangeSecureTextEntry]: 0x185d95714 0: sub sp, sp, #0x50 0x185d95718 4: stp x24, x23, [sp, #0x10] 0x185d9571c 8: stp x22, x21, [sp, #0x20] 0x185d95720 12: stp x20, x19, [sp, #0x30] 0x185d95724 16: stp x29, x30, [sp, #0x40] 0x185d95728 20: add x29, sp, #0x40 0x185d9572c 24: mov x19, x0 0x185d95730 28: bl 0x1867a1ac0 ; objc_msgSend$_setNeedsStyleRecalc 0x185d95734 32: mov x0, x19 0x185d95738 36: bl 0x1867acb20 ; objc_msgSend$_shouldObscureInput 0x185d9573c 40: mov x20, x0 0x185d95740 44: adrp x22, 417875 0x185d95744 48: add x22, x22, #0xa48 ; _MergedGlobals + 132 0x185d95748 52: ldrsw x8, [x22, #0x40] 0x185d9574c 56: ldr x0, [x19, x8] 0x185d95750 60: mov x2, x20 0x185d95754 64: bl 0x18688aae0 ; objc_msgSend$setDocumentObscured: 0x185d95758 68: mov x0, x19 0x185d9575c 72: bl 0x18675d0a0 ; objc_msgSend$_fieldEditor 0x185d95760 76: bl 0x18607f9d0 ; symbol stub for: objc_claimAutoreleasedReturnValue 0x185d95764 80: mov x21, x0 0x185d95768 84: mov x0, x19 0x185d9576c 88: bl 0x18683da20 ; objc_msgSend$isSecureTextEntry 0x185d95770 92: mov x2, x0 0x185d95774 96: mov x0, x21 0x185d95778 100: bl 0x1868a9e20 ; objc_msgSend$setSecureTextEntry: 0x185d9577c 104: bl 0x18607fb50 ; symbol stub for: objc_release_x21 0x185d95780 108: mov w8, #0x12 ; =18 0x185d95784 112: cmp w20, #0x0 0x185d95788 116: csel w21, w8, wzr, ne 0x185d9578c 120: ldrsw x8, [x22] 0x185d95790 124: ldr x0, [x19, x8] - 0x185d95794 128: bl 0x186844600 ; objc_msgSend$layer 0x185d95798 132: bl 0x18607f9d0 ; symbol stub for: objc_claimAutoreleasedReturnValue 0x185d9579c 136: mov x22, x0 0x185d957a0 140: mov x2, x21 0x185d957a4 144: bl 0x186889ba0 ; objc_msgSend$setDisableUpdateMask: 0x185d957a8 148: bl 0x18607fb5c ; symbol stub for: objc_release_x22 0x185d957ac 152: adrp x24, 371432 0x185d957b0 156: ldr x0, [x24, #0x6d8] 0x185d957b4 160: bl 0x1867d0b80 ; objc_msgSend$activeInstance 0x185d957b8 164: bl 0x18607f9d0 ; symbol stub for: objc_claimAutoreleasedReturnValue 0x185d957bc 168: mov x21, x0 0x185d957c0 172: bl 0x186833120 ; objc_msgSend$inputDelegateManager 0x185d957c4 176: bl 0x18607f9d0 ; symbol stub for: objc_claimAutoreleasedReturnValue 0x185d957c8 180: mov x22, x0 0x185d957cc 184: bl 0x186840c00 ; objc_msgSend$keyInputDelegate 0x185d957d0 188: bl 0x18607f9d0 ; symbol stub for: objc_claimAutoreleasedReturnValue 0x185d957d4 192: mov x23, x0 0x185d957d8 196: bl 0x18607fb68 ; symbol stub for: objc_release_x23 0x185d957dc 200: bl 0x18607fb5c ; symbol stub for: objc_release_x22 0x185d957e0 204: bl 0x18607fb50 ; symbol stub for: objc_release_x21 0x185d957e4 208: cmp x23, x19 0x185d957e8 212: b.ne 0x185d95808 ; 244 0x185d957ec 216: ldr x0, [x24, #0x6d8] 0x185d957f0 220: bl 0x1867d0b80 ; objc_msgSend$activeInstance 0x185d957f4 224: bl 0x18607f9d0 ; symbol stub for: objc_claimAutoreleasedReturnValue 0x185d957f8 228: mov x21, x0 0x185d957fc 232: mov x2, x19 0x185d95800 236: bl 0x186888640 ; objc_msgSend$setDelegate: 0x185d95804 240: bl 0x18607fb50 ; symbol stub for: objc_release_x21 0x185d95808 244: adrp x8, 371433 0x185d9580c 248: ldr x21, [x8, #0x398] 0x185d95810 252: mov x0, x19 0x185d95814 256: bl 0x186878b60 ; objc_msgSend$semanticContentAttribute 0x185d95818 260: mov x2, x0 0x185d9581c 264: mov x0, x21 0x185d95820 268: bl 0x1868e3b40 ; objc_msgSend$userInterfaceLayoutDirectionForSemanticContentAttribute: 0x185d95824 272: cmp x0, #0x1 0x185d95828 276: b.ne 0x185d95848 ; 308 0x185d9582c 280: mov x0, x19 0x185d95830 284: bl 0x1868d07c0 ; objc_msgSend$textAlignment 0x185d95834 288: cmp x0, #0x4 0x185d95838 292: b.ne 0x185d95848 ; 308 0x185d9583c 296: mov x0, x19 0x185d95840 300: mov w2, #0x2 ; =2 0x185d95844 304: bl 0x1868b1ba0 ; objc_msgSend$setTextAlignment: 0x185d95848 308: cbz w20, 0x185d95860 ; 332 0x185d9584c 312: mov x0, x19 0x185d95850 316: bl 0x1868786c0 ; objc_msgSend$selectionRange 0x185d95854 320: cbz x1, 0x185d95860 ; 332 0x185d95858 324: mov x0, x19 0x185d9585c 328: bl 0x186876fc0 ; objc_msgSend$selectAll 0x185d95860 332: mov x0, x19 0x185d95864 336: bl 0x1868359e0 ; objc_msgSend$interactionAssistant 0x185d95868 340: bl 0x18607f9d0 ; symbol stub for: objc_claimAutoreleasedReturnValue 0x185d9586c 344: str x0, [sp, #0x8] 0x185d95870 348: bl 0x1868de180 ; objc_msgSend$updateDisplayedSelection 0x185d95874 352: ldr x0, [sp, #0x8] 0x185d95878 356: ldp x29, x30, [sp, #0x40] 0x185d9587c 360: ldp x20, x19, [sp, #0x30] 0x185d95880 364: ldp x22, x21, [sp, #0x20] 0x185d95884 368: ldp x24, x23, [sp, #0x10] 0x185d95888 372: add sp, sp, #0x50 0x185d9588c 376: b 0x18607fb08 ; symbol stub for: objc_release 对于这段程序，有 3 处位置值得注意：\n 18行的 setDocumentObsecured: 27行的 setSecureTextEntry: 38行的 setDisableUpdateMask:  为了筛选这些代码是哪里真正有效，我们可以单步调试到这些行，然后使用命令\n(lldb) thread return 跳过其后的代码，通过当前截屏是否正常生效来确定运行过的代码是否起作用。\n无论我们定位到 18 行还是 27 行，在使用 thread return 命令后都会出现在密码输入框输入的文字是 “·\"，而截屏后的这些字符并不会消失。直到第 38 行。\n于是我们断点到第 38 行，输入命令\n(lldb) po $x0 0x600000287100; position = CGPoint (0 0); bounds = CGRect (0 0; 0 0); delegate = 0x111021eb0; frame = (0 0; 0 0); layer = 0x600000287100; opaque = YES; allowsGroupOpacity = YES;  得知当前调用 setDisableUpdateMask: 是 CALayer 。然后再尝试断点第 34 行，并再次输入\n(lldb) po $x0 = (0 0; 0 0); layer =  得知对应 view 是 _UITextLayoutCanvasView ，并跟据反编译结果\n[*(r19 + sign_extend_64(*(int32_t *)0x1e68ec204)) layer]; 然后查找地址 0x1e68ec204 后，发现是原 UITextField 的一个子 view：-[UITextField _textCanvasView]。\n因此我有一个大胆的猜测，只需调用任意 CALayer 的 setDisableUpdateMask: 方法即可在截屏隐藏当前 CALayer 的内容，其对应参数是存储在 x2 寄存器存储的值。而 x2 的值是在 29 行 mov w8, #0x12 赋值的。于是猜测该方法的参数是一个枚举值。在这里该值为 0x12 。\n因此，给 CALayer 扩展该方法：\n@interface CALayer () - (void)setDisableUpdateMask:(unsigned int)aValue; @end 然后我们可以实现之前未完成的 HideWhenTakingScreenshot ，并给 setDisableUpdateMask 方法传入参数0x12 ：\nstruct HideWhenTakingScreenshot: UIViewRepresentable { var color: UIColor = .black func makeUIView(context: Context) - UIView { let view = UIView() view.layer.setDisableUpdateMask(0x12) return view } func updateUIView(_ uiView: UIView, context: Context) { uiView.backgroundColor = color } } 最后，只需要将 content 实现为想要的效果即可，比如 Text(\"Watermark\") ：\nText(\"Watermark\") .mask { ZStack { Color.white HideWhenTakingScreenshot() } .compositingGroup() .luminanceToAlpha() }  ",
+  "wordCount" : "1145",
+  "inLanguage": "en",
+  "datePublished": "2024-07-16T10:33:30+08:00",
+  "dateModified": "2024-07-16T10:33:30+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "Sidney Liu"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://clox.nu/blog/ios-screenshot-watermark/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "cloxnu's Creative Space",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://clox.nu/logo/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+
+
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://clox.nu/" accesskey="h" title="I&#39;m cloxnu (Alt + H)">
+                <img src="/logo/logo.svg" alt="logo" aria-label="logo"
+                    height="35">I&#39;m cloxnu</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                
+                
+            </span>
+        </div>
+        <ul id="menu" onscroll="menu_on_scroll()">
+            <li>
+                <a href="https://clox.nu/news/" title="📰 𝕹𝖊𝖜𝖘">
+                    <span>📰 𝕹𝖊𝖜𝖘</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://clox.nu/archive/" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://clox.nu/categories/" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://about.clox.nu" title="About">
+                    <span>About</span>
+                </a>
+            </li></ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+
+    <h1 class="post-title">
+      iOS 上的屏幕截图隐藏 / 显示内容的研究
+    </h1>
+    <div class="post-meta">
+
+July 16, 2024&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Sidney Liu
+
+</div>
+  </header> 
+
+  <div class="post-content">
+<h2 id="背景">背景<a hidden class="anchor" aria-hidden="true" href="#背景">#</a></h2>
+<p>在现代数字交流中，屏幕截图成为一种常见的工具，不仅用于记录和保存内容，还广泛用于分享信息。一篇题为《Why do people take Screenshots on their Smartphones?》<a href="%5Bhttps://dl.acm.org/doi/abs/10.1145/3563657.3596067%5D(https://dl.acm.org/doi/abs/10.1145/3563657.3596067)">1</a> 的研究论文指出，有97%的受访者曾将截图发送给他人。这一数据表明，屏幕截图不仅仅是个人记录的手段，更是一种重要的社交互动方式。通过截图，用户能够快速分享对话、通知或有用的内容，从而在信息传播和交流中发挥关键作用。</p>
+<p><img src="assets/research.png" alt="Image.png"></p>
+<p>然而，对于这样高比例的分享行为，用户可能的目的有：</p>
+<ul>
+<li>认为当前屏幕的内容有趣，想要分享给其他人；</li>
+<li>认为当前屏幕的内容不符合预期，想要反馈给开发者；</li>
+</ul>
+<p>于是，我们可以从中做出这些事：</p>
+<ul>
+<li>在用户截图时将品牌 logo 放置在不影响其他内容的地方，提高品牌宣传力；</li>
+<li>将屏幕截图中的敏感信息隐藏起来，防止这些内容暴露给其他人，保护用户隐私；</li>
+<li>在隐私协议允许范围内将诊断信息隐藏在截图中，从而更好地优化产品可能遇到的问题；</li>
+</ul>
+<p>因此，接下来我们将开始研究实现方式。</p>
+<h2 id="使用-mask-隐藏--显示信息">使用 mask 隐藏 / 显示信息<a hidden class="anchor" aria-hidden="true" href="#使用-mask-隐藏--显示信息">#</a></h2>
+<p>本质上来讲，我们如果做到了可以在截屏时隐藏信息，那也就同样做到了显示信息，我们可以通过隐藏 / 显示蒙板的内容来控制实际内容的显示。对于 SwiftUI，有以下代码：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">content
+    .mask {
+        ZStack {
+            Color.white
+            HideWhenTakingScreenshot {
+                Color.black
+            }
+        }
+        .compositingGroup()
+        .luminanceToAlpha()
+    }
+</code></pre></div><p>假设我们已经实现了 <code>HideWhenTakingScreenshot</code> 中的内容，在屏幕截图时隐藏 <code>Color.black</code> ，对于 <code>content</code> ，也就相当于在屏幕截图时显示了，UIKit 同理。</p>
+<h2 id="在屏幕截图时隐藏信息">在屏幕截图时隐藏信息<a hidden class="anchor" aria-hidden="true" href="#在屏幕截图时隐藏信息">#</a></h2>
+<p>经过层层过滤，其实我们的真实需求是如何在屏幕截图时隐藏信息。</p>
+<h3 id="uitextfield-的神奇作用"><code>UITextField</code> 的神奇作用<a hidden class="anchor" aria-hidden="true" href="#uitextfield-的神奇作用">#</a></h3>
+<p>说到隐私保护，我们不得不想起当用户在密码框中输入密码时作为 iOS 系统级的保护，他会在用户截屏时自动隐藏密码输入框，如以下代码所示：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">PasswordTextView</span>: UIViewRepresentable {
+    @Binding <span style="color:#66d9ef">var</span> password: String?
+    
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">makeUIView</span>(context: Context) -&gt; UITextField {
+        <span style="color:#66d9ef">let</span> textField = UITextField()
+        textField.isSecureTextEntry = <span style="color:#66d9ef">true</span>
+        <span style="color:#66d9ef">return</span> textField
+    }
+    
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">updateUIView</span>(<span style="color:#66d9ef">_</span> uiView: UITextField, context: Context) {
+        uiView.text = password
+    }
+}
+</code></pre></div><p>这是一个最简单的用 UIKit 实现的密码框，可以将这个 <code>PasswordTextView</code> 添加到 SwiftUI 视图中，于是我们发现，当输入一些密码后并截图，密码框会在截图中消失不见。</p>
+<p><img src="assets/password.png" alt="password"></p>
+<p>那么这是如何做到的呢？我意识到一定是 <code>isSecureTextEntry</code> 这个属性在作祟，因为只要去掉这一行，截图消失这一效果将不再起作用。</p>
+<p>于是我们可以使用 LLDB 命令找到 <code>setSecureTextEntry:</code> 这个方法调用的具体位置。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">(lldb) image lookup <span style="color:#f92672">-</span>n <span style="color:#e6db74">&#34;-[UITextField setSecureTextEntry:]&#34;</span>
+<span style="color:#ae81ff">1</span> match found <span style="color:#66d9ef">in</span> <span style="color:#f92672">/</span>Library<span style="color:#f92672">/</span>Developer<span style="color:#f92672">/</span>CoreSimulator<span style="color:#f92672">/</span>Volumes<span style="color:#f92672">/</span>iOS_22A5297f<span style="color:#f92672">/</span>Library<span style="color:#f92672">/</span>Developer<span style="color:#f92672">/</span>CoreSimulator<span style="color:#f92672">/</span>Profiles<span style="color:#f92672">/</span>Runtimes<span style="color:#f92672">/</span>iOS <span style="color:#ae81ff">18.0</span>.simruntime<span style="color:#f92672">/</span>Contents<span style="color:#f92672">/</span>Resources<span style="color:#f92672">/</span>RuntimeRoot<span style="color:#f92672">/</span>System<span style="color:#f92672">/</span>Library<span style="color:#f92672">/</span>PrivateFrameworks<span style="color:#f92672">/</span>UIKitCore.framework<span style="color:#f92672">/</span>UIKitCore:
+        Address: UIKitCore[<span style="color:#ae81ff">0x00000000011406bc</span>] (UIKitCore.__TEXT.__text <span style="color:#f92672">+</span> <span style="color:#ae81ff">18073272</span>)
+        Summary: UIKitCore`<span style="color:#f92672">-</span>[UITextField setSecureTextEntry:]
+</code></pre></div><p>看起来这发生在 <code>UIKitCore.framework</code> ，将这个文件在反编译软件里进行反编译后，并找到 <code>-[UITextField setSecureTextEntry:]</code> ，于是得到这个方法实现的伪代码：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#75715e">/* @class UITextField */</span>
+<span style="color:#f92672">-</span>(int)setSecureTextEntry:(int)arg2 {
+    r2 = arg2;
+    r1 = arg1;
+    r31 = r31 <span style="color:#f92672">-</span> <span style="color:#ae81ff">0x30</span>;
+    var_10 = r20;
+    stack[<span style="color:#f92672">-</span><span style="color:#ae81ff">24</span>] = r19;
+    saved_fp = r29;
+    stack[<span style="color:#f92672">-</span><span style="color:#ae81ff">8</span>] = r30;
+    r20 = r2;
+    r19 = arg0;
+    [arg0 textInputTraits];
+    r0 = loc_18c2b3a10();
+    var_18 = r0;
+    <span style="color:#66d9ef">if</span> ([r0 isSecureTextEntry] <span style="color:#f92672">!=</span> r20) {
+            r2 = r20;
+            [var_18 setSecureTextEntry:r2];
+            [r19 _didChangeSecureTextEntry];
+    }
+    r0 = var_18;
+    <span style="color:#66d9ef">if</span> (((stack[<span style="color:#f92672">-</span><span style="color:#ae81ff">8</span>] <span style="color:#f92672">^</span> stack[<span style="color:#f92672">-</span><span style="color:#ae81ff">8</span>] <span style="color:#f92672">*</span> <span style="color:#ae81ff">0x2</span>) <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">0x40000000</span>) <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0x0</span>) {
+            asm { brk        #<span style="color:#ae81ff">0xc471</span> };
+            r0 = loc_1868d24b4(r0, r1, r2);
+    }
+    <span style="color:#66d9ef">else</span> {
+            r0 = loc_18c2b3bb0();
+    }
+    <span style="color:#66d9ef">return</span> r0;
+}
+</code></pre></div><p>从这段伪代码中可以看出，其中最具嫌疑的是 17 行的 <code>[var_18 setSecureTextEntry:r2];</code> 和 18 行的 <code>[r19 _didChangeSecureTextEntry];</code> ，我们可以先排除 18 行的影响。因我们已知 11 行 <code>r19 = arg0</code> 即汇编代码中 <code>mov x19, x0</code> ，所以这里的 <code>r19</code> 相当于当前 <code>UITextField</code> 实例。故这一行实际是在调用 <code>[UITextField _didChangeSecureTextEntry]</code> 。于是我们在这行打上断点：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">(</span>lldb<span style="color:#f92672">)</span> b -<span style="color:#f92672">[</span>UITextField _didChangeSecureTextEntry<span style="color:#f92672">]</span>
+Breakpoint 1: where <span style="color:#f92672">=</span> UIKitCore<span style="color:#e6db74">`</span>-<span style="color:#f92672">[</span>UITextField _didChangeSecureTextEntry<span style="color:#f92672">]</span>, address <span style="color:#f92672">=</span> 0x0000000185d95714
+</code></pre></div><p>运行代码，直到程序停在断点位置，随后使用命令：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">(</span>lldb<span style="color:#f92672">)</span> thread <span style="color:#66d9ef">return</span>
+</code></pre></div><p>直接返回当前函数。然后继续运行代码，我们可以看到文本框的密码特性将不再生效，截图也不再隐藏，于是我们断定具体生效位置是在 <code>[UITextField _didChangeSecureTextEntry]</code> 内部。</p>
+<p><img src="assets/show-password.png" alt="show password"></p>
+<h3 id="证明">证明<a hidden class="anchor" aria-hidden="true" href="#证明">#</a></h3>
+<p>在源代码中我们使用 Objective-C 定义 <code>SWTextField</code> ，继承 <code>UITextField</code> ，声明 <code>_didChangeSecureTextEntry</code> 并覆写 <code>isSecureTextEntry</code> get 方法：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objectivec" data-lang="objectivec"><span style="color:#66d9ef">@interface</span> <span style="color:#a6e22e">SWTextField</span> : <span style="color:#a6e22e">UITextField</span>
+
+- (<span style="color:#66d9ef">void</span>)<span style="color:#a6e22e">_didChangeSecureTextEntry</span>;
+
+<span style="color:#66d9ef">@end</span>
+
+<span style="color:#66d9ef">@implementation</span> <span style="color:#a6e22e">SWTextField</span>
+
+- (<span style="color:#66d9ef">BOOL</span>)<span style="color:#a6e22e">isSecureTextEntry</span> {
+    <span style="color:#66d9ef">return</span> YES;
+}
+
+<span style="color:#66d9ef">@end</span>
+</code></pre></div><p>然后将 <code>PasswordTextView</code> 改成：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">PasswordTextView</span>: UIViewRepresentable {
+    @Binding <span style="color:#66d9ef">var</span> password: String?
+    
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">makeUIView</span>(context: Context) -&gt; UITextField {
+        <span style="color:#66d9ef">let</span> textField = SWTextField()
+        textField._didChangeSecureTextEntry()
+        <span style="color:#66d9ef">return</span> textField
+    }
+    
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">updateUIView</span>(<span style="color:#66d9ef">_</span> uiView: UITextField, context: Context) {
+        uiView.text = password
+    }
+}
+</code></pre></div><p>即可看到能够证明 <code>_didChangeSecureTextEntry</code> 方法是有效的。</p>
+<h3 id="dive-into-uitextfield-_didchangesecuretextentry">Dive into <code>[UITextField _didChangeSecureTextEntry]</code><a hidden class="anchor" aria-hidden="true" href="#dive-into-uitextfield-_didchangesecuretextentry">#</a></h3>
+<p>回到断点 <code>[UITextField _didChangeSecureTextEntry</code>，我们可以在 Xcode 中看到：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objectivec" data-lang="objectivec">UIKitCore<span style="color:#960050;background-color:#1e0010">`</span><span style="color:#f92672">-</span>[UITextField _didChangeSecureTextEntry]<span style="color:#f92672">:</span>
+    <span style="color:#ae81ff">0x185d95714</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">0</span><span style="color:#f92672">&gt;:</span>   sub    sp, sp, <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">0x50</span>
+    <span style="color:#ae81ff">0x185d95718</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">4</span><span style="color:#f92672">&gt;:</span>   stp    x24, x23, [sp, <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">0x10</span>]
+    <span style="color:#ae81ff">0x185d9571c</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">8</span><span style="color:#f92672">&gt;:</span>   stp    x22, x21, [sp, <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">0x20</span>]
+    <span style="color:#ae81ff">0x185d95720</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">12</span><span style="color:#f92672">&gt;:</span>  stp    x20, x19, [sp, <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">0x30</span>]
+    <span style="color:#ae81ff">0x185d95724</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">16</span><span style="color:#f92672">&gt;:</span>  stp    x29, x30, [sp, <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">0x40</span>]
+    <span style="color:#ae81ff">0x185d95728</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">20</span><span style="color:#f92672">&gt;:</span>  add    x29, sp, <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">0x40</span>
+    <span style="color:#ae81ff">0x185d9572c</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">24</span><span style="color:#f92672">&gt;:</span>  mov    x19, x0
+    <span style="color:#ae81ff">0x185d95730</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">28</span><span style="color:#f92672">&gt;:</span>  bl     <span style="color:#ae81ff">0x1867a1ac0</span>               ; objc_msgSend<span style="color:#960050;background-color:#1e0010">$</span>_setNeedsStyleRecalc
+    <span style="color:#ae81ff">0x185d95734</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">32</span><span style="color:#f92672">&gt;:</span>  mov    x0, x19
+    <span style="color:#ae81ff">0x185d95738</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">36</span><span style="color:#f92672">&gt;:</span>  bl     <span style="color:#ae81ff">0x1867acb20</span>               ; objc_msgSend<span style="color:#960050;background-color:#1e0010">$</span>_shouldObscureInput
+    <span style="color:#ae81ff">0x185d9573c</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">40</span><span style="color:#f92672">&gt;:</span>  mov    x20, x0
+    <span style="color:#ae81ff">0x185d95740</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">44</span><span style="color:#f92672">&gt;:</span>  adrp   x22, <span style="color:#ae81ff">417875</span>
+    <span style="color:#ae81ff">0x185d95744</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">48</span><span style="color:#f92672">&gt;:</span>  add    x22, x22, <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">0xa48</span>          ; _MergedGlobals <span style="color:#f92672">+</span> <span style="color:#ae81ff">132</span>
+    <span style="color:#ae81ff">0x185d95748</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">52</span><span style="color:#f92672">&gt;:</span>  ldrsw  x8, [x22, <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">0x40</span>]
+    <span style="color:#ae81ff">0x185d9574c</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">56</span><span style="color:#f92672">&gt;:</span>  ldr    x0, [x19, x8]
+    <span style="color:#ae81ff">0x185d95750</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">60</span><span style="color:#f92672">&gt;:</span>  mov    x2, x20
+    <span style="color:#ae81ff">0x185d95754</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">64</span><span style="color:#f92672">&gt;:</span>  bl     <span style="color:#ae81ff">0x18688aae0</span>               ; objc_msgSend<span style="color:#960050;background-color:#1e0010">$</span>setDocumentObscured:
+    <span style="color:#ae81ff">0x185d95758</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">68</span><span style="color:#f92672">&gt;:</span>  mov    x0, x19
+    <span style="color:#ae81ff">0x185d9575c</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">72</span><span style="color:#f92672">&gt;:</span>  bl     <span style="color:#ae81ff">0x18675d0a0</span>               ; objc_msgSend<span style="color:#960050;background-color:#1e0010">$</span>_fieldEditor
+    <span style="color:#ae81ff">0x185d95760</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">76</span><span style="color:#f92672">&gt;:</span>  bl     <span style="color:#ae81ff">0x18607f9d0</span>               ; symbol stub <span style="color:#66d9ef">for</span><span style="color:#f92672">:</span> objc_claimAutoreleasedReturnValue
+    <span style="color:#ae81ff">0x185d95764</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">80</span><span style="color:#f92672">&gt;:</span>  mov    x21, x0
+    <span style="color:#ae81ff">0x185d95768</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">84</span><span style="color:#f92672">&gt;:</span>  mov    x0, x19
+    <span style="color:#ae81ff">0x185d9576c</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">88</span><span style="color:#f92672">&gt;:</span>  bl     <span style="color:#ae81ff">0x18683da20</span>               ; objc_msgSend<span style="color:#960050;background-color:#1e0010">$</span>isSecureTextEntry
+    <span style="color:#ae81ff">0x185d95770</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">92</span><span style="color:#f92672">&gt;:</span>  mov    x2, x0
+    <span style="color:#ae81ff">0x185d95774</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">96</span><span style="color:#f92672">&gt;:</span>  mov    x0, x21
+    <span style="color:#ae81ff">0x185d95778</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">100</span><span style="color:#f92672">&gt;:</span> bl     <span style="color:#ae81ff">0x1868a9e20</span>               ; objc_msgSend<span style="color:#960050;background-color:#1e0010">$</span>setSecureTextEntry:
+    <span style="color:#ae81ff">0x185d9577c</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">104</span><span style="color:#f92672">&gt;:</span> bl     <span style="color:#ae81ff">0x18607fb50</span>               ; symbol stub <span style="color:#66d9ef">for</span><span style="color:#f92672">:</span> objc_release_x21
+    <span style="color:#ae81ff">0x185d95780</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">108</span><span style="color:#f92672">&gt;:</span> mov    w8, <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">0x12</span>                 ; <span style="color:#f92672">=</span><span style="color:#ae81ff">18</span> 
+    <span style="color:#ae81ff">0x185d95784</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">112</span><span style="color:#f92672">&gt;:</span> cmp    w20, <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">0x0</span>
+    <span style="color:#ae81ff">0x185d95788</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">116</span><span style="color:#f92672">&gt;:</span> csel   w21, w8, wzr, ne
+    <span style="color:#ae81ff">0x185d9578c</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">120</span><span style="color:#f92672">&gt;:</span> ldrsw  x8, [x22]
+    <span style="color:#ae81ff">0x185d95790</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">124</span><span style="color:#f92672">&gt;:</span> ldr    x0, [x19, x8]
+<span style="color:#f92672">-&gt;</span>  <span style="color:#ae81ff">0x185d95794</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">128</span><span style="color:#f92672">&gt;:</span> bl     <span style="color:#ae81ff">0x186844600</span>               ; objc_msgSend<span style="color:#960050;background-color:#1e0010">$</span>layer
+    <span style="color:#ae81ff">0x185d95798</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">132</span><span style="color:#f92672">&gt;:</span> bl     <span style="color:#ae81ff">0x18607f9d0</span>               ; symbol stub <span style="color:#66d9ef">for</span><span style="color:#f92672">:</span> objc_claimAutoreleasedReturnValue
+    <span style="color:#ae81ff">0x185d9579c</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">136</span><span style="color:#f92672">&gt;:</span> mov    x22, x0
+    <span style="color:#ae81ff">0x185d957a0</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">140</span><span style="color:#f92672">&gt;:</span> mov    x2, x21
+    <span style="color:#ae81ff">0x185d957a4</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">144</span><span style="color:#f92672">&gt;:</span> bl     <span style="color:#ae81ff">0x186889ba0</span>               ; objc_msgSend<span style="color:#960050;background-color:#1e0010">$</span>setDisableUpdateMask:
+    <span style="color:#ae81ff">0x185d957a8</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">148</span><span style="color:#f92672">&gt;:</span> bl     <span style="color:#ae81ff">0x18607fb5c</span>               ; symbol stub <span style="color:#66d9ef">for</span><span style="color:#f92672">:</span> objc_release_x22
+    <span style="color:#ae81ff">0x185d957ac</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">152</span><span style="color:#f92672">&gt;:</span> adrp   x24, <span style="color:#ae81ff">371432</span>
+    <span style="color:#ae81ff">0x185d957b0</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">156</span><span style="color:#f92672">&gt;:</span> ldr    x0, [x24, <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">0x6d8</span>]
+    <span style="color:#ae81ff">0x185d957b4</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">160</span><span style="color:#f92672">&gt;:</span> bl     <span style="color:#ae81ff">0x1867d0b80</span>               ; objc_msgSend<span style="color:#960050;background-color:#1e0010">$</span>activeInstance
+    <span style="color:#ae81ff">0x185d957b8</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">164</span><span style="color:#f92672">&gt;:</span> bl     <span style="color:#ae81ff">0x18607f9d0</span>               ; symbol stub <span style="color:#66d9ef">for</span><span style="color:#f92672">:</span> objc_claimAutoreleasedReturnValue
+    <span style="color:#ae81ff">0x185d957bc</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">168</span><span style="color:#f92672">&gt;:</span> mov    x21, x0
+    <span style="color:#ae81ff">0x185d957c0</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">172</span><span style="color:#f92672">&gt;:</span> bl     <span style="color:#ae81ff">0x186833120</span>               ; objc_msgSend<span style="color:#960050;background-color:#1e0010">$</span>inputDelegateManager
+    <span style="color:#ae81ff">0x185d957c4</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">176</span><span style="color:#f92672">&gt;:</span> bl     <span style="color:#ae81ff">0x18607f9d0</span>               ; symbol stub <span style="color:#66d9ef">for</span><span style="color:#f92672">:</span> objc_claimAutoreleasedReturnValue
+    <span style="color:#ae81ff">0x185d957c8</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">180</span><span style="color:#f92672">&gt;:</span> mov    x22, x0
+    <span style="color:#ae81ff">0x185d957cc</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">184</span><span style="color:#f92672">&gt;:</span> bl     <span style="color:#ae81ff">0x186840c00</span>               ; objc_msgSend<span style="color:#960050;background-color:#1e0010">$</span>keyInputDelegate
+    <span style="color:#ae81ff">0x185d957d0</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">188</span><span style="color:#f92672">&gt;:</span> bl     <span style="color:#ae81ff">0x18607f9d0</span>               ; symbol stub <span style="color:#66d9ef">for</span><span style="color:#f92672">:</span> objc_claimAutoreleasedReturnValue
+    <span style="color:#ae81ff">0x185d957d4</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">192</span><span style="color:#f92672">&gt;:</span> mov    x23, x0
+    <span style="color:#ae81ff">0x185d957d8</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">196</span><span style="color:#f92672">&gt;:</span> bl     <span style="color:#ae81ff">0x18607fb68</span>               ; symbol stub <span style="color:#66d9ef">for</span><span style="color:#f92672">:</span> objc_release_x23
+    <span style="color:#ae81ff">0x185d957dc</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">200</span><span style="color:#f92672">&gt;:</span> bl     <span style="color:#ae81ff">0x18607fb5c</span>               ; symbol stub <span style="color:#66d9ef">for</span><span style="color:#f92672">:</span> objc_release_x22
+    <span style="color:#ae81ff">0x185d957e0</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">204</span><span style="color:#f92672">&gt;:</span> bl     <span style="color:#ae81ff">0x18607fb50</span>               ; symbol stub <span style="color:#66d9ef">for</span><span style="color:#f92672">:</span> objc_release_x21
+    <span style="color:#ae81ff">0x185d957e4</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">208</span><span style="color:#f92672">&gt;:</span> cmp    x23, x19
+    <span style="color:#ae81ff">0x185d957e8</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">212</span><span style="color:#f92672">&gt;:</span> b.ne   <span style="color:#ae81ff">0x185d95808</span>               ; <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">244</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#ae81ff">0x185d957ec</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">216</span><span style="color:#f92672">&gt;:</span> ldr    x0, [x24, <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">0x6d8</span>]
+    <span style="color:#ae81ff">0x185d957f0</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">220</span><span style="color:#f92672">&gt;:</span> bl     <span style="color:#ae81ff">0x1867d0b80</span>               ; objc_msgSend<span style="color:#960050;background-color:#1e0010">$</span>activeInstance
+    <span style="color:#ae81ff">0x185d957f4</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">224</span><span style="color:#f92672">&gt;:</span> bl     <span style="color:#ae81ff">0x18607f9d0</span>               ; symbol stub <span style="color:#66d9ef">for</span><span style="color:#f92672">:</span> objc_claimAutoreleasedReturnValue
+    <span style="color:#ae81ff">0x185d957f8</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">228</span><span style="color:#f92672">&gt;:</span> mov    x21, x0
+    <span style="color:#ae81ff">0x185d957fc</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">232</span><span style="color:#f92672">&gt;:</span> mov    x2, x19
+    <span style="color:#ae81ff">0x185d95800</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">236</span><span style="color:#f92672">&gt;:</span> bl     <span style="color:#ae81ff">0x186888640</span>               ; objc_msgSend<span style="color:#960050;background-color:#1e0010">$</span>setDelegate:
+    <span style="color:#ae81ff">0x185d95804</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">240</span><span style="color:#f92672">&gt;:</span> bl     <span style="color:#ae81ff">0x18607fb50</span>               ; symbol stub <span style="color:#66d9ef">for</span><span style="color:#f92672">:</span> objc_release_x21
+    <span style="color:#ae81ff">0x185d95808</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">244</span><span style="color:#f92672">&gt;:</span> adrp   x8, <span style="color:#ae81ff">371433</span>
+    <span style="color:#ae81ff">0x185d9580c</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">248</span><span style="color:#f92672">&gt;:</span> ldr    x21, [x8, <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">0x398</span>]
+    <span style="color:#ae81ff">0x185d95810</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">252</span><span style="color:#f92672">&gt;:</span> mov    x0, x19
+    <span style="color:#ae81ff">0x185d95814</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">256</span><span style="color:#f92672">&gt;:</span> bl     <span style="color:#ae81ff">0x186878b60</span>               ; objc_msgSend<span style="color:#960050;background-color:#1e0010">$</span>semanticContentAttribute
+    <span style="color:#ae81ff">0x185d95818</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">260</span><span style="color:#f92672">&gt;:</span> mov    x2, x0
+    <span style="color:#ae81ff">0x185d9581c</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">264</span><span style="color:#f92672">&gt;:</span> mov    x0, x21
+    <span style="color:#ae81ff">0x185d95820</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">268</span><span style="color:#f92672">&gt;:</span> bl     <span style="color:#ae81ff">0x1868e3b40</span>               ; objc_msgSend<span style="color:#960050;background-color:#1e0010">$</span>userInterfaceLayoutDirectionForSemanticContentAttribute:
+    <span style="color:#ae81ff">0x185d95824</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">272</span><span style="color:#f92672">&gt;:</span> cmp    x0, <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">0x1</span>
+    <span style="color:#ae81ff">0x185d95828</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">276</span><span style="color:#f92672">&gt;:</span> b.ne   <span style="color:#ae81ff">0x185d95848</span>               ; <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">308</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#ae81ff">0x185d9582c</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">280</span><span style="color:#f92672">&gt;:</span> mov    x0, x19
+    <span style="color:#ae81ff">0x185d95830</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">284</span><span style="color:#f92672">&gt;:</span> bl     <span style="color:#ae81ff">0x1868d07c0</span>               ; objc_msgSend<span style="color:#960050;background-color:#1e0010">$</span>textAlignment
+    <span style="color:#ae81ff">0x185d95834</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">288</span><span style="color:#f92672">&gt;:</span> cmp    x0, <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">0x4</span>
+    <span style="color:#ae81ff">0x185d95838</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">292</span><span style="color:#f92672">&gt;:</span> b.ne   <span style="color:#ae81ff">0x185d95848</span>               ; <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">308</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#ae81ff">0x185d9583c</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">296</span><span style="color:#f92672">&gt;:</span> mov    x0, x19
+    <span style="color:#ae81ff">0x185d95840</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">300</span><span style="color:#f92672">&gt;:</span> mov    w2, <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">0x2</span>                  ; <span style="color:#f92672">=</span><span style="color:#ae81ff">2</span> 
+    <span style="color:#ae81ff">0x185d95844</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">304</span><span style="color:#f92672">&gt;:</span> bl     <span style="color:#ae81ff">0x1868b1ba0</span>               ; objc_msgSend<span style="color:#960050;background-color:#1e0010">$</span>setTextAlignment:
+    <span style="color:#ae81ff">0x185d95848</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">308</span><span style="color:#f92672">&gt;:</span> cbz    w20, <span style="color:#ae81ff">0x185d95860</span>          ; <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">332</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#ae81ff">0x185d9584c</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">312</span><span style="color:#f92672">&gt;:</span> mov    x0, x19
+    <span style="color:#ae81ff">0x185d95850</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">316</span><span style="color:#f92672">&gt;:</span> bl     <span style="color:#ae81ff">0x1868786c0</span>               ; objc_msgSend<span style="color:#960050;background-color:#1e0010">$</span>selectionRange
+    <span style="color:#ae81ff">0x185d95854</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">320</span><span style="color:#f92672">&gt;:</span> cbz    x1, <span style="color:#ae81ff">0x185d95860</span>           ; <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">332</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#ae81ff">0x185d95858</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">324</span><span style="color:#f92672">&gt;:</span> mov    x0, x19
+    <span style="color:#ae81ff">0x185d9585c</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">328</span><span style="color:#f92672">&gt;:</span> bl     <span style="color:#ae81ff">0x186876fc0</span>               ; objc_msgSend<span style="color:#960050;background-color:#1e0010">$</span>selectAll
+    <span style="color:#ae81ff">0x185d95860</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">332</span><span style="color:#f92672">&gt;:</span> mov    x0, x19
+    <span style="color:#ae81ff">0x185d95864</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">336</span><span style="color:#f92672">&gt;:</span> bl     <span style="color:#ae81ff">0x1868359e0</span>               ; objc_msgSend<span style="color:#960050;background-color:#1e0010">$</span>interactionAssistant
+    <span style="color:#ae81ff">0x185d95868</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">340</span><span style="color:#f92672">&gt;:</span> bl     <span style="color:#ae81ff">0x18607f9d0</span>               ; symbol stub <span style="color:#66d9ef">for</span><span style="color:#f92672">:</span> objc_claimAutoreleasedReturnValue
+    <span style="color:#ae81ff">0x185d9586c</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">344</span><span style="color:#f92672">&gt;:</span> str    x0, [sp, <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">0x8</span>]
+    <span style="color:#ae81ff">0x185d95870</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">348</span><span style="color:#f92672">&gt;:</span> bl     <span style="color:#ae81ff">0x1868de180</span>               ; objc_msgSend<span style="color:#960050;background-color:#1e0010">$</span>updateDisplayedSelection
+    <span style="color:#ae81ff">0x185d95874</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">352</span><span style="color:#f92672">&gt;:</span> ldr    x0, [sp, <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">0x8</span>]
+    <span style="color:#ae81ff">0x185d95878</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">356</span><span style="color:#f92672">&gt;:</span> ldp    x29, x30, [sp, <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">0x40</span>]
+    <span style="color:#ae81ff">0x185d9587c</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">360</span><span style="color:#f92672">&gt;:</span> ldp    x20, x19, [sp, <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">0x30</span>]
+    <span style="color:#ae81ff">0x185d95880</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">364</span><span style="color:#f92672">&gt;:</span> ldp    x22, x21, [sp, <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">0x20</span>]
+    <span style="color:#ae81ff">0x185d95884</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">368</span><span style="color:#f92672">&gt;:</span> ldp    x24, x23, [sp, <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">0x10</span>]
+    <span style="color:#ae81ff">0x185d95888</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">372</span><span style="color:#f92672">&gt;:</span> add    sp, sp, <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#ae81ff">0x50</span>
+    <span style="color:#ae81ff">0x185d9588c</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">376</span><span style="color:#f92672">&gt;:</span> b      <span style="color:#ae81ff">0x18607fb08</span>               ; symbol stub <span style="color:#66d9ef">for</span><span style="color:#f92672">:</span> objc_release
+</code></pre></div><p>对于这段程序，有 3 处位置值得注意：</p>
+<ul>
+<li>18行的 <code>setDocumentObsecured:</code></li>
+<li>27行的 <code>setSecureTextEntry:</code></li>
+<li>38行的 <code>setDisableUpdateMask:</code></li>
+</ul>
+<p>为了筛选这些代码是哪里真正有效，我们可以单步调试到这些行，然后使用命令</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">(lldb) thread <span style="color:#66d9ef">return</span>
+</code></pre></div><p>跳过其后的代码，通过当前截屏是否正常生效来确定运行过的代码是否起作用。</p>
+<p>无论我们定位到 18 行还是 27 行，在使用 <code>thread return</code> 命令后都会出现在密码输入框输入的文字是 &ldquo;·&quot;，而截屏后的这些字符并不会消失。直到第 38 行。</p>
+<p>于是我们断点到第 38 行，输入命令</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">(lldb) po <span style="color:#960050;background-color:#1e0010">$</span>x0
+&lt;CALayer:<span style="color:#ae81ff">0x600000287100</span>; position = CGPoint (<span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span>); bounds = CGRect (<span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span>; <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span>); delegate = &lt;_UITextLayoutCanvasView: <span style="color:#ae81ff">0x111021eb0</span>; frame = (<span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span>; <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span>); layer = &lt;CALayer: <span style="color:#ae81ff">0x600000287100</span>&gt;<span style="color:#f92672">&gt;</span>; opaque = YES; allowsGroupOpacity = YES; <span style="color:#f92672">&gt;</span>
+</code></pre></div><p>得知当前调用 <code>setDisableUpdateMask:</code> 是 <code>CALayer</code> 。然后再尝试断点第 34 行，并再次输入</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">(</span>lldb<span style="color:#f92672">)</span> po $x0
+&lt;_UITextLayoutCanvasView: 0x106021100; frame <span style="color:#f92672">=</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">0</span> 0; <span style="color:#ae81ff">0</span> 0<span style="color:#f92672">)</span>; layer <span style="color:#f92672">=</span> &lt;CALayer: 0x6000002884c0&gt;&gt;
+</code></pre></div><p>得知对应 view 是 <code>_UITextLayoutCanvasView</code> ，并跟据反编译结果</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objectivec" data-lang="objectivec">[<span style="color:#f92672">*</span>(r19 <span style="color:#f92672">+</span> sign_extend_64(<span style="color:#f92672">*</span>(int32_t <span style="color:#f92672">*</span>)<span style="color:#ae81ff">0x1e68ec204</span>)) layer];
+</code></pre></div><p>然后查找地址 <code>0x1e68ec204</code> 后，发现是原 <code>UITextField</code> 的一个子 view：<code>-[UITextField _textCanvasView]</code>。</p>
+<p>因此我有一个大胆的猜测，只需调用任意 <code>CALayer</code> 的 <code>setDisableUpdateMask:</code> 方法即可在截屏隐藏当前 <code>CALayer</code> 的内容，其对应参数是存储在 x2 寄存器存储的值。而 x2 的值是在 29 行 <code>mov w8, #0x12</code> 赋值的。于是猜测该方法的参数是一个枚举值。在这里该值为 <code>0x12</code> 。</p>
+<p>因此，给 <code>CALayer</code> 扩展该方法：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objectivec" data-lang="objectivec"><span style="color:#66d9ef">@interface</span> <span style="color:#a6e22e">CALayer</span> ()
+
+<span style="color:#f92672">-</span> (<span style="color:#66d9ef">void</span>)setDisableUpdateMask:(<span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">int</span>)aValue;
+
+<span style="color:#66d9ef">@end</span>
+</code></pre></div><p>然后我们可以实现之前未完成的 <code>HideWhenTakingScreenshot</code> ，并给 <code>setDisableUpdateMask</code> 方法传入参数<code>0x12</code> ：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">HideWhenTakingScreenshot</span>: UIViewRepresentable {
+    <span style="color:#66d9ef">var</span> color: UIColor = .black
+    
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">makeUIView</span>(context: Context) -&gt; UIView {
+        <span style="color:#66d9ef">let</span> view = UIView()
+        view.layer.setDisableUpdateMask(<span style="color:#ae81ff">0x12</span>)
+        <span style="color:#66d9ef">return</span> view
+    }
+    
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">updateUIView</span>(<span style="color:#66d9ef">_</span> uiView: UIView, context: Context) {
+        uiView.backgroundColor = color
+    }
+}
+</code></pre></div><p>最后，只需要将 <code>content</code> 实现为想要的效果即可，比如 <code>Text(&quot;Watermark&quot;)</code> ：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift">Text(<span style="color:#e6db74">&#34;Watermark&#34;</span>)
+    .mask {
+        ZStack {
+            Color.white
+            HideWhenTakingScreenshot()
+        }
+        .compositingGroup()
+        .luminanceToAlpha()
+    }
+</code></pre></div><p><img src="assets/watermark.png" alt="watermark"></p>
+<hr>
+
+</div>
+  <footer class="post-footer">
+    <nav class="paginav">
+      <a class="next" href="https://clox.nu/blog/back-4u-is-now-online/">
+        <span class="title">Next Page »</span>
+        <br>
+        <span>「BACK 4U」上架啦🎉</span>
+      </a>
+    </nav>
+  </footer>
+</article>
+    </main><footer class="footer">
+    <span>&copy; 2024 <a href="https://clox.nu/">cloxnu&#39;s Creative Space</a></span>
+    <span>&middot;</span>
+    <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
+    <span>&middot;</span>
+    <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
+    <button class="top-link" id="top-link" type="button" accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a><div id="utter-container"></div>
+<script src="https://utteranc.es/client.js"
+    repo= 'cloxnu/clox.nu'
+    issue-term= "pathname"
+    theme= 'preferred-color-scheme'
+    crossorigin= "anonymous"
+    async>
+</script>
+<script defer src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<script>
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+        }
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+</body>
+
+</html>

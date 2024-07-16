@@ -49,7 +49,7 @@ Palette on the App Store</description>
       
       <guid>https://clox.nu/blog/palette-1.0-release/</guid>
       <description>这是一款很随意的 app，但这也是一款可以用 iPad 制作出来并可维护的 app。
-链接在这里
+ 链接在这里
 楔子 当我第一次吃惊地发现 iPad 居然可以用 Playground 写一个 app 并上架到 App Store 时，于是脑海里瞬间浮现出无数个想法，然后立马去试试。
 那时我完全没有接触过 SwiftUI，但是在我尝试试着在 iPad 上写一些代码时，借助 Playground 里的 code snippet，我竟发现 SwiftUI 原来现在已经发展到可以如此便捷高效地构建一个 app。
 然后我就决定写一个颜色转换再加上可以配色的超简洁的 app。
@@ -57,7 +57,7 @@ Palette on the App Store</description>
 几年前，我曾做过一个叫「今天的颜色」的 app，它的功能非常简单，就是生成一个颜色，每天一个不同的颜色，同时还会把 logo 改成当天的颜色。却也是因为功能太简单，被 App Store 拒绝上架。时到今日，today&amp;rsquo;s color 的 block 在这个 app 会在未来某个版本安排一下～纪念一下。
 Just Do It 4 月末，我开始了这个项目，经历了十几个版本的测试，也就大概十几天，上架了 App Store，在前几天还因为 App Store Connect 的服务不稳定稍稍拖慢上架速度。
 在 iPad 上开发过程中，还是给了我以下几点不方便的因素：
-难以调试，只允许做一个非常简单的项目，一旦复杂起来遇到不好解决的 bug 就得去 mac 上调试 搜索功能不够强大 性能不够，遇到较复杂的语句就无法编译，有时候会导致整个 Playground 卡住（可能是 bug）（就算是 M1 的 iPad 也性能不够，跟 mac 上的 M1 应该是缩水了的） 无法做本地化 等等&amp;hellip; iPad 上开发 app 还有许多需要改善的地方，但这样的思路的确是一个相当好的思路，试想一下如果未来的 iPad 可以允许我们每个人轻松做一个游戏然后上架，每个人都可以把自己的想象发挥到极致而无需担心实现的难度，Apple 官方提供一套无版权的人物角色模型，类似现在的 SF Symbol。下一个时代是人人创作者的时代。</description>
+ 难以调试，只允许做一个非常简单的项目，一旦复杂起来遇到不好解决的 bug 就得去 mac 上调试 搜索功能不够强大 性能不够，遇到较复杂的语句就无法编译，有时候会导致整个 Playground 卡住（可能是 bug）（就算是 M1 的 iPad 也性能不够，跟 mac 上的 M1 应该是缩水了的） 无法做本地化 等等&amp;hellip;  iPad 上开发 app 还有许多需要改善的地方，但这样的思路的确是一个相当好的思路，试想一下如果未来的 iPad 可以允许我们每个人轻松做一个游戏然后上架，每个人都可以把自己的想象发挥到极致而无需担心实现的难度，Apple 官方提供一套无版权的人物角色模型，类似现在的 SF Symbol。下一个时代是人人创作者的时代。</description>
     </item>
     
     <item>
@@ -69,7 +69,7 @@ Just Do It 4 月末，我开始了这个项目，经历了十几个版本的测�
       <description>在此之前 Telegram Bot 简明教程 I - 注册与发消息
 收指令 python-telegram-bot wiki 页面 介绍了如何使用 Python 脚本实现与 Bot 交互。
 以下是根据这个 wiki 页面编写的例程。
-接收 /start 指令 from telegram import Update from telegram.ext import Updater, CallbackContext, CommandHandler token = &amp;#39;2110628450:AAHQ78uj42ddtdsx0gKfaZGyFUhpnQ13vyM&amp;#39; def start(update: Update, context: CallbackContext): context.bot.send_message(chat_id=update.effective_chat.id, text=&amp;#34;Let&amp;#39;s start!&amp;#34;) # 或 # update.message.reply_text(&amp;#34;Let&amp;#39;s start!&amp;#34;) if __name__ == &amp;#39;__main__&amp;#39;: updater = Updater(token=token, use_context=True) #1 start_handler = CommandHandler(&amp;#39;start&amp;#39;, start) #2 updater.dispatcher.add_handler(start_handler) #3 updater.start_polling() #4 updater.idle() #5 首先根据 token 创建一个 updater 对象； 定义 start 函数，在函数体中实现给发指令的那个 chat_id 发送消息「Let&amp;rsquo;s start!</description>
+接收 /start 指令 from telegram import Update from telegram.ext import Updater, CallbackContext, CommandHandler token = &amp;#39;2110628450:AAHQ78uj42ddtdsx0gKfaZGyFUhpnQ13vyM&amp;#39; def start(update: Update, context: CallbackContext): context.bot.send_message(chat_id=update.effective_chat.id, text=&amp;#34;Let&amp;#39;s start!&amp;#34;) # 或 # update.message.reply_text(&amp;#34;Let&amp;#39;s start!&amp;#34;) if __name__ == &amp;#39;__main__&amp;#39;: updater = Updater(token=token, use_context=True) #1 start_handler = CommandHandler(&amp;#39;start&amp;#39;, start) #2 updater.dispatcher.add_handler(start_handler) #3 updater.start_polling() #4 updater.idle() #5  首先根据 token 创建一个 updater 对象； 定义 start 函数，在函数体中实现给发指令的那个 chat_id 发送消息「Let&amp;rsquo;s start!</description>
     </item>
     
     <item>
@@ -80,7 +80,7 @@ Just Do It 4 月末，我开始了这个项目，经历了十几个版本的测�
       <guid>https://clox.nu/blog/brief-tutorial-on-telegram-bot-i/</guid>
       <description>Telegram Bot，简而言之就是运行在 Telegram 上的可交互的「机器人」，你可以给它发送指令让它完成操作或是实现一些功能（付钱、游戏等等），或者可以在 Channel 或 Group 中发送特定消息。
 这是 官方介绍。它的主要原理就是开发者通过调用 Telegram Bot API 来实现接收指令、发消息以及实现各种功能。
-注册 与 @BotFather 对话，发送指令 /start 开始，/newbot 申请一个新的 Bot 账号。 接着，BotFather 会要求你输入这个 Bot 的名字和 ID。创建完成后，BotFather 会同时给你一个 token，记住这个 token。 此时，已经可以和这个 Bot 互动了，但是想要这个 Bot 也可以主动发消息，这时就要建立一个 Channel，并把这个 Bot 设置为管理员。这个 Channel 如果是 public，其链接可以自定义。这里以 private 为例。 由于 Channel 是 private，我们需要这个 Channel 的 ID 来操作，这里可以通过将 Channel 内的消息转发给 @JsonDumpBot 来查看。可以看到此 Channel 的 ID 是 -1001790411176。 发消息 在官方文档的 Making requests 介绍中讲到，可以使用 GET 或 POST 请求以下 URL。</description>
+注册  与 @BotFather 对话，发送指令 /start 开始，/newbot 申请一个新的 Bot 账号。  接着，BotFather 会要求你输入这个 Bot 的名字和 ID。创建完成后，BotFather 会同时给你一个 token，记住这个 token。  此时，已经可以和这个 Bot 互动了，但是想要这个 Bot 也可以主动发消息，这时就要建立一个 Channel，并把这个 Bot 设置为管理员。这个 Channel 如果是 public，其链接可以自定义。这里以 private 为例。  由于 Channel 是 private，我们需要这个 Channel 的 ID 来操作，这里可以通过将 Channel 内的消息转发给 @JsonDumpBot 来查看。可以看到此 Channel 的 ID 是 -1001790411176。  发消息 在官方文档的 Making requests 介绍中讲到，可以使用 GET 或 POST 请求以下 URL。</description>
     </item>
     
     <item>
@@ -95,8 +95,8 @@ Just Do It 4 月末，我开始了这个项目，经历了十几个版本的测�
 什么是渐进式 JPEG（Progressive JPEG） 我们知道，JPEG 格式是目前兼容性最高，使用范围最广的图片有损压缩格式。而其中的编码方式分为多种，这里主要讨论两种：Baseline JPEG 和 Progressive JPEG。
 对于 Baseline JPEG，图片是从上到下一行行顺序存储的，因此在加载图片的时候能看到图片从上到下慢慢显现出来。
 而 Progressive JPEG，图片会由模糊到清晰渐进式地分多次存储，因此在加载图片时看到的图片是由模糊到清晰渲染的。
-图片来自「简书」
-这种渐进式 JPEG 显然可以在图片未加载完全的时候就能看到它的「预览」，而且渐进式 JPEG 的文件大小要略小于 Baseline JPEG。不过渐进式 JPEG 在 Windows 7 以前的 IE 等浏览器不受支持，会在完全加载完成后才显示图片。
+ 图片来自「简书」
+ 这种渐进式 JPEG 显然可以在图片未加载完全的时候就能看到它的「预览」，而且渐进式 JPEG 的文件大小要略小于 Baseline JPEG。不过渐进式 JPEG 在 Windows 7 以前的 IE 等浏览器不受支持，会在完全加载完成后才显示图片。
 目前多图 blog 之所以加载时间很长，是因为这些图片存储的编码方式都是 Baseline JPEG。
 🎬 于是，我在之前的 GitHub Actions 配置文件中补充了将这些图片转换为 Progressive JPEG 的命令，当前的 blog 在合并入主干分支后 GitHub Actions 会先使用 hugo 命令创建 HTML1，然后 Progressive JPEG 命令再将所有 JPEG 图片批量处理。
 在 Linux 中，使用 ImageMagick 处理图片。其中的 -interlace 选项有提供将图片转换为 Progressive JPEG。</description>
@@ -130,9 +130,8 @@ $ ~/.dropbox-dist/dropboxd 我在运行这句命令之后这段程序执行了�
 于是立马在 DigitalOcean 中找到答案，我缺少了一些依赖，运行以下命令解决此问题。
 $ sudo apt install libc6 libglapi-mesa libxdamage1 libxfixes3 libxcb-glx0 libxcb-dri2-0 libxcb-dri3-0 libxcb-present0 libxcb-sync1 libxshmfence1 libxxf86vm1 安装依赖后，运行上述命令，得到以下输出：
 根据提示需要打开 URL 登录自己的账号以绑定这台服务器。打开后界面如下。
-如果自己的 Dropbox 账号是通过 Google 或者 Apple 登录的话，需要先登录自己的账号设置一个密码才能在这里登录。
-登录之后，控制台会出现一句话，
-This computer is now linked to Dropbox.</description>
+ 如果自己的 Dropbox 账号是通过 Google 或者 Apple 登录的话，需要先登录自己的账号设置一个密码才能在这里登录。
+ 登录之后，控制台会出现一句话，</description>
     </item>
     
     <item>
@@ -166,7 +165,7 @@ This computer is now linked to Dropbox.</description>
       
       <guid>https://clox.nu/blog/deployment-based-on-travis-ci/</guid>
       <description>在 GitHub 仓库内创建 .travis.yml 文件并添加以下内容后，即可自动部署此 Hugo 站点。
-dist: bionic addons: snaps: - hugo install: - cd ./src/ - git submodule update --init --remote script: - hugo -D after_script: - cd .. - git config --global user.name &amp;#34;Travis CI&amp;#34; - git config --global user.email &amp;lt;your-email&amp;gt; - git remote set-url origin &amp;#34;https://${GITHUB_TOKEN}@github.com/&amp;lt;username&amp;gt;/&amp;lt;repo-name&amp;gt;.git&amp;#34; - git checkout main - git add . - git commit -m &amp;#34;Update Blog By TravisCI With Build $TRAVIS_BUILD_NUMBER&amp;#34; - git push origin 记得在 travis-ci.</description>
+dist: bionic addons: snaps: - hugo install: - cd ./src/ - git submodule update --init --remote script: - hugo -D after_script: - cd .. - git config --global user.name &amp;#34;Travis CI&amp;#34; - git config --global user.email &amp;lt;your-email&amp;gt; - git remote set-url origin &amp;#34;https://${GITHUB_TOKEN}@github.com/&amp;lt;username&amp;gt;/&amp;lt;repo-name&amp;gt;.git&amp;#34; - git checkout main - git add . - git commit -m &amp;#34;Update Blog By TravisCI With Build $TRAVIS_BUILD_NUMBER&amp;#34; - git push origin   记得在 travis-ci.</description>
     </item>
     
     <item>
@@ -194,17 +193,16 @@ git submodule add https://github.</description>
       <guid>https://clox.nu/blog/energy-charge-in-macos/</guid>
       <description>Monitoring the energy charge work on macOS in CJLU.
 如何在没接触过 macOS 开发的情况下 4 个小时写一个学校爬电费状态栏 App GitHub链接-Energy_Charge_in_MacOS
-About Energy_Charge There is Docker version. 2020-05-23 00:35 更新 连接错误变灰
+About Energy_Charge  There is Docker version.   2020-05-23 00:35 更新 连接错误变灰
 低电费变红
 其他寝室
-缘起 学校寝室里配了台台式，写了大半学期的 iOS，这一切都如此顺利。
+ 缘起 学校寝室里配了台台式，写了大半学期的 iOS，这一切都如此顺利。
 不过就在刚刚，一位大佬朋友突然向我展示了他找到的查寝室电费网址 POST 参数。这不禁让我陷入了思考（因为平常我得经常看着点电费不然没电费了电脑黑屏警告233）。然后我顺便查了下我们寝室的电费，nm只有 1 块 5 了！！！
 开发一个 macOS 的爬电费 App 就这样开始了。
 &amp;mdash;- 四个小时前
-Hardworking&amp;hellip; Xcode - File - New - Project&amp;hellip;
+ Hardworking&amp;hellip; Xcode - File - New - Project&amp;hellip;
 然后选择 macOS App，这一切看起来如此自然，然而第一个困扰我的出现了 &amp;mdash; url request 如何实现。
-一向喜欢用第三方库的我，果不其然又发现了一个好用的 url request 库，它叫 Alamofire。这个库用来写请求超级超级容易，不过我完全不知道请求完成后得到的 request 应该怎么用，后来找到它的文档这里
-噢，原来我获得的就是这个网址的 JSON 数据，我只需要使用官方的 JSONSerialization 类就行了，于是我就写成了下面这样，把 JSON 转换 NSDictionary 一层层不断获取，成功得到了电费数值，并将它们写到一个类里去，加了一些代理以便其他类能够得到电费变更通知或错误通知。</description>
+一向喜欢用第三方库的我，果不其然又发现了一个好用的 url request 库，它叫 Alamofire。这个库用来写请求超级超级容易，不过我完全不知道请求完成后得到的 request 应该怎么用，后来找到它的文档这里</description>
     </item>
     
   </channel>

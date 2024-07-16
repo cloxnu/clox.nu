@@ -14,10 +14,10 @@
       <guid>https://clox.nu/blog/generalized-suffix-tree/</guid>
       <description>An implementation of generalized suffix tree using Ukkonen&amp;rsquo;s algorithm.
 In this page:
-The longest common substring problem How it works GST versus Dynamic programming Inspired by:
+ The longest common substring problem How it works GST versus Dynamic programming   Inspired by:
 Ukkonen, E. On-line construction of suffix trees. Algorithmica 14, 249–260 (1995).
 https://www.cs.helsinki.fi/u/ukkonen/SuffixT1withFigs.pdf
-The longest common substring problem Given two or more strings, find the longest common substring of these strings. Concretely, the longest common substring of the two strings &amp;ldquo;cacaocac&amp;rdquo; and &amp;ldquo;ccaooc&amp;rdquo; is &amp;ldquo;cao&amp;rdquo;. This seems like a simple problem, but until today, it still requires a complicated algorithm to be solved in a reasonable time.</description>
+ The longest common substring problem Given two or more strings, find the longest common substring of these strings. Concretely, the longest common substring of the two strings &amp;ldquo;cacaocac&amp;rdquo; and &amp;ldquo;ccaooc&amp;rdquo; is &amp;ldquo;cao&amp;rdquo;.</description>
     </item>
     
   </channel>

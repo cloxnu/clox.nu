@@ -10,17 +10,16 @@
 <meta name="keywords" content="" />
 <meta name="description" content="Monitoring the energy charge work on macOS in CJLU.
 如何在没接触过 macOS 开发的情况下 4 个小时写一个学校爬电费状态栏 App GitHub链接-Energy_Charge_in_MacOS
-About Energy_Charge There is Docker version. 2020-05-23 00:35 更新 连接错误变灰
+About Energy_Charge  There is Docker version.   2020-05-23 00:35 更新 连接错误变灰
 低电费变红
 其他寝室
-缘起 学校寝室里配了台台式，写了大半学期的 iOS，这一切都如此顺利。
+ 缘起 学校寝室里配了台台式，写了大半学期的 iOS，这一切都如此顺利。
 不过就在刚刚，一位大佬朋友突然向我展示了他找到的查寝室电费网址 POST 参数。这不禁让我陷入了思考（因为平常我得经常看着点电费不然没电费了电脑黑屏警告233）。然后我顺便查了下我们寝室的电费，nm只有 1 块 5 了！！！
 开发一个 macOS 的爬电费 App 就这样开始了。
 &mdash;- 四个小时前
-Hardworking&hellip; Xcode - File - New - Project&hellip;
+ Hardworking&hellip; Xcode - File - New - Project&hellip;
 然后选择 macOS App，这一切看起来如此自然，然而第一个困扰我的出现了 &mdash; url request 如何实现。
-一向喜欢用第三方库的我，果不其然又发现了一个好用的 url request 库，它叫 Alamofire。这个库用来写请求超级超级容易，不过我完全不知道请求完成后得到的 request 应该怎么用，后来找到它的文档这里
-噢，原来我获得的就是这个网址的 JSON 数据，我只需要使用官方的 JSONSerialization 类就行了，于是我就写成了下面这样，把 JSON 转换 NSDictionary 一层层不断获取，成功得到了电费数值，并将它们写到一个类里去，加了一些代理以便其他类能够得到电费变更通知或错误通知。">
+一向喜欢用第三方库的我，果不其然又发现了一个好用的 url request 库，它叫 Alamofire。这个库用来写请求超级超级容易，不过我完全不知道请求完成后得到的 request 应该怎么用，后来找到它的文档这里">
 <meta name="author" content="Sidney Liu">
 <link rel="canonical" href="https://clox.nu/blog/energy-charge-in-macos/" />
 <link href="/assets/css/stylesheet.min.555a4d6fef760f048c5b1bf30019b077e4b6fb2de917654189208a1f5141f43b.css" integrity="sha256-VVpNb&#43;92DwSMWxvzABmwd&#43;S2&#43;y3pF2VBiSCKH1FB9Ds=" rel="preload stylesheet"
@@ -33,7 +32,7 @@ Hardworking&hellip; Xcode - File - New - Project&hellip;
 <link rel="mask-icon" href="https://clox.nu/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.110.0">
+<meta name="generator" content="Hugo 0.89.2" />
 
 
 
@@ -54,17 +53,16 @@ if (!doNotTrack) {
 <meta property="og:title" content="学校爬电费状态栏 App 的 macOS 开发日记" />
 <meta property="og:description" content="Monitoring the energy charge work on macOS in CJLU.
 如何在没接触过 macOS 开发的情况下 4 个小时写一个学校爬电费状态栏 App GitHub链接-Energy_Charge_in_MacOS
-About Energy_Charge There is Docker version. 2020-05-23 00:35 更新 连接错误变灰
+About Energy_Charge  There is Docker version.   2020-05-23 00:35 更新 连接错误变灰
 低电费变红
 其他寝室
-缘起 学校寝室里配了台台式，写了大半学期的 iOS，这一切都如此顺利。
+ 缘起 学校寝室里配了台台式，写了大半学期的 iOS，这一切都如此顺利。
 不过就在刚刚，一位大佬朋友突然向我展示了他找到的查寝室电费网址 POST 参数。这不禁让我陷入了思考（因为平常我得经常看着点电费不然没电费了电脑黑屏警告233）。然后我顺便查了下我们寝室的电费，nm只有 1 块 5 了！！！
 开发一个 macOS 的爬电费 App 就这样开始了。
 &mdash;- 四个小时前
-Hardworking&hellip; Xcode - File - New - Project&hellip;
+ Hardworking&hellip; Xcode - File - New - Project&hellip;
 然后选择 macOS App，这一切看起来如此自然，然而第一个困扰我的出现了 &mdash; url request 如何实现。
-一向喜欢用第三方库的我，果不其然又发现了一个好用的 url request 库，它叫 Alamofire。这个库用来写请求超级超级容易，不过我完全不知道请求完成后得到的 request 应该怎么用，后来找到它的文档这里
-噢，原来我获得的就是这个网址的 JSON 数据，我只需要使用官方的 JSONSerialization 类就行了，于是我就写成了下面这样，把 JSON 转换 NSDictionary 一层层不断获取，成功得到了电费数值，并将它们写到一个类里去，加了一些代理以便其他类能够得到电费变更通知或错误通知。" />
+一向喜欢用第三方库的我，果不其然又发现了一个好用的 url request 库，它叫 Alamofire。这个库用来写请求超级超级容易，不过我完全不知道请求完成后得到的 request 应该怎么用，后来找到它的文档这里" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://clox.nu/blog/energy-charge-in-macos/" />
 <meta property="article:published_time" content="2020-05-23T00:35:00+08:00" />
@@ -73,17 +71,16 @@ Hardworking&hellip; Xcode - File - New - Project&hellip;
 <meta name="twitter:title" content="学校爬电费状态栏 App 的 macOS 开发日记"/>
 <meta name="twitter:description" content="Monitoring the energy charge work on macOS in CJLU.
 如何在没接触过 macOS 开发的情况下 4 个小时写一个学校爬电费状态栏 App GitHub链接-Energy_Charge_in_MacOS
-About Energy_Charge There is Docker version. 2020-05-23 00:35 更新 连接错误变灰
+About Energy_Charge  There is Docker version.   2020-05-23 00:35 更新 连接错误变灰
 低电费变红
 其他寝室
-缘起 学校寝室里配了台台式，写了大半学期的 iOS，这一切都如此顺利。
+ 缘起 学校寝室里配了台台式，写了大半学期的 iOS，这一切都如此顺利。
 不过就在刚刚，一位大佬朋友突然向我展示了他找到的查寝室电费网址 POST 参数。这不禁让我陷入了思考（因为平常我得经常看着点电费不然没电费了电脑黑屏警告233）。然后我顺便查了下我们寝室的电费，nm只有 1 块 5 了！！！
 开发一个 macOS 的爬电费 App 就这样开始了。
 &mdash;- 四个小时前
-Hardworking&hellip; Xcode - File - New - Project&hellip;
+ Hardworking&hellip; Xcode - File - New - Project&hellip;
 然后选择 macOS App，这一切看起来如此自然，然而第一个困扰我的出现了 &mdash; url request 如何实现。
-一向喜欢用第三方库的我，果不其然又发现了一个好用的 url request 库，它叫 Alamofire。这个库用来写请求超级超级容易，不过我完全不知道请求完成后得到的 request 应该怎么用，后来找到它的文档这里
-噢，原来我获得的就是这个网址的 JSON 数据，我只需要使用官方的 JSONSerialization 类就行了，于是我就写成了下面这样，把 JSON 转换 NSDictionary 一层层不断获取，成功得到了电费数值，并将它们写到一个类里去，加了一些代理以便其他类能够得到电费变更通知或错误通知。"/>
+一向喜欢用第三方库的我，果不其然又发现了一个好用的 url request 库，它叫 Alamofire。这个库用来写请求超级超级容易，不过我完全不知道请求完成后得到的 request 应该怎么用，后来找到它的文档这里"/>
 
 
 <script type="application/ld+json">
@@ -118,11 +115,11 @@ Hardworking&hellip; Xcode - File - New - Project&hellip;
   "@type": "BlogPosting",
   "headline": "学校爬电费状态栏 App 的 macOS 开发日记",
   "name": "学校爬电费状态栏 App 的 macOS 开发日记",
-  "description": "Monitoring the energy charge work on macOS in CJLU.\n如何在没接触过 macOS 开发的情况下 4 个小时写一个学校爬电费状态栏 App GitHub链接-Energy_Charge_in_MacOS\nAbout Energy_Charge There is Docker version. …",
+  "description": "Monitoring the energy charge work on macOS in CJLU.\n如何在没接触过 macOS 开发的情况下 4 个小时写一个学校爬电费状态栏 App GitHub链接-Energy_Charge_in_MacOS\nAbout Energy_Charge  There is Docker version. …",
   "keywords": [
     
   ],
-  "articleBody": "Monitoring the energy charge work on macOS in CJLU.\n如何在没接触过 macOS 开发的情况下 4 个小时写一个学校爬电费状态栏 App GitHub链接-Energy_Charge_in_MacOS\nAbout Energy_Charge There is Docker version. 2020-05-23 00:35 更新 连接错误变灰\n低电费变红\n其他寝室\n缘起 学校寝室里配了台台式，写了大半学期的 iOS，这一切都如此顺利。\n不过就在刚刚，一位大佬朋友突然向我展示了他找到的查寝室电费网址 POST 参数。这不禁让我陷入了思考（因为平常我得经常看着点电费不然没电费了电脑黑屏警告233）。然后我顺便查了下我们寝室的电费，nm只有 1 块 5 了！！！\n开发一个 macOS 的爬电费 App 就这样开始了。\n—- 四个小时前\nHardworking… Xcode - File - New - Project…\n然后选择 macOS App，这一切看起来如此自然，然而第一个困扰我的出现了 — url request 如何实现。\n一向喜欢用第三方库的我，果不其然又发现了一个好用的 url request 库，它叫 Alamofire。这个库用来写请求超级超级容易，不过我完全不知道请求完成后得到的 request 应该怎么用，后来找到它的文档这里\n噢，原来我获得的就是这个网址的 JSON 数据，我只需要使用官方的 JSONSerialization 类就行了，于是我就写成了下面这样，把 JSON 转换 NSDictionary 一层层不断获取，成功得到了电费数值，并将它们写到一个类里去，加了一些代理以便其他类能够得到电费变更通知或错误通知。\n可能你们都看到了，我设定了一个定时器每隔 5 分钟获取一次数据（虽然不知道会不会有电脑睡眠断定时器之类的问题毕竟这是1.0版本不想考虑那么多），于是我寻思还需要增加一个手动更新数据的位置，而且查看数据肯定要一个方便的位置，emmmm，就状态栏吧，看那么多应用都在上面应该没啥问题。。。\n于是，第二个难点。。。如何在状态栏显示内容。\n其实了解之后还是很简单，在 Storyboard 加一个菜单列表就行了，然后在一个新的类里把这个菜单设为状态栏菜单。看起来挺简单吧，操作起来也挺简单的。\n好了，四个小时过去了，这个小插件其实很简单，但自己也学到了不少。\n成型 ",
+  "articleBody": "Monitoring the energy charge work on macOS in CJLU.\n如何在没接触过 macOS 开发的情况下 4 个小时写一个学校爬电费状态栏 App GitHub链接-Energy_Charge_in_MacOS\nAbout Energy_Charge  There is Docker version.   2020-05-23 00:35 更新 连接错误变灰\n低电费变红\n其他寝室\n 缘起 学校寝室里配了台台式，写了大半学期的 iOS，这一切都如此顺利。\n不过就在刚刚，一位大佬朋友突然向我展示了他找到的查寝室电费网址 POST 参数。这不禁让我陷入了思考（因为平常我得经常看着点电费不然没电费了电脑黑屏警告233）。然后我顺便查了下我们寝室的电费，nm只有 1 块 5 了！！！\n开发一个 macOS 的爬电费 App 就这样开始了。\n—- 四个小时前\n Hardworking… Xcode - File - New - Project…\n然后选择 macOS App，这一切看起来如此自然，然而第一个困扰我的出现了 — url request 如何实现。\n一向喜欢用第三方库的我，果不其然又发现了一个好用的 url request 库，它叫 Alamofire。这个库用来写请求超级超级容易，不过我完全不知道请求完成后得到的 request 应该怎么用，后来找到它的文档这里\n噢，原来我获得的就是这个网址的 JSON 数据，我只需要使用官方的 JSONSerialization 类就行了，于是我就写成了下面这样，把 JSON 转换 NSDictionary 一层层不断获取，成功得到了电费数值，并将它们写到一个类里去，加了一些代理以便其他类能够得到电费变更通知或错误通知。\n可能你们都看到了，我设定了一个定时器每隔 5 分钟获取一次数据（虽然不知道会不会有电脑睡眠断定时器之类的问题毕竟这是1.0版本不想考虑那么多），于是我寻思还需要增加一个手动更新数据的位置，而且查看数据肯定要一个方便的位置，emmmm，就状态栏吧，看那么多应用都在上面应该没啥问题。。。\n于是，第二个难点。。。如何在状态栏显示内容。\n其实了解之后还是很简单，在 Storyboard 加一个菜单列表就行了，然后在一个新的类里把这个菜单设为状态栏菜单。看起来挺简单吧，操作起来也挺简单的。\n好了，四个小时过去了，这个小插件其实很简单，但自己也学到了不少。\n 成型 ",
   "wordCount" : "85",
   "inLanguage": "en",
   "datePublished": "2020-05-23T00:35:00+08:00",
@@ -294,7 +291,7 @@ May 23, 2020&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
   </footer>
 </article>
     </main><footer class="footer">
-    <span>&copy; 2023 <a href="https://clox.nu/">cloxnu&#39;s Creative Space</a></span>
+    <span>&copy; 2024 <a href="https://clox.nu/">cloxnu&#39;s Creative Space</a></span>
     <span>&middot;</span>
     <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
     <span>&middot;</span>
@@ -314,7 +311,7 @@ May 23, 2020&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
     crossorigin= "anonymous"
     async>
 </script>
-<script defer src="/assets/js/highlight.min.b95bacdc39e37a332a9f883b1e78be4abc1fdca2bc1f2641f55e3cd3dabd4d61.js" integrity="sha256-uVus3DnjejMqn4g7Hni&#43;Srwf3KK8HyZB9V4809q9TWE="
+<script defer src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
     onload="hljs.initHighlightingOnLoad();"></script>
 <script>
     window.onload = function () {

@@ -24,7 +24,7 @@
 <link rel="mask-icon" href="https://clox.nu/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.110.0">
+<meta name="generator" content="Hugo 0.89.2" />
 
 
 
@@ -95,8 +95,8 @@ if (!doNotTrack) {
   "keywords": [
     
   ],
-  "articleBody": "前情提要：在我的 travel blog 的仓库根目录下，有一个叫 gotravel 的文件，运行该文件即可自动生成网站，因此 GitHub Actions 只需要在我每次 push 之后运行这个文件再提交一次就可以了。\n在 GitHub 仓库内点击菜单栏的 Actions，然后选择 set up a workflow yourself\n然后就会跳转至新建文件页面，以及 GitHub 自动生成最初的 main.yml 文件。\n# This is a basic workflow to help you get started with Actions name: CI # Controls when the workflow will run on: # Triggers the workflow on push or pull request events but only for the master branch push: branches: [ master ] pull_request: branches: [ master ] # Allows you to run this workflow manually from the Actions tab workflow_dispatch: # A workflow run is made up of one or more jobs that can run sequentially or in parallel jobs: # This workflow contains a single job called \"build\" build: # The type of runner that the job will run on runs-on: ubuntu-latest # Steps represent a sequence of tasks that will be executed as part of the job steps: # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it - uses: actions/checkout@v2 # Runs a single command using the runners shell - name: Run a one-line script run: echo Hello, world! # Runs a set of commands using the runners shell - name: Run a multi-line script run: | echo Add other actions to build, echo test, and deploy your project. 修改为：（这里使用了 actions-js/push@master 来 Commit \u0026 Push）\n# This is a basic workflow to help you get started with Actions name: CI # Controls when the workflow will run on: # Triggers the workflow on push or pull request events but only for the master branch push: branches: [ master ] pull_request: branches: [ master ] # Allows you to run this workflow manually from the Actions tab workflow_dispatch: # A workflow run is made up of one or more jobs that can run sequentially or in parallel jobs: # This workflow contains a single job called \"build\" build: # The type of runner that the job will run on runs-on: ubuntu-latest # Steps represent a sequence of tasks that will be executed as part of the job steps: # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it - uses: actions/checkout@v2 # Generate website - name: Run generator run: gotravel_linux_arm64 # Commit \u0026 Push - name: Commit \u0026 Push changes uses: actions-js/push@master with: github_token: ${{ secrets.GITHUB_TOKEN }} branch: master 最终 build success：\n",
-  "wordCount" : "385",
+  "articleBody": "前情提要：在我的 travel blog 的仓库根目录下，有一个叫 gotravel 的文件，运行该文件即可自动生成网站，因此 GitHub Actions 只需要在我每次 push 之后运行这个文件再提交一次就可以了。\n在 GitHub 仓库内点击菜单栏的 Actions，然后选择 set up a workflow yourself\n然后就会跳转至新建文件页面，以及 GitHub 自动生成最初的 main.yml 文件。\n# This is a basic workflow to help you get started with Actions name: CI # Controls when the workflow will run on: # Triggers the workflow on push or pull request events but only for the master branch push: branches: [ master ] pull_request: branches: [ master ] # Allows you to run this workflow manually from the Actions tab workflow_dispatch: # A workflow run is made up of one or more jobs that can run sequentially or in parallel jobs: # This workflow contains a single job called \"build\" build: # The type of runner that the job will run on runs-on: ubuntu-latest # Steps represent a sequence of tasks that will be executed as part of the job steps: # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it - uses: actions/checkout@v2 # Runs a single command using the runners shell - name: Run a one-line script run: echo Hello, world! # Runs a set of commands using the runners shell - name: Run a multi-line script run: |echo Add other actions to build, echo test, and deploy your project. 修改为：（这里使用了 actions-js/push@master 来 Commit \u0026 Push）\n# This is a basic workflow to help you get started with Actions name: CI # Controls when the workflow will run on: # Triggers the workflow on push or pull request events but only for the master branch push: branches: [ master ] pull_request: branches: [ master ] # Allows you to run this workflow manually from the Actions tab workflow_dispatch: # A workflow run is made up of one or more jobs that can run sequentially or in parallel jobs: # This workflow contains a single job called \"build\" build: # The type of runner that the job will run on runs-on: ubuntu-latest # Steps represent a sequence of tasks that will be executed as part of the job steps: # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it - uses: actions/checkout@v2 # Generate website - name: Run generator run: gotravel_linux_arm64 # Commit \u0026 Push - name: Commit \u0026 Push changes uses: actions-js/push@master with: github_token: ${{ secrets.GITHUB_TOKEN }} branch: master 最终 build success：\n",
+  "wordCount" : "384",
   "inLanguage": "en",
   "datePublished": "2021-08-14T20:41:00+08:00",
   "dateModified": "2021-08-14T20:41:00+08:00",
@@ -221,81 +221,83 @@ August 14, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Sidney Liu
 <p><img src="assets/image-20210814204920751.png" alt="image-20210814204920751"></p>
 <p>然后就会跳转至新建文件页面，以及 GitHub 自动生成最初的 <code>main.yml</code> 文件。</p>
 <p><img src="assets/image-20210814205057441.png" alt="image-20210814205057441"></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># This is a basic workflow to help you get started with Actions</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#ae81ff">CI</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Controls when the workflow will run</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">on</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Triggers the workflow on push or pull request events but only for the master branch</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">push</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">branches</span>: [ <span style="color:#ae81ff">master ]</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">pull_request</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">branches</span>: [ <span style="color:#ae81ff">master ]</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Allows you to run this workflow manually from the Actions tab</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">workflow_dispatch</span>:
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># A workflow run is made up of one or more jobs that can run sequentially or in parallel</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">jobs</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># This workflow contains a single job called &#34;build&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">build</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># The type of runner that the job will run on</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Steps represent a sequence of tasks that will be executed as part of the job</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@v2</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># Runs a single command using the runners shell</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Run a one-line script</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">run</span>: <span style="color:#ae81ff">echo Hello, world!</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># Runs a set of commands using the runners shell</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Run a multi-line script</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          echo Add other actions to build,
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          echo test, and deploy your project.</span>          
-</span></span></code></pre></div><p>修改为：（这里使用了 <code>actions-js/push@master</code> 来 Commit &amp; Push）</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># This is a basic workflow to help you get started with Actions</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#ae81ff">CI</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Controls when the workflow will run</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">on</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Triggers the workflow on push or pull request events but only for the master branch</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">push</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">branches</span>: [ <span style="color:#ae81ff">master ]</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">pull_request</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">branches</span>: [ <span style="color:#ae81ff">master ]</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Allows you to run this workflow manually from the Actions tab</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">workflow_dispatch</span>:
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># A workflow run is made up of one or more jobs that can run sequentially or in parallel</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">jobs</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># This workflow contains a single job called &#34;build&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">build</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># The type of runner that the job will run on</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Steps represent a sequence of tasks that will be executed as part of the job</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@v2</span>
-</span></span><span style="display:flex;"><span>      
-</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># Generate website</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Run generator</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">run</span>: <span style="color:#ae81ff">gotravel_linux_arm64</span>
-</span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># Commit &amp; Push</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Commit &amp; Push changes</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions-js/push@master</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">with</span>:
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">github_token</span>: <span style="color:#ae81ff">${{ secrets.GITHUB_TOKEN }}</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">branch</span>: <span style="color:#ae81ff">master</span>
-</span></span></code></pre></div><p>最终 build success：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e"># This is a basic workflow to help you get started with Actions</span>
+
+<span style="color:#f92672">name</span>: <span style="color:#ae81ff">CI</span>
+
+<span style="color:#75715e"># Controls when the workflow will run</span>
+<span style="color:#f92672">on</span>:
+  <span style="color:#75715e"># Triggers the workflow on push or pull request events but only for the master branch</span>
+  <span style="color:#f92672">push</span>:
+    <span style="color:#f92672">branches</span>: [ <span style="color:#ae81ff">master ]</span>
+  <span style="color:#f92672">pull_request</span>:
+    <span style="color:#f92672">branches</span>: [ <span style="color:#ae81ff">master ]</span>
+
+  <span style="color:#75715e"># Allows you to run this workflow manually from the Actions tab</span>
+  <span style="color:#f92672">workflow_dispatch</span>:
+
+<span style="color:#75715e"># A workflow run is made up of one or more jobs that can run sequentially or in parallel</span>
+<span style="color:#f92672">jobs</span>:
+  <span style="color:#75715e"># This workflow contains a single job called &#34;build&#34;</span>
+  <span style="color:#f92672">build</span>:
+    <span style="color:#75715e"># The type of runner that the job will run on</span>
+    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
+
+    <span style="color:#75715e"># Steps represent a sequence of tasks that will be executed as part of the job</span>
+    <span style="color:#f92672">steps</span>:
+      <span style="color:#75715e"># Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it</span>
+      - <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@v2</span>
+
+      <span style="color:#75715e"># Runs a single command using the runners shell</span>
+      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Run a one-line script</span>
+        <span style="color:#f92672">run</span>: <span style="color:#ae81ff">echo Hello, world!</span>
+
+      <span style="color:#75715e"># Runs a set of commands using the runners shell</span>
+      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Run a multi-line script</span>
+        <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
+</span><span style="color:#e6db74">          echo Add other actions to build,
+</span><span style="color:#e6db74">          echo test, and deploy your project.</span>          
+
+</code></pre></div><p>修改为：（这里使用了 <code>actions-js/push@master</code> 来 Commit &amp; Push）</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e"># This is a basic workflow to help you get started with Actions</span>
+
+<span style="color:#f92672">name</span>: <span style="color:#ae81ff">CI</span>
+
+<span style="color:#75715e"># Controls when the workflow will run</span>
+<span style="color:#f92672">on</span>:
+  <span style="color:#75715e"># Triggers the workflow on push or pull request events but only for the master branch</span>
+  <span style="color:#f92672">push</span>:
+    <span style="color:#f92672">branches</span>: [ <span style="color:#ae81ff">master ]</span>
+  <span style="color:#f92672">pull_request</span>:
+    <span style="color:#f92672">branches</span>: [ <span style="color:#ae81ff">master ]</span>
+
+  <span style="color:#75715e"># Allows you to run this workflow manually from the Actions tab</span>
+  <span style="color:#f92672">workflow_dispatch</span>:
+
+<span style="color:#75715e"># A workflow run is made up of one or more jobs that can run sequentially or in parallel</span>
+<span style="color:#f92672">jobs</span>:
+  <span style="color:#75715e"># This workflow contains a single job called &#34;build&#34;</span>
+  <span style="color:#f92672">build</span>:
+    <span style="color:#75715e"># The type of runner that the job will run on</span>
+    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
+
+    <span style="color:#75715e"># Steps represent a sequence of tasks that will be executed as part of the job</span>
+    <span style="color:#f92672">steps</span>:
+      <span style="color:#75715e"># Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it</span>
+      - <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@v2</span>
+      
+      <span style="color:#75715e"># Generate website</span>
+      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Run generator</span>
+        <span style="color:#f92672">run</span>: <span style="color:#ae81ff">gotravel_linux_arm64</span>
+        
+      <span style="color:#75715e"># Commit &amp; Push</span>
+      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Commit &amp; Push changes</span>
+        <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions-js/push@master</span>
+        <span style="color:#f92672">with</span>:
+          <span style="color:#f92672">github_token</span>: <span style="color:#ae81ff">${{ secrets.GITHUB_TOKEN }}</span>
+          <span style="color:#f92672">branch</span>: <span style="color:#ae81ff">master</span>
+
+</code></pre></div><p>最终 build success：</p>
 <p><img src="assets/image-20210814220043703.png" alt="image-20210814220043703"></p>
 
 </div>
@@ -315,7 +317,7 @@ August 14, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Sidney Liu
   </footer>
 </article>
     </main><footer class="footer">
-    <span>&copy; 2023 <a href="https://clox.nu/">cloxnu&#39;s Creative Space</a></span>
+    <span>&copy; 2024 <a href="https://clox.nu/">cloxnu&#39;s Creative Space</a></span>
     <span>&middot;</span>
     <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
     <span>&middot;</span>
@@ -335,7 +337,7 @@ August 14, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Sidney Liu
     crossorigin= "anonymous"
     async>
 </script>
-<script defer src="/assets/js/highlight.min.b95bacdc39e37a332a9f883b1e78be4abc1fdca2bc1f2641f55e3cd3dabd4d61.js" integrity="sha256-uVus3DnjejMqn4g7Hni&#43;Srwf3KK8HyZB9V4809q9TWE="
+<script defer src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
     onload="hljs.initHighlightingOnLoad();"></script>
 <script>
     window.onload = function () {

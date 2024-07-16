@@ -21,7 +21,7 @@
 <link rel="mask-icon" href="https://clox.nu/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.110.0">
+<meta name="generator" content="Hugo 0.89.2" />
 <link rel="alternate" type="application/rss&#43;xml" href="https://clox.nu/categories/study-/-app/index.xml">
 
 
@@ -142,6 +142,31 @@ if (!doNotTrack) {
 
   <header class="entry-header">
     <h2>
+      iOS 上的屏幕截图隐藏 / 显示内容的研究
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>背景 在现代数字交流中，屏幕截图成为一种常见的工具，不仅用于记录和保存内容，还广泛用于分享信息。一篇题为《Why do people take Screenshots on their Smartphones?》1 的研究论文指出，有97%的受访者曾将截图发送给他人。这一数据表明，屏幕截图不仅仅是个人记录的手段，更是一种重要的社交互动方式。通过截图，用户能够快速分享对话、通知或有用的内容，从而在信息传播和交流中发挥关键作用。
+然而，对于这样高比例的分享行为，用户可能的目的有：
+ 认为当前屏幕的内容有趣，想要分享给其他人； 认为当前屏幕的内容不符合预期，想要反馈给开发者；  于是，我们可以从中做出这些事：
+ 在用户截图时将品牌 logo 放置在不影响其他内容的地方，提高品牌宣传力； 将屏幕截图中的敏感信息隐藏起来，防止这些内容暴露给其他人，保护用户隐私； 在隐私协议允许范围内将诊断信息隐藏在截图中，从而更好地优化产品可能遇到的问题；  因此，接下来我们将开始研究实现方式。
+使用 mask 隐藏 / 显示信息 本质上来讲，我们如果做到了可以在截屏时隐藏信息，那也就同样做到了显示信息，我们可以通过隐藏 / 显示蒙板的内容来控制实际内容的显示。对于 SwiftUI，有以下代码：
+content .mask { ZStack { Color.white HideWhenTakingScreenshot { Color.black } } .compositingGroup() .luminanceToAlpha() } 假设我们已经实现了 HideWhenTakingScreenshot 中的内容，在屏幕截图时隐藏 Color.black ，对于 content ，也就相当于在屏幕截图时显示了，UIKit 同理。
+在屏幕截图时隐藏信息 经过层层过滤，其实我们的真实需求是如何在屏幕截图时隐藏信息。
+UITextField 的神奇作用 说到隐私保护，我们不得不想起当用户在密码框中输入密码时作为 iOS 系统级的保护，他会在用户截屏时自动隐藏密码输入框，如以下代码所示：
+struct PasswordTextView: UIViewRepresentable { @Binding var password: String? func makeUIView(context: Context) -&gt; UITextField { let textField = UITextField() textField....</p>
+  </section>
+  <footer class="entry-footer">
+
+July 16, 2024&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Sidney Liu
+</footer>
+  <a class="entry-link" aria-label="post link to iOS 上的屏幕截图隐藏 / 显示内容的研究" href="https://clox.nu/blog/ios-screenshot-watermark/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+
+  <header class="entry-header">
+    <h2>
       初识 React Native
     </h2>
   </header>
@@ -165,7 +190,7 @@ March 1, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
 </article>
 
     </main><footer class="footer">
-    <span>&copy; 2023 <a href="https://clox.nu/">cloxnu&#39;s Creative Space</a></span>
+    <span>&copy; 2024 <a href="https://clox.nu/">cloxnu&#39;s Creative Space</a></span>
     <span>&middot;</span>
     <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
     <span>&middot;</span>

@@ -21,7 +21,7 @@
 <link rel="mask-icon" href="https://clox.nu/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.110.0">
+<meta name="generator" content="Hugo 0.89.2" />
 <link rel="alternate" type="application/rss&#43;xml" href="https://clox.nu/posts/index.xml">
 
 
@@ -44,7 +44,7 @@ if (!doNotTrack) {
 <meta property="og:description" content="Hi, I&#39;m creating more creative works. Here are my thoughts, essays and expectations." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://clox.nu/posts/" />
-<meta property="og:updated_time" content="2023-02-10T23:00:58+08:00" /><meta property="og:site_name" content="cloxnu&#39;s creative space" />
+<meta property="og:updated_time" content="2024-07-16T10:33:30+08:00" /><meta property="og:site_name" content="cloxnu&#39;s creative space" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Posts"/>
 <meta name="twitter:description" content="Hi, I&#39;m creating more creative works. Here are my thoughts, essays and expectations."/>
@@ -159,6 +159,31 @@ if (!doNotTrack) {
 
   <header class="entry-header">
     <h2>
+      iOS 上的屏幕截图隐藏 / 显示内容的研究
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>背景 在现代数字交流中，屏幕截图成为一种常见的工具，不仅用于记录和保存内容，还广泛用于分享信息。一篇题为《Why do people take Screenshots on their Smartphones?》1 的研究论文指出，有97%的受访者曾将截图发送给他人。这一数据表明，屏幕截图不仅仅是个人记录的手段，更是一种重要的社交互动方式。通过截图，用户能够快速分享对话、通知或有用的内容，从而在信息传播和交流中发挥关键作用。
+然而，对于这样高比例的分享行为，用户可能的目的有：
+ 认为当前屏幕的内容有趣，想要分享给其他人； 认为当前屏幕的内容不符合预期，想要反馈给开发者；  于是，我们可以从中做出这些事：
+ 在用户截图时将品牌 logo 放置在不影响其他内容的地方，提高品牌宣传力； 将屏幕截图中的敏感信息隐藏起来，防止这些内容暴露给其他人，保护用户隐私； 在隐私协议允许范围内将诊断信息隐藏在截图中，从而更好地优化产品可能遇到的问题；  因此，接下来我们将开始研究实现方式。
+使用 mask 隐藏 / 显示信息 本质上来讲，我们如果做到了可以在截屏时隐藏信息，那也就同样做到了显示信息，我们可以通过隐藏 / 显示蒙板的内容来控制实际内容的显示。对于 SwiftUI，有以下代码：
+content .mask { ZStack { Color.white HideWhenTakingScreenshot { Color.black } } .compositingGroup() .luminanceToAlpha() } 假设我们已经实现了 HideWhenTakingScreenshot 中的内容，在屏幕截图时隐藏 Color.black ，对于 content ，也就相当于在屏幕截图时显示了，UIKit 同理。
+在屏幕截图时隐藏信息 经过层层过滤，其实我们的真实需求是如何在屏幕截图时隐藏信息。
+UITextField 的神奇作用 说到隐私保护，我们不得不想起当用户在密码框中输入密码时作为 iOS 系统级的保护，他会在用户截屏时自动隐藏密码输入框，如以下代码所示：
+struct PasswordTextView: UIViewRepresentable { @Binding var password: String? func makeUIView(context: Context) -&gt; UITextField { let textField = UITextField() textField....</p>
+  </section>
+  <footer class="entry-footer">
+
+July 16, 2024&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Sidney Liu
+</footer>
+  <a class="entry-link" aria-label="post link to iOS 上的屏幕截图隐藏 / 显示内容的研究" href="https://clox.nu/blog/ios-screenshot-watermark/"></a>
+</article>
+
+<article class="post-entry"> 
+
+  <header class="entry-header">
+    <h2>
       如何用 Git 命令修改历史提交
     </h2>
   </header>
@@ -168,7 +193,7 @@ if (!doNotTrack) {
 $ git log commit 0e162000e27ba998d5a92cc04b489e3d3ec0e30d (HEAD -&gt; master) Author: cloxnu &lt;hi@clox.nu&gt; Date: Fri Nov 5 13:46:08 2021 &#43;0800 3rd commit commit f5f470406634bb255e4f19bf62780868afeed32d Author: cloxnu &lt;hi@clox.nu&gt; Date: Fri Nov 5 13:45:21 2021 &#43;0800 2nd commit commit cf8c580d322e459fa1acf4ef1e6d08163aeb1a21 Author: cloxnu &lt;hi@clox.nu&gt; Date: Fri Nov 5 13:41:30 2021 &#43;0800 1st commit 这几次提交就只涉及一个文件 1.txt
 $ cat 1.txt 11111111 22222222 33333333 其中第一行为第一次提交，第二行为第二次提交，第三行为第三次提交。
 此时如果想要将第二次提交增加一个新文件 2.txt，该怎么操作呢？
-步骤 首先新建 2.txt $ cat 2.txt 22222222 将当前的更改 stash $ git stash Saved working directory and index state WIP on master: 0e16200 3rd commit 根据之前 git log 打印的 commit 信息确定将要更改的 commit hash 值。然后使用 git rebase -i （没错，这相当于一次 rebase） $ git rebase -i f5f470406634bb255e4f19bf62780868afeed32d^ ⚠️ 注意：这里输入的提交 hash 值后需要加上 ^1，代表这次 commit 的父提交。或者：...</p>
+步骤  首先新建 2.txt  $ cat 2....</p>
   </section>
   <footer class="entry-footer">
 
@@ -213,10 +238,10 @@ March 1, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
   <section class="entry-content">
     <p>An implementation of generalized suffix tree using Ukkonen’s algorithm.
 In this page:
-The longest common substring problem How it works GST versus Dynamic programming Inspired by:
+ The longest common substring problem How it works GST versus Dynamic programming   Inspired by:
 Ukkonen, E. On-line construction of suffix trees. Algorithmica 14, 249–260 (1995).
 https://www.cs.helsinki.fi/u/ukkonen/SuffixT1withFigs.pdf
-The longest common substring problem Given two or more strings, find the longest common substring of these strings. Concretely, the longest common substring of the two strings “cacaocac” and “ccaooc” is “cao”. This seems like a simple problem, but until today, it still requires a complicated algorithm to be solved in a reasonable time....</p>
+ The longest common substring problem Given two or more strings, find the longest common substring of these strings. Concretely, the longest common substring of the two strings “cacaocac” and “ccaooc” is “cao”....</p>
   </section>
   <footer class="entry-footer">
 
@@ -277,7 +302,7 @@ March 30, 2021&nbsp;·&nbsp;0 min&nbsp;·&nbsp;Sidney Liu
 </article>
 
     </main><footer class="footer">
-    <span>&copy; 2023 <a href="https://clox.nu/">cloxnu&#39;s Creative Space</a></span>
+    <span>&copy; 2024 <a href="https://clox.nu/">cloxnu&#39;s Creative Space</a></span>
     <span>&middot;</span>
     <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
     <span>&middot;</span>

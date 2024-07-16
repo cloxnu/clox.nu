@@ -7,6 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language><atom:link href="https://clox.nu/categories/study-/-app/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>iOS 上的屏幕截图隐藏 / 显示内容的研究</title>
+      <link>https://clox.nu/blog/ios-screenshot-watermark/</link>
+      <pubDate>Tue, 16 Jul 2024 10:33:30 +0800</pubDate>
+      
+      <guid>https://clox.nu/blog/ios-screenshot-watermark/</guid>
+      <description>背景 在现代数字交流中，屏幕截图成为一种常见的工具，不仅用于记录和保存内容，还广泛用于分享信息。一篇题为《Why do people take Screenshots on their Smartphones?》1 的研究论文指出，有97%的受访者曾将截图发送给他人。这一数据表明，屏幕截图不仅仅是个人记录的手段，更是一种重要的社交互动方式。通过截图，用户能够快速分享对话、通知或有用的内容，从而在信息传播和交流中发挥关键作用。
+然而，对于这样高比例的分享行为，用户可能的目的有：
+ 认为当前屏幕的内容有趣，想要分享给其他人； 认为当前屏幕的内容不符合预期，想要反馈给开发者；  于是，我们可以从中做出这些事：
+ 在用户截图时将品牌 logo 放置在不影响其他内容的地方，提高品牌宣传力； 将屏幕截图中的敏感信息隐藏起来，防止这些内容暴露给其他人，保护用户隐私； 在隐私协议允许范围内将诊断信息隐藏在截图中，从而更好地优化产品可能遇到的问题；  因此，接下来我们将开始研究实现方式。
+使用 mask 隐藏 / 显示信息 本质上来讲，我们如果做到了可以在截屏时隐藏信息，那也就同样做到了显示信息，我们可以通过隐藏 / 显示蒙板的内容来控制实际内容的显示。对于 SwiftUI，有以下代码：
+content .mask { ZStack { Color.white HideWhenTakingScreenshot { Color.black } } .compositingGroup() .luminanceToAlpha() } 假设我们已经实现了 HideWhenTakingScreenshot 中的内容，在屏幕截图时隐藏 Color.black ，对于 content ，也就相当于在屏幕截图时显示了，UIKit 同理。
+在屏幕截图时隐藏信息 经过层层过滤，其实我们的真实需求是如何在屏幕截图时隐藏信息。
+UITextField 的神奇作用 说到隐私保护，我们不得不想起当用户在密码框中输入密码时作为 iOS 系统级的保护，他会在用户截屏时自动隐藏密码输入框，如以下代码所示：
+struct PasswordTextView: UIViewRepresentable { @Binding var password: String? func makeUIView(context: Context) -&amp;gt; UITextField { let textField = UITextField() textField.</description>
+    </item>
+    
+    <item>
       <title>初识 React Native</title>
       <link>https://clox.nu/blog/get-started-with-react-native/</link>
       <pubDate>Mon, 01 Mar 2021 15:15:30 +0800</pubDate>

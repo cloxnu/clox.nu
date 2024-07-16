@@ -30,7 +30,7 @@ cd rn_proj expo start 然后同时会打开一个 Web 控制台">
 <link rel="mask-icon" href="https://clox.nu/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.110.0">
+<meta name="generator" content="Hugo 0.89.2" />
 
 
 
@@ -107,7 +107,7 @@ cd rn_proj expo start 然后同时会打开一个 Web 控制台"/>
   "keywords": [
     
   ],
-  "articleBody": "安装 由于开发需要，稍稍玩了玩 React Native 开发一个 App 的简要流程。\n官网\n安装使用时，可以使用 Expo ，可以省去在 Xcode 或者 Android Studio 配置的过程。\n运行以下命令安装 Expo\nnpm install -g expo-cli 注意这里在 npm 前不要加 sudo，请提前确保权限通顺\nsudo chown -R $(whoami) ~/.npm sudo chown -R $(whoami) /usr/local/lib/node_modules 安装好后，我试图运行 Expo，但是得到了 Expo 不支持当前的 Node 版本的错误，于是运行 nvm 来安装最新版本 Node（以下是未安装 nvm 的版本）：\nsudo npm install -g n sudo n latest 或者，使用 yarn\nyarn global add expo-cli 开始 安装好后，生成第一个项目：\nexpo init rn_proj 进入目录并运行\ncd rn_proj expo start 然后同时会打开一个 Web 控制台\n然后在待调试的设备上下载 Expo Go 后扫码即可开始调试\n将 App.js 中 Text 标签对里的内容改为 Hello World! 后\n运行在 iPhone XR 真机上：\n模拟器运行 这里我弄了好久一直卡在安装 Expo Go 到模拟器中，看到网络流量情况才发现下载一直没有用代理，macOS 需要开启终端代理才可。\nexport https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890 这里的端口需要设置为代理的端口，我使用的 Clash 可以自动生成终端代理命令。\n运行于 Web 写代码时每当修改保存，只要当前还处于 expo start 状态，真机或模拟器上的画面就会跟着改变\n或者直接使用 React Native npx react-native init rn_proj 或\nyarn react-native init rn_proj 国内访问记得设置代理\nnpm config set proxy=http://127.0.0.1:xxxx ",
+  "articleBody": "安装 由于开发需要，稍稍玩了玩 React Native 开发一个 App 的简要流程。\n官网\n安装使用时，可以使用 Expo ，可以省去在 Xcode 或者 Android Studio 配置的过程。\n运行以下命令安装 Expo\nnpm install -g expo-cli 注意这里在 npm 前不要加 sudo，请提前确保权限通顺\nsudo chown -R $(whoami) ~/.npm sudo chown -R $(whoami) /usr/local/lib/node_modules 安装好后，我试图运行 Expo，但是得到了 Expo 不支持当前的 Node 版本的错误，于是运行 nvm 来安装最新版本 Node（以下是未安装 nvm 的版本）：\nsudo npm install -g n sudo n latest 或者，使用 yarn\nyarn global add expo-cli 开始 安装好后，生成第一个项目：\nexpo init rn_proj 进入目录并运行\ncd rn_proj expo start 然后同时会打开一个 Web 控制台\n然后在待调试的设备上下载 Expo Go 后扫码即可开始调试\n将 App.js 中 Text 标签对里的内容改为 Hello World! 后\n运行在 iPhone XR 真机上：\n模拟器运行 这里我弄了好久一直卡在安装 Expo Go 到模拟器中，看到网络流量情况才发现下载一直没有用代理，macOS 需要开启终端代理才可。\nexport https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890 这里的端口需要设置为代理的端口，我使用的 Clash 可以自动生成终端代理命令。\n运行于 Web  写代码时每当修改保存，只要当前还处于 expo start 状态，真机或模拟器上的画面就会跟着改变\n 或者直接使用 React Native npx react-native init rn_proj 或\nyarn react-native init rn_proj  国内访问记得设置代理\nnpm config set proxy=http://127.0.0.1:xxxx  ",
   "wordCount" : "126",
   "inLanguage": "en",
   "datePublished": "2021-03-01T15:15:30+08:00",
@@ -233,22 +233,22 @@ March 1, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
 <p><a href="https://reactnative.dev/">官网</a></p>
 <p>安装使用时，可以使用 <a href="https://expo.io/">Expo</a> ，可以省去在 Xcode 或者 Android Studio 配置的过程。</p>
 <p>运行以下命令安装 Expo</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>npm install -g expo-cli
-</span></span></code></pre></div><p>注意这里在 <code>npm</code> 前不要加 <code>sudo</code>，请提前确保权限通顺</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo chown -R <span style="color:#66d9ef">$(</span>whoami<span style="color:#66d9ef">)</span> ~/.npm
-</span></span><span style="display:flex;"><span>sudo chown -R <span style="color:#66d9ef">$(</span>whoami<span style="color:#66d9ef">)</span> /usr/local/lib/node_modules
-</span></span></code></pre></div><p>安装好后，我试图运行 Expo，但是得到了 Expo 不支持当前的 Node 版本的错误，于是运行 <code>nvm</code> 来安装最新版本 Node（以下是未安装 <code>nvm</code> 的版本）：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo npm install -g n
-</span></span><span style="display:flex;"><span>sudo n latest
-</span></span></code></pre></div><p>或者，使用 <code>yarn</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>yarn global add expo-cli
-</span></span></code></pre></div><h2 id="开始">开始<a hidden class="anchor" aria-hidden="true" href="#开始">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">npm install -g expo-cli
+</code></pre></div><p>注意这里在 <code>npm</code> 前不要加 <code>sudo</code>，请提前确保权限通顺</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo chown -R <span style="color:#66d9ef">$(</span>whoami<span style="color:#66d9ef">)</span> ~/.npm
+sudo chown -R <span style="color:#66d9ef">$(</span>whoami<span style="color:#66d9ef">)</span> /usr/local/lib/node_modules
+</code></pre></div><p>安装好后，我试图运行 Expo，但是得到了 Expo 不支持当前的 Node 版本的错误，于是运行 <code>nvm</code> 来安装最新版本 Node（以下是未安装 <code>nvm</code> 的版本）：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo npm install -g n
+sudo n latest
+</code></pre></div><p>或者，使用 <code>yarn</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">yarn global add expo-cli
+</code></pre></div><h2 id="开始">开始<a hidden class="anchor" aria-hidden="true" href="#开始">#</a></h2>
 <p>安装好后，生成第一个项目：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>expo init rn_proj
-</span></span></code></pre></div><p>进入目录并运行</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd rn_proj
-</span></span><span style="display:flex;"><span>expo start
-</span></span></code></pre></div><p><img src="assets/start.png" alt=""></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">expo init rn_proj
+</code></pre></div><p>进入目录并运行</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cd rn_proj
+expo start
+</code></pre></div><p><img src="assets/start.png" alt=""></p>
 <p>然后同时会打开一个 Web 控制台</p>
 <p><img src="assets/web_console.png" alt=""></p>
 <p>然后在待调试的设备上下载 Expo Go 后扫码即可开始调试</p>
@@ -258,8 +258,8 @@ March 1, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
 <p><img src="assets/real_device.PNG" alt=""></p>
 <h3 id="模拟器运行">模拟器运行<a hidden class="anchor" aria-hidden="true" href="#模拟器运行">#</a></h3>
 <p>这里我弄了好久一直卡在安装 Expo Go 到模拟器中，看到网络流量情况才发现下载一直没有用代理，macOS 需要开启终端代理才可。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>export https_proxy<span style="color:#f92672">=</span>http://127.0.0.1:7890 http_proxy<span style="color:#f92672">=</span>http://127.0.0.1:7890 all_proxy<span style="color:#f92672">=</span>socks5://127.0.0.1:7890
-</span></span></code></pre></div><p>这里的端口需要设置为代理的端口，我使用的 Clash 可以自动生成终端代理命令。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">export https_proxy<span style="color:#f92672">=</span>http://127.0.0.1:7890 http_proxy<span style="color:#f92672">=</span>http://127.0.0.1:7890 all_proxy<span style="color:#f92672">=</span>socks5://127.0.0.1:7890
+</code></pre></div><p>这里的端口需要设置为代理的端口，我使用的 Clash 可以自动生成终端代理命令。</p>
 <p><img src="assets/running.png" alt=""></p>
 <h3 id="运行于-web">运行于 Web<a hidden class="anchor" aria-hidden="true" href="#运行于-web">#</a></h3>
 <p><img src="assets/run_in_web.png" alt=""></p>
@@ -267,13 +267,13 @@ March 1, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
 <p>写代码时每当修改保存，只要当前还处于 <code>expo start</code> 状态，真机或模拟器上的画面就会跟着改变</p>
 </blockquote>
 <h2 id="或者直接使用-react-native">或者直接使用 React Native<a hidden class="anchor" aria-hidden="true" href="#或者直接使用-react-native">#</a></h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>npx react-native init rn_proj
-</span></span></code></pre></div><p>或</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>yarn react-native init rn_proj
-</span></span></code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">npx react-native init rn_proj
+</code></pre></div><p>或</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">yarn react-native init rn_proj
+</code></pre></div><blockquote>
 <p>国内访问记得设置代理</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>npm config set proxy<span style="color:#f92672">=</span>http://127.0.0.1:xxxx
-</span></span></code></pre></div></blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">npm config set proxy<span style="color:#f92672">=</span>http://127.0.0.1:xxxx
+</code></pre></div></blockquote>
 
 </div>
   <footer class="post-footer">
@@ -292,7 +292,7 @@ March 1, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
   </footer>
 </article>
     </main><footer class="footer">
-    <span>&copy; 2023 <a href="https://clox.nu/">cloxnu&#39;s Creative Space</a></span>
+    <span>&copy; 2024 <a href="https://clox.nu/">cloxnu&#39;s Creative Space</a></span>
     <span>&middot;</span>
     <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
     <span>&middot;</span>
@@ -312,7 +312,7 @@ March 1, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
     crossorigin= "anonymous"
     async>
 </script>
-<script defer src="/assets/js/highlight.min.b95bacdc39e37a332a9f883b1e78be4abc1fdca2bc1f2641f55e3cd3dabd4d61.js" integrity="sha256-uVus3DnjejMqn4g7Hni&#43;Srwf3KK8HyZB9V4809q9TWE="
+<script defer src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
     onload="hljs.initHighlightingOnLoad();"></script>
 <script>
     window.onload = function () {

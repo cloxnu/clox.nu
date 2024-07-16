@@ -14,8 +14,8 @@
 什么是渐进式 JPEG（Progressive JPEG） 我们知道，JPEG 格式是目前兼容性最高，使用范围最广的图片有损压缩格式。而其中的编码方式分为多种，这里主要讨论两种：Baseline JPEG 和 Progressive JPEG。
 对于 Baseline JPEG，图片是从上到下一行行顺序存储的，因此在加载图片的时候能看到图片从上到下慢慢显现出来。
 而 Progressive JPEG，图片会由模糊到清晰渐进式地分多次存储，因此在加载图片时看到的图片是由模糊到清晰渲染的。
-图片来自「简书」
-这种渐进式 JPEG 显然可以在图片未加载完全的时候就能看到它的「预览」，而且渐进式 JPEG 的文件大小要略小于 Baseline JPEG。不过渐进式 JPEG 在 Windows 7 以前的 IE 等浏览器不受支持，会在完全加载完成后才显示图片。
+ 图片来自「简书」
+ 这种渐进式 JPEG 显然可以在图片未加载完全的时候就能看到它的「预览」，而且渐进式 JPEG 的文件大小要略小于 Baseline JPEG。不过渐进式 JPEG 在 Windows 7 以前的 IE 等浏览器不受支持，会在完全加载完成后才显示图片。
 目前多图 blog 之所以加载时间很长，是因为这些图片存储的编码方式都是 Baseline JPEG。
 🎬 于是，我在之前的 GitHub Actions 配置文件中补充了将这些图片转换为 Progressive JPEG 的命令，当前的 blog 在合并入主干分支后 GitHub Actions 会先使用 hugo 命令创建 HTML1，然后 Progressive JPEG 命令再将所有 JPEG 图片批量处理。
 在 Linux 中，使用 ImageMagick 处理图片。其中的 -interlace 选项有提供将图片转换为 Progressive JPEG。">
@@ -31,7 +31,7 @@
 <link rel="mask-icon" href="https://clox.nu/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.110.0">
+<meta name="generator" content="Hugo 0.89.2" />
 
 
 
@@ -56,8 +56,8 @@ if (!doNotTrack) {
 什么是渐进式 JPEG（Progressive JPEG） 我们知道，JPEG 格式是目前兼容性最高，使用范围最广的图片有损压缩格式。而其中的编码方式分为多种，这里主要讨论两种：Baseline JPEG 和 Progressive JPEG。
 对于 Baseline JPEG，图片是从上到下一行行顺序存储的，因此在加载图片的时候能看到图片从上到下慢慢显现出来。
 而 Progressive JPEG，图片会由模糊到清晰渐进式地分多次存储，因此在加载图片时看到的图片是由模糊到清晰渲染的。
-图片来自「简书」
-这种渐进式 JPEG 显然可以在图片未加载完全的时候就能看到它的「预览」，而且渐进式 JPEG 的文件大小要略小于 Baseline JPEG。不过渐进式 JPEG 在 Windows 7 以前的 IE 等浏览器不受支持，会在完全加载完成后才显示图片。
+ 图片来自「简书」
+ 这种渐进式 JPEG 显然可以在图片未加载完全的时候就能看到它的「预览」，而且渐进式 JPEG 的文件大小要略小于 Baseline JPEG。不过渐进式 JPEG 在 Windows 7 以前的 IE 等浏览器不受支持，会在完全加载完成后才显示图片。
 目前多图 blog 之所以加载时间很长，是因为这些图片存储的编码方式都是 Baseline JPEG。
 🎬 于是，我在之前的 GitHub Actions 配置文件中补充了将这些图片转换为 Progressive JPEG 的命令，当前的 blog 在合并入主干分支后 GitHub Actions 会先使用 hugo 命令创建 HTML1，然后 Progressive JPEG 命令再将所有 JPEG 图片批量处理。
 在 Linux 中，使用 ImageMagick 处理图片。其中的 -interlace 选项有提供将图片转换为 Progressive JPEG。" />
@@ -73,8 +73,8 @@ if (!doNotTrack) {
 什么是渐进式 JPEG（Progressive JPEG） 我们知道，JPEG 格式是目前兼容性最高，使用范围最广的图片有损压缩格式。而其中的编码方式分为多种，这里主要讨论两种：Baseline JPEG 和 Progressive JPEG。
 对于 Baseline JPEG，图片是从上到下一行行顺序存储的，因此在加载图片的时候能看到图片从上到下慢慢显现出来。
 而 Progressive JPEG，图片会由模糊到清晰渐进式地分多次存储，因此在加载图片时看到的图片是由模糊到清晰渲染的。
-图片来自「简书」
-这种渐进式 JPEG 显然可以在图片未加载完全的时候就能看到它的「预览」，而且渐进式 JPEG 的文件大小要略小于 Baseline JPEG。不过渐进式 JPEG 在 Windows 7 以前的 IE 等浏览器不受支持，会在完全加载完成后才显示图片。
+ 图片来自「简书」
+ 这种渐进式 JPEG 显然可以在图片未加载完全的时候就能看到它的「预览」，而且渐进式 JPEG 的文件大小要略小于 Baseline JPEG。不过渐进式 JPEG 在 Windows 7 以前的 IE 等浏览器不受支持，会在完全加载完成后才显示图片。
 目前多图 blog 之所以加载时间很长，是因为这些图片存储的编码方式都是 Baseline JPEG。
 🎬 于是，我在之前的 GitHub Actions 配置文件中补充了将这些图片转换为 Progressive JPEG 的命令，当前的 blog 在合并入主干分支后 GitHub Actions 会先使用 hugo 命令创建 HTML1，然后 Progressive JPEG 命令再将所有 JPEG 图片批量处理。
 在 Linux 中，使用 ImageMagick 处理图片。其中的 -interlace 选项有提供将图片转换为 Progressive JPEG。"/>
@@ -116,7 +116,7 @@ if (!doNotTrack) {
   "keywords": [
     
   ],
-  "articleBody": "从写好第一篇多图大图的 blog 那一刻起，我就一直在思考访问者如何快速加载这些图片提高阅读体验，因为这些图片动辄几兆甚至几十兆，而我又不希望压缩这些图片导致质量下降。\n所以在以往的多图 blog 中，访问者往往要等待很久的加载时间。\n既然是图片大小导致的「硬伤」，加载这些图片几乎都取决于访问者的网速，那么有没有办法从图片本身的角度出发，来优化这种加载时间？\n什么是渐进式 JPEG（Progressive JPEG） 我们知道，JPEG 格式是目前兼容性最高，使用范围最广的图片有损压缩格式。而其中的编码方式分为多种，这里主要讨论两种：Baseline JPEG 和 Progressive JPEG。\n对于 Baseline JPEG，图片是从上到下一行行顺序存储的，因此在加载图片的时候能看到图片从上到下慢慢显现出来。\n而 Progressive JPEG，图片会由模糊到清晰渐进式地分多次存储，因此在加载图片时看到的图片是由模糊到清晰渲染的。\n图片来自「简书」\n这种渐进式 JPEG 显然可以在图片未加载完全的时候就能看到它的「预览」，而且渐进式 JPEG 的文件大小要略小于 Baseline JPEG。不过渐进式 JPEG 在 Windows 7 以前的 IE 等浏览器不受支持，会在完全加载完成后才显示图片。\n目前多图 blog 之所以加载时间很长，是因为这些图片存储的编码方式都是 Baseline JPEG。\n🎬 于是，我在之前的 GitHub Actions 配置文件中补充了将这些图片转换为 Progressive JPEG 的命令，当前的 blog 在合并入主干分支后 GitHub Actions 会先使用 hugo 命令创建 HTML1，然后 Progressive JPEG 命令再将所有 JPEG 图片批量处理。\n在 Linux 中，使用 ImageMagick 处理图片。其中的 -interlace 选项有提供将图片转换为 Progressive JPEG。\n起初我使用命令\n$ mogrify -verbose -interlace plane **/*.jpg 匹配并转换目录下所有后缀为 .jpg 文件并转换为渐进式 JPEG，在我的 macOS Big Sur 中可以正常工作，但是在 GitHub Actions 运行后报错：\nmogrify-im6.q16: unable to open image `**/*.jpg': No such file or directory @ error/blob.c/OpenBlob/2874. 于是我换了一种思路，可以用 find 命令先找到所有 JPEG 图片，然后再处理，这行命令就变成了\n$ find . -type f -exec file --mime-type {} \\; | awk -F ': ' '{if ($NF == \"image/jpeg\") print $1 }' | xargs mogrify -verbose -interlace plane 运行后的多图 blog 体验效果：（无本地缓存）\n值得优化的地方 可以不需要每次都转换所有图片，根据 hugo 命令生成的 HTML 与上一次的 HTML 的 diff，从而转换修改、添加和删去的图片。 安装 ImageMagick 需要一部分时间，可以尝试用 Docker 容器取代。 用 GitHub Actions 生成 blog 的 HTML 到 gh-pages 分支 ↩︎\n",
+  "articleBody": "从写好第一篇多图大图的 blog 那一刻起，我就一直在思考访问者如何快速加载这些图片提高阅读体验，因为这些图片动辄几兆甚至几十兆，而我又不希望压缩这些图片导致质量下降。\n所以在以往的多图 blog 中，访问者往往要等待很久的加载时间。\n既然是图片大小导致的「硬伤」，加载这些图片几乎都取决于访问者的网速，那么有没有办法从图片本身的角度出发，来优化这种加载时间？\n什么是渐进式 JPEG（Progressive JPEG） 我们知道，JPEG 格式是目前兼容性最高，使用范围最广的图片有损压缩格式。而其中的编码方式分为多种，这里主要讨论两种：Baseline JPEG 和 Progressive JPEG。\n对于 Baseline JPEG，图片是从上到下一行行顺序存储的，因此在加载图片的时候能看到图片从上到下慢慢显现出来。\n而 Progressive JPEG，图片会由模糊到清晰渐进式地分多次存储，因此在加载图片时看到的图片是由模糊到清晰渲染的。\n 图片来自「简书」\n 这种渐进式 JPEG 显然可以在图片未加载完全的时候就能看到它的「预览」，而且渐进式 JPEG 的文件大小要略小于 Baseline JPEG。不过渐进式 JPEG 在 Windows 7 以前的 IE 等浏览器不受支持，会在完全加载完成后才显示图片。\n目前多图 blog 之所以加载时间很长，是因为这些图片存储的编码方式都是 Baseline JPEG。\n🎬 于是，我在之前的 GitHub Actions 配置文件中补充了将这些图片转换为 Progressive JPEG 的命令，当前的 blog 在合并入主干分支后 GitHub Actions 会先使用 hugo 命令创建 HTML1，然后 Progressive JPEG 命令再将所有 JPEG 图片批量处理。\n在 Linux 中，使用 ImageMagick 处理图片。其中的 -interlace 选项有提供将图片转换为 Progressive JPEG。\n起初我使用命令\n$ mogrify -verbose -interlace plane **/*.jpg 匹配并转换目录下所有后缀为 .jpg 文件并转换为渐进式 JPEG，在我的 macOS Big Sur 中可以正常工作，但是在 GitHub Actions 运行后报错：\nmogrify-im6.q16: unable to open image `**/*.jpg': No such file or directory @ error/blob.c/OpenBlob/2874. 于是我换了一种思路，可以用 find 命令先找到所有 JPEG 图片，然后再处理，这行命令就变成了\n$ find . -type f -exec file --mime-type {} \\; | awk -F ': ' '{if ($NF == \"image/jpeg\") print $1 }' | xargs mogrify -verbose -interlace plane 运行后的多图 blog 体验效果：（无本地缓存）\n 值得优化的地方  可以不需要每次都转换所有图片，根据 hugo 命令生成的 HTML 与上一次的 HTML 的 diff，从而转换修改、添加和删去的图片。 安装 ImageMagick 需要一部分时间，可以尝试用 Docker 容器取代。    用 GitHub Actions 生成 blog 的 HTML 到 gh-pages 分支 ↩︎\n   ",
   "wordCount" : "163",
   "inLanguage": "en",
   "datePublished": "2021-10-30T02:14:30+08:00",
@@ -256,12 +256,12 @@ October 30, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
 <p>于是，我在之前的 GitHub Actions 配置文件中补充了将这些图片转换为 Progressive JPEG 的命令，当前的 blog 在合并入主干分支后 GitHub Actions 会先使用 hugo 命令创建 HTML<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>，然后 Progressive JPEG 命令再将所有 JPEG 图片批量处理。</p>
 <p>在 Linux 中，使用 <a href="https://imagemagick.org/script/index.php">ImageMagick</a> 处理图片。其中的 <a href="https://imagemagick.org/script/command-line-options.php#interlace">-interlace</a> 选项有提供将图片转换为 Progressive JPEG。</p>
 <p>起初我使用命令</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ mogrify -verbose -interlace plane **/*.jpg
-</span></span></code></pre></div><p>匹配并转换目录下所有后缀为 .jpg 文件并转换为渐进式 JPEG，在我的 macOS Big Sur 中可以正常工作，但是在 GitHub Actions 运行后报错：</p>
-<pre tabindex="0"><code>mogrify-im6.q16: unable to open image `**/*.jpg&#39;: No such file or directory @ error/blob.c/OpenBlob/2874.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ mogrify -verbose -interlace plane **/*.jpg
+</code></pre></div><p>匹配并转换目录下所有后缀为 .jpg 文件并转换为渐进式 JPEG，在我的 macOS Big Sur 中可以正常工作，但是在 GitHub Actions 运行后报错：</p>
+<pre tabindex="0"><code>mogrify-im6.q16: unable to open image `**/*.jpg': No such file or directory @ error/blob.c/OpenBlob/2874.
 </code></pre><p>于是我换了一种思路，可以用 <code>find</code> 命令先找到所有 JPEG 图片，然后再处理，这行命令就变成了</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ find . -type f -exec file --mime-type <span style="color:#f92672">{}</span> <span style="color:#ae81ff">\;</span> | awk -F <span style="color:#e6db74">&#39;: &#39;</span> <span style="color:#e6db74">&#39;{if ($NF == &#34;image/jpeg&#34;) print $1 }&#39;</span> | xargs mogrify -verbose -interlace plane
-</span></span></code></pre></div><p>运行后的多图 blog 体验效果：（无本地缓存）</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ find . -type f -exec file --mime-type <span style="color:#f92672">{}</span> <span style="color:#ae81ff">\;</span> | awk -F <span style="color:#e6db74">&#39;: &#39;</span> <span style="color:#e6db74">&#39;{if ($NF == &#34;image/jpeg&#34;) print $1 }&#39;</span> | xargs mogrify -verbose -interlace plane
+</code></pre></div><p>运行后的多图 blog 体验效果：（无本地缓存）</p>
 
 
 <video controls src="assets/video.mov" width=100%></video>
@@ -271,14 +271,14 @@ October 30, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
 <li>可以不需要每次都转换所有图片，根据 <code>hugo</code> 命令生成的 HTML 与上一次的 HTML 的 diff，从而转换修改、添加和删去的图片。</li>
 <li>安装 ImageMagick 需要一部分时间，可以尝试用 Docker 容器取代。</li>
 </ul>
-<div class="footnotes" role="doc-endnotes">
+<section class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn:1">
+<li id="fn:1" role="doc-endnote">
 <p><a href="/news/2021/10/25/gh-pages/">用 GitHub Actions 生成 blog 的 HTML 到 gh-pages 分支</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
-</div>
+</section>
 
 </div>
   <footer class="post-footer">
@@ -297,7 +297,7 @@ October 30, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
   </footer>
 </article>
     </main><footer class="footer">
-    <span>&copy; 2023 <a href="https://clox.nu/">cloxnu&#39;s Creative Space</a></span>
+    <span>&copy; 2024 <a href="https://clox.nu/">cloxnu&#39;s Creative Space</a></span>
     <span>&middot;</span>
     <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
     <span>&middot;</span>
@@ -317,7 +317,7 @@ October 30, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Sidney Liu
     crossorigin= "anonymous"
     async>
 </script>
-<script defer src="/assets/js/highlight.min.b95bacdc39e37a332a9f883b1e78be4abc1fdca2bc1f2641f55e3cd3dabd4d61.js" integrity="sha256-uVus3DnjejMqn4g7Hni&#43;Srwf3KK8HyZB9V4809q9TWE="
+<script defer src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
     onload="hljs.initHighlightingOnLoad();"></script>
 <script>
     window.onload = function () {
