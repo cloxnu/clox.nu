@@ -64,10 +64,6 @@ params:
 
 menu:
   main:
-    - identifier: news
-      name: 📰 𝕹𝖊𝖜𝖘
-      url: /news/
-      weight: 10
     - identifier: archive
       name: Archive
       url: /archive/
