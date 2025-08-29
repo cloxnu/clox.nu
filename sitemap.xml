@@ -2,19 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://clox.nu/posts/love/</loc>
+    <lastmod>2025-08-29T18:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://clox.nu/categories/</loc>
+    <lastmod>2025-08-29T18:00:00+08:00</lastmod>
+  </url><url>
     <loc>https://clox.nu/</loc>
-    <lastmod>2024-07-16T10:33:30+08:00</lastmod>
+    <lastmod>2025-08-29T18:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://clox.nu/categories/love/</loc>
+    <lastmod>2025-08-29T18:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://clox.nu/posts/</loc>
+    <lastmod>2025-08-29T18:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://clox.nu/blog/my-career-last-day/</loc>
+    <lastmod>2025-08-29T18:00:00+08:00</lastmod>
   </url><url>
     <loc>https://clox.nu/blog/ios-screenshot-watermark/</loc>
     <lastmod>2024-07-16T10:33:30+08:00</lastmod>
   </url><url>
-    <loc>https://clox.nu/posts/</loc>
-    <lastmod>2024-07-16T10:33:30+08:00</lastmod>
-  </url><url>
     <loc>https://clox.nu/posts/creation/</loc>
-    <lastmod>2023-02-10T23:00:58+08:00</lastmod>
-  </url><url>
-    <loc>https://clox.nu/categories/</loc>
     <lastmod>2023-02-10T23:00:58+08:00</lastmod>
   </url><url>
     <loc>https://clox.nu/categories/creation/</loc>
@@ -68,13 +77,7 @@
     <loc>https://clox.nu/blog/palette-1.0-release/</loc>
     <lastmod>2022-05-14T14:43:51+08:00</lastmod>
   </url><url>
-    <loc>https://clox.nu/posts/love/</loc>
-    <lastmod>2022-04-25T10:22:59+08:00</lastmod>
-  </url><url>
     <loc>https://clox.nu/blog/aacell-2-2-0/</loc>
-    <lastmod>2022-04-25T10:22:59+08:00</lastmod>
-  </url><url>
-    <loc>https://clox.nu/categories/love/</loc>
     <lastmod>2022-04-25T10:22:59+08:00</lastmod>
   </url><url>
     <loc>https://clox.nu/news/2022/01/19/wordle_fan/</loc>
